@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.4.0","c":"57aa9fc"};
+const BUILD={"v":"9.8.0","c":"55ec9fd"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -371,9 +371,9 @@ const veh=new THREE.Group();veh.rotation.order='YZX';sc.add(veh);
 prof([[-3.72,.41],[3.1,.41],[3.72,.85],[3.3,1.75],[-3.72,1.75]],2.3,olive,veh,0,0,0);
 for(let i=0;i<5;i++)bx(.05,.03,.8,rub,veh,1.4+i*.15,1.77,.5);
 cy(.3,.32,.06,dark,veh,2.75,1.78,-.6);cy(.27,.27,.05,olive,veh,2.75,1.83,-.6);bx(.1,.08,.3,dark,veh,2.45,1.83,-.6);[-.78,-.6,-.42].forEach(z=>bx(.08,.07,.13,glass,veh,3.12,1.79,z));/* driver's hatch + periscopes */
-/* hull rear: large crew/ammo door in the lower centre (hinged on the right), folded anchor spades either side */
+/* hull rear: large crew/ammo door in the lower centre (hinged on the right). The anchor spades below are hidden: an SPH has none, but they stay built so the load-time random draws are unchanged */
 bx(.03,1.26,1.12,dark,veh,-3.735,1.07,0);bx(.06,1.16,1.0,olive,veh,-3.76,1.07,0);[.65,1.48].forEach(y=>bx(.08,.12,.1,steel,veh,-3.8,y,.52));bx(.06,.05,.28,steel,veh,-3.8,1.05,-.34);bx(.06,.12,.16,glass,veh,-3.79,1.42,-.1);
-[-1,1].forEach(s=>{const g=new THREE.Group();g.position.set(-3.74,.62,s*.86);g.rotation.z=.25;veh.add(g);bx(.07,.75,.5,dark,g,-.04,.34,0);bx(.12,.08,.5,dark,g,-.08,.0,0);bx(.04,.3,.05,steel,g,-.09,.4,s*.18)});
+[-1,1].forEach(s=>{const g=new THREE.Group();g.position.set(-3.74,.62,s*.86);g.rotation.z=.25;g.visible=false;veh.add(g);bx(.07,.75,.5,dark,g,-.04,.34,0);bx(.12,.08,.5,dark,g,-.08,.0,0);bx(.04,.3,.05,steel,g,-.09,.4,s*.18)});
 /* travel lock: A-frame on the front deck with a barrel cradle and clamp; folds forward flat when the gun is unlocked */
 bx(.16,.08,.7,dark,veh,3.2,1.79,0);const tl=new THREE.Group();tl.name='tl';tl.position.set(3.2,1.8,0);veh.add(tl);
 [-1,1].forEach(s=>{const l=bx(.07,.36,.07,dark,tl,0,.17,s*.2);l.rotation.x=-s*.45;bx(.05,.26,.05,dark,tl,0,.41,s*.14)});
@@ -1456,7 +1456,7 @@ function dfSol(t){if(!t||!t.alive)return null;veh.updateMatrixWorld(true);mz.get
 function dfLay(){if(st!=='ACTION')return toast('Go into action first');const t=lased&&lased.t;if(!t||!t.alive)return toast('Lase a target first: Sight, aim near a red bracket, press LRF');const s=dfSol(t);layB=s.b;layQ=s.q;layOn=true;beep(660);toast('Laying on '+s.id+': range '+Math.round(s.r)+' m, superelevation and lead applied')}
 /* ================= vehicle collision & impacts ================= */
 /* hull = box in vehicle frame (x forward, z right); barrel = segment from the trunnion along turret yaw and elevation */
-const HULL={f:3.75,b:-3.9,w:1.82},TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25,BRL=7.1,BRL_R=.2,SKIN=.08; /* contact within SKIN counts as touching */
+const HULL={f:3.75,b:-3.9,w:1.82},TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25,BRL=7.1,BRL_R=.2,SKIN=.08,BRS={l:1,r:1}; /* contact within SKIN counts as touching; BRS scales the barrel's length and radius (a run's Barrel upgrade grows it) */
 const obsTop=o=>o.k==='t'?10*o.r/.7:o.k==='b'?6:o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
 /* everything solid near (x,z): scenery, the other battery AS9s (3 circles along the hull), RSP, live DF armour */
 function solids(x,z){const out=[],near=o=>Math.abs(o.x-x)<o.r+10&&Math.abs(o.z-z)<o.r+10;
@@ -1466,7 +1466,7 @@ function solids(x,z){const out=[],near=o=>Math.abs(o.x-x)<o.r+10&&Math.abs(o.z-z
  for(const t of dft)if(t.alive){const o={x:t.x,z:t.z,r:2.6,k:'v'};if(near(o))out.push(o)}
  return out}
 /* barrel in vehicle frame: trunnion (ax,az), horizontal direction (dx,dz), horizontal length, height rise */
-function barrel(ty,el){const c=Math.cos(ty),s=Math.sin(ty);return{ax:TRN_X+TRN_R*c,az:-TRN_R*s,dx:c,dz:-s,len:BRL*Math.cos(el*D),rise:BRL*Math.sin(el*D)}}
+function barrel(ty,el){const c=Math.cos(ty),s=Math.sin(ty);return{ax:TRN_X+TRN_R*c,az:-TRN_R*s,dx:c,dz:-s,len:BRL*BRS.l*Math.cos(el*D),rise:BRL*BRS.l*Math.sin(el*D)}}
 /* contacts of one pose against one solid: [{part,pen,nx,nz,lx,lz,t}] with n pointing from vehicle to obstacle (world) */
 function contacts(o,x,z,ps,ty,el,y0,sk=0){const c=Math.cos(ps),s=Math.sin(ps),dx=o.x-x,dz=o.z-z,lx=dx*c-dz*s,lz=dx*s+dz*c,out=[];
  const W=(nx,nz)=>({nx:nx*c+nz*s,nz:-nx*s+nz*c}); /* vehicle frame -> world */
@@ -1474,9 +1474,9 @@ function contacts(o,x,z,ps,ty,el,y0,sk=0){const c=Math.cos(ps),s=Math.sin(ps),dx
   if(d<o.r+sk){let nx,nz,pen;if(d>1e-4){nx=ex/d;nz=ez/d;pen=o.r-d}
    else{const m=[[HULL.f-lx,1,0],[lx-HULL.b,-1,0],[HULL.w-lz,0,1],[lz+HULL.w,0,-1]].sort((a,b)=>a[0]-b[0])[0];nx=m[1];nz=m[2];pen=m[0]+o.r}
    out.push(Object.assign({part:'hull',pen,lx:qx,lz:qz},W(nx,nz)))}}
- {const b=barrel(ty,el),rx=lx-b.ax,rz=lz-b.az,t=cl(rx*b.dx+rz*b.dz,0,b.len),ex=rx-b.dx*t,ez=rz-b.dz*t,d=Math.hypot(ex,ez),m=o.r+BRL_R;
+ {const b=barrel(ty,el),rx=lx-b.ax,rz=lz-b.az,t=cl(rx*b.dx+rz*b.dz,0,b.len),ex=rx-b.dx*t,ez=rz-b.dz*t,d=Math.hypot(ex,ez),m=o.r+BRL_R*BRS.r;
   if(d<m+sk&&t>0&&y0+TRN_Y+b.rise*t/Math.max(b.len,.01)<H(o.x,o.z)+obsTop(o)){const nx=d>1e-4?ex/d:-b.dz,nz=d>1e-4?ez/d:b.dx;
-   out.push(Object.assign({part:'barrel',pen:m-d,lx:b.ax+b.dx*t,lz:b.az+b.dz*t,t:t/BRL},W(nx,nz)))}}
+   out.push(Object.assign({part:'barrel',pen:m-d,lx:b.ax+b.dx*t,lz:b.az+b.dz*t,t:t/(BRL*BRS.l)},W(nx,nz)))}}
  return out}
 function allContacts(x,z,ps,ty,el,y0,parts,sk=0){const out=[];for(const o of solids(x,z))for(const h of contacts(o,x,z,ps,ty,el,y0,sk))if(!parts||parts.includes(h.part)){h.o=o;out.push(h)}return out}
 /* called from step() after the hull moves: push out, kill closing speed, and register an impact on first contact */
@@ -1619,11 +1619,12 @@ function step(dt,draw){if(RUN())T+=dt;
   mTick(dt);resupply(dt);tutTick()}
  /* local shells */
  for(let i=shells.length-1;i>=0;i--){const h=shells[i];if(h.life!=null){h.life-=dt;h.p.addScaledVector(h.v,dt);h.m.position.copy(h.p);if(h.life<=0){sc.remove(h.m);shells.splice(i,1)}continue}
-  h.v.y-=GRV*dt;h.p.addScaledVector(h.v,dt);h.m.position.copy(h.p);
+  if(!h.flat)h.v.y-=GRV*dt;h.p.addScaledVector(h.v,dt);h.m.position.copy(h.p);
   let hitT=null;for(const t of dft)if(t.alive&&Math.hypot(t.x-h.p.x,t.z-h.p.z)<5&&h.p.y-H(t.x,t.z)<4.5){hitT=t;break}
   if(hitT||h.p.y<H(h.p.x,h.p.z)||Math.abs(h.p.x)>HALF||Math.abs(h.p.z)>HALF){h.p.y=Math.max(h.p.y,H(h.p.x,h.p.z));const dl=Math.hypot(h.p.x-px,h.p.z-pz);
    if(h.a==='HE'){boom(h.p);destroyAt(h.p,8);crater(h.p.x,h.p.z,9,2.6);sfx(1,dl/340,1/(1+dl/60))}else if(h.a==='SMK'){smoke3(h.p);sfx(2,dl/340,.5)}else sfx(2,dl/340,.5);
-   for(const t of dft)if(t.alive&&Math.hypot(t.x-h.p.x,t.z-h.p.z)<(h.a==='HE'?7:2)){t.alive=false;t.g.scale.y=.6;t.burn=1;t.g.children.forEach(c=>c.material=dark);if(M&&M.cur&&M.cur.phase==='df'){M.cur.hits++;msg('HAMMER 0','Target hit ('+M.cur.hits+')',{cls:'cp',voice:false})}}
+   if(h.a==='HE'&&typeof dfLand==='function'&&dmgOn())dfLand(h,hitT); /* BGGB runs: damage, not instant kills (r16) */
+   else for(const t of dft)if(t.alive&&Math.hypot(t.x-h.p.x,t.z-h.p.z)<(h.a==='HE'?7:2)){t.alive=false;t.g.scale.y=.6;t.burn=1;t.g.children.forEach(c=>c.material=dark);if(M&&M.cur&&M.cur.phase==='df'){M.cur.hits++;msg('HAMMER 0','Target hit ('+M.cur.hits+')',{cls:'cp',voice:false})}}
    const row=LOG.find(r=>r.n===h.n);if(row){const g=toG(h.p.x,h.p.z);row.imp=g8(g.e,g.n);row.miss=hitT?0:''}
    sc.remove(h.m);shells.splice(i,1)}}
  for(const t of dft)if(t.alive&&!paused&&Math.hypot(t.x-px,t.z-pz)>140){t.x+=t.vx*dt;t.z+=t.vz*dt;t.g.position.set(t.x,H(t.x,t.z),t.z)}
@@ -3059,7 +3060,8 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
  /* ---------- geometry builders ---------- */
  const B=()=>({P:[],N:[],U:[],C:[],G:[],I:[]});
  /* tube along pts (parallel-transport frames), radius per point; uv wraps the bark round and up the limb */
- function tube(b,pts,rad,n,gv,shade){const t=[],m=pts.length;for(let i=0;i<m;i++){const a=pts[Math.max(0,i-1)],c=pts[Math.min(m-1,i+1)];t.push(new V().subVectors(c,a).normalize())}
+ const TC=[];
+ function tube(b,pts,rad,n,gv,shade){if(b.rec)TC.push([pts,rad,n,gv,shade]);const t=[],m=pts.length;for(let i=0;i<m;i++){const a=pts[Math.max(0,i-1)],c=pts[Math.min(m-1,i+1)];t.push(new V().subVectors(c,a).normalize())}
   let nr=new V().crossVectors(t[0],Math.abs(t[0].y)<.95?new V(0,1,0):new V(1,0,0)).normalize();const bn=new V(),ax=new V();let acc=0;const base=b.P.length/3,ur=Math.max(1,Math.round(6.283*rad[0]/.7));
   for(let i=0;i<m;i++){if(i){ax.crossVectors(t[i-1],t[i]);const s=ax.length();if(s>1e-6)nr.applyAxisAngle(ax.multiplyScalar(1/s),Math.asin(Math.min(1,s)));acc+=pts[i].distanceTo(pts[i-1])}
    bn.crossVectors(t[i],nr).normalize();const sh=shade(pts[i],i/(m-1));
@@ -3071,7 +3073,7 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
  const toGeo=(b,extra)=>{const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(b.P,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(b.N,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(b.U,2));
   g.setAttribute('color',new THREE.Float32BufferAttribute(b.C,3));if(extra)g.setAttribute('gVar',new THREE.Float32BufferAttribute(b.G,1));g.setIndex(b.I);g.computeBoundingSphere();return g};
  /* ---------- three trunk variants in one geometry (gVar), origin 3.6 m above the base like the old trunk; each keeps three limb tips for its crowns ---------- */
- const NV=3,tb=B(),tips=[];
+ const NV=3,tb=Object.assign(B(),{rec:1}),tips=[];
  for(let v=0;v<NV;v++){const fork=rnd(2.9,4.2),lean=new V(rnd(-.12,.12),1,rnd(-.12,.12)).normalize(),base=new V(0,-3.6,0);
   const trunk=limb(base,lean,fork,6,0,.05),top=trunk[trunk.length-1],tr=trunk.map((p,i)=>.3-.07*i/(trunk.length-1)+.12*Math.max(0,1-i*.9));
   const stock=(p)=>.55+.45*sst(-3.3,-1.2,p.y);tube(tb,trunk,tr,9,v,stock);const ld=limb(top.clone().addScaledVector(lean,-.2),lean,1.1,3,0,.1);tube(tb,ld,ld.map((_,i)=>.21*(1-.75*i/(ld.length-1))),7,v,()=>.95);const vt=[],a0=Math.random()*6.283;
@@ -3080,6 +3082,9 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
    for(let j=0;j<2;j++){const p=L[3+j],sd=new V(Math.cos(az+(j?1:-1)*rnd(.6,1.1)),rnd(.5,1),Math.sin(az+(j?1:-1)*rnd(.6,1.1))),S2=limb(p,sd,rnd(.9,1.5),3,.4,.15);tube(tb,S2,S2.map((_,i)=>.065*(1-.7*i/(S2.length-1))),5,v,()=>.95)}}
   tips.push(vt)}
  const trunkG=toGeo(tb,true);
+ /* level of detail (72-lod): each variant on its own (near), and a light one for far trees: three sides, no twigs. Replayed from the recorded tubes, so no random draws */
+ const lodG=(v,far)=>{const b=B();for(const [pts,rad,n,gv,shade] of TC)if(gv===v&&!(far&&n<=5))tube(b,pts,rad,far?3:n,gv,shade);return toGeo(b,true)};
+ const nearG=[...Array(NV)].map((_,v)=>lodG(v,false)),farG=[...Array(NV)].map((_,v)=>lodG(v,true));
  /* ---------- crown cluster: seven clumps of crossed cards in a flat dome; normals point out from below the centre so the mass shades like a crown ---------- */
  const cb=B(),cc=new V(0,-.8,0);
  const card=(c,yaw,pitch,w,h)=>{const r=new V(Math.cos(yaw),0,Math.sin(yaw)),up=new V(0,1,0).applyAxisAngle(r,pitch),base=cb.P.length/3,fl=Math.random()<.5;
@@ -3087,7 +3092,7 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
   cb.I.push(base,base+1,base+2,base,base+2,base+3)};
  [[0,.9,0],[1.3,.2,.3],[-.7,.3,1.2],[-.8,.1,-1.1],[.6,-.3,-1.1],[.2,-.5,.95],[-1.3,-.4,0]].forEach(([x,y,z],i)=>{const c=new V(x,y,z),a=Math.random()*3.14;for(let k=0;k<3;k++)card(c,a+k*1.047,rnd(-.18,.18),rnd(2,2.5),rnd(1.8,2.2));card(c,a+.5,rnd(1.1,1.35),2.2,2.2)});
  const crownG=toGeo(cb,false);
- return{bark,leaf,trunkG,crownG,tips,NV}});
+ return{bark,leaf,trunkG,crownG,tips,NV,nearG,farG}});
 /* ---------- materials: variant pick (vertices of the other trunk variants collapse to nothing), wind, unflipped crown normals, fading alpha kept solid at distance ---------- */
 const varHook=sh=>{sh.vertexShader='attribute float gVar;attribute float aVar;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nif(abs(gVar-aVar)>.5)transformed=vec3(0.);')};
 const trMat=new THREE.MeshStandardMaterial({map:FLR.bark,vertexColors:true,roughness:.88,metalness:0});trMat.onBeforeCompile=varHook;trMat.customProgramCacheKey=()=>'as9trunk';
@@ -3166,7 +3171,7 @@ ter.material.customProgramCacheKey=()=>'as9ground';ter.material.needsUpdate=true
 gfxRng();
 /* ================= grass field: dense blade cards round the camera (PC); each clump keeps its place on the ground as the camera moves (wrapped grid), stands on the terrain from a height texture, thins on tracks, water, rock and craters, lies flat under and behind the AS9 ================= */
 gfxRng(0x50c2d9);
-const GF={n:!MOB&&rd.capabilities.isWebGL2?36000:0,R:48,trail:[],tq:0};
+const GF={n:!MOB&&rd.capabilities.isWebGL2?24000:0,R:48,trail:[],tq:0};
 if(GF.n){
 /* per terrain vertex: height and grass amount (same rules as the ground colours), and the ground colour so the blades match the ground they stand on */
 GF.tex=new THREE.DataTexture(new Float32Array(GN*GN*4),GN,GN,THREE.RGBAFormat,THREE.FloatType);GF.col=new THREE.DataTexture(new Float32Array(GN*GN*4),GN,GN,THREE.RGBAFormat,THREE.FloatType);[GF.tex,GF.col].forEach(t=>t.magFilter=t.minFilter=THREE.NearestFilter);
@@ -3193,7 +3198,7 @@ gb.setAttribute('aOff',gfOff(GF.n,GF.R,0x51f15e));
 gb.instanceCount=GF.n;
 GF.u={gfT:{value:GF.tex},gfC:{value:new THREE.Vector2()},gfQ:{value:new THREE.Vector2()},gfV:{value:new THREE.Vector4(0,0,1,0)},gfL:{value:Array.from({length:24},()=>new THREE.Vector4(1e5,1e5,1,0))},gfCol:{value:GF.col}};
 /* the two layers: the dense field round the camera, and a far ring of fewer, fuller clumps of the same height out to ~160 m ahead, so the grass thins into the distance instead of stopping */
-GF.f={n:40000,R:110};
+GF.f={n:20000,R:110};
 const gfMat=(far,map,avg)=>{const gm=new THREE.MeshStandardMaterial({map,vertexColors:true,alphaTest:.4,side:THREE.DoubleSide,roughness:.95,metalness:0,alphaToCoverage:true});
  gm.onBeforeCompile=sh=>{Object.assign(sh.uniforms,GF.u,gdU,{uT:windU,uW:windS});
   sh.vertexShader='attribute vec3 aOff;uniform sampler2D gfT;uniform vec2 gfC,gfQ;uniform vec4 gfV;uniform vec4 gfL[24];uniform sampler2D gfCol,gdT;uniform float uT,uW;\n'+GD_TONE+
@@ -4199,7 +4204,7 @@ function bvP(pts,d,bv){const n=pts.length;let a=0;pts.forEach((p,i)=>{const q=pt
  const s=new THREE.Shape();L.forEach((l,i)=>{const m=L[(i+n-1)%n],t=((l[0]-m[0])*l[3]-(l[1]-m[1])*l[2])/(m[2]*l[3]-m[3]*l[2]),x=m[0]+m[2]*t,y=m[1]+m[3]*t;i?s.lineTo(x,y):s.moveTo(x,y)});
  const g=new THREE.ExtrudeGeometry(s,{depth:d-bv*2,bevelEnabled:true,bevelThickness:bv,bevelSize:bv,bevelSegments:2,curveSegments:4});g.translate(0,0,-(d-bv*2)/2);return g}
 const a10At=(par,x,y,z)=>par.children.filter(o=>o.position.distanceTo(A10.V.set(x,y,z))<.005);
-/* the placeholder box, rear box and tube, and the AS9's anchor spades, which the K10 does not have */
+/* the placeholder box, rear box and tube, and the AS9's (hidden) anchor spades */
 [[-.9,2.35,0],[-3.2,2.6,0],[-3.3,2.1,1],[-3.74,.62,.86],[-3.74,.62,-.86]].forEach(p=>a10At(AS10,...p).forEach(o=>o.visible=false));
 /* superstructure */
 A10.g=new THREE.Group();AS10.add(A10.g);
@@ -4332,4 +4337,373 @@ const _stPf=step;step=function(dt,draw){
  if(!draw)return;if(cov||document.hidden){PFM.last=0;return}
  PFM.drawn=1;if(PFM.last)pfTick((now-PFM.last)/1000);PFM.last=now};
 window.__pf=PFM;
+/* ================= level of detail: draw less of what the player can't see in detail =================
+   Trees: the 3-variant trunk geometry is split per variant (a trunk no longer carries the other two variants' vertices);
+   beyond LOD.R a light trunk (three sides, no twigs) stands in. Old grass tufts are not drawn beyond LOD.Rg.
+   Through the sight everything in view is full detail, however far. trI and grI keep every instance (felling, blasting,
+   the LRF, crest heights and footage read them); they are hidden and copied into the drawn meshes when they change,
+   when the camera moves or turns in the sight, and every 0.25 s. Load is bracketed by gfxRng; runtime makes no random draws. */
+gfxRng(0x72d0c1);
+const LOD={R:250,Rg:160,vt:-1,vg:-1,x:1e9,z:1e9,s:-1,t:0,q:new THREE.Quaternion(),fr:new THREE.Frustum(),pm:new THREE.Matrix4(),sp:new THREE.Sphere(new THREE.Vector3(),9),on:true};
+{const mk=(g,v)=>{g.setAttribute('aVar',new THREE.InstancedBufferAttribute(new Float32Array(NTX).fill(v),1));const m=new THREE.InstancedMesh(g,trI.material,NTX);
+  m.customDepthMaterial=trI.customDepthMaterial;m.castShadow=trI.castShadow;m.receiveShadow=trI.receiveShadow;m.frustumCulled=false;m.count=0;m.raycast=()=>{};sc.add(m);return m};
+ LOD.tn=FLR.nearG.map(mk);LOD.tf=FLR.farG.map(mk);
+ LOD.gr=new THREE.InstancedMesh(grI.geometry,grI.material,grI.instanceMatrix.count);Object.assign(LOD.gr,{castShadow:grI.castShadow,receiveShadow:grI.receiveShadow,frustumCulled:false,count:0,raycast:()=>{}});
+ if(grI.instanceColor)LOD.gr.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(grI.instanceColor.array.length),3);sc.add(LOD.gr)}
+gfxRng();
+function lodApply(on){LOD.on=on;trI.visible=grI.visible=!on;[...LOD.tn,...LOD.tf,LOD.gr].forEach(m=>m.visible=on);LOD.vt=LOD.vg=-1}
+function lodTick(dt,force){
+ if(!LOD.on)return;const cx=cam.position.x,cz=cam.position.z,sg=sight?1:0;LOD.t+=dt;
+ const moved=(cx-LOD.x)**2+(cz-LOD.z)**2>64,turned=sg&&(1-Math.abs(LOD.q.dot(cam.quaternion))>1e-5);
+ if(!force&&trI.instanceMatrix.version===LOD.vt&&grI.instanceMatrix.version===LOD.vg&&!moved&&!turned&&sg===LOD.s&&LOD.t<.25)return;
+ LOD.vt=trI.instanceMatrix.version;LOD.vg=grI.instanceMatrix.version;LOD.x=cx;LOD.z=cz;LOD.s=sg;LOD.t=0;LOD.q.copy(cam.quaternion);
+ if(sg){cam.updateMatrixWorld();LOD.pm.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);LOD.fr.setFromProjectionMatrix(LOD.pm)}
+ const inSight=(x,y,z,r)=>{LOD.sp.center.set(x,y,z);LOD.sp.radius=r;return LOD.fr.intersectsSphere(LOD.sp)};
+ /* trees */
+ const A=trI.instanceMatrix.array,av=trI.geometry.attributes.aVar.array,R2=LOD.R*LOD.R,nN=LOD.tn.map(()=>0),nF=nN.slice();
+ for(let i=0;i<trI.count;i++){const o=i*16,x=A[o+12],y=A[o+13],z=A[o+14],v=av[i],near=(x-cx)**2+(z-cz)**2<R2||sg&&inSight(x,y,z,9),m=near?LOD.tn[v]:LOD.tf[v],k=near?nN[v]++:nF[v]++;
+  m.instanceMatrix.array.set(A.subarray(o,o+16),k*16)}
+ LOD.tn.forEach((m,v)=>{m.count=nN[v];m.instanceMatrix.needsUpdate=true});LOD.tf.forEach((m,v)=>{m.count=nF[v];m.instanceMatrix.needsUpdate=true});
+ /* old grass tufts */
+ const G=grI.instanceMatrix.array,gc=grI.instanceColor&&grI.instanceColor.array,D=LOD.gr.instanceMatrix.array,Dc=LOD.gr.instanceColor&&LOD.gr.instanceColor.array,Rg2=LOD.Rg*LOD.Rg;let n=0;
+ for(let i=0;i<grI.count;i++){const o=i*16,x=G[o+12],y=G[o+13],z=G[o+14];if((x-cx)**2+(z-cz)**2<Rg2||sg&&inSight(x,y,z,2)){D.set(G.subarray(o,o+16),n*16);if(Dc)Dc.set(gc.subarray(i*3,i*3+3),n*3);n++}}
+ LOD.gr.count=n;LOD.gr.instanceMatrix.needsUpdate=true;if(Dc)LOD.gr.instanceColor.needsUpdate=true}
+lodApply(true);
+const _stLod=step;step=function(dt,draw){if(draw)lodTick(dt);_stLod(dt,draw)};
+/* other renders of the main scene (water reflection, footage copies, captures) happen inside step or after a drawn frame, so the lists are current */
+/* ================= BGGB growth: each run upgrade shows on the AS9 in three tiers, then keeps growing with its bonus, with no cap (growth halves past +100% so it still plays).
+   Tier 1 is the first pick; tiers 2 and 3 come at 15% and 30% times the upgrade's scale (UPS[k].s), so a smaller-bonus upgrade tiers up sooner. Bonuses are the upgrade picks only
+   (an item's stat bonus has its own part). Barrel: the Barrel bonus (RMOD.dmg) stretches and thickens the gun, +6 cm length and +0.8% diameter per 1% up to +100%, half that past it,
+   and the barrel's hitbox (BRS in 24a-collision) grows with it. The trainer and the battery guns keep the standard AS9. Built from private PRNGs: the game's random stream is unchanged ================= */
+gfxRng(0x73a1c3);
+const GRW={x:-1,key:'',P:{},r:rng(0x73b2d4),V:new THREE.Vector3(),gy:1,gz:1,t:{},e:{},
+ chr:new THREE.MeshStandardMaterial({color:LIN(0xe2e4e6),metalness:.55,roughness:.18}),brt:new THREE.MeshStandardMaterial({color:LIN(0xa4a6a0),metalness:.4,roughness:.4}),
+ rubN:new THREE.MeshStandardMaterial({color:LIN(0x0e0e0e),roughness:.5}),can:new THREE.MeshStandardMaterial({color:LIN(0x4a5230),roughness:.7})};
+const grBar=x=>{const a=Math.min(x,1),b=Math.max(0,x-1);return{l:1+(6*a+3*b)/BRL,r:1+.8*a+.4*b}};
+const grOver=x=>Math.min(x,1)+.5*Math.max(0,x-1);
+/* a part group with its pivot at (x,y,z), hidden until its tier */
+const grG=(n,par,x=0,y=0,z=0,f)=>{const o=new THREE.Group();o.position.set(x,y,z);o.visible=false;par.add(o);GRW.P[n]=o;if(f)ekBuild(o,f);o.traverse(m=>{if(m.isMesh)m.castShadow=true});return o};
+const grBx=(k,w,h,d)=>{const g=k.B(w,h,d);wuv(g);return g};
+/* ---------- Mobility: fresh rubber pads and a bright sprocket / chevron grousers / polished steel grousers; growth deepens and widens them and raises exhaust stacks ---------- */
+GRW.spr=[];veh.children.filter(o=>o.isGroup&&Math.abs(o.position.x-SPR.x)<.01&&Math.abs(o.position.y-SPR.y)<.01).forEach(o=>o.traverse(m=>{if(m.isMesh&&m.material===dark)GRW.spr.push(m)}));
+{const a=new THREE.BoxGeometry(.035,.03,.28).rotateY(.45).translate(-.03,0,.12),b=new THREE.BoxGeometry(.035,.03,.28).rotateY(-.45).translate(-.03,0,-.12),g=ekMerge([a,b]);
+ GRW.gr=pads.map(im=>{const m=new THREE.InstancedMesh(g,dark,N);m.castShadow=true;m.userData.z=im.userData.z;m.visible=false;veh.add(m);return m})}
+grG('stk',veh,1.9,1.75,.98,k=>[0,.32].forEach(x=>{k.put(k.C(.065,.075,1,10),dark,x,.5,0);k.put(k.C(.08,.08,.04,10),steel,x,1,0)}));
+const _upTG=upT;upT=function(o){_upTG(o);if(!GRW.gr[0].visible)return;const off=.06+.015*(GRW.gy-1);GRW.gr.forEach((m,k)=>{const z=m.userData.z;
+ for(let i=0;i<N;i++){const s=o[k]+(i+.5)*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
+  dm.position.set(q[0]-q[3]*off,q[1]-q[4]*off,z);dm.rotation.set(0,0,q[2]);dm.scale.set(1,GRW.gy,GRW.gz);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
+/* ---------- Turret drive: traverse motor housing at the turret ring (left) / a second one (right) / armoured hose run to the elevation cradle; growth swells the housings ---------- */
+[-1,1].forEach((s,i)=>grG('lay'+i,tur,1.05,.2,s*1.56,k=>{k.put(k.C(.15,.15,.46,14),olive,0,0,0,0,0,Math.PI/2);k.put(k.C(.16,.16,.05,14),dark,.25,0,0,0,0,Math.PI/2);
+ k.put(k.B(.5,.1,.2),dark,0,-.13,-s*.04);for(let j=0;j<6;j++){const a=j*1.047;k.put(k.C(.016,.016,.03,6),steel,.28,Math.cos(a)*.1,Math.sin(a)*.1,0,0,Math.PI/2)}}));
+grG('lay2',tur,0,0,0,k=>[-1,1].forEach(s=>{k.rod([1.3,.2,s*1.48],[2.05,.12,s*.84],.035,.035,dark,6);k.rod([1.3,.26,s*1.46],[2.05,.18,s*.82],.03,.03,dark,6);
+ k.put(k.B(.8,.05,.14),olive,1.68,.27,s*1.15,0,s*.7,0)}));
+/* ---------- Fire control: muzzle velocity radar on the mantlet / met sensor mast / commander's panoramic sight; growth swells them and raises the mast ---------- */
+grG('acc0',tur.getObjectByName('gun'),.42,.6,0,k=>{k.put(grBx(k,.3,.16,.26),olive,0,0,0);k.put(k.C(.09,.09,.02,16),dark,.16,0,0,0,0,Math.PI/2);k.put(k.B(.08,.12,.08),dark,-.04,-.12,0)});
+grG('acc1',tur,-1.2,1.0,1.25,k=>{k.rod([0,0,0],[0,1.1,0],.025,.02,steel,6);k.put(k.B(.12,.08,.12),dark,0,1.12,0);
+ for(let j=0;j<3;j++){const a=j*2.094;k.rod([0,1.2,0],[Math.cos(a)*.14,1.2,Math.sin(a)*.14],.006,.006,steel,4);k.put(new THREE.SphereGeometry(.035,8,6,0,6.283,0,1.6),steel,Math.cos(a)*.14,1.2,Math.sin(a)*.14,0,0,Math.PI/2)}});
+grG('acc2',tur,.2,1.0,.25,k=>{k.put(k.C(.15,.17,.1,14),olive,0,.05,0);k.put(k.C(.08,.08,.22,10),dark,0,.2,0);k.put(grBx(k,.34,.22,.28),olive,0,.4,0);
+ [-1,1].forEach(d=>k.put(k.B(.02,.1,.2),glass,d*.171,.41,0))});
+/* ---------- Autoloader: blower housing on the bustle roof / cooling fins on the bustle sides / the bustle grille puffs after every round; growth swells blower and fins ---------- */
+grG('rld0',tur,-1.7,1.0,1.0,k=>{k.put(k.C(.2,.22,.2,16),olive,0,.1,0);k.put(k.C(.17,.17,.03,16),dark,0,.215,0);for(let j=0;j<4;j++)k.put(k.B(.34,.012,.012),steel,0,.235,-.12+j*.08);k.put(grBx(k,.35,.12,.18),olive,-.28,.06,0)});
+[-1,1].forEach((s,i)=>grG('rld'+(i+1),tur,-2.0,.32,s*1.47,k=>{for(let j=0;j<7;j++)k.put(k.B(.03,.36,.1),dark,-.5+j*.165,0,s*.05);k.put(k.B(1.05,.04,.04),steel,0,.17,s*.02)}));
+/* ---------- Hydraulics (the hydraulics lay the gun): an elevation ram each side under the mantlet, from the turret face to a lug on the gun / an accumulator with hoses
+   on the turret roof / heavier chrome rams; growth thickens the rams and swells the accumulator, which vents as the gun starts to move ---------- */
+GRW.rm=[];GRW.ge=0;GRW.mv=false;GRW.an=[2.17,.27];GRW.lg=[.3,-.35];
+const grRam=(n,z,body,rodM,r)=>{const o=grG(n,tur,GRW.an[0],GRW.an[1],z,k=>k.put(k.B(.1,.08,.1),dark,-.03,0,0)),a=new THREE.Group(),p=new THREE.Group();o.add(a);a.add(p);p.position.x=.22;
+ ekBuild(a,k=>{k.rod([0,0,0],[.3,0,0],r,r,body,10);k.put(k.C(r*1.2,r*1.2,.04,10),dark,.29,0,0,0,0,Math.PI/2)});ekBuild(p,k=>k.rod([0,0,0],[1,0,0],r*.5,r*.5,rodM,8));
+ o.traverse(m=>{if(m.isMesh)m.castShadow=true});GRW.rm.push({o,a,p});return o};
+[-1,1].forEach((s,i)=>{grRam('act0'+'ab'[i],s*.85,dark,GRW.chr,.05);grRam('act2'+'ab'[i],s*.85,GRW.chr,GRW.chr,.068)});
+grG('act0l',gun,0,0,0,k=>[-1,1].forEach(s=>k.put(k.B(.14,.1,.2),dark,GRW.lg[0],GRW.lg[1],s*.8)));
+grG('act1',tur,1.2,1.0,0,k=>{k.put(k.C(.1,.1,.62,14),dark,0,.1,0,Math.PI/2,0,0);[-1,1].forEach(s=>k.put(k.C(.105,.105,.04,14),steel,0,.1,s*.3,Math.PI/2,0,0));
+ k.put(grBx(k,.24,.14,.2),olive,-.26,.07,0);k.put(k.C(.025,.025,.08,8),dark,-.3,.18,.05)});
+grG('act1h',tur,0,0,0,k=>[-1,1].forEach(s=>{const P=[[1.3,1.1,s*.28],[1.6,1.03,s*.8],[1.93,.76,s*.86],[2.24,.47,s*.86],[2.19,.32,s*.86]];for(let j=0;j<4;j++)k.rod(P[j],P[j+1],.02,.02,rub,5)}));
+/* each frame: aim the rams at the gun's lugs and stretch the rods as it elevates; the accumulator vents a puff as the gun starts to move */
+function grElev(){if(!(GRW.t.act>=1))return;const e=gun.rotation.z,cs=Math.cos(e),sn=Math.sin(e),dx=2.2+GRW.lg[0]*cs-GRW.lg[1]*sn-GRW.an[0],dy=.5+GRW.lg[0]*sn+GRW.lg[1]*cs-GRW.an[1];
+ const A=Math.atan2(dy,dx),L=Math.max(.01,Math.hypot(dx,dy)-.22),th=1+.5*(GRW.e.act||0);GRW.rm.forEach(R=>{if(!R.o.visible)return;R.a.rotation.z=A;R.a.scale.set(1,th,th);R.p.scale.x=L});
+ const mv=Math.abs(e-GRW.ge)>1e-3;GRW.ge=e;if(mv&&!GRW.mv&&GRW.t.act>=2){const r=GRW.r,o=GRW.P.act1;o.updateMatrixWorld(true);
+  for(let i=0;i<6;i++){const p=o.localToWorld(GRW.V.set(-.3,.24,.05));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xdedbd2),life:1+r()*.8,s0:.1,grow:1.2,op:.3,vy:.6+r()*.5,vx:(r()-.5)*.4,vz:(r()-.5)*.4,dr:.8,L:1})}}GRW.mv=mv}
+/* ---------- Toolkit: shovel and pick / crowbar and sledgehammer / tool chest; growth piles on one more tool every 10% ---------- */
+const grTool=(k,t,x,y,z,ry)=>{const W=EMT.wood,c=Math.cos(ry),s=Math.sin(ry),P=(d,u)=>[x+d*c,y+u,z-d*s];
+ if(t===0){k.rod(P(-.5,0),P(.35,0),.018,.018,W,6);k.put(k.B(.28,.02,.22),steel,...P(.48,0),0,ry,0)}
+ else if(t===1){k.rod(P(-.45,0),P(.35,0),.02,.02,W,6);k.put(k.B(.05,.04,.42),steel,...P(.37,0),0,ry,0)}
+ else if(t===2)k.rod(P(-.65,0),P(.65,0),.016,.016,steel,6);
+ else if(t===3){k.rod(P(-.4,0),P(.3,0),.02,.02,W,6);k.put(k.B(.11,.1,.1),dark,...P(.36,0),0,ry,0)}
+ else{k.rod(P(-.4,0),P(.3,0),.018,.018,W,6);k.put(k.B(.16,.02,.12),steel,...P(.34,0),0,ry,0)}};
+grG('rep0',veh,0,0,0,k=>{grTool(k,0,-3.0,1.5,-1.6,0);grTool(k,1,-3.05,1.5,-1.36,0)});
+grG('rep1',veh,0,0,0,k=>{grTool(k,2,-2.85,1.5,1.62,0);grTool(k,3,-3.0,1.5,1.38,0)});
+grG('rep2',tur,-1.85,1.16,-1.2,k=>{k.put(grBx(k,.6,.32,.38),olive,0,0,0);k.put(k.B(.62,.03,.4),dark,0,.15,0);[-.2,.2].forEach(x=>k.put(k.B(.05,.06,.03),steel,x,.08,-.2))});
+GRW.tx=[];for(let i=0;i<24;i++){const r=GRW.r,s=i%2?1:-1,row=i>>1;GRW.tx.push(grG('repX'+i,veh,0,0,0,k=>grTool(k,i%5,-3.0+(r()-.5)*.3,1.56+row*.05,s*(1.4+r()*.25),(r()-.5)*.4)))}
+/* ---------- Ammo capacity: 4 charge canisters in the left basket / 4 in the right / ammo boxes on the engine deck; growth piles one more canister every 5% on the baskets ---------- */
+const grCan=(k,x,y,z)=>{k.put(k.C(.07,.07,1,10),GRW.can,x,y,z,0,0,Math.PI/2);[-.5,.5].forEach(d=>k.put(k.C(.072,.072,.03,10),dark,x+d,y,z,0,0,Math.PI/2))};
+[-1,1].forEach((s,i)=>grG('cap'+i,tur,-1.95,.62,s*1.62,k=>[.08,.22].forEach(y=>[-.07,.07].forEach(z=>grCan(k,0,y,z)))));
+grG('cap2',veh,0,0,0,k=>[1.8,2.28].forEach(x=>{k.put(grBx(k,.45,.24,.3),olive,x,1.87,.42);k.put(k.B(.1,.03,.32),dark,x,2.0,.42)}));
+{const g=ekMerge([new THREE.CylinderGeometry(.07,.07,1,10).rotateZ(Math.PI/2)]);GRW.cp=new THREE.InstancedMesh(g,GRW.can,80);GRW.cp.count=0;GRW.cp.castShadow=true;tur.add(GRW.cp);
+ for(let i=0;i<80;i++){const s=i%2?1:-1,j=i>>1,l=j>>1;dm.position.set(-1.95+(GRW.r()-.5)*.1,.98+l*.14,s*(1.62+((j&1)-.5)*.14));dm.rotation.set(0,(GRW.r()-.5)*.12,0);dm.scale.set(1,1,1);dm.updateMatrix();GRW.cp.setMatrixAt(i,dm.matrix)}}
+/* ---------- Armour (track links on the lower glacis are 66-mods 'lnk'): links on the turret's lower front / outer glacis columns; growth adds a layer every 8% ---------- */
+const grLnk=(k,x,y,z,rz)=>{k.put(k.B(.13,.035,.5),trk,x,y,z,0,0,rz);k.put(k.B(.05,.05,.04),trk,x+.02,y-.02,z,0,0,rz)};
+grG('arm1',tur,0,0,0,k=>[-1,1].forEach(s=>[.95,1.3].forEach(z=>{for(let i=0;i<3;i++)k.put(k.B(.035,.13,.3),trk,2.13+i*.045,.06+i*.13,s*z,0,0,-.32)})));
+grG('arm2',veh,0,0,0,k=>[-1.02,1.02].forEach(z=>{for(let i=0;i<5;i++){const t=.1+i*.17;grLnk(k,3.1+.62*t+.579*.035,.41+.44*t-.816*.035,z,.617)}}));
+{GRW.al=new THREE.InstancedMesh(new THREE.BoxGeometry(.13,.035,.5),trk,200);GRW.al.count=0;GRW.al.castShadow=true;veh.add(GRW.al);let n=0;
+ for(let l=1;l<=20;l++)[-1.02,-.55,.55,1.02].forEach(z=>{for(let i=0;i<5;i+=2){const t=.1+i*.17+(l%2?.085:0),d=.035+l*.05;if(n>=200)return;dm.position.set(3.1+.62*t+.579*d,.41+.44*t-.816*d,z);dm.rotation.set(0,0,.617);dm.scale.set(1,1,1);dm.updateMatrix();GRW.al.setMatrixAt(n++,dm.matrix)}})}
+/* ---------- Hull: armoured side skirts / bolt rows / bolted plate on the upper glacis; growth thickens the skirts and adds a plate layer every 15% ---------- */
+[-1,1].forEach((s,i)=>grG('hul'+i,veh,0,1.13,s*1.81,k=>{for(let j=0;j<5;j++)k.put(grBx(k,1.25,.42,.035),olive,-2.85+j*1.3,0,0)}));
+[-1,1].forEach((s,i)=>grG('hulB'+i,veh,0,1.13,s*1.83,k=>{for(let j=0;j<5;j++)for(let a=0;a<4;a++)[-.13,.13].forEach(y=>k.put(k.C(.022,.022,.02,6),steel,-3.3+j*1.3+a*.3,y,0,Math.PI/2,0,0))}));
+GRW.gp={x:3.54,y:1.31,a:.437,n:[.906,.423]};
+grG('hul2',veh,GRW.gp.x,GRW.gp.y,0,k=>{k.put(grBx(k,.05,.75,2.0),olive,0,0,0,0,0,GRW.gp.a);for(let j=0;j<6;j++)[-.3,.3].forEach(u=>k.put(k.C(.024,.024,.02,6),steel,.03-u*.423,u*.906,-.85+j*.34,0,0,GRW.gp.a+Math.PI/2))});
+{const g=new THREE.BoxGeometry(.05,.75,2.0);wuv(g);GRW.hp=new THREE.InstancedMesh(g,olive,30);GRW.hp.count=0;GRW.hp.castShadow=true;veh.add(GRW.hp);
+ for(let i=0;i<30;i++){const d=.055*(i+1);dm.position.set(GRW.gp.x+GRW.gp.n[0]*d,GRW.gp.y+GRW.gp.n[1]*d,0);dm.rotation.set(0,0,GRW.gp.a);dm.scale.set(1,1,1);dm.updateMatrix();GRW.hp.setMatrixAt(i,dm.matrix)}}
+/* ---------- Camo (foliage bundles are 66-mods MOD.fol, 10 by 25%): past that one more bundle per 4%, up to 20 more, until the AS9 is a moving bush ---------- */
+GRW.fx=[];{const f0=MOD.fol[0];for(let i=0;i<20;i++){const r=GRW.r,onT=i%3!==2,par=onT?tur:veh,s=r()<.5?-1:1,m=new THREE.Mesh(f0.geometry,f0.material);
+ if(onT)m.position.set(-2.6+r()*3.4,.95,s*(1.1+r()*.45));else m.position.set(-3.4+r()*6.6,1.45,s*(1.45+r()*.3));m.rotation.set((r()-.5)*.5,r()*6.28,(r()-.5)*.5);m.scale.setScalar(.8+r()*.4);m.castShadow=true;m.visible=false;par.add(m);GRW.fx.push(m)}}
+/* ---------- apply: tiers and growth from the run's upgrade picks ---------- */
+const grT=(k,b)=>{const s=UPS[k].s;return b<=0?0:b<.15*s?1:b<.3*s?2:3},grE=(k,b)=>grOver(Math.max(0,b-.3*UPS[k].s));
+function grTick(){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,x=R?Math.max(0,RMOD.dmg||0):0,u=R&&typeof modsOf==='function'?modsOf(R.ups):{},c=R?Math.min(20,Math.floor(Math.max(0,(RMOD.camo||0)-.25)/.04)):0;
+ const key=x.toFixed(3)+'|'+Object.keys(u).sort().map(k=>k+u[k].toFixed(3)).join()+'|'+c+'|'+MOD.key;if(key===GRW.key)return;GRW.key=key;
+ const g=grBar(x);rec.scale.set(g.l,g.r,g.r);BRS.l=g.l;BRS.r=g.r;
+ const P=GRW.P,t={},e={};['spd','lay','acc','rld','act','rep','cap','armour','hull'].forEach(k=>{const b=u[k]||0;t[k]=R&&UPS[k]?grT(k,b):0;e[k]=R&&UPS[k]?grE(k,b):0});GRW.t=t;GRW.e=e;
+ /* mobility */
+ GRW.spr.forEach(m=>m.material=t.spd?GRW.brt:dark);DT.rp.forEach(m=>m.material=t.spd?GRW.rubN:rub);GRW.gr.forEach(m=>{m.visible=t.spd>=2;m.material=t.spd>=3?GRW.brt:dark});
+ GRW.gy=1+e.spd;GRW.gz=1+.5*e.spd;P.stk.visible=e.spd>0;P.stk.scale.set(1,.4+1.2*e.spd,1);if(t.spd>=2)upT(offs);
+ /* turret drive, fire control, autoloader */
+ P.lay0.visible=t.lay>=1;P.lay1.visible=t.lay>=2;P.lay2.visible=t.lay>=3;[P.lay0,P.lay1].forEach(o=>o.scale.setScalar(1+e.lay));
+ P.acc0.visible=t.acc>=1;P.acc1.visible=t.acc>=2;P.acc2.visible=t.acc>=3;P.acc0.scale.setScalar(1+e.acc);P.acc1.scale.set(1+.5*e.acc,1+e.acc,1+.5*e.acc);P.acc2.scale.setScalar(1+e.acc);
+ P.rld0.visible=t.rld>=1;P.rld1.visible=P.rld2.visible=t.rld>=2;P.rld0.scale.setScalar(1+e.rld);[P.rld1,P.rld2].forEach(o=>o.scale.set(1,1+e.rld,1+2*e.rld));
+ /* hydraulics */
+ P.act0a.visible=P.act0b.visible=t.act>=1&&t.act<3;P.act2a.visible=P.act2b.visible=t.act>=3;P.act0l.visible=t.act>=1;P.act1.visible=P.act1h.visible=t.act>=2;P.act1.scale.setScalar(1+.5*e.act);
+ /* toolkit, ammo capacity */
+ P.rep0.visible=t.rep>=1;P.rep1.visible=t.rep>=2;P.rep2.visible=t.rep>=3;const nt=Math.min(24,Math.floor(e.rep/.1+1e-6));GRW.tx.forEach((o,i)=>o.visible=i<nt);
+ P.cap0.visible=t.cap>=1;P.cap1.visible=t.cap>=2;P.cap2.visible=t.cap>=3;GRW.cp.count=Math.min(80,Math.floor(e.cap/.05+1e-6));
+ /* armour (tier 1 is 66-mods' glacis links), hull */
+ P.arm1.visible=t.armour>=2;P.arm2.visible=t.armour>=3;GRW.al.count=Math.min(200,Math.floor(e.armour/.08+1e-6)*12);
+ P.hul0.visible=P.hul1.visible=t.hull>=1;P.hulB0.visible=P.hulB1.visible=t.hull>=2;P.hul2.visible=t.hull>=3;[P.hul0,P.hul1].forEach(o=>o.scale.set(1,1,1+3*e.hull));
+ GRW.hp.count=Math.min(30,Math.floor(e.hull/.15+1e-6));
+ /* camo */
+ GRW.fx.forEach((m,i)=>m.visible=MOD.fol[9].visible&&i<c)}
+/* autoloader tier 3: the bustle grille puffs after every round, more with growth */
+const _msGr=muzzleSmoke;muzzleSmoke=function(){_msGr();if((GRW.t.rld||0)<3)return;const r=GRW.r,n=Math.round(3*(1+GRW.e.rld));tur.updateMatrixWorld(true);
+ for(let i=0;i<n;i++){const p=tur.localToWorld(GRW.V.set(-2.98,.3+r()*.2,(r()-.5)*1.4));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xcfc9bd),life:2+r()*2,s0:.25,grow:1.5+r(),op:.3,vy:.4+r()*.4,dr:.4,L:1})}};
+const _fxGr=fxTick;fxTick=function(dt){_fxGr(dt);grTick();grElev()};
+gfxRng();
+/* ================= BGGB passive items on the AS9 (66-mods has applique, slat, reactive tiles, net roll, razor wire and thermal blanket): every other passive with a visual shows
+   its own part while held, and where it has a moment in play the visual happens then (ghost crew's silent first round, the insurance wheel tearing off, a reactive tile blowing).
+   Momentum crew, Mercenary contract and War correspondent have none for now. Built from private PRNGs: the game's random stream is unchanged ================= */
+gfxRng(0x74c3e5);
+const KIT={key:'',G:{},r:rng(0x74d4f6),V:new THREE.Vector3(),W:new THREE.Vector3(),run:null,hb:0,k0:0,rx:0,dm:0,sc:0,has:{},st:'',vp:0,tp:0,wt:0,gl:0,pf:0,fl:0,gh:-9,
+ red:new THREE.MeshStandardMaterial({color:LIN(0x8a1c14),roughness:.5,emissive:new THREE.Color(1,.35,.08),emissiveIntensity:0}),
+ ylw:new THREE.MeshStandardMaterial({color:LIN(0xd8b020),roughness:.6}),wht:new THREE.MeshStandardMaterial({color:LIN(0xe8e4d8),roughness:.6}),
+ blk:new THREE.MeshStandardMaterial({color:LIN(0x161616),roughness:.6}),mar:new THREE.MeshStandardMaterial({color:LIN(0x5a1a1e),roughness:.5}),
+ lens:new THREE.MeshStandardMaterial({color:LIN(0x401010),roughness:.3,emissive:new THREE.Color(1,.1,.05),emissiveIntensity:0}),
+ rglass:new THREE.MeshStandardMaterial({color:LIN(0x300808),roughness:.2,emissive:new THREE.Color(1,.08,.04),emissiveIntensity:1.6}),
+ trc:new THREE.MeshBasicMaterial({color:new THREE.Color(6,2.4,.6)}),pen:new THREE.MeshStandardMaterial({color:LIN(0xa01810),roughness:.8,side:THREE.DoubleSide})};
+const kG=(n,par,x=0,y=0,z=0,f)=>{const o=new THREE.Group();o.position.set(x,y,z);o.visible=false;par.add(o);KIT.G[n]=o;if(f)ekBuild(o,f);o.traverse(m=>{if(m.isMesh)m.castShadow=true});return o};
+const kBx=(k,w,h,d)=>{const g=k.B(w,h,d);wuv(g);return g};
+const kGun=tur.getObjectByName('gun');
+/* field welder: oxygen (black) and acetylene (maroon) bottles at the turret's rear right corner */
+kG('weld',tur,-3.0,.45,1.22,k=>{[[-.1,KIT.blk],[.1,KIT.mar]].forEach(([z,m])=>{k.put(k.C(.085,.085,.72,12),m,0,0,z);k.put(k.C(.04,.05,.08,8),steel,0,.4,z)});k.put(k.B(.04,.05,.42),dark,.07,.15,0)});
+/* signature dampers: louvred shrouds over the exhaust on the engine deck (a second copy, a second shroud) */
+[[2.75,1.0],[2.85,.5]].forEach(([x,z],i)=>kG('damp'+i,veh,x,1.86,z,k=>{k.put(kBx(k,.55,.2,.42),olive,0,0,0);for(let j=0;j<5;j++)k.put(k.B(.5,.015,.06),dark,0,.105,-.16+j*.08,.4,0,0)}));
+/* spall liner: yellow aramid under the commander's hatch lid, seen when it opens */
+{const g=new THREE.Group();g.visible=false;CRW.lid.add(g);KIT.G.spall=g;ekBuild(g,k=>k.put(k.C(.31,.31,.012,20),KIT.ylw,.34,-.067,0))}
+/* overcharged autoloader: a red vent cap on the bustle ledge that glows for a second after each round */
+kG('oca',tur,-2.75,.93,-.95,k=>{k.put(k.C(.12,.14,.1,14),KIT.red,0,0,0);k.put(k.C(.09,.09,.02,14),dark,0,.06,0)});
+/* shell scrounger: up to 3 scrounged rounds lashed on the front deck behind the driver's hatch */
+KIT.sh=[0,1,2].map(i=>kG('scr'+i,veh,2.05+i*.15,1.84,-.8,k=>{k.put(k.C(.075,.075,.5,10),olive,0,0,0,Math.PI/2,0,0);k.put(k.C(.03,.075,.2,10),olive,0,0,-.35,Math.PI/2,0,0);k.put(k.C(.077,.077,.04,10),KIT.ylw,0,0,-.1,Math.PI/2,0,0);k.put(k.C(.078,.078,.05,10),steel,0,0,.2,Math.PI/2,0,0)}));
+/* rapid-lay servos: boxes on the gun cradle either side of the mantlet */
+kG('rls',kGun,.05,-.25,0,k=>[-1,1].forEach(s=>{k.put(kBx(k,.32,.24,.16),olive,0,0,s*.84);k.put(k.C(.07,.07,.2,12),dark,-.12,0,s*.98,Math.PI/2,0,0)}));
+/* silent running: a muffler along the engine deck */
+kG('slr',veh,2.0,1.88,0,k=>{k.put(k.C(.12,.12,.7,14),dark,0,0,0,0,0,Math.PI/2);[-.36,.36].forEach(x=>k.put(k.C(.125,.125,.03,14),steel,x,0,0,0,0,Math.PI/2));k.rod([.36,0,0],[.5,.08,0],.04,.04,dark,8)});
+/* decoy emitter: a short mast with a pod whose lens flashes when it spoofs a fix */
+kG('dem',tur,-2.35,1.0,-1.0,k=>{k.rod([0,0,0],[0,.45,0],.03,.025,steel,6);k.put(kBx(k,.18,.12,.14),olive,0,.5,0);k.put(k.C(.04,.04,.02,10),KIT.lens,.1,.5,0,0,0,Math.PI/2)});
+/* turbocharger: a fat turbo stack on the engine deck, low enough to clear the gun; it coughs black on hard acceleration */
+kG('tur',veh,2.75,1.75,-.05,k=>{k.put(k.C(.11,.12,.3,12),dark,0,.15,0);k.put(k.C(.14,.11,.07,12),steel,0,.33,0);k.put(k.C(.2,.2,.14,14),dark,-.18,.1,0,0,0,Math.PI/2)});
+/* wide track pads: a plate under each link, 6 cm wider than the track each side */
+KIT.wp=pads.map(im=>{const m=new THREE.InstancedMesh(new THREE.BoxGeometry(.15,.02,TW+.12),trk,N);m.castShadow=true;m.userData.z=im.userData.z;m.visible=false;veh.add(m);return m});
+const _upTK=upT;upT=function(o){_upTK(o);if(!KIT.wp[0].visible)return;KIT.wp.forEach((m,k)=>{const z=m.userData.z;for(let i=0;i<N;i++){const s=o[k]+i*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
+ dm.position.set(q[0]-q[3]*.04,q[1]-q[4]*.04,z);dm.rotation.set(0,0,q[2]);dm.scale.set(1,1,1);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
+/* fording kit: an air-intake snorkel behind the driver */
+kG('frd',veh,1.75,1.75,-1.0,k=>{k.put(k.C(.09,.09,1.3,12),dark,0,.65,0);k.rod([0,1.28,0],[-.22,1.42,0],.09,.09,dark,12);k.put(k.C(.13,.13,.1,12),olive,-.25,1.44,0,0,0,1.1)});
+/* crew medic: a folded stretcher on the turret's right side and a medical bag on the roof edge (no red cross: it is a protected emblem) */
+kG('med',tur,0,0,0,k=>{[1.58,1.7].forEach(z=>k.rod([-1.0,.95,z],[.6,.95,z],.018,.018,steel,6));k.put(k.C(.06,.06,1.4,10),EMT.cnv,-.2,.96,1.64,0,0,Math.PI/2);
+ [-.6,.2].forEach(x=>k.put(k.B(.04,.14,.16),dark,x,.96,1.64));k.put(kBx(k,.32,.2,.2),EMT.kit,.6,1.1,1.3);k.put(k.B(.34,.02,.06),dark,.6,1.21,1.3)});
+/* insurance policy: a spare road wheel on the turret's rear left; it tears off when it saves the gun */
+kG('ins',tur,-3.0,.5,-1.12,k=>{k.put(k.C(.34,.34,.18,20),rub,0,0,0,0,0,Math.PI/2);k.put(k.C(.26,.26,.2,16),olive,0,0,0,0,0,Math.PI/2);k.put(k.C(.09,.09,.24,10),steel,0,0,0,0,0,Math.PI/2)});
+/* adrenaline: the cupola's vision blocks glow red over 75 heat */
+KIT.vb=tur.children.filter(o=>o.isMesh&&o.material===glass&&Math.hypot(o.position.x+.5,o.position.z-.8)<.5);
+/* blood money: a red chevron on the turret side for each heat band reached this run */
+['bldL','bldR'].forEach((n,i)=>{const s=i?1:-1;KIT[n]=[0,1,2,3].map(j=>kG(n+j,tur,.1,.3+j*.13,s*1.6,k=>[-1,1].forEach(d=>k.put(k.B(.2,.035,.012),KIT.red,d*.08,-.04,0,0,0,d*.5))))});
+/* red mist: a red pennant on the left antenna */
+{const sh=new THREE.Shape();sh.moveTo(0,0);sh.lineTo(-.45,-.08);sh.lineTo(0,-.18);const g=new THREE.ShapeGeometry(sh);kG('red',tur,-2.5,2.95,-1.2);const m=new THREE.Mesh(g,KIT.pen);KIT.G.red.add(m);KIT.pn=m}
+/* point-blank fuze: a direct-fire telescope beside the mantlet; direct-fire rounds glow as tracers */
+kG('pbf',kGun,.35,.32,-.82,k=>{k.put(k.C(.07,.07,.6,12),dark,0,0,0,0,0,Math.PI/2);k.put(k.C(.08,.08,.04,12),glass,.31,0,0,0,0,Math.PI/2);k.put(kBx(k,.2,.16,.16),olive,-.25,-.02,0)});
+/* gunner's sight: an armoured hood over the gunner's sight head, a second copy doubles the window */
+kG('gsu0',tur,.75,1.36,-.95,k=>{k.put(kBx(k,.44,.1,.38),olive,0,0,0);k.put(k.B(.02,.18,.3),glass,.23,-.12,0)});
+kG('gsu1',tur,1.0,1.18,-.95,k=>{k.put(kBx(k,.18,.26,.34),olive,0,0,0);k.put(k.B(.02,.18,.26),glass,.1,0,0)});
+/* AS10 armour kit: slat cages along the AS10's sides and rear, applique plates on its superstructure */
+KIT.G.a10k=new THREE.Group();KIT.G.a10k.visible=false;AS10.add(KIT.G.a10k);
+ekBuild(KIT.G.a10k,k=>{[-1,1].forEach(s=>{for(let i=0;i<6;i++)k.put(k.B(5.2,.035,.014),dark,-1.15,1.0+i*.13,s*1.98);for(let x=-3.7;x<=1.4;x+=1.02){k.put(k.B(.035,.75,.035),dark,x,1.33,s*1.98);k.rod([x,1.6,s*1.97],[x,1.6,s*1.79],.014,.014,dark)}
+  [-2.6,-.4].forEach(x=>{k.put(kBx(k,2.0,.9,.06),olive,x,2.45,s*1.54);for(let j=0;j<4;j++)[2.1,2.8].forEach(y=>k.put(k.C(.026,.026,.03,6),steel,x-.75+j*.5,y,s*1.575,Math.PI/2,0,0))})});
+ for(let i=0;i<7;i++)k.put(k.B(.014,.035,3.6),dark,-4.15,.75+i*.13,0);[-1.7,-.6,.6,1.7].forEach(z=>k.rod([-4.15,1.1,z],[-3.9,1.1,z],.014,.014,dark))});
+/* second AS10 crew: a crewman head-out of the AS10's rear hatch (lid swung open) */
+KIT.G.a10c=new THREE.Group();KIT.G.a10c.visible=false;AS10.add(KIT.G.a10c);
+ekBuild(KIT.G.a10c,k=>{k.put(k.C(.3,.3,.012,20),dark,-2.35,3.336,-.7);const g=k.C(.3,.3,.05,20);wuv(g);k.put(g,olive,-2.68,3.6,-.7,0,0,1.35)});
+{const c=noRng(()=>CRW.c.root.clone(true));c.visible=true;c.position.set(-2.35,3.12,-.7);c.rotation.y=Math.PI;KIT.G.a10c.add(c)}
+/* trip flares: launcher cups on the hull's four top corners; a flare bursts over each shooter as it fires */
+kG('trip',veh,0,0,0,k=>[[3.5,1],[3.5,-1],[-3.62,1],[-3.62,-1]].forEach(([x,z])=>[-.08,.08].forEach(d=>k.put(k.C(.04,.035,.14,8),dark,x,1.82,z*(1.05+d),z*.4,0,x>0?-.4:.4))));
+/* scavenger: salvage lashed on the front fenders and glacis, more per copy */
+kG('scav0',veh,0,0,0,k=>{k.put(kBx(k,.18,.42,.32),olive,3.3,1.72,-1.5);k.put(k.B(.2,.04,.06),steel,3.3,1.95,-1.5);k.put(k.B(.44,.28,.36),EMT.wood,2.9,1.62,-1.52)});
+kG('scav1',veh,0,0,0,k=>{k.put(k.C(.17,.17,1.0,12),EMT.cnv,3.0,1.66,1.5,0,0,Math.PI/2);[2.7,3.3].forEach(x=>k.put(k.C(.175,.175,.04,12),dark,x,1.66,1.5,0,0,Math.PI/2))});
+kG('scav2',veh,0,0,0,k=>{k.put(new THREE.TorusGeometry(.26,.1,8,16),EMT.tyre,3.55,1.4,0,1.2,0,0);k.put(k.B(.5,.04,.36),steel,3.4,1.6,.62,0,0,-.5)});
+/* quartermaster: ration boxes and water cans under a cargo net on the roof's front right; a second copy stacks another layer */
+[0,1].forEach(i=>kG('qm'+i,tur,.9,1.0+i*.24,.75,k=>{[[-.17,-.14],[-.17,.14],[.17,-.14]].forEach(([x,z])=>k.put(k.B(.3,.2,.26),EMT.kit,x,.1,z));[-.08,.08].forEach(z=>k.put(k.B(.3,.22,.12),dark,.17,.11,.14+z*.6));
+ const n=new THREE.BoxGeometry(.7,.24,.6);k.put(n,NETM.material,0,.11,0)}));
+/* bounty: a white kill ring on the barrel for each kill this run (up to 10) */
+KIT.kr=[];{const r=tur.getObjectByName('gun').getObjectByName('rec');for(let i=0;i<10;i++){const m=new THREE.Mesh(new THREE.CylinderGeometry(.108,.108,.03,16).rotateZ(Math.PI/2),KIT.wht);m.position.set(4.15+i*.07,0,0);m.visible=false;r.add(m);KIT.kr.push(m)}}
+/* reactive tiles: the tile that stopped a hit is blown away (a scorched gap) until the next mission */
+KIT.rxs=[-1,1].map(s=>{const t=.2,o=.045,m=new THREE.Mesh(new THREE.BoxGeometry(.075,.22,.26),KIT.blk);m.position.set(2.25-.7*t+.618*(o+.01),.45+.55*t+.786*(o+.01),s*.62);m.rotation.z=.904;m.visible=false;tur.add(m);return m});
+/* looter's tray: a railed carry tray across the hull rear at deck height (behind the turret's sweep, above the forward ammo dump's rack) with a rolled tarp
+   against the hull, jerry cans and ammo tins; one more crate per cache looted this run, up to 8 */
+kG('loot',veh,0,0,0,k=>{k.put(k.B(.66,.04,2.5),dark,-4.12,1.62,0);[-1,1].forEach(s=>{k.rod([-3.8,1.84,s*1.25],[-4.45,1.84,s*1.25],.02,.02,dark,6);k.rod([-3.77,1.25,s*.9],[-4.36,1.6,s*.9],.03,.03,dark,6)});
+ k.rod([-4.45,1.84,-1.25],[-4.45,1.84,1.25],.02,.02,dark,6);[[-3.8,-1.25],[-3.8,1.25],[-4.45,-1.25],[-4.45,1.25],[-4.45,0]].forEach(([x,z])=>k.rod([x,1.62,z],[x,1.84,z],.02,.02,dark,6));
+ k.put(k.C(.12,.12,1.6,12),EMT.cnv,-3.92,1.76,0,Math.PI/2,0,0);[-.5,.5].forEach(z=>k.put(k.B(.26,.03,.03),EMT.net,-3.92,1.76,z));
+ [-3.97,-4.25].forEach(x=>{k.put(kBx(k,.24,.3,.11),dark,x,1.79,1.05);k.put(k.C(.025,.025,.04,8),steel,x+.08,1.96,1.05);k.put(kBx(k,.26,.14,.12),dark,x,1.71,-1.05);k.put(k.B(.08,.02,.04),steel,x,1.79,-1.05)})});
+[1.76,2.0].forEach((y,l)=>[-.6,-.2,.2,.6].forEach((z,j)=>kG('lc'+(l*4+j),veh,-4.22,y,z,k=>{k.put(kBx(k,.3,.24,.36),EMT.wood,0,0,0);k.put(k.B(.31,.035,.37),dark,0,.04,0);k.put(k.B(.31,.245,.03),EMT.net,0,0,0)})));
+/* ---------- which parts show, and the moments ---------- */
+const kN=k=>typeof itN==='function'&&RUNS&&RUNS.inv?itN(k):0;
+function kitTick(dt){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,G=KIT.G,n=k=>R?kN(k):0;
+ if(R!==KIT.run){KIT.run=R;KIT.hb=0;KIT.k0=R?R.kills||0:0;KIT.rx=R?R.rxt||0:0;KIT.dm=R?R.dem||0:0;KIT.sc=0}
+ if(R){KIT.hb=Math.max(KIT.hb,heatBand(R.heat||0));const kd=(R.kills||0)-KIT.k0;KIT.k0=R.kills||0;if(kd>0){if(n('scr'))KIT.sc=Math.min(3,KIT.sc+kd);if(n('red')&&R.heat>=100)kitBurst(veh,0,1.9,0,0xff3020,14,3)}}
+ const has={};['weld','damp','spall','oca','scr','rls','slr','dem','tur','wtp','frd','med','ins','adr','bld','red','pbf','gsu','a10k','a10c','trip','scav','qm','bounty','loot'].forEach(k=>has[k]=n(k));
+ const lc=R?Math.min(8,R.caches||0):0,key=JSON.stringify(has)+KIT.hb+'|'+KIT.sc+'|'+Math.min(10,R?R.kills||0:0)+'|'+(R?R.rxt||0:0)+'|'+lc+'|'+MOD.key;
+ /* moments: insurance spent, a reactive tile blown, a spoofed fix */
+ if(KIT.has.ins&&!has.ins&&R&&R.hp<=1)kitTear();
+ const rx=R?R.rxt||0:0;if(rx>KIT.rx){KIT.rxs.forEach(m=>m.visible=true);tur.updateMatrixWorld(true);const p=KIT.rxs[0].getWorldPosition(KIT.V);kitBurst(null,p.x,p.y,p.z,0xffc070,16,6)}KIT.rx=rx;if(!rx)KIT.rxs.forEach(m=>m.visible=false);
+ const dmn=R?R.dem||0:0;if(dmn>KIT.dm)KIT.fl=1.5;KIT.dm=dmn;KIT.fl=Math.max(0,KIT.fl-dt);KIT.lens.emissiveIntensity=KIT.fl>0?(Math.sin(KIT.fl*20)>0?4:0):0;
+ KIT.gl=Math.max(0,KIT.gl-dt);KIT.red.emissiveIntensity=KIT.gl*3;
+ KIT.has=has;if(key!==KIT.key){KIT.key=key;
+  G.weld.visible=!!has.weld;G.damp0.visible=has.damp>=1;G.damp1.visible=has.damp>=2;G.spall.visible=!!has.spall;G.oca.visible=!!has.oca;KIT.sh.forEach((o,i)=>o.visible=!!has.scr&&i<KIT.sc);
+  G.rls.visible=!!has.rls;G.slr.visible=!!has.slr;G.dem.visible=!!has.dem;G.tur.visible=!!has.tur;KIT.wp.forEach(m=>m.visible=!!has.wtp);if(has.wtp)upT(offs);G.frd.visible=!!has.frd;
+  G.med.visible=!!has.med;G.ins.visible=!!has.ins;G.red.visible=!!has.red;G.pbf.visible=!!has.pbf;G.gsu0.visible=has.gsu>=1;G.gsu1.visible=has.gsu>=2;
+  G.a10k.visible=!!has.a10k;G.a10c.visible=!!has.a10c;G.trip.visible=!!has.trip;G.scav0.visible=has.scav>=1;G.scav1.visible=has.scav>=2;G.scav2.visible=has.scav>=3;
+  G.qm0.visible=has.qm>=1;G.qm1.visible=has.qm>=2;G.loot.visible=!!has.loot;for(let i=0;i<8;i++)G['lc'+i].visible=!!has.loot&&i<lc;KIT.kr.forEach((m,i)=>m.visible=!!has.bounty&&i<Math.min(10,R?R.kills||0:0));
+  /* chevrons sit on whatever covers the turret side */
+  const cz=MOD.G.tblT.visible?1.755:MOD.G.appl.visible?1.71:1.6;[KIT.bldL,KIT.bldR].forEach((L,i)=>L.forEach((o,j)=>{o.visible=!!has.bld&&j<KIT.hb;o.position.z=(i?1:-1)*cz}))}
+ /* adrenaline: red vision blocks over 75 heat */
+ const ad=!!has.adr&&R&&R.heat>=75;KIT.vb.forEach(m=>m.material=ad?KIT.rglass:glass);
+ if(has.red&&KIT.pn)KIT.pn.rotation.y=Math.sin(T*7)*.35+Math.sin(T*2.3)*.2;
+ /* ghost crew: the silent first round keeps its flash and jets hidden */
+ if(T<KIT.gh){flash.visible=false;jetsT(9)}
+ if(!R||!dt)return;const r=KIT.r;
+ /* field welder: a spark spray on the hull at each repair tick while moving */
+ if(has.weld&&Math.abs(v)>1&&R.hp<R.hpMax){KIT.wt+=dt;if(KIT.wt>=10){KIT.wt=0;kitBurst(veh,-2+r()*4,1.5,(r()<.5?-1:1)*1.7,0xfff0b0,12,2)}}
+ /* turbocharger: black coughs from the stack on hard acceleration */
+ const acc=(Math.abs(v)-KIT.vp)/dt;KIT.vp=Math.abs(v);KIT.tp-=dt;if(has.tur&&acc>1.2&&KIT.tp<=0){KIT.tp=.12;veh.updateMatrixWorld(true);const p=veh.localToWorld(KIT.V.set(2.75,2.15,-.05));
+  fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0x1a1816),life:1.5+r(),s0:.25,grow:1.8,op:.5,vy:1.2+r(),dr:.5,L:1})}}
+/* a burst of bright sparks (on the AS9 if par is set, else at world x,y,z) */
+function kitBurst(par,x,y,z,c,n,sp){let p=KIT.V.set(x,y,z);if(par){par.updateMatrixWorld(true);p=par.localToWorld(p)}const r=KIT.r;
+ for(let i=0;i<n;i++){const a=r()*6.283,s=sp*(.4+r()*.8);fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(c),life:.3+r()*.4,s0:.06,grow:.1,op:.95,vx:Math.cos(a)*s,vz:Math.sin(a)*s,vy:1+r()*sp,g:9,e:6,ed:3,L:1})}}
+/* the insurance wheel tears off: sparks, smoke, gone */
+function kitTear(){tur.updateMatrixWorld(true);const p=tur.localToWorld(KIT.W.set(-3.0,.5,-1.12));kitBurst(null,p.x,p.y,p.z,0xffb060,24,5);
+ for(let i=0;i<4;i++)fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0x504a44),life:3,s0:.4,grow:2,op:.45,vy:.8,dr:.6,L:1});KIT.G.ins.visible=false}
+/* firing: the overcharged vent glows; ghost crew's first round of a mission makes no flash, blast ring, jets, dust or smoke (they still run, then are removed, so nothing else changes);
+   point-blank fuze rounds fired direct glow as tracers */
+const _fiK=fire;fire=function(){const n=shotN,L0=FX.L.length,s0=shk.length,w0=BL.W.length,b0=BL.n;_fiK.apply(this,arguments);const R=typeof RUNS!=='undefined'?RUNS:null;if(shotN===n||!R||TUT)return;
+ if(kN('oca'))KIT.gl=1;
+ if(kN('gcr')&&shotN-R.shots0===1){FX.L.splice(L0);shk.splice(s0).forEach(s=>{sc.remove(s.m);s.m.material.dispose();s.m.geometry.dispose()});BL.W.splice(w0);if(BL.n>b0)BL.u.blP.value[(BL.n-1)%3].w=0;FX.flI=0;KIT.gh=T+.2;flash.visible=false;jetsT(9)}
+ if(KIT.sc>0)KIT.sc--;
+ const s=shells[shells.length-1];if(kN('pbf')&&s&&s.df&&s.n===shotN){s.m.material=KIT.trc;s.m.scale.set(2.5,1,1)}};
+/* dual-purpose fill: our HE bursts throw a ring of fragment sparks */
+const _imK=impactI;impactI=function(f){_imK(f);if(!f||f.a!=='HE'||!f.own||!kN('dpf')||!f.imp)return;const p=toL(f.imp.e,f.imp.n),h=Math.max(H(p.x,p.z),WL)+.6;kitBurst(null,p.x,h,p.z,0xffd27a,28,14)};
+const _fxK=fxTick;fxTick=function(dt){_fxK(dt);kitTick(dt)};
+gfxRng();
+/* ================= BGGB active items: nothing shows while carried; each use has its own moment. Toolkit: a red tool chest set down by the hull and sparks at the fault it fixes.
+   Patch kit: weld sparks and a bare-steel patch welded on (one more per use, gone when the mission ends). REME pack: sparks at every fault point and steam from the engine bay.
+   Decoy round: red smoke marks its impact while the enemy fixes on it. Smoke dischargers: six grenades arc out of the dischargers and pop where the screen blooms.
+   Emergency boost: exhaust flames and black smoke while it runs. Forward ammo dump: HE crates on the rear deck while the gun holds rounds over its cap.
+   Sig-int intercept: a direction-finding mast raises and turns until the salvo shows. Trip flares (passive): a flare pops over each RPG or autocannon team as it opens up.
+   Mine belt already blows (r10); Recon report works on the map only. Built from private PRNGs: the game's random stream is unchanged ================= */
+gfxRng(0x75e4f7);
+const USE={r:rng(0x75f508),V:new THREE.Vector3(),W:new THREE.Vector3(),N:new THREE.Vector3(),cur:null,live:false,np:0,P:[],q:[],gn:[],fl:[],seen:new WeakSet(),
+ ct:0,dp:0,dk:0,dx:0,dz:0,de:0,be:0,su:0,sh:0,
+ red:new THREE.MeshStandardMaterial({color:LIN(0x9a1a12),roughness:.45,metalness:.2}),stl:new THREE.MeshStandardMaterial({color:LIN(0x707270),roughness:.38,metalness:.25}),
+ bead:new THREE.MeshStandardMaterial({color:LIN(0x34302c),roughness:.55,metalness:.2}),hes:new THREE.MeshStandardMaterial({color:LIN(0xd0a818),roughness:.6})};
+/* fault work points (as 64-repair): track at the left sprocket, power pack in the glacis bay, turret drive on the roof, boresight at the sight head */
+const USE_F={trk:['veh',3.25,.84,-1.75],eng:['veh',3.5,1.3,.56],trv:['tur',-.42,1.05,-.78],sig:['tur',.75,1.2,-.95]};
+const usePt=(f,v)=>{const o=f[0]==='tur'?tur:veh;o.updateMatrixWorld(true);return o.localToWorld(v.set(f[1],f[2],f[3]))};
+/* toolkit chest: lid open, a spanner on the tray (stands on the ground, in the scene) */
+USE.chest=new THREE.Group();USE.chest.visible=false;sc.add(USE.chest);
+ekBuild(USE.chest,k=>{k.put(k.B(.72,.3,.36),USE.red,0,.15,0);k.put(k.B(.74,.04,.38),USE.red,0,.4,-.03,-.6,0,0);k.put(k.B(.66,.02,.3),dark,0,.29,0);
+ [-1,1].forEach(s=>k.put(k.B(.04,.05,.16),dark,s*.38,.24,0));k.rod([-.2,.33,.05],[.18,.33,-.02],.018,.018,steel,6);k.put(k.B(.08,.03,.06),steel,.21,.33,-.02)});
+USE.chest.traverse(m=>{if(m.isMesh)m.castShadow=true});
+/* patch plates: where rays from outside meet the AS9 (glacis, turret sides, turret front cheeks), each its own material so a fresh weld glows */
+(()=>{const rc=new THREE.Raycaster(),list=[],iv=new THREE.Matrix4(),B=new THREE.Matrix4(),Y=new THREE.Vector3(0,1,0),r=USE.r;veh.updateMatrixWorld(true);veh.traverseVisible(o=>{if(o.isMesh&&!o.isInstancedMesh)list.push(o)});
+ [[veh,6,1.2,.95,-1,0,0],[tur,-.6,.45,4,0,0,-1],[veh,6,1.2,-.95,-1,0,0],[tur,-.9,.45,-4,0,0,1],[tur,4,.45,1.1,-1,0,0],[tur,4,.45,-1.1,-1,0,0]].forEach(([par,x,y,z,dx,dy,dz])=>{
+  const o=par.localToWorld(new THREE.Vector3(x,y,z)),d=new THREE.Vector3(dx,dy,dz).transformDirection(par.matrixWorld);rc.set(o,d);const h=rc.intersectObjects(list,false)[0];if(!h||!h.face)return;
+  iv.copy(par.matrixWorld).invert();const p=h.point.clone().applyMatrix4(iv),n=h.face.normal.clone().transformDirection(h.object.matrixWorld).transformDirection(iv);if(n.dot(d.clone().transformDirection(iv))>0)n.negate();
+  const mt=USE.stl.clone();mt.emissive=new THREE.Color(1,.3,.05);mt.emissiveIntensity=0;const g=new THREE.Group();g.position.copy(p);const ax=new THREE.Vector3().crossVectors(Y,n);if(ax.lengthSq()<1e-4)ax.set(1,0,0);ax.normalize();g.quaternion.setFromRotationMatrix(B.makeBasis(ax,new THREE.Vector3().crossVectors(n,ax),n));g.rotateZ((r()-.5)*.5);g.visible=false;par.add(g);
+  ekBuild(g,k=>{k.put(k.B(.5,.38,.014),USE.bead,0,0,.008);k.put(k.B(.44,.32,.022),mt,0,0,.016);for(let i=0;i<6;i++)k.put(k.B(.03,.03,.02),USE.bead,(i%3-1)*.17,(i<3?-1:1)*.17,.022)});
+  USE.P.push({g,m:mt})})})();
+/* forward ammo dump: up to three HE crates (yellow band) on a rack strapped to the hull rear plate, under the bustle */
+USE.cr=[];(()=>{const rc=new THREE.Raycaster(),list=[];veh.updateMatrixWorld(true);veh.traverseVisible(o=>{if(o.isMesh&&!o.isInstancedMesh)list.push(o)});
+ rc.set(veh.localToWorld(new THREE.Vector3(-9,1.25,.6)),new THREE.Vector3(1,0,0).transformDirection(veh.matrixWorld));const h=rc.intersectObjects(list,false)[0],x=(h?veh.worldToLocal(h.point.clone()).x:-3.75)-.2;
+ const rk=new THREE.Group();veh.add(rk);ekBuild(rk,k=>{k.put(k.B(.42,.04,1.5),dark,x,.98,.55);[-.15,1.25].forEach(z=>k.rod([x+.2,.98,z],[x+.2,1.5,z],.02,.02,dark,6))});rk.visible=false;USE.rk=rk;
+ [[x,1,.88],[x,1,.32],[x,1.3,.6]].forEach(([x,y,z])=>{const g=new THREE.Group();g.position.set(x,y,z);g.visible=false;veh.add(g);
+  ekBuild(g,k=>{k.put(k.B(.36,.3,.5),EMT.wood,0,.15,0);k.put(k.B(.37,.06,.51),USE.hes,0,.2,0);[-1,1].forEach(s=>k.put(k.B(.38,.04,.03),dark,0,.15,s*.18))});
+  g.traverse(m=>{if(m.isMesh)m.castShadow=true});USE.cr.push(g)})})();
+/* sig-int: a telescopic mast on the bustle roof with a turning four-element direction finder */
+USE.sg=new THREE.Group();USE.sg.position.set(-2.7,1.0,.5);USE.sg.visible=false;tur.add(USE.sg);
+ekBuild(USE.sg,k=>{k.put(k.C(.09,.11,.1,12),dark,0,.05,0);k.put(k.C(.045,.045,.3,8),dark,0,.25,0)});
+USE.ms=new THREE.Group();USE.ms.position.y=.4;USE.sg.add(USE.ms);ekBuild(USE.ms,k=>k.put(k.C(.03,.03,1,8),steel,0,.5,0));
+USE.hd=new THREE.Group();USE.sg.add(USE.hd);
+ekBuild(USE.hd,k=>{k.put(k.B(.62,.025,.025),dark,0,0,0);k.put(k.B(.025,.025,.62),dark,0,0,0);[[.3,0],[-.3,0],[0,.3],[0,-.3]].forEach(([x,z])=>k.put(k.C(.012,.012,.4,6),steel,x,.18,z));k.put(k.C(.05,.05,.06,10),dark,0,0,0)});
+USE.sg.traverse(m=>{if(m.isMesh)m.castShadow=true});
+/* trip flares: eight red star sprites (a hot core and a soft halo, as 65-night's illumination flares) */
+USE.fs=[];{const tc=nlTex([[0,1],[.2,.4],[1,0]]),th=nlTex([[0,1],[.12,.3],[.4,.06],[1,0]]);for(let i=0;i<8;i++){const g=new THREE.Group(),
+ sp=(t,c)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,color:c,blending:THREE.AdditiveBlending,depthWrite:false,fog:false,transparent:true}));s.renderOrder=7;g.add(s);return s};
+ g.core=sp(tc,new THREE.Color(4,1.5,1.1));g.halo=sp(th,new THREE.Color(1.5,.3,.18));g.visible=false;sc.add(g);USE.fs.push(g)}}
+/* ---------- moments ---------- */
+const useLive=()=>typeof RUNS!=='undefined'&&RUNS&&!TUT&&runLive();
+const useAt=(dt,f)=>USE.q.push({t:T+dt,f});
+/* sparks at a world point (as 74-kit's bursts), with a little grey smoke */
+function useSpark(p,n,sp){const r=USE.r;for(let i=0;i<n;i++){const a=r()*6.283,s=sp*(.4+r()*.8);fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xffe0a0),life:.3+r()*.4,s0:.06,grow:.1,op:.95,vx:Math.cos(a)*s,vz:Math.sin(a)*s,vy:1+r()*sp,g:9,e:6,ed:3,L:1})}
+ fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0x6a6660),life:1.6,s0:.15,grow:.9,op:.3,vy:.6,dr:.4,L:1})}
+function useGo(k,f){const r=USE.r;
+ if(k==='tool'){const s=f==='trk'?-1:1;veh.updateMatrixWorld(true);const p=veh.localToWorld(USE.V.set(f==='trk'?2.2:1.0,0,s*2.5));USE.chest.position.set(p.x,Math.max(H(p.x,p.z),WL),p.z);
+  USE.chest.quaternion.copy(veh.quaternion);USE.chest.visible=true;USE.ct=T+4;const w=USE_F[f]||USE_F.eng;[0,.3,.6,.9,1.4].forEach(t=>useAt(t,()=>useSpark(usePt(w,USE.W),12,3)))}
+ if(k==='patch'&&USE.np<USE.P.length){const P=USE.P[USE.np++];P.g.visible=true;P.m.emissiveIntensity=2.5;P.t=T;[0,.3,.6,.9].forEach(t=>useAt(t,()=>{P.g.updateMatrixWorld(true);useSpark(P.g.localToWorld(USE.W.set((r()-.5)*.4,(r()-.5)*.3,.04)),10,2.5)}))}
+ if(k==='reme'){Object.values(USE_F).forEach((w,i)=>[0,.5,1].forEach(t=>useAt(i*.35+t,()=>useSpark(usePt(w,USE.W),12,3))));
+  if(typeof rpSteam==='function')for(let i=0;i<14;i++)useAt(i*.18,rpSteam)}
+ if(k==='smoke'){tur.updateMatrixWorld(true);for(let i=0;i<6;i++){const o=tur.localToWorld(new THREE.Vector3(1.25,.72,(i<3?-1:1)*1.5)),
+   tx=px+Math.cos(i)*6,tz=pz+Math.sin(i)*6,ty=H(px,pz)+2,ft=.55+.04*i;
+   USE.gn.push({p:o,v:new THREE.Vector3((tx-o.x)/ft,(ty-o.y)/ft+4.9*ft,(tz-o.z)/ft),t:0,ft});fxAdd({x:o.x,y:o.y,z:o.z,c:LIN(0xffc070),life:.12,s0:.35,grow:.3,op:1,e:6,ed:20,L:1})}}
+ if(k==='boost'){veh.updateMatrixWorld(true);for(let i=0;i<5;i++){const p=veh.localToWorld(USE.V.set(2.8,1.95,.9));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0x141210),life:1.5+r(),s0:.35,grow:2.2,op:.6,vy:2+r(),vx:(r()-.5),vz:(r()-.5),dr:.5,L:1})}}}
+if(typeof itUse==='function'){const _iuU=itUse;itUse=function(i){const x=itActs()[i],k=x&&x.k,f=FLT.on[0],ok=_iuU.apply(this,arguments);if(ok&&k&&useLive())useGo(k,f);return ok}}
+/* the per-step part: queued sparks, the chest, grenades, the decoy marker, boost flames, the DF mast, HE crates and trip flares */
+function useTick(dt){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,live=!!R&&runLive(),r=USE.r;
+ const cur=live?R.cur:null;if(cur!==USE.cur||live!==USE.live){USE.cur=cur;USE.live=live;USE.np=0;USE.P.forEach(P=>P.g.visible=false);USE.q.length=0;USE.gn.length=0;USE.fl.length=0;USE.fs.forEach(g=>g.visible=false);USE.ct=0;USE.dk=0;USE.dp=0}
+ for(let i=USE.q.length;i--;)if(T>=USE.q[i].t)USE.q.splice(i,1)[0].f();
+ USE.chest.visible=live&&T<USE.ct;
+ USE.P.forEach(P=>{if(P.g.visible)P.m.emissiveIntensity=Math.max(0,2.5*(1-(T-P.t)/3))});
+ /* fwd: HE crates while the load is over its cap */
+ const over=live&&typeof ammo!=='undefined'&&typeof rsBase==='function'?Math.max(0,ammo.HE-rsBase().HE):0,nc=Math.min(3,Math.ceil(over/4));USE.cr.forEach((g,i)=>g.visible=i<nc);USE.rk.visible=nc>0;
+ /* sig-int: the mast stands while the intercept is armed */
+ USE.su=Math.max(0,Math.min(1,USE.su+(live&&IT.sig?1:-1)*(dt||0)/1.5));USE.sg.visible=USE.su>0;if(USE.sg.visible){USE.ms.scale.y=USE.su;USE.hd.position.y=.4+USE.su;USE.hd.rotation.y+=(dt||0)*USE.su*2.2}
+ if(!live||!dt)return;
+ /* smoke grenades: arc with a thin trail, pop into a white cloud */
+ for(let i=USE.gn.length;i--;){const g=USE.gn[i];g.t+=dt;g.v.y-=9.8*dt;g.p.addScaledVector(g.v,dt);fxAdd({x:g.p.x,y:g.p.y,z:g.p.z,c:LIN(0xb8b8b0),life:.7,s0:.1,grow:.6,op:.35,L:1});
+  if(g.t>=g.ft){USE.gn.splice(i,1);for(let j=0;j<5;j++)fxAdd({x:g.p.x+(r()-.5)*2,y:g.p.y,z:g.p.z+(r()-.5)*2,c:LIN(0xd8d8d0),life:7+r()*3,s0:1.5,grow:6,op:.55,vy:.4+r()*.4,vx:(r()-.5),vz:(r()-.5),dr:.3,L:1})}}
+ /* decoy: the impact that became the enemy's fix trails red smoke until the 30 s run out */
+ if(USE.dp&&!IT.dpend&&RH.fix){USE.dk=IT.safe||T+30;USE.dx=RH.fix.x;USE.dz=RH.fix.z}USE.dp=IT.dpend;
+ if(T<USE.dk&&(USE.de-=dt)<=0){USE.de=.15;fxAdd({x:USE.dx+(r()-.5),y:Math.max(H(USE.dx,USE.dz),WL)+.4,z:USE.dz+(r()-.5),c:LIN(0xc02818),life:4+r()*2,s0:.8,grow:5,op:.55,vy:1.4+r()*.6,vx:(r()-.5)*.8,vz:(r()-.5)*.8,dr:.3,L:1})}
+ /* boost: flames and black smoke from the engine deck exhaust */
+ if(IT.boost>T&&(USE.be-=dt)<=0){USE.be=.05;veh.updateMatrixWorld(true);const p=veh.localToWorld(USE.V.set(2.8,1.95,.9));
+  fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xffa040),life:.22,s0:.22,grow:.35,op:.9,vy:2.5,e:5,ed:10,L:1});if(r()<.5)fxAdd({x:p.x,y:p.y+.2,z:p.z,c:LIN(0x161412),life:1.6+r(),s0:.35,grow:2.4,op:.5,vy:1.6+r(),dr:.5,L:1})}
+ /* trip flares: each new RPG or autocannon shot sends up a flare over its team: it climbs, then hangs burning red as it drops */
+ if(typeof NTS!=='undefined'&&typeof itN==='function'){const tr=itN('trip');NTS.forEach(s=>{if(USE.seen.has(s))return;USE.seen.add(s);const g=tr&&USE.fs.find(g=>!USE.fl.some(f=>f.g===g));if(g)USE.fl.push({x:s.x,y:Math.max(H(s.x,s.z),WL)+1,z:s.z,vy:21,t:0,g})})}
+ for(let i=USE.fl.length;i--;){const f=USE.fl[i],g=f.g,dc=cam.position.distanceTo(g.position);f.t+=dt;g.visible=true;g.position.set(f.x,f.y,f.z);
+  if(f.vy>0){f.vy-=9.8*dt;f.y+=Math.max(0,f.vy)*dt;g.core.scale.setScalar(Math.max(.4,dc*.003));g.core.material.opacity=.8;g.halo.material.opacity=0;fxAdd({x:f.x,y:f.y,z:f.z,c:LIN(0xa8a49c),life:1.2,s0:.15,grow:.8,op:.3,L:1})}
+  else{f.y-=.9*dt;const k=Math.min(1,f.t-2)*(f.t>5.5?Math.max(0,6.5-f.t):1)*(.85+.15*Math.sin(f.t*31));g.core.scale.setScalar(Math.max(1.2,dc*.007));g.halo.scale.setScalar(Math.max(16,dc*.04));
+   g.core.material.opacity=k;g.halo.material.opacity=k*.7;if(r()<.3)fxAdd({x:f.x,y:f.y+.3,z:f.z,c:LIN(0xd0ccc4),life:2.5,s0:.3,grow:1.6,op:.2,vy:.5,L:1})}
+  if(f.t>6.5){g.visible=false;USE.fl.splice(i,1)}}}
+const _fxU=fxTick;fxTick=function(dt){_fxU(dt);useTick(dt)};
+gfxRng();
 </script>

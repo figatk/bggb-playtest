@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.8.0","c":"a4592d2"};
+const BUILD={"v":"9.9.0","c":"3a277d6"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -641,7 +641,7 @@ function impactI(f){IMP.push({e:f.imp.e,n:f.imp.n,a:f.a,t:T,own:f.own,ai:f.ai});
 const frList=()=>TH.fr.concat(M&&M.def.friendly||[]);
 const nearestTgt=p=>{let b=null,bd=1e9;for(const t of TGT){const d=dst(p,t);if(d<bd){bd=d;b=t}}return b};
 /* battery guns */
-function aiFire(gk,aimP,when,a,fzz){sched(Math.max(0,when-T),function f_(){const u=BG[gk].userData;if(u.down)return;if(u.st!=='action'){sched(2,f_);return}const g=bgG(gk),R=dst(g,aimP),s=bgLay(gk,aimP);if(!s)return;u.fired=(u.fired||0)+1;const b=brg(g,aimP);
+function aiFire(gk,aimP,when,a,fzz){sched(Math.max(0,when-T),function f_(){const u=BG[gk].userData;if(u.down)return;if(u.st!=='action'||M&&M.checkFire){sched(2,f_);return} /* hold during check firing */const g=bgG(gk),R=dst(g,aimP),s=bgLay(gk,aimP);if(!s)return;u.fired=(u.fired||0)+1;const b=brg(g,aimP);
   u.tr=wr(Math.PI/2-b/MIL-u.hd);u.el=s.q/MIL;bgShot(gk);const dl=Math.hypot(u.x-px,u.z-pz);sfx(0,dl/340,.5/(1+dl/80));
   const peR=.0012*R+4,er=gauss()*peR/.6745,ed=gauss()*(.0005*R+2)/.6745,bR=b/MIL;
   FLY.push({ai:gk,t:T+s.tof/S.tc,imp:{e:g.e+Math.sin(bR)*(R+er)+Math.cos(bR)*ed+rnd(-15,15),n:g.n+Math.cos(bR)*(R+er)-Math.sin(bR)*ed+rnd(-15,15)},a,fz:fzz,leg:M&&M.cur})})}
@@ -932,7 +932,7 @@ function drawMap(){if(curTab!=='map'||!mc._dp)return;const W=mc.width,Hh=mc.heig
   unit(t,'#e5534b',t.id+(t.els.length?' '+Math.round(effPct(t)*100)+'%':''),'dia')});
  SMK.forEach(c=>{const k=1-(T-c.t0)/c.life;if(k<=0)return;const[a,b]=w2s(c.e,c.n);x.fillStyle='rgba(230,230,230,'+(.45*k)+')';x.beginPath();x.arc(a,b,Math.max(3*dp,110/mapV.s*dp),0,7);x.fill()});
  ILL.forEach(c=>{const k=1-(T-c.t0)/c.life;if(k<=0)return;const[a,b]=w2s(c.e,c.n);x.fillStyle='rgba(255,240,150,'+(.3*k)+')';x.beginPath();x.arc(a,b,Math.max(4*dp,500/mapV.s*dp),0,7);x.fill()});
- IMP.forEach(i=>{const[a,b]=w2s(i.e,i.n),age=T-i.t;x.globalAlpha=age<600?1-age/700:.15;if(i.a==='CB'){x.strokeStyle='#ff3b30';x.lineWidth=2*dp;x.beginPath();x.moveTo(a-4*dp,b-4*dp);x.lineTo(a+4*dp,b+4*dp);x.moveTo(a+4*dp,b-4*dp);x.lineTo(a-4*dp,b+4*dp);x.stroke()}
+ IMP.forEach(i=>{const[a,b]=w2s(i.e,i.n),age=T-i.t;x.globalAlpha=age<600?1-age/700:.15;if(i.a==='CB'){x.strokeStyle='#ff3b30';x.lineWidth=2*dp;x.beginPath();x.arc(a,b,4*dp,0,7);x.stroke()}
   else{x.fillStyle=i.a==='SMK'?'#f2f2f2':i.a==='ILL'?'#ffe680':i.ai?'#f7c88a':'#ff9a3c';x.beginPath();x.arc(a,b,(i.ai?2.5:3.5)*dp,0,7);x.fill()}x.globalAlpha=1});
  FLY.forEach(f=>{if(!f.own)return;const k=cl((T-f.tf)/(f.t-f.tf),0,1),e=f.from.e+(f.imp.e-f.from.e)*k,n=f.from.n+(f.imp.n-f.from.n)*k,[a,b]=w2s(e,n);x.fillStyle='#fff';x.beginPath();x.arc(a,b,2.5*dp,0,7);x.fill()});
  if(aim){const[a,b]=w2s(aim.e,aim.n);x.strokeStyle='#e2b93b';x.lineWidth=1.5*dp;x.beginPath();x.moveTo(a-9*dp,b);x.lineTo(a+9*dp,b);x.moveTo(a,b-9*dp);x.lineTo(a,b+9*dp);x.stroke();x.setLineDash([2*dp,4*dp]);x.beginPath();x.moveTo(gx,gy);x.lineTo(a,b);x.stroke();x.setLineDash([])}
@@ -4721,7 +4721,7 @@ const RUN_MODES={
  AREA:{n:'Area control',d:'Hold 2 of 3 zones against an enemy battery for 3 minutes.'},
  SALV:{n:'Salvage',d:'Collect at least 3 of the caches marked on your map, then leave when you like. Heat rises faster the longer you stay.',from:1},
  PROT:{n:'Protect friendlies',d:'A friendly post is attacked in 4 waves. Keep it alive for Supply and an item.',from:1}};
-const RUN_KEY='bggbrun',RUN_LEN=6,RUN_EXTRA=['HIDE','RSP'],RUN_MAPS=3,RUN_PER=4,RUN_ORD=6,SC_MAP=150; /* P3: a run is 3 maps, each 6 orders (4 missions, 2 shops/rests/events), a depot between maps. Saves are v2; a P2 save (key as9run) is dropped */
+const RUN_KEY='bggbrun',RUN_LEN=6,RUN_EXTRA=['HIDE','RSP'],RUN_MAPS=3,RUN_PER=4,RUN_ORD=8,SC_MAP=150; /* P3: a run is 3 maps, each 8 orders (3 orders, a stop, 3 orders, the boss: r18), a depot between maps. Saves are v2; a P2 save (key as9run) is dropped */
 try{localStorage.removeItem('as9run')}catch(e){}
 const sDist=(a,b)=>Math.hypot(SITES[a][0]-SITES[b][0],SITES[a][1]-SITES[b][1]);
 const runSites=()=>[...FPS,...RUN_EXTRA].filter(k=>SITES[k]);
@@ -4736,7 +4736,7 @@ function runMission(r,O,Z,W,m,k,start,exfil){const time=hhmm(todParse('08:30')+k
  const base={id:'RUN'+O.seed+'-'+k+'-'+m,gen:'RUN',proc:1,world:runWorld(O.seed),name:tag.n,tag:'Run',start,time,events:[],legs:[],uav:true,brief:tag.d};
  const e={mode:m,start,exfil,fp:start,tgts:[],spawns:[],name:tag.n};
  if(m==='FIRE'||m==='HOT'){const fpOk=f=>f&&sDist(f,exfil)>=400&&sDist(f,start)>=400&&runPathLen(f,exfil)<=2000;let d=null;for(let t=0;t<12&&!(d&&fpOk(d.legs[0].fp));t++)d=pMission(r,O,Z,W,pick(r,['ADJ','NEUT','SUPP']),k,time,false);if(!d||!fpOk(d.legs[0].fp))return null; /* a drive to the FP, and the rally point 400 m to 2 km of track from it */
-  delete d.cb;d.uav=true;d.id=base.id;d.start=start;d.name=tag.n+' · '+d.name;e.fp=d.legs[0].fp;e.tgts=d.legs.map(L=>L.tgt&&L.tgt.e!=null?toL(L.tgt.e,L.tgt.n):null).filter(Boolean);e.def=d}
+  delete d.cb;d.uav=true;{const cr=rng(O.seed^0xcf17^(k*7919));d.events=d.events.filter(v=>v.type!=='checkfire'||cr()<.4);d.events.forEach(v=>{if(v.type==='checkfire')v.dur=Math.round(8+cr()*7)})} /* check firing: 10% of fire missions (trainer 25%), 8-15 s */d.id=base.id;d.start=start;d.name=tag.n+' · '+d.name;e.fp=d.legs[0].fp;e.tgts=d.legs.map(L=>L.tgt&&L.tgt.e!=null?toL(L.tgt.e,L.tgt.n):null).filter(Boolean);e.def=d}
  else if(m==='ESCORT'||m==='AREA'||m==='PROT'){e.fp=pick(r,FPS.filter(f=>SITES[f]&&(sitePath(start,f)||f===start)&&sDist(f,exfil)>=400&&sDist(f,start)>=400&&runPathLen(f,exfil)<=2000))||null;if(!e.fp)return null;e.def=base}
  else e.def=base;
  if(m==='ESCORT'){const av=[];for(let i=0;i<3;i++){const p=pTgt(r,O,Z,W,e.fp,{d0:600,d1:5000,avoid:av,rmin:4000,rmax:12000});if(!p)return null;av.push(p);const q=toL(p.e,p.n);e.tgts.push({x:Math.round(q.x),z:Math.round(q.z)})}
@@ -4759,7 +4759,8 @@ function runNew(seed,o){o=o||{};CAMP=null; /* a new run always starts fresh: dro
  const R={seed,rseed:seed,maps:o.missions?1:RUN_MAPS,n:o.missions||RUN_PER,mi:0,m0:0,mc:0,res:[],tel:[],hp:100,hpMax:100,ups:[],heat:0,phase:'route',t0:T};
  if(R.maps>1)R.bio=runBio(seed);runMapBuild(R);R.spl={};RUNS=R;runSetMods({});return R}
 /* one map: its world, then for each step 2-3 options that share a start and a rally point; run-wide state (Supply, items, events seen) carries over */
-function runMapBuild(R){const keep=R.mi?{sp:R.sp,inv:R.inv,reveal:R.reveal,evSeen:R.evSeen,evHeat:R.evHeat}:null,s=R.seed=mapSeed(R.rseed,R.mi),n=R.n;
+function runMapBuild(R){if(R.maps>1)return ordMapBuild(R); /* P3b: orders from where you are (r18) */
+ const keep=R.mi?{sp:R.sp,inv:R.inv,reveal:R.reveal,evSeen:R.evSeen,evHeat:R.evHeat}:null,s=R.seed=mapSeed(R.rseed,R.mi),n=R.n;
  if(R.bio){const Z=opGet(s,1).zones[0],b=R.bio[R.mi];if(Z.bk!==b){Z.name=Z.name.replace(BIOME[Z.bk].n,BIOME[b].n);Z.bk=b}}
  WORLD.key=null;worldUse(runWorld(s));const O=opGet(s,1),Z=O.zones[0],W=genWorld(Z.wseed,Z.bk),r=rng(s^0x5eed);
  Object.assign(R,{i:0,opts:[],plan:[],pick:[],dep:0});let start='HIDE';
@@ -4782,17 +4783,17 @@ function spLog(k,n){const R=RUNS;if(!R||!n)return;const L=R.spl||(R.spl={});L[k]
 /* ---------- missions ---------- */
 function runStart(j){const R=RUNS;if(!R)return;if(j!=null&&R.opts[R.i][j]){R.plan[R.i]=R.opts[R.i][j];R.pick[R.i]=j}const e=R.plan[R.i],def=JSON.parse(JSON.stringify(e.def)),mr=mapRowOf(R.i);
  if(mr>=0)R.pend={r:mr,n:Math.max(0,R.map.rows[mr].nodes.findIndex(x=>x.j===(R.pick[R.i]||0)))}; /* the map position moves when the mission is over */
- R.gr=mr;R.cur=e;R.phase='mission';R.taskDone=false;R.cleared=0;R.ok=null;R.floor=(R.maps>1?(x,y)=>x+y:Math.max)(RUN_MODES[e.mode].heat||0,Math.round(12*runMk())) /* P3g.3b: in 3-map runs a mode's start heat adds to the map floor */+(e.elite?ELITE.heat:0);R.heat=R.floor; /* later missions run warmer: heat never falls below the floor */ R.heatMax=R.heat;R.over100=0;R.tm0=T;R.dmg0=R.hp;R.shots0=shotN;R.kills0=R.kills||0;R.hs=0;R.ht=0;
+ R.gr=mr;R.cur=e;R.phase='mission';R.taskDone=false;R.cf=0;R.cleared=0;R.ok=null;R.floor=(R.maps>1?(x,y)=>x+y:Math.max)(RUN_MODES[e.mode].heat||0,Math.round(12*runMk())) /* P3g.3b: in 3-map runs a mode's start heat adds to the map floor */+(e.elite?ELITE.heat:0);R.heat=R.floor; /* later missions run warmer: heat never falls below the floor */ R.heatMax=R.heat;R.over100=0;R.tm0=T;R.dmg0=R.hp;R.shots0=shotN;R.kills0=R.kills||0;R.hs=0;R.ht=0;
  if(!CAMP){startCampaign([def.id],{defs:[def],start:{ammo:{HE:Math.round(36*rUp('cap')),SMK:6,ILL:6},stock:{...RS_LOAD}},title:runTitle(),endTxt:'Task complete. Move to the rally point, over',onEnd:runTaskDone});R.tm0=T;R.shots0=shotN}
  else{CAMP.list.push(def.id);CAMP.defs.push(def);CAMP.i=CAMP.list.length-1;CAMP.title=runTitle();CAMP.keep=true;try{startMission(campDef(),false)}finally{CAMP.keep=false}R.tm0=T;R.shots0=shotN} /* a fresh campaign resets the shot count */
  if(typeof runModeStart==='function')runModeStart(e);renderSoon()}
-const runTitle=()=>{const R=RUNS;return(R.maps>1?'Map '+(R.mi+1)+' of '+R.maps+' · ':'Run · ')+'mission '+(R.i+1)+' of '+R.n};
+const runTitle=()=>{const R=RUNS;return(R.maps>1?'Map '+(R.mi+1)+' of '+R.maps+' · order ':'Run · mission ')+(R.i+1)+' of '+R.n};
 /* the trainer part of the mission is over (fire tasks done, or none): the mode decides when the objective is met */
 function runTaskDone(){if(RUNS)RUNS.taskDone=true}
 function runObjective(ok,quiet){const R=RUNS;if(!R||R.phase!=='mission')return;R.ok=ok;R.phase='exfil';const g=GSITE(R.cur.exfil);if(quiet)return;
  msg('HAMMER 0','BIG PRAWN, '+(ok?'objective complete':'objective failed')+'. Move to the rally point at grid '+g8(g.e,g.n)+' now, over',{cls:ok?'cp':'cf',voice:false});beep(ok?880:300,.2);renderSoon()}
 function runArrive(){const R=RUNS;if(!R||R.phase!=='exfil')return;const e=R.cur;
- const t={step:R.m0+R.i,mi:R.mi,mode:e.mode,seed:R.seed,ok:!!R.ok,t:Math.round(T-R.tm0),heatMax:Math.round(R.heatMax),over100:Math.round(R.over100),dmg:Math.round(R.dmg0-R.hp),hp:Math.round(R.hp),shots:shotN-R.shots0,kills:(R.kills||0)-(R.kills0||0),heatAvg:Math.round(R.ht?R.hs/R.ht:R.heat),elim:runElim(),goals:runGoals(),elite:!!e.elite};t.sc=scoreMission(t);t.sp=spMission(t);R.sp=(R.sp||0)+t.sp.tot;spLog('mission',t.sp.tot);t.spl={...R.spl};
+ const t={step:R.m0+R.i,mi:R.mi,mode:e.mode,seed:R.seed,ok:!!R.ok,t:Math.round(T-R.tm0),heatMax:Math.round(R.heatMax),over100:Math.round(R.over100),dmg:Math.round(R.dmg0-R.hp),hp:Math.round(R.hp),shots:shotN-R.shots0,cf:R.cf||0,kills:(R.kills||0)-(R.kills0||0),heatAvg:Math.round(R.ht?R.hs/R.ht:R.heat),elim:runElim(),goals:runGoals(),elite:!!e.elite};t.sc=scoreMission(t);t.sp=spMission(t);R.sp=(R.sp||0)+t.sp.tot;spLog('mission',t.sp.tot);t.spl={...R.spl};
  if(R.pend){runMove(R.pend);delete R.pend}R.tel.push(t);R.res.push(t);R.i++;R.phase='between';if(st==='ACTION')st='TRAVEL';v=0;
  if(R.i>=R.n&&R.mi+1<R.maps)R.mc=(R.mc||0)+1; /* map cleared: its depot is next on the route */
  if(R.i>=R.n&&R.mi+1>=R.maps){R.won=true;runClear();runHistAdd(R,'won');return runShowScore()}
@@ -4896,7 +4897,7 @@ function ntSpawn(kind,x,z,o){const g=new THREE.Group();noRng(()=>{if(kind==='inf
  g.position.set(x,H(x,z),z);sc.add(g);const t={g,x,z,alive:true,vx:0,vz:0,nt:kind,fireT:T+rr_(RT.rr,3,8),hold:!!(o&&o.hold),seen:0};dft.push(t);return t}
 const ntLive=()=>dft.filter(t=>t.alive&&t.nt);
 /* waves: every 35-50 s the heat band decides what comes, from the mission's spawn ring */
-function ntWave(){const R=RUNS,e=R.cur,h=R.heat,sp=e.spawns;if(!sp.length||ntLive().length>=6)return;const at=()=>{const p=sp[Math.floor(RT.rr()*sp.length)];return[p[0]+rr_(RT.rr,-60,60),p[1]+rr_(RT.rr,-60,60)]};
+function ntWave(){const R=RUNS,e=R.cur,h=R.heat,sp=e.spawns;if(!sp.length||ntLive().length>=6+(R.maps>1&&e.elite?ELITE.add+(R.mi||0):0))return;const at=()=>{const p=sp[Math.floor(RT.rr()*sp.length)];return[p[0]+rr_(RT.rr,-60,60),p[1]+rr_(RT.rr,-60,60)]};
  const add=k=>{let p=at();if(k==='inf'){const d=Math.hypot(p[0]-px,p[1]-pz)||1,f=rr_(RT.rr,600,900)/d;if(f<1){const q=[px+(p[0]-px)*f,pz+(p[1]-pz)*f];if(depthAt(q[0],q[1])<.1)p=q}}ntSpawn(k,p[0],p[1])}; /* infantry dismount 600-900 m out */
 /* P3g.3: one wave table by heat band in 3-map runs: <25 one scout or section; 25-50 scout + section; 50-75 a likely scout + section or IFV; 75+ adds a section and a vehicle (and a section from depth 3) */
  if(R.maps>1&&!window.__runK&&h<50){if(h<25)add(RT.rr()<.5?'scout':'inf');else{add('scout');add('inf')}}
@@ -5069,13 +5070,15 @@ const _huRun=hud;hud=function(){_huRun();const R=RUNS,el=$('hud');if(!R||!runLiv
 const _bglRun=bgLabels;bgLabels=function(){if(RUNS&&runLive())return;return _bglRun.apply(this,arguments)};
 /* ================= RUN-ONLY: scoring (issue #45, option C) and run history with records ================= */
 /* per mission: (base + met + speed + targets) x (1 + avg heat/200) x (1 + 0.1 k) + 25 x min(kills,10) + 100 clean; failed but alive: base x multipliers + kills; destroyed: kills only. +500 for finishing the run */
+const CF_PEN=50; /* each round fired during check firing: -50 and no clean bonus (shown in the Clean column) */
+const _mofCF=mOnFire;mOnFire=function(f){const R=RUNS;if(R&&R.phase==='mission'&&M&&M.checkFire)R.cf=(R.cf||0)+1;return _mofCF(f)};
 const SCORE_V=1,SC_FIN=500,HIST_KEY='as9runhist';
 /* par time per mode (s): the bot's median from tests/out/run-telemetry.json until play-tests give real ones */
 const PAR={FIRE:255,HOT:290,AMBUSH:80,EVAC:95,ESCORT:255,AREA:345,SALV:300,PROT:200}; /* SALV and PROT: guesses, the bot does not play them yet */
 /* speed: 100 at or under par, falling to 0 at twice par */
 const speedPts=(m,t)=>Math.round(100*cl(2-t/(PAR[m]||240),0,1));
 function scoreMission(x){const kl=25*Math.min(x.kills||0,10);if(x.dead||x.abandoned)return{kills:kl,total:kl};
- const base=x.mode==='HOT'||x.elite?300:x.mode==='SALV'?100:200,met=x.ok?300:0,speed=x.ok?speedPts(x.mode,x.t||0):0,hm=1+(x.heatAvg||0)/200,dm=1+.1*(x.step||0),clean=x.ok&&!(x.dmg>0)?100:0,tgt=Math.round(200*(x.elim||0)); /* targets: 200 at the mission's effect goal, more for overkill with no cap; failed missions keep them */
+ const base=x.mode==='HOT'||x.elite?300:x.mode==='SALV'?100:200,met=x.ok?300:0,speed=x.ok?speedPts(x.mode,x.t||0):0,hm=1+(x.heatAvg||0)/200,dm=1+.1*(x.step||0),clean=(x.ok&&!(x.dmg>0)&&!x.cf?100:0)-CF_PEN*(x.cf||0),tgt=Math.round(200*(x.elim||0)); /* targets: 200 at the mission's effect goal, more for overkill with no cap; failed missions keep them */
  return{base,met,speed,tgt,hm:+hm.toFixed(2),dm:+dm.toFixed(2),kills:kl,clean,total:Math.round((base+met+speed+tgt)*hm*dm)+kl+clean}}
 const runScore=R=>(R?R.res.reduce((a,x)=>a+(x.sc?x.sc.total:0),0)+(R.won?SC_FIN:0)+(R.mc||0)*SC_MAP:0);
 /* history: every finished run, abandoned ones too (kept out of records) */
@@ -5212,8 +5215,8 @@ function rgWire(s){const R=RUNS,on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
  ov.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>rgShow(b.dataset.t));
  const tip=$('rTip');ov.onpointerover=e=>{const t=e.target.closest&&e.target.closest('[data-tip]');if(!t)return;const[a,b]=t.dataset.tip.split('|');tip.innerHTML='<strong>'+a+'</strong><span>'+b+'</span>';tip.hidden=false;const r=t.getBoundingClientRect();tip.style.left=Math.min(innerWidth-230,r.left)+'px';tip.style.top=(r.bottom+6)+'px';rgHl(t.dataset.k)};
  ov.onpointerout=e=>{if(e.target.closest&&e.target.closest('[data-tip]')){tip.hidden=true;rgHl(null)}};
- /* an offer previews its stat: the row shows old and new value */
- ov.querySelectorAll('.roffer button[data-j]').forEach(b=>{const o=R.offers[+b.dataset.j],card=ov.querySelector('[data-c="stats"]');b.onpointerenter=b.onfocus=()=>{card.outerHTML=statsCard(modsAll(R.ups),o)};b.onpointerleave=b.onblur=()=>{const c=ov.querySelector('[data-c="stats"]');if(c)c.outerHTML=statsCard(modsAll(R.ups))};
+ /* an offer previews its stat: the row shows old and new value (the card is found again each time, as each preview replaces it) */
+ ov.querySelectorAll('.roffer button[data-j]').forEach(b=>{const o=R.offers[+b.dataset.j];b.onpointerenter=b.onfocus=()=>{const c=ov.querySelector('[data-c="stats"]');if(c)c.outerHTML=statsCard(modsAll(R.ups),o)};b.onpointerleave=b.onblur=()=>{const c=ov.querySelector('[data-c="stats"]');if(c)c.outerHTML=statsCard(modsAll(R.ups))};
   b.onclick=()=>{aud();upApply(o);delete R.offers;runSave();runUI('between','map')}});
  on('rGo',()=>{if(RG.tab!=='map')return rgShow('map');if(RG.sel==null)return;aud();const r=R.pos?R.pos.r+1:0,row=R.map.rows[r],a=row.nodes[RG.sel];
   if(row.t==='M'){closeOv();runNext(a.j)}else{RG.node={r,n:RG.sel};if(row.t==='D')runDepot();runUI('node')}});
@@ -5298,7 +5301,7 @@ let RTM=0;const _smnRun=showMenu;showMenu=function(){if(!RTM)return RUNS&&runLiv
 if(!ov.hidden)runHome();
 /* ================= RUN-ONLY: P2b. The sector map (rows of mission, elite, shop and rest nodes on branching paths), Supply (SP) and caches ================= */
 const UAFTER=[1,2,4]; /* utility rows follow these mission rows: a 6-mission run reads M M U M U M M U M */
-const ELITE={heat:20,sp:120}; /* elite mission: starts 20 heat hotter, better upgrade odds, more SP, hot-zone base score */
+const ELITE={heat:20,sp:120,add:2}; /* add (3-map runs): enemy groups lying in wait on an elite's route, +1 a map (r18) */ /* elite mission: starts 20 heat hotter, better upgrade odds, more SP, hot-zone base score */
 /* mission rows keep P1's generation (same rng draws); this adds the map on top with its own rngs: no hot zone in row 1, a 4th option now and then, elites from mission 2 */
 function runMapGen(R,O,Z,W){const r=rng(R.seed^0x3a9e1),rows=[],L4=[0,1,2,3];
  R.opts.forEach((op,k)=>{const st=op[0].start,ex=op[0].exfil,r_=rng(R.seed^0x3a9e1^(k+1)*7919);{const r=r_; /* per-row rng: the lanes below never depend on how many draws a row took */
@@ -5401,7 +5404,7 @@ const ITEMS={
  scav:{n:'Scavenger',d:'+1 cache per mission',c:50},
  bounty:{n:'Bounty',d:'+50% Supply per kill',c:95,rare:1},
  qm:{n:'Quartermaster',d:'Shops 20% cheaper',c:100,rare:1,s:2},
- recon:{n:'Recon report',d:'Mission types show 2 rows further ahead',c:40,u:1,w:'b',ok:R=>(R.reveal||0)<mapSeen(R.pos?R.pos.r+1:0)+2,go:R=>{R.reveal=(R.pos?R.pos.r+1:0)+2}}};
+ recon:{p2:1,n:'Recon report',d:'Mission types show 2 rows further ahead',c:40,u:1,w:'b',ok:R=>(R.reveal||0)<mapSeen(R.pos?R.pos.r+1:0)+2,go:R=>{R.reveal=(R.pos?R.pos.r+1:0)+2}}};
 document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+[
  ['tool','<path d="M14 6a4 4 0 0 0 5 5L11 19a2 2 0 0 1-3-3z"/>'],['patch','<rect x="5" y="7" width="14" height="10" rx="2"/><path d="M12 9v6M9 12h6"/>'],['reme','<path d="M4 8h16v11H4z"/><path d="M9 8V5h6v3M12 11v5M9.5 13.5h5"/>'],
  ['weld','<path d="M13 3L6 13h5l-1 8 7-10h-5z"/>'],['decoy','<path d="M10 20V10l2-5 2 5v10z"/><circle cx="12" cy="13" r="8" stroke-dasharray="2 3"/>'],['damp','<path d="M3 10c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/><path d="M5 20L19 4"/>'],
@@ -5459,7 +5462,7 @@ const _rmsI=runModeStart;runModeStart=function(e){Object.assign(IT,{decoy:0,dpen
 /* ---------- shop stock: 3 items (rares less often, no passive you hold) and 1 upgrade of Improved or Elite rarity; the stock can be renewed once ---------- */
 const SHOP={n:3,roll:30,up:{Improved:90,Elite:140}};
 function shopStock(R,key,again){if(R.stock[key]&&!again)return R.stock[key];const[a,b]=key.split('.').map(Number),r=rng(R.seed^0x5409^(a*97+b*13)^(again?0x77:0));
- const pool=Object.keys(ITEMS).filter(itRoom),it=[];
+ const pool=Object.keys(ITEMS).filter(k=>itRoom(k)&&!(R.maps>1&&ITEMS[k].p2)),it=[]; /* p2: no use on the 3-map orders map (rework later) */
  while(it.length<SHOP.n&&pool.length){const w=pool.map(k=>ITEMS[k].s===1&&ITEMS[k].rare?.15:ITEMS[k].rare?.4:1),t=w.reduce((s,x)=>s+x,0);let q=r()*t,j=0;while(q>w[j])q-=w[j++];it.push(pool.splice(Math.min(j,pool.length-1),1)[0])}
  const ri=r()<.75?1:2,[rar,lo,hi]=RAR[ri],ks=Object.keys(UPS),k=ks[Math.floor(r()*ks.length)],up={k,rar,pct:Math.max(1,Math.round((lo+r()*(hi-lo))*UPS[k].s)),c:SHOP.up[rar]};
  return R.stock[key]={it,got:[],up,upGot:0,rolled:again?1:0}}
@@ -5500,7 +5503,7 @@ const EVENTS={
   go:(R,d,c)=>{const t=(c==='all'?d.it:RG.evSel.map(i=>d.it[i])).filter(itAdd);if(c==='all')R.evHeat+=30;return t.map(CH.it).concat(c==='all'?[CH.heat(30)]:[])}},
  gun:{n:'Abandoned gun position',ch:()=>[{id:'salv',fx:[CH.up(),CH.hull(-20,50)]}],
   go:(R,d,c,r)=>{const o=upRoll(r);upApply(o);const x=[CH.up(o)];if(r()<.5){evHurt(20);x.push(CH.hull(-20))}return x}},
- mines:{n:'Minefield shortcut',ch:()=>[{id:'cut',fx:[CH.map('↗'),CH.hull(-15,70),CH.fault('trk',70)]}],
+ mines:{n:'Minefield shortcut',can:R=>R.maps<2 /* every order is open on the 3-map orders map (rework later) */,ch:()=>[{id:'cut',fx:[CH.map('↗'),CH.hull(-15,70),CH.fault('trk',70)]}],
   go:(R,d,c,r)=>{R.anyFrom=RG.node.r;const x=[CH.map('↗')];if(r()>=.3){evHurt(15);if(!FLT.on.includes('trk'))FLT.on.push('trk');x.push(CH.hull(-15),CH.fault('trk'))}return x}},
  reme:{n:'Friendly REME detachment',ch:R=>[{id:'full',fx:[CH.sp(-60),CH.hull(Math.round(R.hpMax-R.hp)),CH.fault()],ok:R.sp>=60&&(R.hp<R.hpMax||FLT.on.length>0)},{id:'fix',fx:[CH.fault()],ok:FLT.on.length>0}],
   go:(R,d,c)=>{if(c==='full'){R.sp-=60;const h=Math.round(R.hpMax-R.hp);R.hp=R.hpMax;FLT.on.slice().forEach(f=>fltFix(f,'REME'));return[CH.sp(-60),CH.hull(h)]}const f=FLT.on[0];fltFix(f,'REME');return[CH.fault()]}},
@@ -5627,7 +5630,7 @@ const _dmP=drawMap;drawMap=function(){_dmP();if(!RUNS||!runLive()||curTab!=='map
 /* attackers are map targets (like Escort) and red dots on the mini map */
 const _rtP=runTargets;runTargets=function(){const R=RUNS,e=R&&R.cur;if(runLive()&&R.phase==='mission'&&e&&e.mode==='PROT')return ntLive().filter(t=>t.pr).map(t=>{const g=toG(t.x,t.z);return{e:g.e,n:g.n,id:'EN'+t.pr,t}});return _rtP()};
 const _dmmP=drawMini;drawMini=function(){_dmmP();if(!RUNS||!runLive()||!PF.on)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);
- g.strokeStyle=prCol();g.lineWidth=1.5*dp;g.beginPath();g.arc((PF.x+HALF)*s,(PF.z+HALF)*s,5*dp,0,6.283);g.stroke();g.fillStyle='#e5534b';for(const t of ntLive())if(t.pr)g.fillRect((t.x+HALF)*s-2*dp,(t.z+HALF)*s-2*dp,4*dp,4*dp)};
+ g.strokeStyle=prCol();g.lineWidth=1.5*dp;g.beginPath();g.arc((PF.x+HALF)*s,(PF.z+HALF)*s,5*dp,0,6.283);g.stroke();};
 /* ================= RUN-ONLY: build items (Brenton 2026-10-29): items that steer a build. s = copies you can hold (1 = unique; uniques are the chase items from elites,
    the Black market, the convoy escort and now and then a shop). Downsides only where they are the item's point (risk for reward) ================= */
 Object.assign(ITEMS,{
@@ -5794,6 +5797,11 @@ document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="p
 ].map(([k,p])=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+p+'</symbol>').join('')+'</svg>');
 const _nlW=ntLead;ntLead=function(rpg){return _nlW(rpg)+.5*itN('trip')};
 cbEarly=function(){if(!IT.sig)return false;IT.sig=0;return true};
+
+/* local enemies: a red dot on the map and the mini map for every live one, hidden on Ambush missions */
+const enDots=()=>{const R=RUNS;return R&&runLive()&&!(R.phase==='mission'&&R.cur&&R.cur.mode==='AMBUSH')?ntLive():[]};
+const _dmEn=drawMap;drawMap=function(){_dmEn();if(curTab!=='map'||!mc._dp)return;const x=mx,dp=mc._dp;x.fillStyle='#e5534b';for(const t of enDots()){const g=toG(t.x,t.z),[a,b]=w2s(g.e,g.n);x.beginPath();x.arc(a,b,3*dp,0,7);x.fill()}};
+const _dmmEn=drawMini;drawMini=function(){_dmmEn();const L=enDots();if(!L.length)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);g.fillStyle='#e5534b';for(const t of L){g.beginPath();g.arc((t.x+HALF)*s,(t.z+HALF)*s,2*dp,0,7);g.fill()}};
 /* ---------- P3g.1 damage model (3-map runs) ----------
    Enemies have health. A shell does SHD at its point of impact: full damage inside 25% of its radius, then linear to 0 at the edge.
    Each round's damage varies ±15%. Health = type base x map (1 / 1.4 / 1.8) x (1 + 5% per order in the map): early a direct hit is likely to kill, later less so unless damage is raised (P4 ammo, items).
@@ -5877,6 +5885,237 @@ const _rmsAM=runModeStart;runModeStart=function(e){ambClear();_rmsAM(e);const R=
 const _rwAM=resetWorld;resetWorld=function(def){ambClear();_rwAM(def)};
 const _ntAM=ntTick;ntTick=function(dt){_ntAM(dt);if(!AMB.mines.length||!runLive())return;
  for(const m of AMB.mines)if(m.on&&Math.hypot(m.x-px,m.z-pz)<AMB.trip){m.on=0;boom(new THREE.Vector3(m.x,H(m.x,m.z)+.5,m.z),1);crater(m.x,m.z,5,1.5);shake=1.4;runHit(AMB.dmg,'mine','shaped');if(!fltHas('trk'))fltAdd('trk','mine')}};
+/* ================= RUN-ONLY: P3b orders (3-map runs). Orders are offered from where you are, one node per order; a mission starts where you stand the moment it is picked
+   (Brenton 2026-11-08 play-test: no drive to a start), so its node sits where it first sends you: the firing point (fire, hot zone, escort, area control, protect) or the
+   rally point (evacuation, ambush, salvage). The rest of the mission (a fire mission's rally point) stays hidden until it is taken, and the next offer is made from its finish.
+   Each map: 3 orders, a stop (shop, rest and event), 3 orders, then the boss order (a forced elite for now: bosses replace it later) whose rally point leads to the depot,
+   then the transition screen. Shops and events open at once and move you to their place (shop at the RSP, event at a place); rest is in place.
+   Offer rules (prototype v6): first destination 0.4-1.4 km of track from you (evacuation, ambush, salvage 0.6-1.6 km), one per place, places not yet visited weighted x3;
+   rally 0.4-2 km from the FP; 2 missions, 25% a 3rd from order 2; a shop, rest or event 35% of the time on orders 2-3 and 5-7, never the kind taken last; each mode at most
+   twice a map; ambush from order 3, salvage and protect from order 2 at half weight; elite 35% from order 2, never evacuation, hot zone or salvage. A P2 one-map run (tests) keeps the sector map ================= */
+const ORD={n:8,stop:3,boss:7,start:[400,1400],near:[200,800],band:[500,1600],evac:[600,1600],rally:[400,2000],mis3:.25,util:.35,uk:[1,2,4,5,6],elite:.35,cap:2,unv:3,
+ w:{SALV:.5,PROT:.5},from:{AMBUSH:2,SALV:1,PROT:1},noel:['EVAC','HOT','SALV']};
+const ordOn=()=>!!(RUNS&&RUNS.maps>1&&RUNS.og);
+const ordObj=m=>m!=='EVAC'&&m!=='AMBUSH'&&m!=='SALV'; /* salvage's caches lie between its start and rally point: no FP */
+const ordW=(r,a,w)=>{const t=a.reduce((s,x)=>s+w(x),0);let u=r()*t;for(const x of a){u-=w(x);if(u<=0)return x}return a[a.length-1]};
+/* track length between places (null: no track), cached per map */
+function ordLen(a,b){if(a===b)return 0;const sd=(ORD.R||RUNS).seed,c=ORD.lc&&ORD.lc.s===sd?ORD.lc:(ORD.lc={s:sd}),k=a<b?a+'|'+b:b+'|'+a;return k in c?c[k]:(c[k]=sitePath(a,b)?Math.round(runPathLen(a,b)):null)}
+/* a place lo-hi m of track from `from` (nearest the band's middle when none is in it), unvisited x3 */
+function ordSite(r,from,lo,hi,avoid,vis,fp){const all=runSites().filter(s=>(!fp||FPS.includes(s))&&s!==from&&!avoid.includes(s)&&ordLen(from,s)!=null);
+ let c=all.filter(s=>{const d=ordLen(from,s);return d>=lo&&d<=hi});if(!c.length)c=all.sort((a,b)=>Math.abs(ordLen(from,a)-(lo+hi)/2)-Math.abs(ordLen(from,b)-(lo+hi)/2)).slice(0,2);
+ return c.length?ordW(r,c,s=>vis.includes(s)?1:ORD.unv):null}
+const ordCtx=R=>{const O=opGet(R.seed,1),Z=O.zones[0];return{O,Z,W:genWorld(Z.wseed,Z.bk)}};
+/* one mission from where you are: its first destination (an FP, or the rally point when it has none), then the mode's own content from runMission */
+function ordMis(r,C,m,k,taken){const o=ORD.R.og,start=o.at;let obj=null,rally=null;
+ if(ordObj(m)){obj=ordSite(r,start,...ORD.start,taken,o.vis,1);if(obj)rally=ordSite(r,obj,...ORD.rally,[start],o.vis)}else rally=ordSite(r,start,...ORD.evac,taken.concat('RSP'),o.vis);
+ if(!rally||ordObj(m)&&!obj)return null;
+ const keep=FPS.slice();let e=null;if(obj)FPS.splice(0,FPS.length,obj); /* the mode's FP is the objective */
+ try{e=runMission(r,C.O,C.Z,C.W,m,k,start,rally)}finally{FPS.splice(0,FPS.length,...keep)}
+ if(!e)return null;e.obj=obj;e.at=obj||rally;e.d0=ordLen(start,e.at)||0;return e}
+const ordHeat=(m,k,el)=>(RUN_MODES[m].heat||0)+Math.round(12*runMkAt(k,k))+(el?ELITE.heat:0);
+/* the offer for order k of this map, from the run's place state: the same state always gives the same offer (saves keep the state, not the offer) */
+function ordOffer(R,k){if(k==null)k=R.i;ORD.R=R;const o=R.og,r=rng(R.seed^0x0b5e^(k+1)*7919),C=ordCtx(R),U=[],ms=[],taken=[];
+ const u=(t,at)=>{if(at){U.push({t,at,d0:ordLen(o.at,at)||0});taken.push(at)}},ev=()=>ordSite(r,o.at,...ORD.near,taken,o.vis);
+ if(k===ORD.boss){const pool=Object.keys(RUN_MODES).filter(m=>!RUN_MODES[m].ev&&!ORD.noel.includes(m));
+  for(let t=0;t<12&&!ms.length&&pool.length;t++){const m=ordW(r,pool,x=>ORD.w[x]||1);pool.splice(pool.indexOf(m),1);const e=ordMis(r,C,m,k,[]);if(e)ms.push(Object.assign(e,{elite:true,boss:1}))}}
+ else if(k===ORD.stop){u('S',ev());u('R',o.at);u('V',ev())}
+ else{if(ORD.uk.includes(k)&&r()<ORD.util){const c=['S','R','V'].filter(x=>x!==o.lu),t=c[Math.floor(r()*c.length)];u(t,t==='R'?o.at:ev())}
+  const pool=Object.keys(RUN_MODES).filter(m=>!RUN_MODES[m].ev&&(o.tk[m]||0)<ORD.cap&&k>=(ORD.from[m]||0)),nm=2+(k>0&&r()<ORD.mis3?1:0);
+  for(let t=0;ms.length<nm&&pool.length&&t<12;t++){const m=ordW(r,pool,x=>ORD.w[x]||1);pool.splice(pool.indexOf(m),1);const e=ordMis(r,C,m,k,taken);if(e){ms.push(e);taken.push(e.at)}}
+  if(k>=1&&r()<ORD.elite){const c=ms.filter(e=>!ORD.noel.includes(e.mode));if(c.length)c[Math.floor(r()*c.length)].elite=true}}
+ if(!ms.length&&k!==ORD.stop)for(const m of['EVAC','FIRE']){const e=ordMis(r,C,m,k,taken);if(e){ms.push(e);break}} /* never an empty offer */
+ ms.forEach((e,j)=>{e.spawns=(e.spawns||[]).filter(p=>depthAt(p[0],p[1])<.1&&isFinite(H(p[0],p[1])));e.caches=[];const q=rng(R.seed^0xd40^(k*31+j));if(q()<DROP.p)cacheDrop(q,e);if(e.mode==='SALV')salvCaches(R,e,k,j)});
+ R.opts[k]=ms;R.plan[k]=ms[0]||null;R.pick[k]=undefined;
+ R.map.rows[k]={t:'M',k,nodes:U.concat(ms.map((e,j)=>({t:e.elite?'E':'M',j,at:e.at,d0:e.d0,boss:e.boss})))};return R.map.rows[k]}
+/* taking an order moves you to its finish: a mission's rally point, a utility's place (at: where its node sat) */
+function ordTake(R,x){const o=R.og,h={...x,k:R.i,from:o.at};o.hist.push(h);(R.oh[R.mi]=R.oh[R.mi]||[]).push(h);
+ if(x.t==='M'||x.t==='E'){o.tk[x.mode]=(o.tk[x.mode]||0)+1;for(const s of[x.at,x.obj,x.rally])if(s&&!o.vis.includes(s))o.vis.push(s);o.at=x.rally}
+ else{o.lu=x.t;if(!o.vis.includes(x.at))o.vis.push(x.at);o.at=x.at}}
+/* a map of a 3-map run: its world, world caches, the order state and the first offer */
+function ordMapBuild(R){ORD.R=R;const keep=R.mi?{sp:R.sp,inv:R.inv,reveal:R.reveal,evSeen:R.evSeen,evHeat:R.evHeat}:null,s=R.seed=mapSeed(R.rseed,R.mi);
+ if(R.bio){const Z=opGet(s,1).zones[0],b=R.bio[R.mi];if(Z.bk!==b){Z.name=Z.name.replace(BIOME[Z.bk].n,BIOME[b].n);Z.bk=b}}
+ WORLD.key=null;worldUse(runWorld(s));
+ Object.assign(R,{n:ORD.n,i:0,opts:[],plan:[],pick:[],dep:0,oh:R.oh||[],og:{at:'HIDE',vis:['HIDE'],tk:{},lu:null,hist:[]}});
+ R.map={rows:Array.from({length:ORD.n},(_,k)=>({t:'M',k,nodes:[]})).concat(R.mi+1<R.maps?[{t:'D',k:ORD.n,nodes:[{t:'S',dep:1}]}]:[])};
+ Object.assign(R,{pos:null,trail:[],used:{},sp:0,rr:0,inv:[],stock:{},reveal:0,ev:{},evSeen:[],evHeat:0,anyFrom:-1});
+ /* world caches along tracks between places (8-12 a map, as before) */
+ const r=rng(s^0xcac4e),S=runSites(),P=[];for(let i=0;i<S.length;i++){const a=S[i],b=S[(i+3)%S.length];if(a!==b&&sitePath(a,b)){const q=runPathPts(a,b);for(let j=0;j<q.length;j+=4)P.push(q[j])}}
+ const w={caches:[]};cacheAdd(r,w,8+Math.floor(r()*5),P);R.wc=w.caches;
+ if(keep)Object.assign(R,keep);if(R.clk==null||!R.mi)R.clk=CLK.start;else R.clk=(Math.floor(R.clk/86400)+1)*86400+CLK.start;if(R.mi){const h=SITES.HIDE;px=h[0];pz=h[1];v=0;st='TRAVEL'} /* a new map starts at its hide (the first offer is made from there) */
+ ordOffer(R,0)}
+/* ---------- the run clock (Brenton 2026-11-08): one clock for the whole run, no set mission times. A mission starts at the clock and adds its own time; each order
+   adds a short gap, a shop or event 15 min, a rest 1 h; past 17:00 it skips to 06:30 next day; each new map starts the next day at 07:00. Daylight only until the
+   day-night cycle (post-playtest) ---------- */
+const CLK={start:7*3600,gap:600,util:{S:900,V:900,R:3600},eve:17*3600,morn:6.5*3600};
+function ordClk(R,dt){R.clk=(R.clk==null?CLK.start:R.clk)+dt;if(R.clk%86400>CLK.eve)R.clk=(Math.floor(R.clk/86400)+1)*86400+CLK.morn}
+/* ---------- the flow ---------- */
+/* deploy: a mission starts here and now. A shop or event (200-800 m away) is locked once picked and opens when you drive into its ring (Brenton 2026-11-08: no
+   teleporting); a rest is where you stand */
+function ordGo(n){const R=RUNS;if(R.tgo)n=R.tgo.n;const k=R.i,a=R.map.rows[k].nodes[n];if(!a)return;v=0;if(a.j!=null){const e=R.opts[k]&&R.opts[k][a.j];if(e){if(R.clk==null)R.clk=CLK.start;e.time=hhmm(R.clk)}closeOv();return runNext(a.j)}
+ const x=SITES[a.at];if(a.t!=='R'&&x&&Math.hypot(x[0]-px,x[1]-pz)>RLR){R.tgo={k,n};R.phase='transit';closeOv();ordQuiet();if(st==='ACTION')st='TRAVEL';mapV.init=false;renderSoon();runSave();return}
+ ordArrive(k,n)}
+function ordArrive(k,n){const R=RUNS;delete R.tgo;R.phase='between';v=0;RG.node={r:k,n};runUI('node')}
+/* the last mission's enemies, barricades and mines go before the drive */
+function ordQuiet(){for(const t of dft){sc.remove(t.g);if(t.bar&&t.bar.g)sc.remove(t.bar.g)}dft.length=0;ambClear()}
+const ordTgt=()=>{const R=RUNS;if(!R||R.phase!=='transit'||!R.tgo)return null;const a=R.map.rows[R.tgo.k].nodes[R.tgo.n];return a&&SITES[a.at]?a:null};
+/* the destination ring: like the rally ring, in 3D, on the map and on the mini map */
+const OSM=noRng(()=>{const g=new THREE.Group(),m=new THREE.MeshBasicMaterial({color:0xe2b93b}),r=new THREE.Mesh(new THREE.TorusGeometry(RLR,.35,6,96),m);r.rotation.x=Math.PI/2;r.position.y=.4;g.add(r);
+ const c=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,24,8),new THREE.MeshBasicMaterial({color:0xe2b93b,transparent:true,opacity:.35}));c.position.y=12;g.add(c);g.visible=false;sc.add(g);return g});
+const _stO=step;step=function(dt,draw){_stO(dt,draw);const a=ordTgt();OSM.visible=!!a;if(!a)return;const x=SITES[a.at];OSM.position.set(x[0],H(x[0],x[1]),x[1]);
+ if(dt&&Math.hypot(x[0]-px,x[1]-pz)<RLR){const t=RUNS.tgo;ordArrive(t.k,t.n)}};
+const _dmO=drawMap;drawMap=function(){_dmO();const a=ordTgt();if(!a||curTab!=='map'||!mc._dp)return;const x=SITES[a.at],g=toG(x[0],x[1]),[p,q]=w2s(g.e,g.n),[p2]=w2s(g.e+RLR,g.n),c=mx;c.strokeStyle='#e2b93b';c.lineWidth=2*mc._dp;c.beginPath();c.arc(p,q,Math.max(6*mc._dp,Math.abs(p2-p)),0,6.283);c.stroke()};
+const _dmmO=drawMini;drawMini=function(){_dmmO();const a=ordTgt();if(!a)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2),x=SITES[a.at];g.setTransform(1,0,0,1,0,0);g.strokeStyle='#e2b93b';g.lineWidth=1.5*dp;g.beginPath();g.arc((x[0]+HALF)*s,(x[1]+HALF)*s,Math.max(4*dp,RLR*s),0,6.283);g.stroke()};
+const _rdO=routeDest;routeDest=function(){const a=ordTgt();return a?a.at:_rdO()};
+/* the menu during the drive shows the map with the pick locked */
+const _rhO=runHome;runHome=function(){const R=RUNS;if(R&&!R.dead&&R.phase==='transit'&&R.tgo){RG.sel=R.tgo.n;return runUI('between','map')}return _rhO()};
+/* mission over: the order is taken (its rally point is the new place) and the next offer is made */
+const _arO=runArrive;runArrive=function(){const R=RUNS;if(!ordOn()||R.phase!=='exfil'||R.evm)return _arO();const e=R.cur;
+ ordClk(R,(typeof T==='number'?T:0)+CLK.gap);ordTake(R,{t:e.elite?'E':'M',mode:e.mode,at:e.at||e.exfil,obj:e.obj,rally:e.exfil,elite:!!e.elite,boss:!!e.boss,d0:e.d0||0,mi:R.mi});if(R.i+1<R.n)ordOffer(R,R.i+1);_arO()};
+/* leaving a shop, rest or event takes the order; leaving the depot builds the next map and shows the transition screen */
+const _nlO=nodeLeave;nodeLeave=function(){const R=RUNS;if(!ordOn()||!RG.node)return _nlO();const nd=RG.node,row=R.map.rows[nd.r];
+ if(row.t==='D'){R.used[nd.r+'.'+nd.n]=1;delete RG.node;R.prev={mi:R.mi,bio:R.bio[R.mi]};return busy('Building the next map',()=>{runNextMap();runUI('trans')})}
+ if(nd.r===R.i){const a=row.nodes[nd.n];ordClk(R,CLK.util[a.t]||0);ordTake(R,{t:a.t,at:a.at,d0:a.d0,mi:R.mi});if(R.i+1<R.n)ordOffer(R,R.i+1);R.i++}return _nlO()};
+/* the boss's rally point (and its upgrade pick) leads straight into the depot */
+const _ruiO=runUI;runUI=function(mode,tab){const R=RUNS;if(mode==='between'&&ordOn()&&R.i>=R.n&&!R.won&&!R.dead&&R.map.rows[R.n]){RG.node={r:R.n,n:0};runDepot();mode='node';tab=undefined}
+ const nd=RG.node;_ruiO(mode,tab);if(mode==='node'&&nd&&!RG.node)RG.node=nd};
+/* challenge events start from the event's place (the original borrowed the step's shared start, and the stop has no mission) */
+const _egO=evGo;evGo=function(ms){const R=RUNS;if(!ordOn()||!RG.node)return _egO(ms);const C=ordCtx(R),at=R.map.rows[RG.node.r].nodes[RG.node.n].at,keep=R.plan[R.i],e=runMission(rng(R.seed^0x5709),C.O,C.Z,C.W,'EVAC',R.i,at,runFar(rng(R.seed^0x570a),at,1200));
+ R.plan[R.i]=e;try{return _egO(ms)}finally{R.plan[R.i]=keep}};
+/* tests: an extra option of mode m at the current order (built from the current place when the order has no mission) */
+const _raoO=runAddOption;runAddOption=function(m){const R=RUNS;if(!ordOn())return _raoO(m);if(!R.opts[R.i])R.opts[R.i]=[];if(R.opts[R.i].length)return _raoO(m);
+ const C=ordCtx(R),at=R.og.at;let e=null;for(let k=0;k<8&&!e;k++)e=runMission(rng(R.seed^hstr(m)^k*7919),C.O,C.Z,C.W,m,R.i,at,runFar(rng(R.seed^k),at,1200));if(!e)throw Error('no '+m+' mission at order '+R.i);
+ e.caches=[];if(m==='SALV')salvCaches(R,e,R.i,0);R.opts[R.i].push(e);return 0};
+/* save and load: the order state (the offer is made again from it) */
+const _svO=runSave;runSave=function(){_svO();const R=RUNS;if(!R||R.dead||!R.og)return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));s.og=R.og;s.oh=R.oh;s.clk=R.clk;s.tgo=R.tgo||null;localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
+const _ldO=runLoad;runLoad=function(){const s=runSaved();if(!_ldO())return false;const R=RUNS;if(R.maps>1&&s.og){R.og=s.og;R.oh=s.oh||[];R.clk=s.clk;if(s.tgo&&R.i===s.tgo.k){R.tgo=s.tgo;R.phase='transit'}if(R.i<R.n)ordOffer(R,R.i)}return true};
+/* ---------- elites add enemies (P3b fix: an elite used to be its mode with +20 start heat only) ----------
+   An elite's area holds 2 more enemy groups (+1 a map), lying in wait 250-600 m off its route (they move once you come within 900 m); the wave cap rises by as many */
+const _rmsO=runModeStart;runModeStart=function(e){_rmsO(e);const R=RUNS;if(!R||R.maps<2||!e.elite||e.ev)return;
+ const P=e.fp&&e.fp!==e.start?runPathPts(e.start,e.fp).concat(runPathPts(e.fp,e.exfil)):runPathPts(e.start,e.exfil);if(!P||P.length<4)return;
+ for(let k=0,t=0;k<ELITE.add+(R.mi||0)&&t<40;t++){const q=P[Math.floor(P.length*(.3+.55*RT.rr()))],a=RT.rr()*6.283,d=rr_(RT.rr,250,600),x=q[0]+Math.cos(a)*d,z=q[1]+Math.sin(a)*d;
+  if(Math.abs(x)<HALF-100&&Math.abs(z)<HALF-100&&depthAt(x,z)<.1){ntSpawn(k%2?'ifv':'inf',x,z,{hold:true}).el=1;k++}}};
+/* ================= RUN-ONLY: P3b map menu (3-map runs), from prototype v6 (Brenton 2026-11-08). The Map tab is the world itself: a contour map (10 m grid, 5 m contours, 25 m index
+   contours, light hillshade), every place, where you are, the orders on offer as nodes where each first sends you (gold ring; filled when picked; purple ring and star for an elite;
+   purple crown for the boss) with gold arrows toward each, and the orders taken on this map in green, numbered, with arrows the way they were driven. Places used twice fan out,
+   newest on top. A strip above shows this map: 3 orders, the stop, 3 orders, the boss, then the depot (a flag on the last map); This run shows every map.
+   After the boss and the depot comes the transition screen: the map's summary, the garage (upgrades and items) and the next map ================= */
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '.rmap.omap{display:flex;flex-direction:column;align-items:center;gap:10px;padding:10px 8px}.obox{position:relative;flex:none;border-radius:12px;overflow:hidden}.obox canvas,.obox svg{position:absolute;inset:0;width:100%;height:100%;display:block}.rstage.mapmode .obox canvas{opacity:1;pointer-events:none;cursor:default;z-index:0}.obox svg{z-index:2}'+
+ '.onode{cursor:default}.onode circle.b{fill:var(--p2);stroke:var(--rl);stroke-width:2}.onode.next{cursor:pointer}.onode.next circle.b{stroke:var(--ac);stroke-width:4}.onode.next:hover circle.b{stroke:var(--fg)}'+
+ '.onode.eli circle.b{stroke:var(--re)}.onode circle.r2{fill:none;stroke:var(--re);stroke-width:2.5;stroke-dasharray:3 4}.onode.sel circle.b{fill:var(--ac);stroke:var(--ac)}.onode.sel .ic{color:#1a1405}'+
+ '.onode.done circle.b{fill:#26332f;stroke:var(--ok)}.onode .ic{color:var(--fg)}.onode.done .ic{color:var(--ok)}.onode.old{opacity:.8}.onode .num circle{fill:#0e1316;stroke:var(--ok);stroke-width:2}.onode .num text{font:700 18px var(--fd);fill:var(--ok);stroke:none;text-anchor:middle}'+
+ '.onode text.d{font:600 20px var(--fd);fill:var(--mu);text-anchor:middle;paint-order:stroke;stroke:#0e1316;stroke-width:4px}.onode.sel text.d,.onode.next:hover text.d{fill:var(--fg)}.onode:focus-visible{outline:none}.onode:focus-visible circle.b{stroke:var(--fg)}'+
+ '.onode.boss circle.b{fill:#2a2238;stroke:var(--re);stroke-width:5}.onode.boss .ic{color:var(--re)}.onode.boss.sel circle.b{fill:var(--re)}.onode.boss.sel .ic{color:#1a1030}.onode.boss circle.r2{stroke-width:3;stroke-dasharray:6 5}.onode.boss text.d{fill:var(--re)}'+
+ '.oplace circle{fill:#2a363c;stroke:#4a5a60;stroke-width:1.5}.oplace.vis circle{fill:#26332f;stroke:#3f6a46}.oplace text{font:500 16px var(--fm,monospace);fill:#6f7d78;paint-order:stroke;stroke:#0e1316;stroke-width:3px}'+
+ '.oyou{fill:var(--ac)}.opulse{animation:rgP 1.6s ease-in-out infinite;fill:none;stroke:var(--ac);stroke-width:3}@media (prefers-reduced-motion:reduce){.opulse{animation:none}}'+
+ '.oprog{align-self:stretch;margin-right:96px;background:var(--p1);border-radius:12px;padding:8px 12px;display:grid;gap:6px}.opt{display:flex;flex-wrap:wrap;gap:2px 16px;font-weight:600;color:var(--mu);font-size:15px}.opt b{color:var(--fg)}.opt span:first-child b{color:var(--ac)}'+
+ '.opr{display:flex;gap:10px;overflow-x:auto}.opm{flex:1;min-width:240px;display:grid;gap:5px;opacity:.55}.opm.cur{opacity:1}.opm.past{opacity:.8}.opl{font-size:14px;color:var(--mu)}.opl b{color:var(--fg);margin-right:4px}.opm.cur .opl b{color:var(--ac)}.oprog .opm{min-width:0;opacity:1}.oprog .opl{display:none}'+
+ '.opp{display:flex;gap:4px;align-items:center}.opp i{flex:1;height:26px;border-radius:6px;border:2px solid var(--rl);display:grid;place-items:center;color:var(--ok)}.opp i svg.i{width:16px;height:16px}'+
+ '.opp i.d{background:#26332f;border-color:var(--ok)}.opp i.d.e{border-color:var(--re)}.opp i.n{border-color:var(--ac);box-shadow:0 0 0 3px #e2b93b33;animation:rgP 1.6s ease-in-out infinite}.opp i.stop{border-style:dashed;color:var(--mu)}.opp i.stop.d{border-style:solid;color:var(--ok)}'+
+ '.opp i.boss{flex:none;min-width:118px;height:38px;padding:0 10px;display:flex;gap:6px;align-items:center;border-color:var(--re);border-style:dashed;color:var(--re);background:#2a2238}.opp i.boss svg.i{width:20px;height:20px}'+
+ '.opp i.boss span{font:700 15px var(--fd);letter-spacing:.1em;text-transform:uppercase;font-style:normal}.opp i.boss small{font:500 12px var(--fd);color:var(--mu);font-style:normal;white-space:nowrap}.opp i.boss.n{border-style:solid;box-shadow:0 0 0 3px #c592f244}.opp i.boss.d{border-style:solid;background:#26332f;border-color:var(--ok);color:var(--ok)}'+
+ '.opp i.dep{flex:none;width:34px;border-radius:4px;color:var(--mu)}.opp i.dep.d{border-color:var(--ok);color:var(--ok)}.opp i.dep.n{border-color:var(--ac);color:var(--ac)}'+
+ '.rpeek.eli{border-color:var(--re)}.rpeek h4{display:flex;justify-content:space-between;gap:8px}.rpeek h4 span{color:var(--re);font-size:12px;letter-spacing:.1em}'+
+ '.oord h3{margin:0;font:700 22px var(--fd);display:flex;gap:10px;align-items:center}.oord h3 svg.i{width:24px;height:24px;color:var(--ac)}.oord p{margin:6px 0 8px;color:var(--mu);font-size:14px}.oord table{width:100%;border-collapse:collapse}.oord td{padding:2px 0;font-size:15px}.oord td.v{text-align:right;font-weight:600}.oord .none{color:var(--mu);font-size:15px}'+
+ '.otab{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px}.otab td,.otab th{padding:6px 4px;border-bottom:1px solid var(--rl);text-align:left}.otab th{font:600 12px var(--fd);letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}.otab .v{text-align:right}.otab svg.i{width:16px;height:16px;vertical-align:-3px;color:var(--ok)}.otab em{color:var(--re);font-style:normal}'+
+ '.otr{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;align-content:start;padding-top:12px}.otc{background:var(--p1);border-radius:12px;padding:16px;display:grid;gap:10px;align-content:start}'+
+ '.otc h2{margin:0;font:700 24px var(--fd);display:flex;gap:8px;align-items:center}.otc table{width:100%;border-collapse:collapse}.otc td{padding:4px 0;font-size:16px}.otc td.v{text-align:right;font-weight:600}.otc p{margin:0;color:var(--mu)}'+
+ '.otic{display:flex;gap:6px;flex-wrap:wrap}.otic i{width:38px;height:38px;border-radius:8px;border:2px solid var(--ok);background:#26332f;display:grid;place-items:center;color:var(--ok)}.otic i.e{border-color:var(--re)}.otic i.b{width:46px;height:46px;color:var(--re);background:#2a2238}'+
+ '.otg{position:relative;height:220px;border-radius:10px;background:radial-gradient(ellipse at 50% 70%,#24302f 0%,var(--p1) 60%);overflow:hidden}.otg canvas{position:absolute;inset:0;width:100%;height:100%}.otc .rcard{padding:0;background:none}.rhist .oprog{margin:0 0 12px}.otc .rx,.otc .ru{pointer-events:none}.otc img{width:100%;border-radius:8px;aspect-ratio:1/1;object-fit:cover}'+
+ '</style>');
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+[['n-dep','<path d="M3 20V9l9-5 9 5v11"/><path d="M7 20v-7h10v7M7 16h10"/>'],['n-boss','<path d="M4 18l2-10 4 4 2-7 2 7 4-4 2 10z"/>'],['n-fin','<path d="M6 21V4h11l-2 4 2 4H6"/>']]
+ .map(([k,p])=>'<symbol id="ri-'+k+'" viewBox="0 0 24 24">'+p+'</symbol>').join('')+'</svg>');
+const OP=1200,UTN={S:['n-shop','Shop','Echelon at the RSP.'],R:['n-rest','Rest','Rest in place: +'+REST.hp+' hull, faults cleared.'],V:['n-ev','Event','Unknown until you take it.']};
+const oxy=s=>{const p=SITES[s];return[(p[0]+HALF)/(2*HALF)*OP,(p[1]+HALF)/(2*HALF)*OP]},oxyP=p=>[(p[0]+HALF)/(2*HALF)*OP,(p[1]+HALF)/(2*HALF)*OP];
+const oRoute=(a,b)=>{if(!a||!b||a===b||!sitePath(a,b))return[];const c=ORD.rc&&ORD.rc.s===RUNS.seed?ORD.rc:(ORD.rc={s:RUNS.seed}),k=a+'|'+b;if(!c[k]){const p=runPathPts(a,b),st=Math.max(1,Math.floor(p.length/40));c[k]=p.filter((q,i)=>i%st===0||i===p.length-1)}return c[k]};
+const oPth=pts=>pts.map((p,i)=>{const[x,y]=oxyP(p);return(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join('');
+/* filled arrows at fractions of a route; spaced every `gap` px */
+function oArrAt(pts,col,fr,sz,op){if(pts.length<2)return'';const q=pts.map(oxyP),cum=[0];for(let k=1;k<q.length;k++)cum.push(cum[k-1]+Math.hypot(q[k][0]-q[k-1][0],q[k][1]-q[k-1][1]));const T_=cum[cum.length-1];if(T_<60)return'';let o='';
+ for(const f of fr){const d=T_*f;let k=1;while(k<q.length-1&&cum[k]<d)k++;const[x0,y0]=q[k-1],[x1,y1]=q[k],u=(d-cum[k-1])/Math.max(1e-6,cum[k]-cum[k-1]),x=x0+(x1-x0)*u,y=y0+(y1-y0)*u,a=Math.atan2(y1-y0,x1-x0)*180/Math.PI;
+  o+='<g transform="translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+a.toFixed(0)+')" opacity="'+(op||1)+'"><path d="M'+(-sz)+' '+(-sz*.9)+'L'+sz+' 0L'+(-sz)+' '+(sz*.9)+'L'+(-sz*.45)+' 0z" fill="'+col+'" stroke="#0e1316" stroke-width="2" stroke-linejoin="round"/></g>'}return o}
+function oArrEvery(pts,col,gap,sz,op){const q=pts.map(oxyP);let L=0;for(let k=1;k<q.length;k++)L+=Math.hypot(q[k][0]-q[k-1][0],q[k][1]-q[k-1][1]);const n=Math.max(1,Math.round(L/gap));return oArrAt(pts,col,Array.from({length:n},(_,i)=>(i+.5)/n),sz,op)}
+/* the contour map of the current world, built once a map */
+function ordBg(R){if(ORD.bg&&ORD.bg.s===R.seed)return ORD.bg.c;const c=document.createElement('canvas');c.width=c.height=OP;const x=c.getContext('2d'),G=240,m=2*HALF/G,cs=OP/G,hg=new Float32Array(G*G),wm=new Uint8Array(G*G);
+ for(let j=0;j<G;j++)for(let i=0;i<G;i++){const lx=-HALF+(i+.5)*m,lz=-HALF+(j+.5)*m;hg[j*G+i]=H(lx,lz);wm[j*G+i]=depthAt(lx,lz)>.1?1:0}
+ const hv=(i,j)=>hg[Math.min(G-1,Math.max(0,j))*G+Math.min(G-1,Math.max(0,i))];
+ const grad=x.createRadialGradient(OP/2,OP*.7,0,OP/2,OP*.7,OP*.85);grad.addColorStop(0,'#24302f');grad.addColorStop(.6,'#182025');grad.addColorStop(1,'#141b1f');x.fillStyle=grad;x.fillRect(0,0,OP,OP);
+ const hs=document.createElement('canvas');hs.width=hs.height=G;const hx=hs.getContext('2d'),hd=hx.createImageData(G,G);
+ for(let j=0;j<G;j++)for(let i=0;i<G;i++){const dx=(hv(i+1,j)-hv(i-1,j))/(2*m),dz=(hv(i,j+1)-hv(i,j-1))/(2*m),l=(-dx-dz)/Math.sqrt(2+dx*dx+dz*dz)*3,n=(j*G+i)*4,v=l>0?255:0;hd.data[n]=hd.data[n+1]=hd.data[n+2]=v;hd.data[n+3]=Math.min(45,Math.abs(l)*60)}
+ hx.putImageData(hd,0,0);x.save();x.imageSmoothingEnabled=true;x.globalAlpha=.3;x.drawImage(hs,0,0,OP,OP);x.restore();
+ const w=document.createElement('canvas');w.width=w.height=G;const wx=w.getContext('2d'),wd=wx.createImageData(G,G);for(let n=0;n<G*G;n++)if(wm[n]){wd.data[n*4]=30;wd.data[n*4+1]=62;wd.data[n*4+2]=80;wd.data[n*4+3]=255}
+ wx.putImageData(wd,0,0);x.save();x.imageSmoothingEnabled=true;x.filter='blur('+(cs*.6)+'px)';x.drawImage(w,0,0,OP,OP);x.drawImage(w,0,0,OP,OP);x.restore();
+ let lo=1e9,hi=-1e9;for(const v of hg){lo=Math.min(lo,v);hi=Math.max(hi,v)}x.lineCap=x.lineJoin='round';
+ for(let lv=Math.ceil(lo/5)*5;lv<=hi;lv+=5){const maj=lv%25===0;x.strokeStyle=maj?'rgba(176,164,120,.55)':'rgba(140,150,130,.26)';x.lineWidth=maj?1.8:1;x.beginPath();
+  for(let j=0;j<G-1;j++)for(let i=0;i<G-1;i++){const a=hv(i,j),b=hv(i+1,j),c2=hv(i+1,j+1),d=hv(i,j+1),pts=[],e=(p,q,pi,pj,qi,qj)=>{if((p<lv)!==(q<lv)){const t=(lv-p)/(q-p);pts.push([(pi+(qi-pi)*t+.5)*cs,(pj+(qj-pj)*t+.5)*cs])}};
+   e(a,b,i,j,i+1,j);e(b,c2,i+1,j,i+1,j+1);e(c2,d,i+1,j+1,i,j+1);e(d,a,i,j+1,i,j);for(let k=0;k+1<pts.length;k+=2){x.moveTo(...pts[k]);x.lineTo(...pts[k+1])}}x.stroke()}
+ x.strokeStyle='rgba(206,214,200,.42)';x.lineWidth=3;const S=runSites();for(let a=0;a<S.length;a++)for(let b=a+1;b<S.length;b++){const p=oRoute(S[a],S[b]);if(!p.length)continue;x.beginPath();p.forEach((q,i)=>{const[u,v]=oxyP(q);i?x.lineTo(u,v):x.moveTo(u,v)});x.stroke()}
+ ORD.bg={s:R.seed,c};return c}
+/* what a node or a taken order is */
+const oNodeE=(R,k,a)=>a.j!=null?R.opts[k][a.j]:null;
+const oIco=x=>x.boss?'n-boss':x.mode?MICO[x.mode]:UTN[x.t][0];
+const oName=x=>x.boss?'Boss':x.mode?RUN_MODES[x.mode].n:UTN[x.t][1];
+const oKm=d=>(d/1000).toFixed(1)+' km';
+/* the progress strip: one map (mi) or all */
+function ordStrip(R,mi){const cur=mi===R.mi,past=mi<R.mi,L=R.oh[mi]||[],done=k=>past||cur&&k<R.i;let h='<div class="opm'+(cur?' cur':past?' past':'')+'"><div class="opl"><b>Map '+(mi+1)+'</b> '+(past||cur?BIOME[R.bio[mi]].n:'?')+'</div><div class="opp">';
+ for(let k=0;k<ORD.boss;k++){const t=L.find(x=>x.k===k),now=cur&&k===R.i,s=k===ORD.stop;
+  h+='<i class="'+(done(k)?'d':now?'n':'')+(t&&t.elite?' e':'')+(s?' stop':'')+'" title="'+(t?oName(t):s?'Stop: shop, rest or event':'Order '+(k+1))+'">'+(t?rIco(oIco(t)):s?rIco('n-shop'):'')+'</i>'}
+ const bt=L.find(x=>x.boss),bd=past||cur&&R.i>ORD.boss,bn=cur&&R.i===ORD.boss;
+ h+='<i class="boss'+(bd?' d':bn?' n':'')+'" title="Boss: an elite mission for now">'+rIco('n-boss')+'<span>Boss</span><small>'+(bt?RUN_MODES[bt.mode].n:'elite for now')+'</small></i>';
+ h+=mi<R.maps-1?'<i class="dep'+(past?' d':cur&&R.i>ORD.boss?' n':'')+'" title="Depot">'+rIco('n-dep')+'</i>':'<i class="dep'+(R.won?' d':'')+'" title="Run complete">'+rIco('n-fin')+'</i>';return h+'</div></div>'}
+function ordProg(R){const k=R.i,fl=Math.round(12*runMkAt(Math.min(k,ORD.boss),Math.min(k,ORD.boss)));
+ return'<div class="opt"><span>Map <b>'+(R.mi+1)+'</b> of '+R.maps+' · '+BIOME[R.bio[R.mi]].n+'</span><span>'+(k<ORD.boss?'Order <b>'+(k+1)+'</b> of '+ORD.n:k===ORD.boss?'<b>Boss</b> next':'Map done')+'</span><span>'+(k===ORD.stop?'Stop: shop, rest or event':k<ORD.boss?(ORD.boss-k)+' to go, then the boss':k===ORD.boss?'Its rally point ends the map':'')+'</span><span>Heat floor <b>'+fl+'</b></span></div><div class="opr">'+ordStrip(R,R.mi)+'</div>'}
+/* the map */
+function ordMap(){const R=RUNS,wr=$('rMap');if(!wr)return;if(R.tgo)RG.sel=R.tgo.n;const o=R.og,k=R.i,offer=k<R.n?R.map.rows[k].nodes:[],pick=RG.mode==='between'&&!R.dead,sel=pick?RG.sel:null;
+ if(!wr.querySelector('.obox')){wr.classList.add('omap');wr.innerHTML='<div class="oprog" id="oProg"></div><div class="obox" id="oBox"><canvas id="oBg" width="'+OP+'" height="'+OP+'"></canvas><svg id="rMapS" viewBox="0 0 '+OP+' '+OP+'" role="img" aria-label="Map of this sector with the orders on offer"></svg></div><div class="rpeek" id="rPeek" hidden></div>';$('oBg').getContext('2d').drawImage(ordBg(R),0,0)}
+ $('oProg').innerHTML=ordProg(R);const box=$('oBox'),sz=Math.max(260,Math.min(wr.clientWidth-16,wr.clientHeight-$('oProg').offsetHeight-30));box.style.width=box.style.height=sz+'px';
+ let s='';const tr=o.hist;
+ tr.forEach(t=>{const a=t.mode?[]:oRoute(t.from,t.at),b=t.mode?(t.obj?oRoute(t.from,t.obj).concat(oRoute(t.obj,t.rally)):oRoute(t.from,t.rally)):[]; /* a mission from where it started; a shop or event: a dashed hop */
+  if(a.length)s+='<path d="'+oPth(a)+'" fill="none" stroke="#79c97a" stroke-width="3" stroke-dasharray="4 7" opacity=".75"/>';
+  if(b.length)s+='<path d="'+oPth(b)+'" fill="none" stroke="#79c97a" stroke-width="4" opacity=".85"/>'+oArrEvery(b,'#79c97a',230,10,.95)});
+ s+='<g id="oRt"></g>';
+ const used=new Set(offer.map(a=>a.at).concat(tr.map(t=>t.at),[o.at]));
+ for(const p of runSites()){if(used.has(p))continue;const[x,y]=oxy(p);s+='<g class="oplace'+(o.vis.includes(p)?' vis':'')+'"><circle cx="'+x+'" cy="'+y+'" r="9"/>'+(p==='HIDE'||p==='RSP'?'<text x="'+(x+15)+'" y="'+(y+6)+'">'+p+'</text>':'')+'</g>'}
+ const by={};tr.forEach((t,n)=>{(by[t.at]=by[t.at]||[]).push([n+1,t])});
+ for(const p in by){const L=by[p],[x0,y0]=oxy(p);L.forEach(([n,t],j)=>{const q=L.length-1-j,x=x0-q*44,y=y0-q*8;s+='<g class="onode done'+(j<L.length-1?' old':'')+'" transform="translate('+x+' '+y+')"><circle class="b" r="26"/><svg x="-15" y="-15" width="30" height="30" class="i ic"><use href="#ri-'+oIco(t)+'"/></svg><g class="num" transform="translate(-24 -24)"><circle r="13"/><text y="6">'+n+'</text></g></g>'})}
+ const[hx,hy]=oxy(o.at);s+='<circle class="opulse" cx="'+hx+'" cy="'+hy+'" r="36"/><circle class="oyou" cx="'+hx+'" cy="'+hy+'" r="12"/>';
+ offer.forEach((a,i)=>{const e=oNodeE(R,k,a),x_={...a,mode:e&&e.mode},sh=offer.filter(b=>b.at===a.at),q=sh.indexOf(a)-(sh.length-1)/2,[x0,y0]=oxy(a.at),x=x0+q*84,y=y0, /* orders sharing a place sit side by side */el=a.t==='E',c='onode'+(pick?' next':'')+(el?' eli':'')+(a.boss?' boss':'')+(i===sel?' sel':''),r=a.boss?(i===sel?46:42):i===sel?38:32;
+  s+='<g class="'+c+'" data-i="'+i+'"'+(pick?' tabindex="0" role="button"':'')+' aria-label="'+oName(x_)+'" transform="translate('+x+' '+y+')">'+(el?'<circle class="r2" r="'+(r+8)+'"/>':'')+'<circle class="b" r="'+r+'"/><svg x="-18" y="-18" width="36" height="36" class="i ic"><use href="#ri-'+oIco(x_)+'"/></svg>'
+   +(el&&!a.boss?'<g transform="translate('+(r-4)+' '+(-r+4)+')"><circle r="13" fill="#0e1316" stroke="#c592f2" stroke-width="2"/><svg x="-9" y="-9" width="18" height="18" class="i" style="color:#c592f2"><use href="#ri-n-eli"/></svg></g>':'')
+   +'<text class="d" y="'+(r+26)+'">'+(a.boss?'BOSS · ':'')+(a.d0?oKm(a.d0):'here')+'</text></g>'});
+ const svg=$('rMapS');svg.innerHTML=s;
+ ordRoutes();svg.querySelectorAll('.onode.next').forEach(el=>{const i=+el.dataset.i;el.onpointerenter=el.onfocus=()=>{RG.hov=i;ordRoutes();ordPeek(i)};el.onpointerleave=el.onblur=()=>{RG.hov=null;ordRoutes();$('rPeek').hidden=true};
+  el.onclick=()=>{RG.sel=i;RG.hov=null;rgShow('map')};el.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();RG.sel=i;rgShow('map')}}})}
+/* routes to the offered starts: two arrows each, a full row on the picked (or hovered) one */
+function ordRoutes(){const R=RUNS,g=$('oRt');if(!g)return;if(RG.mode!=='between'||R.dead||R.i>=R.n){g.innerHTML='';return}const show=RG.sel!=null?RG.sel:RG.hov;let s='';
+ R.map.rows[R.i].nodes.forEach((a,i)=>{const r=oRoute(R.og.at,a.at);if(!r.length)return;const on=i===show;s+='<path d="'+oPth(r)+'" fill="none" stroke="#e2b93b" stroke-width="'+(on?4:2.5)+'" stroke-dasharray="'+(on?'none':'6 8')+'" opacity="'+(on?.95:.55)+'"/>'+(on?oArrEvery(r,'#e2b93b',150,13,1):oArrAt(r,'#e2b93b',[.4,.78],11,.9))});g.innerHTML=s}
+const oInfo=(R,k,a)=>{const e=oNodeE(R,k,a);if(!e)return{n:UTN[a.t][1],d:UTN[a.t][2],i:UTN[a.t][0]};const M_=RUN_MODES[e.mode];
+ return{n:a.boss?'Boss':(a.t==='E'?'Elite · ':'')+M_.n,d:a.boss?'Elite '+M_.n.toLowerCase()+' for now: a boss replaces it later. '+M_.d+' Its rally point ends the map.':M_.d,i:oIco({...a,mode:e.mode}),heat:ordHeat(e.mode,k,a.t==='E'),sp:a.t==='E'?ELITE.sp:e.mode==='HOT'?90:60}};
+function ordPeek(i){const R=RUNS,a=R.map.rows[R.i].nodes[i],p=$('rPeek'),wr=$('rMap'),el=$('rMapS').querySelector('.onode[data-i="'+i+'"]');if(!a||!el||i===RG.sel){p.hidden=true;return}const f=oInfo(R,R.i,a),w=wr.getBoundingClientRect(),b=el.getBoundingClientRect();
+ p.className='rpeek'+(a.t==='E'?' eli':'');p.innerHTML='<h4>'+f.n+(a.boss?'<span>END OF MAP</span>':a.t==='E'?'<span>ELITE</span>':'')+'</h4><p>'+f.d+'</p><div class="r">Drive<b>'+(a.d0?oKm(a.d0):'here')+'</b></div>'+(f.heat!=null?'<div class="r">Start heat<b>'+f.heat+'</b></div><div class="r">Supply<b>'+rIco('sp')+f.sp+'+</b></div>':'');p.hidden=false;
+ const L=b.right-w.left+12;p.style.left=(L+230<w.width?L:Math.max(4,b.left-w.left-232))+'px';p.style.top=Math.max(4,Math.min(wr.scrollTop+w.height-p.offsetHeight-6,b.top-w.top+wr.scrollTop-10))+'px'}
+function ordCard(){const R=RUNS,c=ov.querySelector('[data-c="ord"]');if(!c)return;const a=RG.sel!=null&&R.i<R.n?R.map.rows[R.i].nodes[RG.sel]:null;
+ if(!a){c.innerHTML='<div class="rlbl">Order</div><div class="none">'+(R.i===ORD.boss?'Pick the boss on the map.':'Pick a gold node on the map.')+'</div>';return}const f=oInfo(R,R.i,a);
+ c.innerHTML='<div class="rlbl">Order <span>'+(a.boss?'END OF MAP':a.t==='E'?'ELITE':a.j==null?'STOP':'MISSION')+'</span></div><h3>'+rIco(f.i)+f.n+'</h3><p>'+f.d+'</p><table><tr><td>Drive</td><td class="v">'+(a.d0?oKm(a.d0)+' · ~'+Math.max(1,Math.round(a.d0/1000/25*60))+' min':'Here')+'</td></tr>'+(f.heat!=null?'<tr><td>Start heat</td><td class="v">'+f.heat+'</td></tr>':'')+'</table>'}
+/* ---------- hooks into the run screens ---------- */
+const _rgmO=rgMap;rgMap=function(){if(!ordOn())return _rgmO();ordMap()};
+const _rgsO=rgShow;rgShow=function(t){_rgsO(t);if(!ordOn())return;const c=ov.querySelector('[data-c="ord"]');if(c){c.hidden=t!=='map';ordCard()}};
+const _rwO=rgWire;rgWire=function(s){_rwO(s);const g=$('rGo');if(!ordOn()||!g)return;g.onclick=()=>{if(RG.tab!=='map')return rgShow('map');if(RG.sel==null)return;aud();const n=RG.sel;RG.sel=null;ordGo(n)}};
+const _ruiM=runUI;runUI=function(mode,tab){if(mode==='trans')return ordTrans();RG.hov=null;_ruiM(mode,tab);if(!ordOn()||mode==='home'||mode==='score')return;
+ const lg=ov.querySelector('[data-c="leg"]');if(lg){if(mode==='between')lg.insertAdjacentHTML('beforebegin','<div class="rcard oord" data-c="ord" hidden></div>');lg.querySelector('.rleg').insertAdjacentHTML('beforeend','<div>'+rIco('n-boss')+'Boss</div><div>'+rIco('n-dep')+'Depot</div>')}
+ if(RG.tab==='map')rgShow('map')};
+/* This run: the strip for every map and each order taken */
+const _hrO=histRun;histRun=function(){const R=RUNS;if(!R||R.maps<2||!R.oh)return _hrO();const all=[].concat(...Array.from(R.oh,x=>x||[])),n=R.maps*ORD.n;let t='';
+ all.forEach((x,i)=>{t+='<tr><td class="num">'+(i+1)+'</td><td>Map '+(x.mi+1)+'</td><td>'+rIco(oIco(x))+' '+(x.boss?'Boss · '+RUN_MODES[x.mode].n:oName(x))+(x.elite&&!x.boss?' <em>elite</em>':'')+'</td><td class="v num">'+oKm(x.d0||0)+'</td></tr>'});
+ return'<div class="oprog"><div class="opt"><span>Order <b>'+Math.min(all.length+1,n)+'</b> of '+n+'</span><span>'+(n-all.length)+' to go</span></div><div class="opr">'+Array.from({length:R.maps},(_,mi)=>ordStrip(R,mi)).join('')+'</div></div>'
+  +_hrO().replace(/(<span class="num">\d+) \/ \d+(<\/span><small>Missions)/,'$1$2')+'<div class="rruns"><table class="otab"><tr><th>#</th><th>Map</th><th>Order</th><th class="v">Drive</th></tr>'+(t||'<tr><td colspan="4">No orders yet.</td></tr>')+'</table></div>'};
+/* the transition screen: the map just cleared, the garage as it stands, and the next map (already built) */
+function ordTrans(){const R=RUNS,p=R.prev||{mi:R.mi-1},L=R.oh[p.mi]||[],res=R.res.filter(x=>x.mi===p.mi),sum=k=>res.reduce((a,x)=>a+(x[k]||0),0);
+ runUI('between','garage');const m=ov.querySelector('.rmain');if(!m)return;RG.mode='trans';const rail=ov.querySelector('.rrail');
+ m.innerHTML='<div class="otr"><div class="otc"><div class="rlbl">Map '+(p.mi+1)+' complete</div><h2>'+BIOME[R.bio[p.mi]].n+'</h2><div class="otic">'+L.map(t=>'<i class="'+(t.elite?'e':'')+(t.boss?' b':'')+'" title="'+oName(t)+'">'+rIco(oIco(t))+'</i>').join('')+'</div>'
+  +'<table><tr><td>Orders</td><td class="v">'+L.length+'</td></tr><tr><td>Elites</td><td class="v">'+L.filter(t=>t.elite).length+'</td></tr><tr><td>Kills</td><td class="v">'+sum('kills')+'</td></tr><tr><td>Damage taken</td><td class="v">'+Math.round(sum('dmg'))+'</td></tr><tr><td>Driven to orders</td><td class="v">'+oKm(L.reduce((a,t)=>a+(t.d0||0),0))+'</td></tr></table></div>'
+  +'<div class="otc" data-c="tg"><div class="rlbl">Garage</div><div class="otg" id="oTg"></div>'+upCard(R.ups)+invCard()+'</div>'
+  +'<div class="otc"><div class="rlbl">Next</div><h2>Map '+(R.mi+1)+' · '+BIOME[R.bio[R.mi]].n+'</h2><img alt="Contour map of map '+(R.mi+1)+'" src="'+ordBg(R).toDataURL('image/jpeg',.8)+'"><p>'+ORD.n+' orders, the boss last. Heat floor starts at '+Math.round(12*runMkAt(0,0))+'.</p><button class="rgo" id="oTgo">Move to map '+(R.mi+1)+'</button></div></div>';
+ if(rail)rail.hidden=true;const tb=ov.querySelector('.rtabs');if(tb)tb.style.visibility='hidden'; /* one screen: no tabs */m.querySelectorAll('[data-c="tg"] button').forEach(b=>b.tabIndex=-1);grMount($('oTg'));$('oTgo').onclick=()=>{aud();runUI('between','map')};$('oTgo').focus()}
 /* ================= BGGB icons v3 (Brenton 2026-11-05: acceptable for now, to be workshopped later). Upgrades are bold single-tone glyphs; items are two-tone;
    rare items get a gold frame and a second tone in their category colour; each icon has its category corner (protection blue, mobility orange, firepower red,
    stealth green, repair purple, supply yellow). Replaces the ri-<upgrade> and ri-it-<item> symbols drawn by r8, r10, r12, r13 and r14. Source: plans/icons/defs3.py ================= */

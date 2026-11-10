@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.12.1","c":"ae8571f"};
+const BUILD={"v":"9.13.0","c":"d9bc7c0"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -560,7 +560,7 @@ function minQE(b){const k=Math.round(b/5)+'|'+Math.round(px)+'|'+Math.round(pz);
 const LR={soft:{PD:35,VT:45,DLY:22},light:{PD:30,VT:22,DLY:26},hard:{PD:10,VT:6,DLY:12},point:{PD:1,VT:1,DLY:1}};
 const AMS=['HE','SMK','ILL'],FZ={HE:['PD','VT','DLY'],SMK:['TIME'],ILL:['TIME']};
 /* ================= state ================= */
-let px=0,pz=0,psi=Math.PI/2,v=0,pit=0,rol=0,elev=TRAVEL_EL,camYaw=Math.PI/2,camP=14,T=0,rl=0,ft=-1,shake=0,burst=0,lastShot=-99;
+let px=0,pz=0,psi=Math.PI/2,v=0,pit=0,rol=0,elev=TRAVEL_EL,camYaw=Math.PI/2,camW=0,camP=14,T=0,rl=0,ft=-1,shake=0,burst=0,lastShot=-99;
 const DMG=[],MARKS=[];let impT=-9,fouT=-9,touch=false; /* collision impacts & hull marks (24a-collision.js) */
 let st='TRAVEL',stT=0,layOn=false,layB=0,layQ=0,sup=0,lased=null,sight=0,fine=0;
 let am=0,fz='PD',chSel=0,hiAng=false,aim=null,night=0,ammo={HE:36,SMK:6,ILL:6};
@@ -603,6 +603,7 @@ let layQd=0;function doLay(){if(dfOn())return dfLay();if(st==='DEPLOY'){layQd=1;
 function setManual(b,q,c){layB=wm(b);layQ=cl(q,TRAVEL_EL*D*MIL,QMAX);if(c)chSel=c;layOn=true}
 const laid=()=>layOn&&st==='ACTION'&&Math.abs(dm_(gunBrg()-layB))<1.5&&Math.abs(gunQE()-layQ)<1.5;
 function toast(t){const b=$('banner');bnrTop();b.innerHTML='<span class="f">CREW</span> '+esc(t);b.className='';b.style.opacity=1;clearTimeout(b._t);b._t=setTimeout(()=>b.style.opacity=0,4000)}
+let flyK=()=>1; /* flight time factor of our indirect rounds (BGGB Shell speed ammo); every timer that follows a round uses it */
 function fire(){aud();if(st!=='ACTION')return toast(st==='TRAVEL'?'Not in action. Halt, then ACTION':'Wait: '+st.toLowerCase()+' in progress');if(rl>0)return;
  const a=AMS[am];if(ammo[a]<=0)return toast('No '+a+' remaining. Resupply from AS10');
  if(T<mfUntil)return toast('Hangfire wait: '+Math.ceil(mfUntil-T)+' s before re-attempting');
@@ -624,12 +625,12 @@ function fire(){aud();if(st!=='ACTION')return toast(st==='TRAVEL'?'Not in action
  const dE=Math.sin(bR)*(R0+er)+Math.cos(bR)*ed,dN=Math.cos(bR)*(R0+er)-Math.sin(bR)*ed;
  const se=sysE.cur||{e:0,n:0};let imp={e:g.e+dE+se.e,n:g.n+dN+se.n},crN='';
  const cr=crestHit(g,b,q,c);if(cr){imp={e:cr.e+rnd(-20,20),n:cr.n+rnd(-20,20)};tof*=cr.t/cr.R;crN='Struck far crest: '+cr.d}
- const f={own:true,n:shotN,t:T+tof/S.tc,tf:T,tof,imp,a,fz,c,q,b,leg:M&&M.cur,ffe:M&&M.cur&&M.cur.phase==='ffe',from:g};FLY.push(f);
+ const tfl=tof/S.tc*flyK(),f={own:true,n:shotN,t:T+tfl,tf:T,tof,imp,a,fz,c,q,b,leg:M&&M.cur,ffe:M&&M.cur&&M.cur.phase==='ffe',from:g};FLY.push(f);
  const d=new THREE.Vector3(1,0,0).applyQuaternion(Q4).multiplyScalar(300),m=shM.clone();sc.add(m);shells.push({m,p:V3.clone(),v:d,a,life:2.5});
  const row={n:shotN,clk:clock(),msn:M&&M.cur?M.cur.L.tgt.id:(aim&&aim.id)||'TRG',am:a,fz,ch:c,az:b,qe:q,tof:tof.toFixed(1),imp:'in flight',miss:'',note:(q>800?'High angle':'Low angle')+(crN?' · '+crN:'')};f.crest=crN;LOG.push(row);f.row=row;
  const lt=M&&M.cur?layTarget():null;if(lt){const le=Math.max(Math.abs(dm_(b-lt.b)),Math.abs(q-lt.q))+(lt.c&&lt.c!==c?99:0);M.cur.layMax=Math.max(M.cur.layMax||0,le)}
  if(M)mOnFire(f);else{msg('BIG PRAWN','Shot, over',{cls:'me',voice:false})}
- if(tof/S.tc>7)sched(tof/S.tc-5,()=>{if(!M||!f.leg||f.leg===M.cur)msg('HAMMER 0','Splash, over',{cls:'cp',voice:true,say:'Splash'})});
+ if(tfl>7)sched(tfl-5,()=>{if(!M||!f.leg||f.leg===M.cur)msg('HAMMER 0','Splash, over',{cls:'cp',voice:true,say:'Splash'})});
  renderSoon()}
 function impactI(f){IMP.push({e:f.imp.e,n:f.imp.n,a:f.a,t:T,own:f.own,ai:f.ai});if(IMP.length>300)IMP.shift();
  if(f.a==='HE'){f.kills=applyHE(f.imp,f.fz);if(f.own)sfx(1,0,.25)}
@@ -1642,7 +1643,9 @@ function step(dt,draw){if(RUN())T+=dt;
  for(let i=sm.length-1;i>=0;i--){const o=sm[i];o.t+=dt;const k=o.t/o.l;o.m.scale.setScalar(2.5+k*7);o.m.position.y+=dt*.5;o.m.material.opacity=.55*Math.max(0,1-k*k);if(k>=1){sc.remove(o.m);sm.splice(i,1)}}
  /* camera */
  shake=Math.max(0,shake-dt*2);
- if(!paused&&T-lastDrag>(st==='TRAVEL'?1:4)){const ty=st==='TRAVEL'?psi:psi+tur.rotation.y;camYaw+=wr(ty-camYaw)*(1-Math.exp(-dt*(st==='TRAVEL'?2.6:1.5)))}
+ /* travel: camera follows only while driving forward and not held, as a critically damped spring (w 6/s: smooth start, ~1 s swing); parked/reversing it stays put */
+ if(!paused&&st==='TRAVEL'&&v>1&&!ap){const h=Math.min(dt,.1);camW+=(36*wr(psi-camYaw)-12*camW)*h;camYaw+=camW*h}else camW=0;
+ if(!paused&&st!=='TRAVEL'&&T-lastDrag>4)camYaw+=wr(psi+tur.rotation.y-camYaw)*(1-Math.exp(-dt*1.5));
  if(sight){veh.updateMatrixWorld(true);sg_.rotation.set((elev*D)-sup/MIL,-Math.PI/2,0);sg_.getWorldPosition(cam.position);sg_.getWorldQuaternion(cam.quaternion);if(shake>.05)cam.rotateX((Math.random()-.5)*shake*.012)}
  else{const vp=camP*D,dist=16,cx=px-Math.cos(camYaw)*dist*Math.cos(vp),cz=pz+Math.sin(camYaw)*dist*Math.cos(vp),cy_=veh.position.y+3.2+dist*Math.sin(vp)+Math.sin(T*60)*shake*.1;
   CP_.set(cx,Math.max(cy_,H(cx,cz)+1.5),cz);if(cam.position.distanceTo(CP_)>25||!draw)cam.position.copy(CP_);else cam.position.lerp(CP_,1-Math.exp(-dt*9));cam.position.x+=(Math.random()-.5)*shake*.2;cam.position.z+=(Math.random()-.5)*shake*.2;cam.lookAt(px+Math.cos(camYaw)*10,veh.position.y+3,pz-Math.sin(camYaw)*10)}
@@ -2321,7 +2324,8 @@ const _rwH=resetWorld;resetWorld=function(def){_rwH(def);hzClear();HZ.rr=rng(515
 const _huH=hud;hud=function(){_huH();if(HZ.imm>T)$('hud').insertAdjacentHTML('beforeend','<br><span class="bd">IMMOBILISED · track repair '+Math.ceil(HZ.imm-T)+' s</span>')};
 const _dmH=drawMap;drawMap=function(){_dmH();if(curTab!=='map'||!mc._dp||!HZ.list.length)return;const x=mx,dp=mc._dp;
  for(const h of HZ.list){const P=TRK[h.ti].pts;x.strokeStyle='rgba(229,83,75,.8)';x.lineWidth=3*dp;x.setLineDash([5*dp,4*dp]);x.beginPath();P.forEach((p,i)=>{const g=toG(p[0],p[1]),[a,b]=w2s(g.e,g.n);i?x.lineTo(a,b):x.moveTo(a,b)});x.stroke();x.setLineDash([]);
-  const g=toG(h.x,h.z),[a,b]=w2s(g.e,g.n),r=6*dp;if(!HZ.noX){x.lineWidth=2.5*dp;x.strokeStyle='#e5534b';x.beginPath();x.moveTo(a-r,b-r);x.lineTo(a+r,b+r);x.moveTo(a+r,b-r);x.lineTo(a-r,b+r);x.stroke()}
+  const g=toG(h.x,h.z),[a,b]=w2s(g.e,g.n),r=6*dp; /* the label below needs these with or without the cross */
+  if(!HZ.noX){x.lineWidth=2.5*dp;x.strokeStyle='#e5534b';x.beginPath();x.moveTo(a-r,b-r);x.lineTo(a+r,b+r);x.moveTo(a+r,b-r);x.lineTo(a-r,b+r);x.stroke()}
   x.fillStyle='#f0a49d';x.font=(9*dp)+'px IBM Plex Mono,monospace';x.fillText(h.kind==='mine'?'MINES':'CRATER',a+r+3*dp,b+3*dp)}};
 /* settings */
 const _smnH=showMenu;showMenu=function(){_smnH();const b=$('sNight');if(!b)return;const r=b.closest('.card');if(!r||$('sHz'))return;
@@ -4816,7 +4820,7 @@ function spLog(k,n){const R=RUNS;if(!R||!n)return;const L=R.spl||(R.spl={});L[k]
 /* ---------- missions ---------- */
 function runStart(j){const R=RUNS;if(!R)return;if(j!=null&&R.opts[R.i][j]){R.plan[R.i]=R.opts[R.i][j];R.pick[R.i]=j}const e=R.plan[R.i],def=JSON.parse(JSON.stringify(e.def)),mr=mapRowOf(R.i);
  if(mr>=0)R.pend={r:mr,n:Math.max(0,R.map.rows[mr].nodes.findIndex(x=>x.j===(R.pick[R.i]||0)))}; /* the map position moves when the mission is over */
- R.gr=mr;R.cur=e;R.phase='mission';R.taskDone=false;R.cf=0;R.cleared=0;R.ok=null;R.floor=(R.maps>1?(x,y)=>x+y:Math.max)(RUN_MODES[e.mode].heat||0,Math.round(12*runMk())) /* P3g.3b: in 3-map runs a mode's start heat adds to the map floor */+(e.elite?ELITE.heat:0);R.heat=R.floor; /* later missions run warmer: heat never falls below the floor */ R.heatMax=R.heat;R.over100=0;R.tm0=T;R.dmg0=R.hp;R.shots0=shotN;R.kills0=R.kills||0;R.hs=0;R.ht=0;
+ R.gr=mr;R.cur=e;R.phase='mission';R.taskDone=false;R.cf=0;R.cleared=0;R.ok=null;R.floor=(R.maps>1?(x,y)=>x+y:Math.max)(RUN_MODES[e.mode].heat||0,Math.round(12*runMk())) /* P3g.3b: in 3-map runs a mode's start heat adds to the map floor */+(e.elite&&!e.boss?ELITE.heat:0);R.heat=R.floor; /* later missions run warmer: heat never falls below the floor */ R.heatMax=R.heat;R.over100=0;R.tm0=T;R.dmg0=R.hp;R.shots0=shotN;R.kills0=R.kills||0;R.hs=0;R.ht=0;
  if(!CAMP){startCampaign([def.id],{defs:[def],start:{ammo:{HE:Math.round(36*rUp('cap')),SMK:6,ILL:6},stock:{...RS_LOAD}},title:runTitle(),endTxt:'Task complete. Move to the rally point, over',onEnd:runTaskDone});R.tm0=T;R.shots0=shotN}
  else{CAMP.list.push(def.id);CAMP.defs.push(def);CAMP.i=CAMP.list.length-1;CAMP.title=runTitle();CAMP.keep=true;try{startMission(campDef(),false)}finally{CAMP.keep=false}R.tm0=T;R.shots0=shotN} /* a fresh campaign resets the shot count */
  if(typeof runModeStart==='function')runModeStart(e);renderSoon()}
@@ -4918,14 +4922,16 @@ function heatTick(dt){const R=RUNS;if(!runLive())return;
  const b=heatBand(R.heat);if(b>RH.band){if(!noCB())toast(HNOTE[b-1]);else if(b>=2&&RH.band<2)toast(HNOTE_AREA);RH.band=b}}
 /* heat bands 0-4 (25/50/75/100); crossing one upward shows its notice once per mission */
 /* the floor: 12 per mission step; a hot zone holds its start heat until the task is done; an evacuation holds its start heat for the first third of the way, then cools to the step floor at the rally point */
-function heatFloor(){const R=RUNS,e=R.cur,f0=12*R.i;if(e.mode==='EVAC'&&R.phase!=='between'){const x=SITES[e.exfil],d=Math.hypot(x[0]-px,x[1]-pz),d0=RH.evD||(RH.evD=Math.max(1,d));return f0+(R.floor-f0)*cl(1.5*d/d0,0,1)}return R.phase==='mission'?R.floor||0:f0}
+/* the floor once the objective is met (and the end of an evacuation's cooling): the map's own floor. 3-map runs use the run-wide depth scale, the same number the mission started on (it was 12 x the order number, a one-map leftover: heat jumped from 13 to 72 on the rally drive of map 1 order 7) */
+function heatFloor(){const R=RUNS,e=R.cur,f0=R.maps>1?Math.round(12*runMk()):12*R.i;if(e.mode==='EVAC'&&R.phase!=='between'){const x=SITES[e.exfil],d=Math.hypot(x[0]-px,x[1]-pz),d0=RH.evD||(RH.evD=Math.max(1,d));return f0+(R.floor-f0)*cl(1.5*d/d0,0,1)}return R.phase==='mission'?R.floor||0:f0}
 const heatBand=h=>h<25?0:h<50?1:h<75?2:h<100?3:4;
 const HNOTE=['Heat 25: enemy counter-battery is ranging on you','Heat 50: their fire tightens and more threats move in','Heat 75: counter-battery is quick and leads a moving gun. Keep moving','Heat 100: walking fire. They hunt you without a fix'],HNOTE_AREA='Heat rising: more enemy threats moving in';
 const _fiRH=fire;fire=function(){const n=shotN;_fiRH.apply(this,arguments);if(shotN!==n&&runLive()){RUNS.heat+=HEAT.shot*heatK();if(!p3()||RT.rr()<detP())heatFix(null)}};
 const _rwRH=resetWorld;resetWorld=function(def){_rwRH(def);RH.fix=RH.wk=null;RH.next=0;RH.lx=px;RH.lz=pz};
 /* ================= RUN-ONLY: near threats. Scouts, infantry with RPGs and IFVs come in from the enemy side as heat rises (ambushes from mission 3). They live in dft, so the laser rangefinder, DF lay and the PPI work on them; HE from any round kills them ================= */
 /* Brenton 2026-11-08: infantry walk 1.1 m/s (was 1.6) */
-const NTK={scout:{n:'Scout car',m:'truck',spd:9,stop:1800,rel:0,dmg:0},inf:{n:'Infantry section',m:'man',spd:1.1,stop:300,rel:12,dmg:10,hit:.2},ifv:{n:'IFV',m:'ifv',spd:8,stop:1400,rel:8,dmg:3,hit:.15}};
+const NTK={scout:{n:'Scout car',m:'truck',spd:9,stop:1800,rel:0,dmg:0},inf:{n:'Infantry section',m:'man',spd:1.1,stop:300,rel:12,dmg:10,hit:.2},ifv:{n:'IFV',m:'ifv',spd:8,stop:1400,rel:8,dmg:3,hit:.15,ac:1,veh:1}}; /* ac: fires an autocannon (every other shooter fires rockets); veh: a vehicle. Code tests these, never the type name, so a new type behaves by its row */
+NTK.scout.veh=1;
 const RT={next:0,rr:rng(99)};
 function ntSpawn(kind,x,z,o){const g=new THREE.Group();noRng(()=>{if(kind==='inf')for(let i=0;i<3;i++){const m=new THREE.Group();TPT.man(m);m.position.set(i*1.6-1.6,0,(i%2)*1.2);g.add(m)}else TPT[NTK[kind].m](g)});
  g.position.set(x,H(x,z),z);sc.add(g);const t={g,x,z,alive:true,vx:0,vz:0,nt:kind,fireT:T+rr_(RT.rr,3,8),hold:!!(o&&o.hold),seen:0};dft.push(t);return t}
@@ -4935,11 +4941,11 @@ function ntWave(){const R=RUNS,e=R.cur,h=R.heat,sp=e.spawns;if(!sp.length||ntLiv
  const add=k=>{let p=at();if(k==='inf'){const d=Math.hypot(p[0]-px,p[1]-pz)||1,f=rr_(RT.rr,600,900)/d;if(f<1){const q=[px+(p[0]-px)*f,pz+(p[1]-pz)*f];if(depthAt(q[0],q[1])<.1)p=q}}ntSpawn(k,p[0],p[1])}; /* infantry dismount 600-900 m out */
 /* P3g.3: one wave table by heat band in 3-map runs: <25 one scout or section; 25-50 scout + section; 50-75 a likely scout + section or IFV; 75+ adds a section and a vehicle (and a section from depth 3) */
  if(R.maps>1&&!window.__runK&&h<50){if(h<25)add(RT.rr()<.5?'scout':'inf');else{add('scout');add('inf')}}
- else if(h>=25&&RT.rr()<.6)add('scout');const nIfv=()=>ntLive().filter(t=>t.nt==='ifv').length,veh=()=>nIfv()<2?'ifv':'inf';if(h>=50)add(RT.rr()<.5?'inf':veh());if(h>=75){add('inf');add(veh());if(runMk()>=3)add('inf')}
+ else if(h>=25&&RT.rr()<.6)add('scout');const nIfv=()=>ntLive().filter(t=>NTK[t.nt].ac).length,veh=()=>nIfv()<2?'ifv':'inf';if(h>=50)add(RT.rr()<.5?'inf':veh());if(h>=75){add('inf');add(veh());if(runMk()>=3)add('inf')}
  if(h>=50)thSay('Enemy movement reported towards your position, over',{voice:false})}
 function ntTick(dt){const R=RUNS;if(!runLive())return;if(T>=RT.next){RT.next=T+rr_(RT.rr,35,50);ntWave()}
  const spd=Math.abs(v);
- for(const t of ntLive()){if(t.pr||t.ml)continue;const K=NTK[t.nt],dx=px-t.x,dz=pz-t.z,d=Math.hypot(dx,dz);
+ for(const t of ntLive()){if(t.pr||t.ml||t.stun>T)continue; /* stunned (P4 Shock): no move, no fire */const K=NTK[t.nt],dx=px-t.x,dz=pz-t.z,d=Math.hypot(dx,dz);
   if(!(t.lt>T)){t.lt=T+.25;t.los=K.rel?ntLos(t.x,t.z,px,pz):1} /* a shooter without line of sight keeps closing (to 150 m) and holds fire; it takes aim afresh once it sees the gun */
   if(K.rel&&t.los<1&&t.fireT<T+1.5)t.fireT=T+1.5;
   if(K.rel)t.lk=t.los>=1&&d<=K.stop+80?(t.lk||0)+dt:0; /* time on the laser: aim settles the longer they hold line of sight */
@@ -4947,7 +4953,7 @@ function ntTick(dt){const R=RUNS;if(!runLive())return;if(T>=RT.next){RT.next=T+r
   else if(t.hold&&d<900)t.hold=false;
   if(t.nt==='scout'&&d<=K.stop+50){t.seen+=dt;if(t.seen>20&&!t.rep){t.rep=1;R.heat+=5;heatFix('scout has reported your position')}}
   if(K.rel&&t.los>=1&&d<=K.stop+80&&T>=t.fireT){t.fireT=T+K.rel*rr_(RT.rr,.8,1.2);const p=cl(K.hit+Math.min(R.heat,100)/400+NTA.lk*Math.min(1,(t.lk||0)/NTA.t)-spd*(R.maps>1?NTA.mv/2:NTA.mv), /* P3g.3b: half the speed penalty in 3-map runs */.1,NTA.max)*cl(1.5-d/(K.stop+80),.4,1); /* worse at the edge of their range; moving helps, but less the longer they track you */
-   puff(t.x,H(t.x,t.z)+2,t.z,0xd8d0c0,2,.4,2,.4,.6);const rpg=t.nt!=='ifv',at=t.nt==='at',L=at?ATK.fly:ntLead(rpg);
+   puff(t.x,H(t.x,t.z)+2,t.z,0xd8d0c0,2,.4,2,.4,.6);const rpg=!K.ac,at=t.nt==='at',L=at?ATK.fly:ntLead(rpg);
    const ax=px+Math.cos(psi)*v*L,az=pz-Math.sin(psi)*v*L,pk=ntLos(t.x,t.z,ax,az); /* a led shot whose path meets a hill or obstacle stops there */
    NTS.push({s:t,ty:at?'atgm':rpg?'rpg':'ac',p:at?K.hit*cl(1.5-d/(K.stop+80),.4,1):p,dmg:K.dmg*(1+runMk()*.1),t0:T,t1:T+L*pk,x:t.x,z:t.z,ax,az,pk,bx:t.x+(ax-t.x)*pk,bz:t.z+(az-t.z)*pk})}}
  /* shots land: the further the gun is from the aim point, the lower the hit chance (never below 30% of it); a shot that met cover, or a gun gone behind cover, is a miss; a dead IFV's burst never comes */
@@ -5497,7 +5503,7 @@ const _ntgI=netToggle;netToggle=function(){const m=RMOD.camo;if(RUNS&&runLive()&
 const _stI=step;step=function(dt,draw){_stI(dt,draw);const R=RUNS;if(!dt||!R||!runLive()||!RUN())return;
  if(itN('weld')&&Math.abs(v)>1&&(IT.wt+=dt)>=10){IT.wt=0;heal(itN('weld'))}
  if(itN('net')&&THR.net>=1&&THR.netT<=0)R.heat=Math.max(heatFloor(),R.heat-2*itN('net')*dt);
- if(IT.mine)for(const t of ntLive())if(t.nt==='ifv'&&Math.hypot(t.x-px,t.z-pz)<=NTK.ifv.stop+20){IT.mine=0;boom(new THREE.Vector3(t.x,H(t.x,t.z)+1,t.z),1);ntKill(t);break}};
+ if(IT.mine)for(const t of ntLive())if(NTK[t.nt].ac&&Math.hypot(t.x-px,t.z-pz)<=NTK[t.nt].stop+20){IT.mine=0;boom(new THREE.Vector3(t.x,H(t.x,t.z)+1,t.z),1);ntKill(t);break}};
 const _cstI=cacheStart;cacheStart=function(e){if(itN('scav')&&!e.scav){e.scav=1;cacheAdd(rng(RUNS.seed^0x5ca7^RUNS.i),e,itN('scav'))}_cstI(e)};
 const _rmsI=runModeStart;runModeStart=function(e){Object.assign(IT,{decoy:0,dpend:0,safe:0,wide:0,mine:0,wt:0,sig:0});_rmsI(e)};
 /* ---------- shop stock: 3 items (rares less often, no passive you hold) and 1 upgrade of Improved or Elite rarity; the stock can be renewed once ---------- */
@@ -5875,11 +5881,13 @@ const _dmEn=drawMap;drawMap=function(){_dmEn();if(curTab!=='map'||!mc._dp)return
 const _dmmEn=drawMini;drawMini=function(){_dmmEn();const L=enDots();if(!L.length)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);g.fillStyle='#e5534b';for(const t of L){g.beginPath();g.arc((t.x+HALF)*s,(t.z+HALF)*s,2*dp,0,7);g.fill()}};
 /* ---------- P3g.1 damage model (3-map runs) ----------
    Enemies have health. A shell does SHD at its point of impact: full damage inside 25% of its radius, then linear to 0 at the edge.
-   Each round's damage varies ±15%. Health = type base x map (1 / 1.4 / 1.8) x (1 + 5% per order in the map): early a direct hit is likely to kill, later less so unless damage is raised (P4 ammo, items).
+   Each round's damage varies ±15%. Health = type base x map (1 / 1.4 / 1.8) x (1 + 5% per order in the map): early a centred hit kills a man and an IFV takes 2, late on map 3 a man takes 2 and an IFV 4 unless damage is raised (P4 ammo, items).
    Barrel = radius only; Fire control = accuracy. Infantry: each man has his own health. Damaged enemies flash and show a small health bar.
    Mission target elements use the trainer's lethal radius per target kind and fuze, with the same falloff. Legacy one-map runs (tests) keep the old rules. */
-const SHD=100,SHVAR=.15,EHP={scout:50,inf:50,ifv:90,el:50};
-const shRoll=()=>SHD*(1+SHVAR*(2*RT.rr()-1));
+const SHD=100,SHVAR=.15,EHP={scout:50,inf:50,ifv:150,el:50}; /* P4-0 retune: centred average shots, no ammo bonus: map 1 man 1 / IFV 2, late map 3 man 2 / IFV 4 (test G19b) */
+const shotsToKill=(k,mi,gr)=>Math.ceil(EHP[k]*([1,1.4,1.8][mi]||1.8)*(1+.05*gr)/SHD);
+let dmgK=()=>1; /* P4 ammo raises it (r23) */
+const shRoll=()=>SHD*dmgK()*(1+SHVAR*(2*RT.rr()-1));
 const dmgOn=()=>!!(RUNS&&RUNS.maps>1&&runLive());
 const hpMul=()=>{const R=RUNS;return([1,1.4,1.8][R.mi||0]||1.8)*(1+.05*Math.max(0,R.gr||0))};
 const dmgFall=(d,r)=>d>=r?0:d<=.25*r?1:1-(d-.25*r)/(.75*r);
@@ -5963,7 +5971,7 @@ const _ntAM=ntTick;ntTick=function(dt){_ntAM(dt);if(!AMB.mines.length||!runLive(
 /* ================= RUN-ONLY: P3b orders (3-map runs). Orders are offered from where you are, one node per order; a mission starts where you stand the moment it is picked
    (Brenton 2026-11-08 play-test: no drive to a start), so its node sits where it first sends you: the firing point (fire, hot zone, escort, area control, protect) or the
    rally point (evacuation, ambush, salvage). The rest of the mission (a fire mission's rally point) stays hidden until it is taken, and the next offer is made from its finish.
-   Each map: 3 orders, a stop (shop, rest and event), 3 orders, then the boss order (a forced elite for now: bosses replace it later) whose rally point leads to the depot,
+   Each map: 3 orders, a stop (shop, rest and event), 3 orders, then the boss order (P4: its own mode, r24) whose rally point leads to the depot,
    then the transition screen. Shops and events open at once and move you to their place (shop at the RSP, event at a place); rest is in place.
    Offer rules (prototype v6): first destination 0.4-1.4 km of track from you (evacuation, ambush, salvage 0.6-1.6 km), one per place, places not yet visited weighted x3;
    rally 0.4-2 km from the FP; 2 missions, 25% a 3rd from order 2; a shop, rest or event 35% of the time on orders 2-3 and 5-7, never the kind taken last; each mode at most
@@ -5971,7 +5979,7 @@ const _ntAM=ntTick;ntTick=function(dt){_ntAM(dt);if(!AMB.mines.length||!runLive(
 const ORD={n:8,stop:3,boss:7,start:[400,1400],near:[200,800],band:[500,1600],evac:[600,1600],rally:[400,2000],mis3:.25,util:.35,uk:[1,2,4,5,6],elite:.35,cap:2,unv:3,
  w:{SALV:.5,PROT:.5},from:{AMBUSH:2,SALV:1,PROT:1},noel:['EVAC','HOT','SALV']};
 const ordOn=()=>!!(RUNS&&RUNS.maps>1&&RUNS.og);
-const ordObj=m=>m!=='EVAC'&&m!=='AMBUSH'&&m!=='SALV'; /* salvage's caches lie between its start and rally point: no FP */
+const ordObj=m=>m!=='EVAC'&&m!=='AMBUSH'&&m!=='SALV'&&m!=='BOSS'; /* salvage's caches lie between its start and rally point: no FP */
 const ordW=(r,a,w)=>{const t=a.reduce((s,x)=>s+w(x),0);let u=r()*t;for(const x of a){u-=w(x);if(u<=0)return x}return a[a.length-1]};
 /* track length between places (null: no track), cached per map */
 function ordLen(a,b){if(a===b)return 0;const sd=(ORD.R||RUNS).seed,c=ORD.lc&&ORD.lc.s===sd?ORD.lc:(ORD.lc={s:sd}),k=a<b?a+'|'+b:b+'|'+a;return k in c?c[k]:(c[k]=sitePath(a,b)?Math.round(runPathLen(a,b)):null)}
@@ -5993,8 +6001,7 @@ const ordHeat=(m,k,el)=>(RUN_MODES[m].heat||0)+Math.round(12*runMkAt(k,k))+(el?E
 /* the offer for order k of this map, from the run's place state: the same state always gives the same offer (saves keep the state, not the offer) */
 function ordOffer(R,k){if(k==null)k=R.i;ORD.R=R;const o=R.og,r=rng(R.seed^0x0b5e^(k+1)*7919),C=ordCtx(R),U=[],ms=[],taken=[];
  const u=(t,at)=>{if(at){U.push({t,at,d0:ordLen(o.at,at)||0});taken.push(at)}},ev=()=>ordSite(r,o.at,...ORD.near,taken,o.vis);
- if(k===ORD.boss){const pool=Object.keys(RUN_MODES).filter(m=>!RUN_MODES[m].ev&&!ORD.noel.includes(m));
-  for(let t=0;t<12&&!ms.length&&pool.length;t++){const m=ordW(r,pool,x=>(ORD.w[x]||1)*ordLean(x));pool.splice(pool.indexOf(m),1);const e=ordMis(r,C,m,k,[]);if(e)ms.push(Object.assign(e,{elite:true,boss:1}))}}
+ if(k===ORD.boss){const e=ordMis(r,C,'BOSS',k,[]);if(e)ms.push(Object.assign(e,{elite:true,boss:1}))} /* P4: the boss is its own mode (r24): rally-only, starts at the map's heat floor */
  else if(k===ORD.stop){u('S',ev());u('R',o.at);u('V',ev())}
  else{if(ORD.uk.includes(k)&&r()<ORD.util){const c=['S','R','V'].filter(x=>x!==o.lu),t=ordW(r,c,ordLean);u(t,t==='R'?o.at:ev())}
   const pool=Object.keys(RUN_MODES).filter(m=>!RUN_MODES[m].ev&&(o.tk[m]||0)<ORD.cap&&k>=(ORD.from[m]||0)),nm=2+(k>0&&r()<ORD.mis3?1:0);
@@ -6067,7 +6074,7 @@ const _svO=runSave;runSave=function(){_svO();const R=RUNS;if(!R||R.dead||!R.og)r
 const _ldO=runLoad;runLoad=function(){const s=runSaved();if(!_ldO())return false;const R=RUNS;if(R.maps>1&&s.og){R.og=s.og;R.oh=s.oh||[];R.clk=s.clk;if(s.tgo&&R.i===s.tgo.k){R.tgo=s.tgo;R.phase='transit'}if(R.i<R.n)ordOffer(R,R.i)}return true};
 /* ---------- elites add enemies (P3b fix: an elite used to be its mode with +20 start heat only) ----------
    An elite's area holds 2 more enemy groups (+1 a map), lying in wait 250-600 m off its route (they move once you come within 900 m); the wave cap rises by as many */
-const _rmsO=runModeStart;runModeStart=function(e){_rmsO(e);const R=RUNS;if(!R||R.maps<2||!e.elite||e.ev)return;
+const _rmsO=runModeStart;runModeStart=function(e){_rmsO(e);const R=RUNS;if(!R||R.maps<2||!e.elite||e.boss||e.ev)return; /* the boss order brings its own enemies */
  const P=e.fp&&e.fp!==e.start?runPathPts(e.start,e.fp).concat(runPathPts(e.fp,e.exfil)):runPathPts(e.start,e.exfil);if(!P||P.length<4)return;
  for(let k=0,t=0;k<ELITE.add+(R.mi||0)&&t<40;t++){const q=P[Math.floor(P.length*(.3+.55*RT.rr()))],a=RT.rr()*6.283,d=rr_(RT.rr,250,600),x=q[0]+Math.cos(a)*d,z=q[1]+Math.sin(a)*d;
   if(Math.abs(x)<HALF-100&&Math.abs(z)<HALF-100&&depthAt(x,z)<.1){ntSpawn(k%2?'ifv':'inf',x,z,{hold:true}).el=1;k++}}};
@@ -6142,7 +6149,7 @@ function ordStrip(R,mi){const cur=mi===R.mi,past=mi<R.mi,L=R.oh[mi]||[],done=k=>
  for(let k=0;k<ORD.boss;k++){const t=L.find(x=>x.k===k),now=cur&&k===R.i,s=k===ORD.stop;
   h+='<i class="'+(done(k)?'d':now?'n':'')+(t&&t.elite?' e':'')+(s?' stop':'')+'" title="'+(t?oName(t):s?'Stop: shop, rest or event':'Order '+(k+1))+'">'+(t?rIco(oIco(t)):s?rIco('n-shop'):'')+'</i>'}
  const bt=L.find(x=>x.boss),bd=past||cur&&R.i>ORD.boss,bn=cur&&R.i===ORD.boss;
- h+='<i class="boss'+(bd?' d':bn?' n':'')+'" title="Boss: an elite mission for now">'+rIco('n-boss')+'<span>Boss</span><small>'+(bt?RUN_MODES[bt.mode].n:'elite for now')+'</small></i>';
+ h+='<i class="boss'+(bd?' d':bn?' n':'')+'" title="Boss">'+rIco('n-boss')+'<span>Boss</span><small>'+(bt||cur&&R.i>=ORD.boss?bossName(R,mi):'')+'</small></i>';
  h+=mi<R.maps-1?'<i class="dep'+(past?' d':cur&&R.i>ORD.boss?' n':'')+'" title="Depot">'+rIco('n-dep')+'</i>':'<i class="dep'+(R.won?' d':'')+'" title="Run complete">'+rIco('n-fin')+'</i>';return h+'</div></div>'}
 function ordProg(R){const k=R.i,fl=Math.round(12*runMkAt(Math.min(k,ORD.boss),Math.min(k,ORD.boss)));
  return'<div class="opt"><span>Map <b>'+(R.mi+1)+'</b> of '+R.maps+' · '+BIOME[R.bio[R.mi]].n+'</span><span>'+(k<ORD.boss?'Order <b>'+(k+1)+'</b> of '+ORD.n:k===ORD.boss?'<b>Boss</b> next':'Map done')+'</span><span>'+(k===ORD.stop?'Stop: shop, rest or event':k<ORD.boss?(ORD.boss-k)+' to go, then the boss':k===ORD.boss?'Its rally point ends the map':'')+'</span><span>Heat floor <b>'+fl+'</b></span></div><div class="opr">'+ordStrip(R,R.mi)+'</div>'}
@@ -6171,7 +6178,7 @@ function ordMap(){const R=RUNS,wr=$('rMap');if(!wr)return;if(R.tgo)RG.sel=R.tgo.
 function ordRoutes(){const R=RUNS,g=$('oRt');if(!g)return;if(RG.mode!=='between'||R.dead||R.i>=R.n){g.innerHTML='';return}const show=RG.sel!=null?RG.sel:RG.hov;let s='';
  R.map.rows[R.i].nodes.forEach((a,i)=>{const r=oRoute(R.og.at,a.at);if(!r.length)return;const on=i===show;s+='<path d="'+oPth(r)+'" fill="none" stroke="#e2b93b" stroke-width="'+(on?4:2.5)+'" stroke-dasharray="'+(on?'none':'6 8')+'" opacity="'+(on?.95:.55)+'"/>'+oOff(r,on?4:2.5)+(on?oArrEvery(r,'#e2b93b',150,13,1):oArrAt(r,'#e2b93b',[.4,.78],11,.9))});g.innerHTML=s}
 const oInfo=(R,k,a)=>{const e=oNodeE(R,k,a);if(!e)return{n:UTN[a.t][1],d:UTN[a.t][2],i:UTN[a.t][0]};const M_=RUN_MODES[e.mode];
- return{n:a.boss?'Boss':(a.t==='E'?'Elite · ':'')+M_.n,d:a.boss?'Elite '+M_.n.toLowerCase()+' for now: a boss replaces it later. '+M_.d+' Its rally point ends the map.':M_.d,i:oIco({...a,mode:e.mode}),heat:ordHeat(e.mode,k,a.t==='E'),sp:a.t==='E'?ELITE.sp:e.mode==='HOT'?90:60}};
+ return{n:a.boss?bossName(R,R.mi):(a.t==='E'?'Elite · ':'')+M_.n,d:M_.d,i:oIco({...a,mode:e.mode}),heat:ordHeat(e.mode,k,a.t==='E'&&!a.boss),sp:a.t==='E'?ELITE.sp:e.mode==='HOT'?90:60}};
 function ordPeek(i){const R=RUNS,a=R.map.rows[R.i].nodes[i],p=$('rPeek'),wr=$('rMap'),el=$('rMapS').querySelector('.onode[data-i="'+i+'"]');if(!a||!el||i===RG.sel){p.hidden=true;return}const f=oInfo(R,R.i,a),w=wr.getBoundingClientRect(),b=el.getBoundingClientRect();
  p.className='rpeek'+(a.t==='E'?' eli':'');p.innerHTML='<h4>'+f.n+(a.boss?'<span>END OF MAP</span>':a.t==='E'?'<span>ELITE</span>':'')+'</h4><p>'+f.d+'</p><div class="r">Drive<b>'+(a.d0?oKm(a.d0):'here')+'</b></div>'+(f.heat!=null?'<div class="r">Start heat<b>'+f.heat+'</b></div><div class="r">Supply<b>'+rIco('sp')+f.sp+'+</b></div>':'');p.hidden=false;
  const L=b.right-w.left+12;p.style.left=(L+230<w.width?L:Math.max(4,b.left-w.left-232))+'px';p.style.top=Math.max(4,Math.min(wr.scrollTop+w.height-p.offsetHeight-6,b.top-w.top+wr.scrollTop-10))+'px'}
@@ -6187,7 +6194,7 @@ const _ruiM=runUI;runUI=function(mode,tab){if(mode==='trans')return ordTrans();R
  if(RG.tab==='map')rgShow('map')};
 /* This run: the strip for every map and each order taken */
 const _hrO=histRun;histRun=function(){const R=RUNS;if(!R||R.maps<2||!R.oh)return _hrO();const all=[].concat(...Array.from(R.oh,x=>x||[])),n=R.maps*ORD.n;let t='';
- all.forEach((x,i)=>{t+='<tr><td class="num">'+(i+1)+'</td><td>Map '+(x.mi+1)+'</td><td>'+rIco(oIco(x))+' '+(x.boss?'Boss · '+RUN_MODES[x.mode].n:oName(x))+(x.elite&&!x.boss?' <em>elite</em>':'')+'</td><td class="v num">'+oKm(x.d0||0)+'</td></tr>'});
+ all.forEach((x,i)=>{t+='<tr><td class="num">'+(i+1)+'</td><td>Map '+(x.mi+1)+'</td><td>'+rIco(oIco(x))+' '+(x.boss?'Boss · '+bossName(R,x.mi):oName(x))+(x.elite&&!x.boss?' <em>elite</em>':'')+'</td><td class="v num">'+oKm(x.d0||0)+'</td></tr>'});
  return'<div class="oprog"><div class="opt"><span>Order <b>'+Math.min(all.length+1,n)+'</b> of '+n+'</span><span>'+(n-all.length)+' to go</span></div><div class="opr">'+Array.from({length:R.maps},(_,mi)=>ordStrip(R,mi)).join('')+'</div></div>'
   +_hrO().replace(/(<span class="num">\d+) \/ \d+(<\/span><small>Missions)/,'$1$2')+'<div class="rruns"><table class="otab"><tr><th>#</th><th>Map</th><th>Order</th><th class="v">Drive</th></tr>'+(t||'<tr><td colspan="4">No orders yet.</td></tr>')+'</table></div>'};
 /* the transition screen: the map just cleared, the garage as it stands, and the next map (already built) */
@@ -6250,7 +6257,7 @@ const _htA=heatTick;heatTick=function(dt){_htA(dt);if(!AAR.length)return;if(!run
    Scatterable mines: from map 3 (map 2 elites), 20% of CB salvos also seed 5 mines within 25 m of their aim, marked at once. All cleared at the next mission ---------- */
 const MNK={lay:60,see:1500,clr:12,ml:[0,.3,.5,.5],sc:[0,0,.2,.2],sr:25,sn:5};let MNF=[];
 const mnStage=(R,e)=>Math.min(3,(R.mi||0)+(e&&(e.elite||e.boss)?1:0));
-NTK.ml={n:'Minelayer',m:'ml',spd:6,stop:0,rel:0,dmg:0};EHP.ml=50;SPK.ml=10;
+NTK.ml={n:'Minelayer',m:'ml',spd:6,stop:0,rel:0,dmg:0,veh:1};EHP.ml=50;SPK.ml=10;
 TPT.ml=p=>{TPT.truck(p);tBx(2.4,.5,2.2,TMT.drk,p,-2.6,2.5,0);for(let i=0;i<4;i++)tCy(.28,.28,.18,TMT.gun,p,-3.4+i*.5,2.85,0)};
 const mnAdd=(x,z)=>AMB.mines.push({x,z,on:1});
 function mnMark(x,z,r){const f=MNF.find(m=>Math.hypot(m.x-x,m.z-z)<m.r*.6);if(f){f.r=Math.max(f.r,Math.hypot(f.x-x,f.z-z)+r);return}MNF.push({x,z,r})}
@@ -6341,6 +6348,253 @@ const _goB=ordGo;ordGo=function(n){const R=RUNS,a=R&&R.map.rows[R.i]&&R.map.rows
  if(e&&e.def&&w&&!e.def.wx){const r=rng(R.seed^0x3e7^(R.i+1)*131);e.def.wx=ordW(r,Object.keys(w),k=>w[k])}}return _goB(n)};
 /* box stacks: grey concrete blocks in run worlds */
 const BOXC=M_(0x8d8b84,.95,0);WHOOK.push(W=>{const run=!!(W&&W.lay);for(const g of STR)g.traverse(o=>{if(o.isMesh&&(o.material===bm[3]||o.material===BOXC))o.material=run?BOXC:bm[3]})});
+/* ---------- P4a ammo (3-map runs) ----------
+   Each ammo has stats (Damage %, Shell speed %) rolled by rarity, plus an optional effect (P4b). Ammo sits in slots: 1, +1 after boss 1 and after boss 2.
+   Every slotted ammo applies to every round: Damage scales every shell's damage (indirect, direct, mission elements); Shell speed cuts indirect time of flight
+   (direct fire keeps its speed so the sight solution stays true). A new ammo with no free slot waits on top of the Ammo card until a slot is freed or it is discarded. */
+const AMO={st:{dmg:{n:'Damage',w:.7,b:[[10,15],[15,25],[25,40]],d:v=>'Every round deals +'+v+'% damage'},spd:{n:'Shell speed',w:.3,b:[[5,10],[10,20],[20,30]],d:v=>'Indirect time of flight −'+v+'%'}},c:[70,110,160],tofMin:.4};
+const amOn=()=>!!(RUNS&&RUNS.maps>1);
+const amSlots=R=>1+Math.min(2,R.mi||0);
+const amList=()=>(RUNS&&RUNS.am)||[];
+const amSum=st=>amList().reduce((s,a)=>s+(a.s[st]||0),0);
+/* one ammo: rarity (ri forces it), stat by weight, value in the rarity's band */
+function amRoll(r,o){o=o||{};const q=r(),ri=o.ri!=null?o.ri:q<RAR[0][3]?0:q<RAR[0][3]+RAR[1][3]?1:2,st=r()<AMO.st.dmg.w?'dmg':'spd',[lo,hi]=AMO.st[st].b[ri];
+ return{s:{[st]:Math.round(lo+r()*(hi-lo))},rar:RAR[ri][0],fx:o.fx||null}}
+dmgK=()=>amOn()?1+amSum('dmg')/100:1;
+const amTofK=()=>amOn()?Math.max(AMO.tofMin,1-amSum('spd')/100):1;
+function amAdd(a){const R=RUNS;R.am=R.am||[];if(R.am.length<amSlots(R)){R.am.push(a);return true}(R.amSwap=R.amSwap||[]).push(a);return'swap'}
+function amSync(){const R=RUNS;if(!R||!R.amSwap)return;R.am=R.am||[];while(R.amSwap.length&&R.am.length<amSlots(R))R.am.push(R.amSwap.shift())}
+function amDrop(i){const R=RUNS;if(!R||!R.am||!R.am[i])return;R.am.splice(i,1);amSync()}
+function amToss(){const R=RUNS;if(R&&R.amSwap)R.amSwap.shift()}
+const amName=a=>(a.fx?AFX[a.fx].n+' · ':'')+Object.keys(a.s).map(k=>AMO.st[k].n+' +'+a.s[k]+'%').join(', ');
+const amDesc=a=>Object.keys(a.s).map(k=>AMO.st[k].d(a.s[k])).join('. ')+(a.fx?'. '+AFX[a.fx].d:'');
+const amTip=a=>' data-tip="'+amName(a)+'|'+amDesc(a)+'"';
+const amTile=(a,btn)=>'<div class="rtile ram '+(a.evo?'rV':RCL[a.rar])+'"'+amTip(a)+'>'+(a.fx?'<i class="amfx">'+AFX[a.fx].n+'</i>':'')+Object.keys(a.s).map(k=>'<b>+'+a.s[k]+'%</b><small>'+(k==='dmg'?'DMG':'SPD')+'</small>').join('')+(btn||'')+'</div>';
+function amCard(){const R=RUNS;if(!amOn()||!R)return'';const A=amList(),n=amSlots(R),w=R.amSwap&&R.amSwap[0];
+ let h='<div class="rcard" data-c="ammo"><div class="rlbl">Ammo <span>'+A.length+'/'+n+'</span></div>';
+ if(w)h+='<div class="rinv rnew">'+amTile(w,'<button class="rx" data-amtoss="1" aria-label="Discard">✕</button>')+'</div>';
+ return h+'<div class="rinv'+(w?' sw':'')+'" style="grid-template-columns:repeat(3,1fr)">'+Array.from({length:3},(_,i)=>i>=n?'<div class="rtile e z" title="Slot opens after boss '+i+'"></div>':A[i]?amTile(A[i],'<button class="rx" data-amdrop="'+i+'" aria-label="Drop">✕</button>'):'<div class="rtile e"></div>').join('')+'</div>'+amCombos()+'</div>'}
+/* combine buttons: every pair that can merge or evolve (a pending ammo counts as the 4th place, index 3) */
+function amCombos(){const R=RUNS,A=(R.am||[]).concat(R.amSwap&&R.amSwap[0]?[R.amSwap[0]]:[]),b=[];
+ for(let i=0;i<A.length;i++)for(let j=i+1;j<A.length;j++){const ev=amRecipe(A[i],A[j]);if(ev)b.push('<button class="rV" data-amc="'+i+','+j+'" data-tip="'+AFX[ev].n+'|'+AFX[ev].d+'">⇄ '+AFX[ev].n+'</button>');else if(amCanMerge(A[i],A[j]))b.push('<button data-amc="'+i+','+j+'" data-tip="Merge|'+amName(A[i])+' + '+amName(A[j])+'">⇄ Merge '+(i+1)+'+'+(j+1)+'</button>')}
+ return b.length?'<div class="rshop amc" style="grid-template-columns:1fr">'+b.join('')+'</div>':''}
+const _ivA=invCard;invCard=function(){amSync();return _ivA()+amCard()};
+const _ruiA=runUI;runUI=function(mode,tab){_ruiA(mode,tab);const R=RUNS;if(!R||!amOn())return;const re=()=>{const nd=RG.node,t=RG.tab;runUI(RG.mode,t);if(nd)RG.node=nd};
+ ov.querySelectorAll('[data-amdrop]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amDrop(+b.dataset.amdrop);runSave();re()});
+ ov.querySelectorAll('[data-amc]').forEach(b=>b.onclick=e=>{e.stopPropagation();const[i,j]=b.dataset.amc.split(',').map(Number);if(j>=(R.am||[]).length&&R.amSwap&&R.amSwap.length)R.am.push(R.amSwap.shift());aud();amCombine(i,j);runSave();re()});
+ ov.querySelectorAll('[data-amtoss]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amToss();runSave();re()});
+ const ab=ov.querySelector('[data-amb]');if(ab){const s=R.stock&&R.stock[nodeKey()];if(s&&s.am)ab.onclick=()=>{const c=shopC(s.am.c);if(s.amGot||R.sp<c)return;aud();R.sp-=c;spLog('shop',-c);amAdd(s.am.a);s.amGot=1;runSave();re()}}};
+/* Shell speed: indirect rounds land sooner. Set where the round's flight time is set (13-firing), so the Splash call and every other timer follow it */
+flyK=()=>amTofK();
+/* shops sell 1 ammo (no effect until P4b) */
+const _ssA=shopStock;shopStock=function(R,key,again){const s=_ssA(R,key,again);if(R.maps>1&&!s.am){const[a,b]=key.split('.').map(Number),r=rng(R.seed^0xa330^(a*97+b*13)^(again?0x77:0)),am=r()<.3?amRollFx(r,(p=>p[Math.floor(r()*p.length)])(AFX_BASE.filter(k=>AFX[k].r<3))):amRoll(r);s.am={a:am,c:AMO.c[RAR.findIndex(x=>x[0]===am.rar)]}}return s};
+const _ncA=nodeCard;nodeCard=function(){const h=_ncA(),R=RUNS,a=R.map&&RG.node&&R.map.rows[RG.node.r].nodes[RG.node.n];if(!a||a.t!=='S'||R.maps<2)return h;const s=shopStock(R,nodeKey());if(!s.am)return h;const c=shopC(s.am.c);
+ return h.replace('<div class="rshop" style="grid-template-columns:1fr">','<div class="rshop" style="grid-template-columns:1fr"><button data-amb="1" class="'+RCL[s.am.a.rar]+'"'+amTip(s.am.a)+(s.amGot||R.sp<c?' disabled':'')+'><b>'+(s.amGot?'✓':'Ammo · '+amName(s.am.a))+'</b><span>'+rIco('sp','i sm')+c+'</span></button>')};
+/* save and load */
+const _svA=runSave;runSave=function(){_svA();const R=RUNS;if(!R||R.dead||!amOn())return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));s.am=R.am||[];s.amSwap=R.amSwap||[];localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
+const _ldA=runLoad;runLoad=function(){const s=runSaved();if(!_ldA())return false;const R=RUNS;R.am=(s&&s.am)||[];R.amSwap=(s&&s.amSwap)||[];return true};
+document.head.insertAdjacentHTML('beforeend','<style>.rtile.ram{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}.rtile.ram b{position:static;font:700 15px var(--fd)}.rtile.ram small{font:600 10px var(--fd);opacity:.75}.rtile.e.z{opacity:.35}.rtile.rV,.amc .rV{border-color:#b07cff}.rtile.ram .amfx{position:absolute;top:2px;left:0;right:0;font:600 9px var(--fd);font-style:normal;text-align:center;white-space:nowrap;overflow:hidden}</style>');
+/* ---------- P4b effects: every slotted ammo's effect fires on every HE round. Two ammo whose effects form a recipe evolve into one ammo with a new effect (BALL x PIT style) ---------- */
+const AFX={
+ crit:{n:'Critical',r:1,d:'15% chance a round deals ×2.5 damage'},
+ pen:{n:'Penetrator',r:1,d:'+50% damage to vehicles; −30% to infantry'},
+ clus:{n:'Cluster',r:2,d:'Splits into 5 bomblets in a 40 m ring, 25 damage each, 8 m radius'},
+ inc:{n:'Incendiary',r:2,d:'Leaves fire 15 m wide for 8 s, 12 damage/s'},
+ shock:{n:'Shock',r:2,d:'Enemies hit can\'t move or fire for 3 s'},
+ ric:{n:'Ricochet',r:2,d:'Bounces once, 60 m further along its flight, for a 50% blast'},
+ plun:{n:'Plunder',r:2,d:'Each kill drops +5 Supply'},
+ ffe:{n:'Fire for effect',r:2,d:'Fire and Hot missions need 1/3 fewer rounds for effect'},
+ guid:{n:'Precision guided',r:3,d:'Steers onto the nearest enemy within 50 m of the aim point; rounds on an ordered target stay on it'},
+ chain:{n:'Chain',r:3,d:'Each kill sets off a 50% blast at the wreck, 15 m radius'},
+ dtap:{n:'Double tap',r:3,d:'25% chance a free second round lands on the same point 1 s later'},
+ leech:{n:'Leech',r:3,d:'Each kill restores 2 hull'},
+ /* evolutions */
+ napalm:{n:'Napalm storm',ev:['clus','inc'],d:'5 bomblets each leave an 8 m fire for 6 s, 12 damage/s; burning enemies set alight others within 10 m'},
+ intc:{n:'Interceptor',ev:['guid','shock'],d:'Splits into 3 rounds, each guided to a different enemy within 80 m, 60% damage; each hit stuns for 4 s'},
+ hk:{n:'Hunter-killer',ev:['dtap','guid'],d:'Every round fires a second round 1 s later, guided to a different enemy within 80 m, 60% damage'},
+ roll:{n:'Rolling barrage',ev:['dtap','ffe'],d:'Every impact walks 3 blasts 30 m apart away from you, 40% damage each. Fire and Hot missions need 1/3 fewer rounds for effect'},
+ hem:{n:'Hemorrhage',ev:['leech','chain'],d:'A kill leaves a 15 m pool for 6 s, 10 damage/s; each death in a pool restores 3 hull and sets off a 50% blast'},
+ sabot:{n:'Sabot',ev:['crit','pen'],d:'Hits on vehicles always deal ×2, then pierce 40 m along the flight for a second full hit'},
+ pin:{n:'Pinball',ev:['ric','clus'],d:'Bounces 3 times, 60 m each, dropping 2 bomblets (25 damage, 8 m) at each bounce'},
+ gold:{n:'Gold rush',ev:['plun','chain'],d:'Chain blasts at each kill (50%, 15 m) drop +3 Supply per enemy hit; a chain kill gives back 1 HE'}};
+const AFX_BASE=Object.keys(AFX).filter(k=>!AFX[k].ev),AFX_RAR=['','Standard','Improved','Elite'];
+const amFx=k=>amList().some(a=>a.fx===k);
+const amRecipe=(a,b)=>a&&b&&a.fx&&b.fx&&!AFX[a.fx].ev&&!AFX[b.fx].ev?Object.keys(AFX).find(k=>AFX[k].ev&&AFX[k].ev.includes(a.fx)&&AFX[k].ev.includes(b.fx)&&a.fx!==b.fx):null;
+const amCanMerge=(a,b)=>a&&b&&a!==b&&!(a.fx&&AFX[a.fx].ev)&&!(b.fx&&AFX[b.fx].ev)&&Object.keys(a.s).length===1&&Object.keys(b.s).join()===Object.keys(a.s).join()&&!(a.fx&&b.fx);
+function amCombine(i,j){const R=RUNS,A=R.am,a=A[i],b=A[j];if(!a||!b||i===j)return false;const ev=amRecipe(a,b);if(!ev&&!amCanMerge(a,b))return false;
+ const s={};for(const x of[a,b])for(const k in x.s)s[k]=(s[k]||0)+x.s[k];const ri=Math.max(RAR.findIndex(x=>x[0]===a.rar),RAR.findIndex(x=>x[0]===b.rar));
+ const c={s,rar:RAR[ri][0],fx:ev||a.fx||b.fx||null};if(ev)c.evo=1;A.splice(Math.max(i,j),1);A.splice(Math.min(i,j),1,c);amSync();return c}
+/* an effect ammo: rarity follows the effect (Common = Standard band ... Elite) */
+function amRollFx(r,fx){if(!fx){const p=AFX_BASE;fx=p[Math.floor(r()*p.length)]}return amRoll(r,{ri:AFX[fx].r-1,fx})}
+/* shared helpers */
+let amCtx=null; /* set while one of our rounds deals damage, so kills can be credited */
+const amVeh=t=>!!(NTK[t.nt].veh||t.boss);
+function amBlast(x,z,r,k,o){o=o||{};if(!runLive())return;const y=H(x,z)+1.5;if(o.fx!==false)boom(new THREE.Vector3(x,y,z),k>=.9);const c0=amCtx;amCtx={x,z,src:o.src||'fx',d:(c0&&c0.d||0)+1};try{for(const t of ntLive())ntDmg(t,x,z,r,k*shRoll()/SHD)}finally{amCtx=c0}}
+function amFlat(t,x,z,R,amt){if(!t.alive)return 0;if(Math.hypot(t.x-x,t.z-z)>R+(t.nt==='inf'?6:0))return 0;return ntDmg(t,x,z,4*R,amt/SHD)}
+const amNear=(x,z,R,skip)=>ntLive().filter(t=>!(skip&&skip.includes(t))&&Math.hypot(t.x-x,t.z-z)<=R).sort((a,b)=>Math.hypot(a.x-x,a.z-z)-Math.hypot(b.x-x,b.z-z));
+/* Critical (and Sabot's vehicle crit happens per target in ntDmg) */
+const _dkA=dmgK;dmgK=()=>{const k=_dkA();if(!amOn()||!amFx('crit'))return k;if(RT.rr()<.15){amCrit=1;return k*2.5}return k};let amCrit=0;
+/* per-target: Penetrator, Sabot, Shock / Interceptor stun */
+const _ntdA=ntDmg;ntDmg=function(t,x,z,r,k){if(!amOn())return _ntdA(t,x,z,r,k);let m=1;
+ if(amFx('pen'))m*=amVeh(t)?1.5:.7;if(amFx('sabot')&&amVeh(t))m*=2;const was=t.alive,h=_ntdA(t,x,z,r,k*m);
+ if(h&&amCtx&&['round','hk','intc'].includes(amCtx.src)){const st=amFx('intc')?4:amFx('shock')?3:0;if(st&&t.alive){t.stun=T+st;puff(t.x,H(t.x,t.z)+2,t.z,0x8fd0ff,.6,1.5,3,.8,.2)}}
+ if(h&&amCrit&&t.alive!==undefined){puff(t.x,H(t.x,t.z)+3,t.z,0xffd23a,.5,2,4,.9,.3)}return h};
+/* stunned threats skip their move and fire (the threat loop skips t.stun>T); their next shot waits until just after the stun */
+const _ntkA=ntTick;ntTick=function(dt){if(amOn())for(const t of ntLive())if(t.stun>T&&t.fireT<t.stun+.5)t.fireT=t.stun+.5;_ntkA(dt);amZones(dt)};
+/* fires and pools */
+const AZ=[];function amZones(dt){for(let i=AZ.length-1;i>=0;i--){const z=AZ[i];z.t-=dt;if(z.t<=0||!runLive()){AZ.splice(i,1);continue}
+ z.p=(z.p||0)-dt;if(z.p<=0){z.p=.35;puff(z.x+rr_(RT.rr,-z.r,z.r)*.6,H(z.x,z.z)+.5,z.z+rr_(RT.rr,-z.r,z.r)*.6,z.k==='pool'?0x7a1010:0xff7a1a,.8,z.r*.25,z.r*.15,.85,.8)}
+ const c0=amCtx;amCtx={x:z.x,z:z.z,src:z.k,d:1,pool:z.k==='pool'};try{for(const t of ntLive())amFlat(t,z.x,z.z,z.r,z.dps*dt)}finally{amCtx=c0}}
+ if(amFx('napalm'))for(const t of ntLive())if(t.burnT>T){const c0=amCtx;amCtx={x:t.x,z:t.z,src:'burn',d:1};try{amFlat(t,t.x,t.z,1,6*dt)}finally{amCtx=c0}if(!t.spread){t.spread=1;for(const o of amNear(t.x,t.z,10,[t]))if(!(o.burnT>T))o.burnT=T+4}}}
+function amFire(x,z,r,s,dps,k){AZ.push({x,z,r,t:s,dps,k:k||'fire'});if(amFx('napalm'))for(const t of amNear(x,z,r))t.burnT=T+4}
+/* kills by our rounds: Plunder, Leech, Chain, Hemorrhage, Gold rush */
+const _nkA=ntKill;ntKill=function(t){const a=t.alive,c=amCtx;_nkA(t);if(!a||t.alive||!amOn()||!c||!runLive())return;const x=t.x,z=t.z;
+ if(amFx('plun'))spAdd(5,'kill');if(amFx('leech'))heal(2);
+ if(c.pool){heal(3);sched(.2,()=>amBlast(x,z,15,.5,{src:'chain'}))}
+ if(amFx('hem'))amFire(x,z,15,6,10,'pool');
+ if((amFx('chain')||amFx('hem')||amFx('gold'))&&(c.d||0)<4)sched(.25,()=>{const hit=amNear(x,z,15).length;amBlast(x,z,15,.5,{src:'chain'});if(amFx('gold')&&hit)spAdd(3*hit,'kill')});
+ if(amFx('gold')&&c.src==='chain')ammo.HE=Math.min(rsBase().HE+12,ammo.HE+1)};
+/* every effect that adds blasts after one of our rounds lands at (x,z); dir = flight direction (unit vector from the gun) */
+function amAfter(x,z,dir,o){o=o||{};if(!amOn()||!runLive())return;const at=(d,f)=>({x:x+dir.x*d,z:z+dir.z*d,f});
+ if(amFx('clus')||amFx('napalm'))for(let i=0;i<5;i++){const a=i/5*Math.PI*2+RT.rr()*.6,bx=x+Math.cos(a)*40*(.6+.4*RT.rr()),bz=z+Math.sin(a)*40*(.6+.4*RT.rr());sched(.3+i*.08,()=>{amBlast(bx,bz,8,.25,{src:'clus',fx:false});puff(bx,H(bx,bz)+1,bz,0x9a8f80,1.2,2,5,.8,.5);if(amFx('napalm'))amFire(bx,bz,8,6,12)})}
+ if(amFx('inc'))amFire(x,z,15,8,12);
+ if(amFx('ric')&&!amFx('pin')){const p=at(60);sched(.6,()=>amBlast(p.x,p.z,25*rUp('dmg'),.5,{src:'ric'}))}
+ if(amFx('pin'))for(let b=1;b<=3;b++){const p=at(60*b);sched(.6*b,()=>{boom(new THREE.Vector3(p.x,H(p.x,p.z)+1.5,p.z));for(let j=0;j<2;j++){const bx=p.x+rr_(RT.rr,-15,15),bz=p.z+rr_(RT.rr,-15,15);amBlast(bx,bz,8,.25,{src:'clus',fx:false})}})}
+ if(amFx('roll'))for(let b=1;b<=3;b++){const p=at(30*b);sched(.5*b,()=>amBlast(p.x,p.z,25*rUp('dmg'),.4,{src:'roll'}))}
+ if(amFx('dtap')&&!amFx('hk')&&RT.rr()<.25)sched(1,()=>amBlast(x,z,25*rUp('dmg'),1,{src:'dtap'}));
+ if(amFx('hk')){const t=amNear(x,z,80)[1]||amNear(x,z,80)[0];if(t)sched(1,()=>{if(t.alive)amBlast(t.x,t.z,25*rUp('dmg'),.6,{src:'hk'})})}
+ if(amFx('intc'))amNear(x,z,80).slice(0,3).forEach((t,i)=>sched(.2+i*.15,()=>{if(t.alive)amBlast(t.x,t.z,25*rUp('dmg'),.6,{src:'intc'})}));
+ if(amFx('sabot')&&o.hit&&amVeh(o.hit)){const p=at(40);sched(.15,()=>amBlast(p.x,p.z,DFS*rUp('dmg'),1,{src:'sabot'}))}}
+/* a round landing on an ordered fire mission target stays on it (guidance would pull it off the task) */
+const amOrd=p=>TGT.some(t=>t.els&&t.els.length&&dst(p,t)<=t.r+25);
+/* indirect: guidance moves the impact onto a near enemy before it lands; then the round's own damage, then the effects */
+const _imA=impactI;impactI=function(f){if(!amOn()||f.a!=='HE'||!f.own||!runLive())return _imA(f);const p0=toL(f.imp.e,f.imp.n);
+ if(amFx('guid')&&!amFx('intc')&&!amOrd(f.imp)){const t=amNear(p0.x,p0.z,50)[0];if(t){const g=toG(t.x,t.z);f.imp={e:g.e,n:g.n}}}
+ const p=toL(f.imp.e,f.imp.n),gp=toL(f.from.e,f.from.n),d=Math.hypot(p.x-gp.x,p.z-gp.z)||1,dir={x:(p.x-gp.x)/d,z:(p.z-gp.z)/d};
+ const c0=amCtx;amCtx={x:p.x,z:p.z,src:'round',d:0};amCrit=0;try{_imA(f)}finally{amCtx=c0;amCrit=0}amAfter(p.x,p.z,dir)};
+/* direct fire: same effects from the sight round's landing point */
+const _dlA=dfLand;dfLand=function(h,hitT){if(!amOn())return _dlA(h,hitT);const c0=amCtx;amCtx={x:h.p.x,z:h.p.z,src:'round',d:0};amCrit=0;try{_dlA(h,hitT)}finally{amCtx=c0;amCrit=0}
+ const d=Math.hypot(h.p.x-px,h.p.z-pz)||1;amAfter(h.p.x,h.p.z,{x:(h.p.x-px)/d,z:(h.p.z-pz)/d},{hit:hitT})};
+/* Fire for effect / Rolling barrage: each fire mission leg needs 1/3 fewer rounds for effect (min 1) */
+const amFfeCut=L=>{if(L&&L.ffe>1&&!L._af){L._af=1;L.ffe=Math.max(1,Math.ceil(L.ffe*2/3))}};
+const _rsA=runStart;runStart=function(j){const r=_rsA(j);const R=RUNS;if(amOn()&&(amFx('ffe')||amFx('roll'))&&R.cur&&['FIRE','HOT'].includes(R.cur.mode)){const D=CAMP&&CAMP.defs[CAMP.defs.length-1];if(D&&D.legs)D.legs.forEach(amFfeCut);if(M&&M.cur)amFfeCut(M.cur.L)}return r};
+/* ---------- P4c/P4d bosses (3-map runs) ----------
+   The last order of each map is the boss. Each run draws Redback assault, Rail gun and Gun Duel in a seeded order, one per map.
+   The boss order is its own mode (BOSS): the fight starts where the order starts, at the map's heat floor (no start heat of its own, no elite heat);
+   every mission-start step of the other systems runs first, then the boss arrives. The rally point is the order's rally.
+   Timer: 8 min from the start of the order (a mission starts the moment it is picked, so drive time counts). If it runs out with the boss alive the crew must reach the
+   rally point under very high heat while the boss keeps attacking; the ammo reward still comes, the mission's Supply does not.
+   A 5 s intro shows the boss (any key or click skips it). A health bar sits at the top of the screen with the timer. */
+const BOSS={lim:480,otHeat:150,cine:5,kinds:['rb','rg','gd'],
+ rb:{n:'Redback assault',o:'Destroy the staging areas',sp:3,every:45,cap:6,dis:650},
+ rg:{n:'Rail gun',o:'Destroy the rail gun',fps:4,spd:12,chg:10,rounds:6,rad:60,dmg:18,spread:30},
+ gd:{n:'Gun Duel',o:'Destroy the enemy guns',guns:3,every:22,lead:7}};
+NTK.stg={n:'Staging area',m:'stg',spd:0,stop:0,rel:0,dmg:0};NTK.rail={n:'Rail gun',m:'rail',spd:0,stop:0,rel:0,dmg:0};NTK.egun={n:'Enemy gun',m:'egun',spd:0,stop:0,rel:0,dmg:0};
+NTK.rbifv={n:'Redback',m:'ifv',spd:8,stop:600,rel:8,dmg:3,hit:.15,ac:1,veh:1};
+RUN_MODES.BOSS={n:'Boss',d:'Destroy it within 8:00. Its rally point ends the map.',ev:1}; /* ev: never drawn into an offer pool; r18 places it as the last order */
+MICO.BOSS='n-boss';
+Object.assign(EHP,{stg:400,rail:1500,egun:450,rbifv:150});Object.assign(SPK,{stg:30,rail:100,egun:30,rbifv:15});
+TPT.stg=p=>{for(let i=0;i<2;i++){const t=tBx(5,2.6,4,TMT.tnt,p,i*7-3.5,1.3,0);t.rotation.y=i*.4}for(let i=0;i<4;i++)tBx(1.2,1,1.2,TMT.cnv,p,-5+i*2.6,.5,4);tCy(.08,.08,7,TMT.gun,p,6,3.5,-3);tBx(1.6,1,.05,M_(0x8a1f1f,.9,0),p,6.8,6.4,-3)};
+TPT.rail=p=>{tBx(14,3,6,TMT.drk,p,0,2.2,0);for(const s of[-3.2,3.2])tBx(15,1.6,1.2,TMT.gun,p,0,.9,s);tBx(6,2.5,4,TMT.veh,p,-2,4.6,0);const b=tCy(.7,.9,30,TMT.gun,p,12,6,0,'x');b.name='brl';
+ for(let i=0;i<5;i++)tCy(1.3,1.3,.6,TMT.drk,p,4+i*5,6,0,'x');const g=new THREE.Mesh(new THREE.SphereGeometry(1.6,12,10),new THREE.MeshBasicMaterial({color:0x66ccff,transparent:true,opacity:0}));g.position.set(27.5,6,0);g.name='glow';p.add(g)};
+TPT.egun=p=>{tBx(5,1.6,3,TMT.veh,p,0,1.2,0);tBx(2,1.4,2.4,TMT.drk,p,-.5,2.6,0);const b=tCy(.2,.25,7,TMT.gun,p,2.5,4,0,'x');b.rotation.z=.55};
+const bossOn=()=>{const R=RUNS;return!!(R&&R.maps>1&&R.cur&&R.cur.boss&&runLive())};
+const bossKind=(R,mi)=>{if(!R.bossK){const r=rng(R.rseed^0xb055),k=BOSS.kinds.slice();for(let i=k.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[k[i],k[j]]=[k[j],k[i]]}R.bossK=k}return R.bossK[mi==null?R.mi:mi]||R.bossK[0]},bossName=(R,mi)=>BOSS[bossKind(R,mi)].n;
+const BS={on:0,k:null,parts:[],t:0,st:null,rings:[],cine:null,won:0};
+/* points for boss parts: inside the map, at least minD from the gun, spread apart */
+function bossPts(n,minD,maxD){const c=[];for(let x=-1100;x<=1100;x+=100)for(let z=-1100;z<=1100;z+=100){const d=Math.hypot(x-px,z-pz);if(d>=minD&&d<=maxD&&!(H(x,z)<WL+.5))c.push([x,z])}
+ if(!c.length)for(let a=0;a<12;a++)c.push([cl(px+Math.cos(a)*minD,-1100,1100),cl(pz+Math.sin(a)*minD,-1100,1100)]);const out=[c[Math.floor(RT.rr()*c.length)]];
+ while(out.length<n){let b=null,bd=-1;for(const p of c){const d=Math.min(...out.map(q=>Math.hypot(p[0]-q[0],p[1]-q[1])));if(d>bd){bd=d;b=p}}out.push(b)}return out}
+function bossPart(kind,x,z){const t=ntSpawn(kind,x,z,{hold:true});t.boss=1;t.hp=t.hp0=EHP[kind]*hpMul();BS.parts.push(t);return t}
+const bossLive=()=>BS.parts.filter(t=>t.alive);
+function bossStart(e){const R=RUNS,k=bossKind(R);bossEnd();Object.assign(BS,{on:1,k,parts:[],t:T,st:{},cine:null,won:0});R.bossOT=0;
+ if(k==='rb'){for(const[x,z]of bossPts(BOSS.rb.sp,1100,1700)){const t=bossPart('stg',x,z);t.next=T+8+RT.rr()*10}}
+ if(k==='rg'){const P=bossPts(BOSS.rg.fps,1000,1600);P.sort((a,b)=>Math.atan2(a[1]-pz,a[0]-px)-Math.atan2(b[1]-pz,b[0]-px));const t=bossPart('rail',P[0][0],P[0][1]);BS.st={P,i:0,mode:'move',tgt:1}}
+ if(k==='gd'){for(const[x,z]of bossPts(BOSS.gd.guns,1300,1900)){const t=bossPart('egun',x,z);t.next=T+15+RT.rr()*12}}
+ const f=BS.parts[0];BS.cine={t0:T,x:f.x,z:f.z,a0:Math.atan2(pz-f.z,px-f.x)};bossCineShow(BOSS[k].n);
+ msg('HAMMER 0','BIG PRAWN, '+BOSS[k].n+'. Destroy it within the time limit, then move to the rally point, over',{cls:'cf',voice:false})}
+function bossEnd(){BS.on=0;BS.parts.forEach(t=>{if(t.alive&&t.g)sc.remove(t.g);t.alive=false});BS.parts=[];BS.rings.forEach(m=>sc.remove(m));BS.rings=[];bossHud(0);bossCineEnd()}
+/* every other system's mission-start step runs first (item and shield state, mines, caches, the P3f rules for boss orders), then the boss arrives */
+const _rmsBo=runModeStart;runModeStart=function(e){_rmsBo(e);if(e&&e.boss&&RUNS&&RUNS.maps>1)bossStart(e)};
+/* the boss leaves with its mission: a new mission or world, a death, a new run. The mission tick stops when the run is not live, so the clean-up cannot wait for it */
+const _rwBo=resetWorld;resetWorld=function(def){if(BS.on||BS.cine)bossEnd();return _rwBo(def)};
+const _rdBo=runDie;runDie=function(why){const r=_rdBo(why);if(BS.on)bossEnd();return r};
+function bossOver(){const R=RUNS;R.bossOT=1;R.floor=Math.max(R.floor||0,BOSS.otHeat);R.heat=Math.max(R.heat,BOSS.otHeat);const g=GSITE(R.cur.exfil);
+ msg('HAMMER 0','BIG PRAWN, out of time. '+BOSS[BS.k].n+' is still active. Get to the rally point at grid '+g8(g.e,g.n)+' now, over',{cls:'cf',voice:false});heatFix('has located you');runObjective(true,true)}
+function bossWin(){const R=RUNS;const g=GSITE(R.cur.exfil);msg('HAMMER 0','BIG PRAWN, '+BOSS[BS.k].n+' destroyed. Move to the rally point at grid '+g8(g.e,g.n)+', over',{cls:'cp',voice:false});beep(880,.3);BS.won=1;if(R.phase==='mission')runObjective(true,true)}
+/* the objective card during the fight: the boss, how many parts are left, what to do */
+const _ohBo=objHtml;objHtml=function(){const R=RUNS;if(!bossOn()||!BS.on||R.phase!=='mission'||TUT)return _ohBo();return'<div class="oh"><b>'+BOSS[BS.k].n+'</b><span>'+bossLive().length+'/'+BS.parts.length+'</span></div><div class="oq">'+BOSS[BS.k].o+'</div>'};
+/* the fight */
+function bossTick(dt){const R=RUNS;if(!BS.on)return;if(!bossOn()){bossEnd();return}
+ const live=bossLive();if(R.phase==='mission'&&!R.bossOT){if(!live.length)return bossWin();if(T-BS.t>=BOSS.lim)bossOver()}
+ if(R.bossOT&&R.heat<BOSS.otHeat)R.heat=BOSS.otHeat;
+ if(BS.cine)return bossHud(1);
+ if(BS.k==='rb'){const B=BOSS.rb;for(const s of live)if(T>=s.next){s.next=T+B.every;if(ntLive().filter(t=>t.nt==='rbifv').length<B.cap){const t=ntSpawn('rbifv',s.x+rr_(RT.rr,-25,25),s.z+rr_(RT.rr,-25,25));t.rb=1;puff(s.x,H(s.x,s.z)+3,s.z,0x9a8f80,3,3,8,.7,.8)}}
+  for(const t of ntLive())if(t.nt==='rbifv'&&!t.dis&&Math.hypot(t.x-px,t.z-pz)<B.dis){t.dis=1;ntSpawn('inf',t.x+6,t.z+6);msg('BIG PRAWN','Redback dismounting infantry',{cls:'me',voice:false})}}
+ if(BS.k==='rg'&&live[0])railTick(live[0],dt);
+ if(BS.k==='gd'){const B=BOSS.gd;for(const g of live)if(T>=g.next){g.next=T+B.every*(.8+.4*RT.rr());puff(g.x,H(g.x,g.z)+5,g.z,0xd8d0c0,2,2,6,.6,.6);const a=heatAim(px,pz,false);bossRing(a.ax,a.az,a.sg+25,B.lead+a.pts.length*.45);sched(B.lead,()=>{if(bossOn()||RUNS&&RUNS.bossOT)heatSalvo(a.ax,a.az,false,a)})}}
+ bossHud(1)}
+/* one warning ring per salvo or volley: each stays until its own rounds have landed */
+function bossRing(x,z,r,life){const m=noRng(()=>new THREE.Mesh(new THREE.TorusGeometry(r,1.2,6,72),new THREE.MeshBasicMaterial({color:0xff3b30,transparent:true,opacity:.85})));m.rotation.x=Math.PI/2;m.position.set(x,H(x,z)+.6,z);sc.add(m);BS.rings.push(m);
+ sched(life+1.5,()=>{const i=BS.rings.indexOf(m);if(i>=0){BS.rings.splice(i,1);sc.remove(m)}})}
+function railTick(t,dt){const B=BOSS.rg,S=BS.st,g=t.g.getObjectByName('glow');
+ if(S.mode==='move'){const[tx,tz]=S.P[S.tgt],dx=tx-t.x,dz=tz-t.z,d=Math.hypot(dx,dz);if(d<5){S.mode='chg';S.t=T;S.ax=px;S.az=pz;bossRing(px,pz,B.rad,B.chg);t.chg=1;msg('BIG PRAWN','Rail gun charging! Get out of the ring',{cls:'cf',voice:false});return}
+  const s=Math.min(B.spd*dt,d);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-(pz-t.z),px-t.x);if(g)g.material.opacity=0;return}
+ if(S.mode==='chg'){t.g.rotation.y=Math.atan2(-(S.az-t.z),S.ax-t.x);if(g)g.material.opacity=Math.min(.9,(T-S.t)/B.chg);if(T-S.t<B.chg)return;S.mode='move';t.chg=0;S.tgt=(S.tgt+1)%S.P.length;
+  for(let i=0;i<B.rounds;i++)sched(.5*i,()=>{if(!runLive())return;const x=S.ax+gauss()*B.spread*.5,z=S.az+gauss()*B.spread*.5,q=new THREE.Vector3(x,H(x,z),z);boom(q,1);crater(x,z,10,3);destroyAt(q,10);const dl=Math.hypot(x-px,z-pz);sfx(1,dl/340,1/(1+dl/60));if(dl<30)shake=1.6;
+   const dd=dl<10?B.dmg:dl<B.rad?B.dmg*(1-dl/B.rad):0;if(dd>0)runHit(dd,'rail gun','frag')});puff(t.x,H(t.x,t.z)+6,t.z,0xbfe8ff,1.5,3,10,.9,.4)}}
+/* hits on a charging rail gun count double */
+const _ntdB=ntDmg;ntDmg=function(t,x,z,r,k){return _ntdB(t,x,z,r,t.chg?k*2:k)};
+const _mtB=modeTick;modeTick=function(dt){_mtB(dt);bossTick(dt)};
+/* rewards: an ammo with an effect at the rally point; no mission Supply after overtime */
+const _spmB=spMission;spMission=function(t){const s=_spmB(t),R=RUNS;if(R&&R.bossOT&&R.cur&&R.cur.boss){for(const k in s)if(typeof s[k]==='number')s[k]=0}return s};
+const _arrB=runArrive;runArrive=function(){const R=RUNS,e=R&&R.cur;if(e&&e.boss&&R.maps>1&&R.phase==='exfil'){const a=amRollFx(rng(R.rseed^0xb0a^R.mi));amAdd(a);R.bossAm=a}const r=_arrB();if(e&&e.boss)bossEnd();return r};
+/* HUD: name, health (one bar, a segment per part) and the time left */
+function bossHud(on){let h=$('bossHud');if(!h){document.body.insertAdjacentHTML('beforeend','<div id="bossHud" hidden><b></b><div class="bb"></div><span></span></div>');h=$('bossHud')}if(!on||!BS.on){h.hidden=true;return}h.hidden=false;const R=RUNS;
+ h.querySelector('b').textContent=BOSS[BS.k].n;h.querySelector('.bb').innerHTML=BS.parts.map(t=>'<i><u style="width:'+Math.max(0,Math.round(100*(t.alive?(t.hp==null?1:t.hp/t.hp0):0)))+'%"></u></i>').join('');
+ const left=Math.max(0,BOSS.lim-(T-BS.t));h.querySelector('span').textContent=R.bossOT?'GET OUT':BS.won?'':Math.floor(left/60)+':'+String(Math.floor(left%60)).padStart(2,'0')}
+/* intro: the camera circles the boss for 5 s with its name; any key or click skips */
+function bossCineShow(n){let c=$('bossCine');if(!c){document.body.insertAdjacentHTML('beforeend','<div id="bossCine" hidden><b></b></div>');c=$('bossCine')}c.querySelector('b').textContent=n;c.hidden=false;
+ const skip=()=>{if(BS.cine)bossCineEnd()};BS.skip=skip;addEventListener('keydown',skip,true);addEventListener('pointerdown',skip,true)}
+function bossCineEnd(){BS.cine=null;const c=$('bossCine');if(c)c.hidden=true;if(BS.skip){removeEventListener('keydown',BS.skip,true);removeEventListener('pointerdown',BS.skip,true);BS.skip=null}}
+const _ltB=layTick;layTick=function(){_ltB();const C=BS.cine;if(!C)return;const k=(T-C.t0)/BOSS.cine;if(k>=1||!BS.on)return bossCineEnd();const a=C.a0-.6+1.2*k,r=70-20*k,y=H(C.x,C.z);
+ cam.position.set(C.x+Math.cos(a)*r,y+22-8*k,C.z+Math.sin(a)*r);cam.lookAt(C.x,y+5,C.z)};
+document.head.insertAdjacentHTML('beforeend','<style>#bossHud{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:10px;background:rgba(10,12,14,.75);padding:6px 12px;border-radius:8px;font:700 13px var(--fd,sans-serif);color:#f1e6d0;pointer-events:none}'
+ +'#bossHud .bb{display:flex;gap:3px;width:min(40vw,360px)}#bossHud .bb i{flex:1;height:10px;background:#3a2222;border-radius:3px;overflow:hidden}#bossHud .bb u{display:block;height:100%;background:#e0432f}#bossHud span{min-width:58px;text-align:right;font-variant-numeric:tabular-nums}'
+ +'#bossCine{position:fixed;inset:0;z-index:40;display:grid;place-items:end center;padding-bottom:16vh;pointer-events:none;background:linear-gradient(transparent 70%,rgba(0,0,0,.55))}#bossCine b{font:800 clamp(28px,6vw,64px) var(--fd,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:#f1e6d0;text-shadow:0 2px 12px #000}</style>');
+/* ---------- P4e trader posts (3-map runs) ----------
+   25% of non-boss missions have a trader post 300-600 m off the line from the start to the firing point (or the rally point when the
+   mission has no separate firing point; a random bearing if both sit on the start). Gold diamond on the maps.
+   Stop within 25 m of it to open its stall: 1 ammo and 2 items at Shop prices. The game keeps running and heat keeps rising while it is open.
+   The stall is a small side list: ✕ or B hides it, B (or the Trader button) brings it back while within 40 m. One stall per mission. */
+const TRD={p:.25,off:[300,600],open:25,close:40,n:2};
+const TRM=noRng(()=>{const g=new THREE.Group();TPT.truck(g);tBx(3,2.2,3,TMT.cnv,g,-5,1.1,3);tCy(.07,.07,6,TMT.gun,g,2,3,3);tBx(1.4,.9,.05,M_(0xe2b93b,.6,0),g,2.7,5.5,3);return g});
+let TR=null;
+function trSpawn(e){const R=RUNS;if(TR){sc.remove(TR.g);TR=null}if(!R||R.maps<2||!e||e.boss||RUN_MODES[e.mode]&&RUN_MODES[e.mode].ev)return;const r=rng(R.rseed^0x7ad^(R.mi*131+R.i*17));if(r()>=TRD.p&&!R.trForce)return;
+ const a=SITES[e.start]||[px,pz],f=e.fp&&e.fp!==e.start?e.fp:e.exfil,b=SITES[f]||a,o=rr_(r,TRD.off[0],TRD.off[1]),m=.3+.4*r(),s0=r()<.5?1:-1,t0=r()*6.28;
+ let dx=b[0]-a[0],dz=b[1]-a[1],d=Math.hypot(dx,dz),x,z;if(d<100){dx=Math.cos(t0);dz=Math.sin(t0);d=1}
+ for(const s of[s0,-s0]){x=cl(a[0]+dx*m-dz/d*o*s,-1100,1100);z=cl(a[1]+dz*m+dx/d*o*s,-1100,1100);for(let k=0;k<8&&H(x,z)<WL+.5;k++){x*=.9;z*=.9}if(Math.hypot(x-a[0],z-a[1])>=TRD.off[0]*.8)break}
+ const g=noRng(()=>TRM.clone());g.position.set(x,H(x,z),z);g.rotation.y=r()*6.28;sc.add(g);
+ const pool=Object.keys(ITEMS).filter(k=>itRoom(k)&&!ITEMS[k].p2),it=[];while(it.length<TRD.n&&pool.length)it.push(pool.splice(Math.floor(r()*pool.length),1)[0]);
+ const am=r()<.3?amRollFx(r,(p=>p[Math.floor(r()*p.length)])(AFX_BASE.filter(k=>AFX[k].r<3))):amRoll(r);TR={g,x,z,it,got:[],am,amC:AMO.c[RAR.findIndex(q=>q[0]===am.rar)],amGot:0,open:0}}
+function trPanel(on){let p=$('trP'),q=$('trB');if(!p){document.body.insertAdjacentHTML('beforeend','<div id="trP" hidden></div><button id="trB" hidden>Trader <kbd>B</kbd></button>');p=$('trP');q=$('trB');q.onclick=()=>trShow(1)}
+ if(!on||!TR){p.hidden=q.hidden=true;return}if(TR.hid){p.hidden=true;q.hidden=false;return}q.hidden=true;const R=RUNS;
+ const c=shopC(TR.amC),row=(i,n,cost,no,cls,tip)=>'<button data-tr="'+i+'" class="'+(cls||'')+'"'+tip+(no?' disabled':'')+'><b>'+n+'</b><span>'+rIco('sp','i sm')+cost+'</span></button>';
+ p.innerHTML='<div><b>Trader</b><button data-trx title="Hide (B)">✕</button></div>'+row('a',TR.amGot?'✓ '+amName(TR.am):amName(TR.am),c,TR.amGot||R.sp<c,RCL[TR.am.rar],amTip(TR.am))+TR.it.map((k,j)=>{const I=ITEMS[k],ic=shopC(I.c),g=TR.got.includes(j);return row(j,(g?'✓ ':'')+I.n,ic,g||R.sp<ic||!itRoom(k),I.rare?'rE':'',' data-tip="'+I.n+'|'+I.d+'"')}).join('');
+ p.hidden=false;p.querySelector('[data-trx]').onclick=()=>trShow(0);p.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>{const k=b.dataset.tr;if(k==='a'){if(TR.amGot||R.sp<c)return;R.sp-=c;spLog('trader',-c);amAdd(TR.am);TR.amGot=1}
+  else{const j=+k,ik=TR.it[j],ic=shopC(ITEMS[ik].c);if(TR.got.includes(j)||R.sp<ic||!itAdd(ik))return;R.sp-=ic;spLog('trader',-ic);TR.got.push(j)}aud();trPanel(1)})} /* no save here: nothing saves mid-mission, the rally point's save keeps the purchase */
+function trShow(on){if(!TR||!TR.open)return;TR.hid=!on;trPanel(1)}
+addEventListener('keydown',e=>{if((e.key==='b'||e.key==='B')&&e.target.tagName!=='INPUT'&&ov.hidden&&TR&&TR.open)trShow(TR.hid?1:0)});
+function trTick(){if(!TR)return;if(!runLive()){trPanel(0);return}const d=Math.hypot(TR.x-px,TR.z-pz);
+ if(!TR.open&&d<TRD.open&&Math.abs(v)<1){TR.open=1;TR.hid=0;trPanel(1)}else if(TR.open&&d>TRD.close){TR.open=0;trPanel(0)}}
+const _rmsT=runModeStart;runModeStart=function(e){_rmsT(e);trSpawn(e)};
+const _mtT=modeTick;modeTick=function(dt){_mtT(dt);trTick()};
+const _arrT=runArrive;runArrive=function(){const r=_arrT();if(TR){sc.remove(TR.g);TR=null}trPanel(0);return r};
+const _rwTr=resetWorld;resetWorld=function(def){if(TR){sc.remove(TR.g);TR=null}if($('trP'))trPanel(0);return _rwTr(def)};
+const trOn=()=>!!(TR&&runLive());
+const _dmT=drawMap;drawMap=function(){_dmT();if(!trOn()||curTab!=='map'||!mc._dp)return;const g=toG(TR.x,TR.z),[a,b]=w2s(g.e,g.n),s=7*mc._dp,c=mx;c.fillStyle='#e2b93b';c.strokeStyle='#1b1b1b';c.lineWidth=1.5*mc._dp;c.beginPath();c.moveTo(a,b-s);c.lineTo(a+s,b);c.lineTo(a,b+s);c.lineTo(a-s,b);c.closePath();c.fill();c.stroke()};
+const _dmmT=drawMini;drawMini=function(){_dmmT();if(!trOn())return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),k=c.width/(HALF*2),x=(TR.x+HALF)*k,y=(TR.z+HALF)*k,s=4*dp;g.setTransform(1,0,0,1,0,0);g.fillStyle='#e2b93b';g.beginPath();g.moveTo(x,y-s);g.lineTo(x+s,y);g.lineTo(x,y+s);g.lineTo(x-s,y);g.closePath();g.fill()};
+document.head.insertAdjacentHTML('beforeend','<style>#trP,#trB{position:fixed;right:calc(76px + env(safe-area-inset-right,0px));top:calc(186px + env(safe-area-inset-top,0px));z-index:30;background:rgba(10,14,11,.78);border:1px solid #e2b93b66;border-radius:8px;font-size:12px;color:#e4e8dc}#trP{width:210px;padding:5px 6px;display:flex;flex-direction:column;gap:3px}#trP>div{display:flex;justify-content:space-between;align-items:center}#trP>div>b{font-weight:700;color:#e2b93b;letter-spacing:.08em;text-transform:uppercase;font-size:11px}#trP>div>button{all:unset;cursor:pointer;padding:0 4px;color:#e4e8dc}#trP [data-tr]{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:6px;padding:3px 6px;border-radius:4px;border-left:3px solid #6b7266;background:rgba(255,255,255,.05);cursor:pointer}#trP [data-tr]:hover:not(:disabled){background:rgba(226,185,59,.18)}#trP [data-tr]:disabled{opacity:.45;cursor:default}#trP [data-tr]>b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#trP [data-tr]>span{white-space:nowrap;display:flex;align-items:center;gap:2px;color:#e2b93b}#trP svg{width:11px;height:11px;fill:currentColor}#trP .rI{border-left-color:var(--ri)}#trP .rE{border-left-color:var(--re)}#trB{padding:4px 8px;cursor:pointer;color:#e2b93b;font-weight:700}#trB kbd{font:inherit;color:#e4e8dc;opacity:.7}</style>');
 /* ================= RUN-ONLY: BGGB's own Settings and Controls screen, saved apart from the trainer (key bggbs) =================
    Time of flight (3x) and into action (3 s) are fixed in BGGB: both change balance. Day/night belongs to the run. */
 const BGS_KEY='bggbs';
@@ -6354,7 +6608,7 @@ const _svBG=sv;sv=function(k,v){_svBG(k==='as9s'?BGS_KEY:k,v)};
 addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
  if(e.key==='Tab'){if(!ov.hidden)return;e.preventDefault();am=(am+1)%AMS.length;fz=FZ[AMS[am]][0];renderSoon();return}
  const i='1234'.indexOf(e.key);if(i<0)return;e.stopImmediatePropagation();if(RUNS&&runLive()&&ov.hidden&&itActs()[i])itUse(i)},true);
-const BGS_KEYS=[['Drive','W A S D'],['Action / march order','T'],['Lay gun (FCS)','G'],['Traverse','Q E'],['Elevate','R F (Shift: fine)'],['Report ready','Y'],['Fire','Space'],['Gun sight','V'],['Sight zoom','Wheel or + −'],['Elevate in sight','Shift + wheel'],['Laser rangefinder','L'],['Lased target to FCS','K'],['Ammunition','Tab'],['Use item','1 2 3 4 or click its tile'],['Map','M'],['FCS','C'],['Radio net','N'],['Shot log','O'],['Camouflage net','H'],['Pause','Esc']];
+const BGS_KEYS=[['Drive','W A S D'],['Action / march order','T'],['Lay gun (FCS)','G'],['Traverse','Q E'],['Elevate','R F (Shift: fine)'],['Report ready','Y'],['Fire','Space'],['Gun sight','V'],['Sight zoom','Wheel or + −'],['Elevate in sight','Shift + wheel'],['Laser rangefinder','L'],['Lased target to FCS','K'],['Ammunition','Tab'],['Use item','1 2 3 4 or click its tile'],['Trader stall (when stopped at one)','B'],['Map','M'],['FCS','C'],['Radio net','N'],['Shot log','O'],['Camouflage net','H'],['Pause','Esc']];
 let BGS_TAB='set';
 function bgsUI(back){const o=(k,v,l)=>'<button data-bs="'+k+'" data-v="'+v+'" class="'+(String(S[k])===String(v)?'on':'')+'">'+l+'</button>';
  let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['set','Settings'],['keys','Controls']].map(t=>'<button data-bt="'+t[0]+'" class="'+(BGS_TAB===t[0]?'on':'')+'"><span>'+t[1]+'</span></button>').join('')+'</nav><span class="sp"></span><button id="bgsBack">Back</button></header><div class="rbgs">';

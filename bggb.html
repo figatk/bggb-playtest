@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.14.1","c":"297ff77"};
+const BUILD={"v":"9.15.0","c":"44564db"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -290,7 +290,7 @@ const hs=(i,j)=>{const s=Math.sin(i*127.1+j*311.7)*43758.5453;return s-Math.floo
 const vn=(x,y)=>{const i=Math.floor(x),j=Math.floor(y),a=x-i,b=y-j,u=a*a*(3-2*a),v=b*b*(3-2*b);return hs(i,j)*(1-u)*(1-v)+hs(i+1,j)*u*(1-v)+hs(i,j+1)*(1-u)*v+hs(i+1,j+1)*u*v};
 const sst=(a,b,x)=>{const t=cl((x-a)/(b-a),0,1);return t*t*(3-2*t)};
 /* water: one creek across the area; AS9 fords to 1.5 m */
-const WL=-2.5,FORD=1.5;let rivZ=x=>-110+35*Math.sin(x/120)+8*Math.sin(x/37),riv2X=z=>860+45*Math.sin(z/160)+10*Math.sin(z/41);const creekD=(x,z)=>Math.min(Math.abs(z-rivZ(x)),Math.abs(x-riv2X(z)));
+const WL=-2.5,FORD=1.5,fordAny=()=>!!RMOD.ford; /* BGGB Fording kit: any depth can be crossed (RMOD is empty in the trainer) */let rivZ=x=>-110+35*Math.sin(x/120)+8*Math.sin(x/37),riv2X=z=>860+45*Math.sin(z/160)+10*Math.sin(z/41);const creekD=(x,z)=>Math.min(Math.abs(z-rivZ(x)),Math.abs(x-riv2X(z)));
 /* tracks between sites (Catmull-Rom through control points); 4th field is the grade: road (sealed MSR), track (dirt), rough */
 const TRK_DEF=[['HIDE',[[55,-45],[100,-95],[135,-150]],'A'],['HIDE',[[-55,-60],[-140,-120],[-205,-225]],'B'],['HIDE',[[110,25],[220,55]],'C'],['HIDE',[[-15,110],[-45,225]],'D'],
  ['HIDE',[[-110,70],[-230,150]],'RSP'],['HIDE',[[-75,10]],'G2'],['HIDE',[[50,85]],'G3'],['A',[[50,-265],[-100,-310]],'B'],['C',[[310,-50],[240,-160]],'A'],['D',[[-180,300]],'RSP'],
@@ -603,7 +603,7 @@ let layQd=0;function doLay(){if(dfOn())return dfLay();if(st==='DEPLOY'){layQd=1;
 function setManual(b,q,c){layB=wm(b);layQ=cl(q,TRAVEL_EL*D*MIL,QMAX);if(c)chSel=c;layOn=true}
 const laid=()=>layOn&&st==='ACTION'&&Math.abs(dm_(gunBrg()-layB))<1.5&&Math.abs(gunQE()-layQ)<1.5;
 function toast(t){const b=$('banner');bnrTop();b.innerHTML='<span class="f">CREW</span> '+esc(t);b.className='';b.style.opacity=1;clearTimeout(b._t);b._t=setTimeout(()=>b.style.opacity=0,4000)}
-let flyK=()=>1; /* flight time factor of our indirect rounds (BGGB Shell speed ammo); every timer that follows a round uses it */
+let flyK=()=>1; /* flight time factor of our rounds (BGGB Shell speed ammo): indirect timers, and direct fire sight rounds fly the same path faster (r16 h.tk, dfSol lead) */
 function fire(){aud();if(st!=='ACTION')return toast(st==='TRAVEL'?'Not in action. Halt, then ACTION':'Wait: '+st.toLowerCase()+' in progress');if(rl>0)return;
  const a=AMS[am];if(ammo[a]<=0)return toast('No '+a+' remaining. Resupply from AS10');
  if(T<mfUntil)return toast('Hangfire wait: '+Math.ceil(mfUntil-T)+' s before re-attempting');
@@ -1459,7 +1459,7 @@ function drawOvl(){const dp=tgc._dp||1,W=tgc.width,Hh=tgc.height;tgx.setTransfor
 /* direct fire drill: LRF picks the target, LAY applies superelevation and lead, FIRE */
 const dfOn=()=>!!(M&&M.cur&&M.cur.phase==='df');
 function dfSol(t){if(!t||!t.alive)return null;veh.updateMatrixWorld(true);mz.getWorldPosition(V3);const gy=veh.position.y+2.3;let x=t.x,z=t.z,r=Math.hypot(x-px,z-pz);
- for(let i=0;i<2;i++){const tof=r/320;x=t.x+t.vx*tof*(Math.hypot(t.x-px,t.z-pz)>140?1:0);z=t.z+t.vz*tof*(Math.hypot(t.x-px,t.z-pz)>140?1:0);r=Math.hypot(x-px,z-pz)}
+ for(let i=0;i<2;i++){const tof=r/320*flyK();x=t.x+t.vx*tof*(Math.hypot(t.x-px,t.z-pz)>140?1:0);z=t.z+t.vz*tof*(Math.hypot(t.x-px,t.z-pz)>140?1:0);r=Math.hypot(x-px,z-pz)}
  const dh=H(x,z)+1.2-gy;return{b:wm(Math.atan2(x-px,-(z-pz))*MIL),q:(.5*Math.asin(cl(GRV*r/320/320,-1,1))+Math.atan2(dh,r))*MIL,r,c:'DF',id:'T'+(dft.filter(q=>q.alive).indexOf(t)+1)}}
 function dfLay(){if(st!=='ACTION')return toast('Go into action first');const t=lased&&lased.t;if(!t||!t.alive)return toast('Lase a target first: Sight, aim near a red bracket, press LRF');const s=dfSol(t);layB=s.b;layQ=s.q;layOn=true;beep(660);toast('Laying on '+s.id+': range '+Math.round(s.r)+' m, superelevation and lead applied')}
 /* ================= vehicle collision & impacts ================= */
@@ -1593,7 +1593,7 @@ function step(dt,draw){if(RUN())T+=dt;
  const hF=hf(3,0),hB=hf(-3,0),hL=hf(0,-1.6),hR=hf(0,1.6),sl=(hF-hB)/6;
  const dep=depthAt(px,pz),tq_=trackNear(px,pz),onTrk=tq_.d<GRADE[tq_.t!=null?TRK[tq_.t].gr:"track"].w+.9;let tgtV=(iy>0?iy*18:iy*11)*rUp('spd')*(dep>.2?.45*rUp('ford'):1)*(onTrk?GRADE[TRK[tq_.t].gr].v:Math.min(1,MOB_K.offr*rUp('offr')));tgtV*=1-cl(sl*(tgtV>0?1:-1)*.9,-.3,MOB_K.up); /* uphill: 0.9 x grade, at most 45% slower (was 1.6, 75%) */ v+=(tgtV-v)*Math.min(1,dt*(st==='TRAVEL'?MOB_K.acc:4));
  const w=-ix*(.95-.45*Math.abs(v)/18);psi+=w*dt;
- {const nx=cl(px+Math.cos(psi)*v*dt,-HALF+15,HALF-15),nz=cl(pz-Math.sin(psi)*v*dt,-HALF+15,HALF-15),nd=depthAt(nx,nz);if(nd>FORD&&nd>dep){v=0;if(T-deepT>4){deepT=T;toast('Too deep: the AS9 can ford 1.5 m of water. Use a track crossing (ford)')}}else{px=nx;pz=nz}}
+ {const nx=cl(px+Math.cos(psi)*v*dt,-HALF+15,HALF-15),nz=cl(pz-Math.sin(psi)*v*dt,-HALF+15,HALF-15),nd=depthAt(nx,nz);if(nd>FORD&&nd>dep&&!fordAny()){v=0;if(T-deepT>4){deepT=T;toast('Too deep: the AS9 can ford 1.5 m of water. Use a track crossing (ford)')}}else{px=nx;pz=nz}}
  if(Math.abs(v)>1.5&&!paused){dustAcc+=dt;if(dustAcc>.11){dustAcc=0;const bx_=px-Math.cos(psi)*4.2,bz_=pz+Math.sin(psi)*4.2,wd=depthAt(bx_,bz_);for(const sd of[-1.5,1.5]){const x=bx_+Math.sin(psi)*sd,z=bz_+Math.cos(psi)*sd;if(wd>.05)puff(x,WL+.2,z,0xe8f0f0,rnd(.5,.9),.25,1,.32,1.2);else puff(x,H(x,z)+.3,z,night?0x2a2620:0xbca582,rnd(1.4,2.4),.35,1.6+Math.abs(v)*.08,onTrk?.2:.13,.45)}}}
  collide(dt);
  offs[0]+=(v+w*1.45)*dt;offs[1]+=(v-w*1.45)*dt;upT(offs);tlockTick(tl,st==='TRAVEL'||st==='STOW'&&Math.abs(tur.rotation.y)<.002&&Math.abs(elev-TRAVEL_EL)<.05,dt);
@@ -1627,7 +1627,7 @@ function step(dt,draw){if(RUN())T+=dt;
   mTick(dt);resupply(dt);tutTick()}
  /* local shells */
  for(let i=shells.length-1;i>=0;i--){const h=shells[i];if(h.life!=null){h.life-=dt;h.p.addScaledVector(h.v,dt);h.m.position.copy(h.p);if(h.life<=0){sc.remove(h.m);shells.splice(i,1)}continue}
-  SH0.copy(h.p);if(!h.flat)h.v.y-=GRV*dt;h.p.addScaledVector(h.v,dt);h.m.position.copy(h.p);
+  SH0.copy(h.p);const dh_=dt*(h.tk||1);if(!h.flat)h.v.y-=GRV*dh_;h.p.addScaledVector(h.v,dh_); /* h.tk: BGGB Shell speed runs the round's clock faster, same path */h.m.position.copy(h.p);
   /* swept hit: the round moves ~5-16 m an update, more than a target is wide, so test the whole path since the last update and stop at the first body it meets */
   let hitT=null,hs=2;{const dx=h.p.x-SH0.x,dz=h.p.z-SH0.z,L2=dx*dx+dz*dz||1e-9;for(const t of dft){if(!t.alive)continue;const s_=cl(((t.x-SH0.x)*dx+(t.z-SH0.z)*dz)/L2,0,1),x=SH0.x+dx*s_,z=SH0.z+dz*s_,y=SH0.y+(h.p.y-SH0.y)*s_;
    if(s_<hs&&Math.hypot(t.x-x,t.z-z)<5&&y-H(t.x,t.z)<4.5&&y>=H(x,z)){hitT=t;hs=s_}}
@@ -1664,7 +1664,7 @@ const ppiStep=m=>[1000,2000,4000,6000,8000,12000,16000,24000,32000].find(s=>s>=m
 function ppiTargets(){const g=gunG(),R=M&&M.cur,o=[];
  if(R&&R.aim&&R.L&&R.L.type!=='DF'&&R.phase!=='done')o.push({p:R.aim,id:R.L.tgt.id,cur:1});
  TGT.forEach(t=>{if(!o.some(x=>x.cur&&x.id===t.id))o.push({p:t,id:t.id,cur:0})});
- dft.forEach(t=>{if(t.alive)o.push({p:toG(t.x,t.z),id:'',df:1,cur:lased&&lased.t===t})});
+ dft.forEach(t=>{if(t.alive&&!t.hid)o.push({p:toG(t.x,t.z),id:'',df:1,cur:lased&&lased.t===t})});
  return o.map(x=>({...x,b:brg(g,x.p),d:dst(g,x.p)}))}
 function drawPPI(){const c=$('ppi'),W=c.clientWidth,Hc=c.clientHeight;if(!W)return;const dp=Math.min(devicePixelRatio,2);
  if(c.width!==Math.round(W*dp)||c.height!==Math.round(Hc*dp)){c.width=Math.round(W*dp);c.height=Math.round(Hc*dp)}
@@ -5417,7 +5417,8 @@ function cacheStart(e){const R=RUNS;RC.list.forEach(c=>c.g&&sc.remove(c.g));cons
 function cacheTick(){const R=RUNS;for(const c of RC.list){if(c.w!=null&&R.wc[c.w]){if(c.seen)R.wc[c.w].seen=true;if(c.got)R.wc[c.w].got=true}if(c.got)continue;const d=Math.hypot(c.x-px,c.z-pz);if(d<RC.seen*rUp('sense'))c.seen=true;
  if(d<RC.get){c.got=true;sc.remove(c.g);R.caches=(R.caches||0)+1;spAdd(c.v,c.drop?'drop':'cache');if(c.am){const b=rsBase().HE;ammo.HE=Math.min(b,ammo.HE+8)}sfx(2,0,.25);renderSoon()}}}
 const _rmsC=runModeStart;runModeStart=function(e){_rmsC(e);cacheStart(e)};
-const _stC=step;step=function(dt,draw){_stC(dt,draw);if(dt&&RUNS&&runLive()&&RUN())cacheTick()};
+/* no caches in transit to a shop/event (Brenton 2026-11-10: free roaming pickups could be farmed). Revisit post-playtest if time-based difficulty scaling lands */
+const _stC=step;step=function(dt,draw){_stC(dt,draw);if(!dt||!RUNS)return;const tr=RUNS.phase==='transit';for(const c of RC.list)if(c.g)c.g.visible=!tr;if(runLive()&&RUN())cacheTick()};
 const _dmC=drawMap;drawMap=function(){_dmC();if(!RUNS||!runLive()||curTab!=='map'||!mc._dp)return;const x=mx,dp=mc._dp;
  for(const c of RC.list)if(c.seen&&!c.got){const g=toG(c.x,c.z),[a,b]=w2s(g.e,g.n);cacheMark(x,a,b,c,dp)}};
 /* a cache on the maps: a hollow gold square, bigger for richer caches */
@@ -5721,7 +5722,7 @@ Object.assign(ITEMS,{
  dem:{n:'Decoy emitter',d:'First enemy fix each mission lands 300 m off',c:70,s:2},
  tur:{n:'Turbocharger',d:'Top speed +15%',c:65,s:2},
  wtp:{n:'Wide track pads',d:'Off-road speed +20%',c:55},
- frd:{n:'Fording kit',d:'Speed in water ×2',c:60,s:1},
+ frd:{n:'Fording kit',d:'Cross water of any depth. Speed in water ×2',c:60,s:1},
  spades:{n:'High-flow hydraulics',d:'Into action time −50%',c:90,rare:1,s:1},
  mom:{n:'Momentum crew',d:'Heat sheds 50% faster while driving',c:70,s:2},
  boost:{n:'Emergency boost',d:'+50% speed for 10 s',c:45,u:2,w:'m',ok:()=>IT.boost<=T,go:()=>{IT.boost=T+10;itSync()}},
@@ -5876,7 +5877,7 @@ const _nlW=ntLead;ntLead=function(rpg){return _nlW(rpg)+.5*itN('trip')};
 cbEarly=function(){if(!IT.sig)return false;IT.sig=0;return true};
 
 /* local enemies: a red dot on the map and the mini map for every live one, hidden on Ambush missions */
-const enDots=()=>{const R=RUNS;return R&&runLive()&&!(R.phase==='mission'&&R.cur&&R.cur.mode==='AMBUSH')?ntLive():[]};
+const enDots=()=>{const R=RUNS;return R&&runLive()&&!(R.phase==='mission'&&R.cur&&R.cur.mode==='AMBUSH')?ntLive().filter(t=>!t.hid):[]}; /* t.hid: Gun Duel guns show only as their located marks */
 const _dmEn=drawMap;drawMap=function(){_dmEn();if(curTab!=='map'||!mc._dp)return;const x=mx,dp=mc._dp;x.fillStyle='#e5534b';for(const t of enDots()){const g=toG(t.x,t.z),[a,b]=w2s(g.e,g.n);x.beginPath();x.arc(a,b,3*dp,0,7);x.fill()}};
 const _dmmEn=drawMini;drawMini=function(){_dmmEn();const L=enDots();if(!L.length)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);g.fillStyle='#e5534b';for(const t of L){g.beginPath();g.arc((t.x+HALF)*s,(t.z+HALF)*s,2*dp,0,7);g.fill()}};
 /* ---------- P3g.1 damage model (3-map runs) ----------
@@ -5935,7 +5936,7 @@ document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="p
 /* the round leaves with dispersion; Flat trajectory rounds ignore gravity; Rapid sight fire halves the reload after a sight round */
 const _fiDF=fire;fire=function(){const n=shotN;_fiDF.apply(this,arguments);if(shotN===n||!dmgOn())return;const h=shells.find(s=>s.n===shotN&&s.df);if(!h)return;
  const sg=dfDisp()*DFMIL,ax=new THREE.Vector3(0,1,0),sp=h.v.length(),side=new THREE.Vector3().crossVectors(h.v,ax).normalize();
- h.v.applyAxisAngle(ax,gauss()*sg);h.v.applyAxisAngle(side,gauss()*sg);h.v.setLength(sp);if(itN('flat'))h.flat=1;if(itN('rsf'))rl*=.5};
+ h.v.applyAxisAngle(ax,gauss()*sg);h.v.applyAxisAngle(side,gauss()*sg);h.v.setLength(sp);h.tk=1/flyK();if(itN('flat'))h.flat=1;if(itN('rsf'))rl*=.5};
 /* the lay solution drops the gravity term with Flat trajectory */
 const _dsDF=dfSol;dfSol=function(t){const s=_dsDF(t);if(s&&dmgOn()&&itN('flat'))s.q-=.5*Math.asin(cl(GRV*s.r/320/320,-1,1))*MIL;return s};
 /* LAY on a lased live threat lays for direct fire (range, superelevation, lead) while that QE is under 89 mils, the direct fire limit; past it the FCS solution stands */
@@ -6311,17 +6312,17 @@ const _gwR=genWorld;genWorld=function(seed,bk){const W=_gwR(seed,bk),run=R=>{con
 const RDN=Math.round(HALF*2/RDK.g)+1,rdI=(x,z)=>{const i=Math.round((x+HALF)/RDK.g),j=Math.round((z+HALF)/RDK.g);return i<0||j<0||i>=RDN||j>=RDN?-1:j*RDN+i},rdXZ=c=>[(c%RDN)*RDK.g-HALF,Math.floor(c/RDN)*RDK.g-HALF];
 WHOOK.push(W=>{RDW.on=!!(W&&W.lay);RDW.lay=RDW.on?W.lay:null;RDW.f={};RDW.pc={};RDW.c=null;if(!RDW.on)return;const C=new Float32Array(RDN*RDN),g=RDK.g;
  for(let c=0;c<C.length;c++){const[x,z]=rdXZ(c),h=H(x,z),s=Math.max(Math.abs(H(x+g/2,z)-H(x-g/2,z)),Math.abs(H(x,z+g/2)-H(x,z-g/2)))/g,on=trackNear(x,z).d<RDK.trk;
-  C[c]=on?1:WL-h>FORD?Infinity:RDK.offC*(1+3*s)*(s>RDK.slope?4:1)}
+  C[c]=on?1:WL-h>FORD?-1:RDK.offC*(1+3*s)*(s>RDK.slope?4:1)}
  /* every place can be left and reached: its own ground within 40 m is passable however steep */
- for(const k of[...FPS,...RUN_EXTRA]){const s=SITES[k];if(!s)continue;for(let dx=-40;dx<=40;dx+=g)for(let dz=-40;dz<=40;dz+=g){const c=rdI(s[0]+dx,s[1]+dz);if(c>=0&&!isFinite(C[c]))C[c]=RDK.offC*3}}RDW.c=C});
-function rdField(site){if(RDW.f[site])return RDW.f[site];const C=RDW.c,N=C.length,d=new Float32Array(N).fill(Infinity),nx=new Int32Array(N).fill(-1),s=SITES[site],c0=rdI(s[0],s[1]);
+ for(const k of[...FPS,...RUN_EXTRA]){const s=SITES[k];if(!s)continue;for(let dx=-40;dx<=40;dx+=g)for(let dz=-40;dz<=40;dz+=g){const c=rdI(s[0]+dx,s[1]+dz);if(c>=0&&C[c]<0)C[c]=RDK.offC*3}}RDW.c=C});
+function rdField(site){const fk=site+(fordAny()?'~f':'');if(RDW.f[fk])return RDW.f[fk];const C0=RDW.c,dw=fordAny()?RDK.offC*2:Infinity,C={length:C0.length},Cq=c=>C0[c]<0?dw:C0[c],N=C.length,d=new Float32Array(N).fill(Infinity),nx=new Int32Array(N).fill(-1),s=SITES[site],c0=rdI(s[0],s[1]);
  const hp=[],push=(c,v)=>{hp.push([v,c]);let i=hp.length-1;while(i){const p=(i-1)>>1;if(hp[p][0]<=hp[i][0])break;[hp[p],hp[i]]=[hp[i],hp[p]];i=p}},
   pop=()=>{const t=hp[0],l=hp.pop();if(hp.length){hp[0]=l;let i=0;for(;;){const a=2*i+1,b=a+1;let m=i;if(a<hp.length&&hp[a][0]<hp[m][0])m=a;if(b<hp.length&&hp[b][0]<hp[m][0])m=b;if(m===i)break;[hp[m],hp[i]]=[hp[i],hp[m]];i=m}}return t};
  if(c0>=0){d[c0]=0;push(c0,0)}
  while(hp.length){const[v,c]=pop();if(v>d[c])continue;const i=c%RDN,j=(c-i)/RDN;
-  for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){if(!di&&!dj)continue;const a=i+di,b=j+dj;if(a<0||b<0||a>=RDN||b>=RDN)continue;const q=b*RDN+a,w=(C[q]+C[c])/2*RDK.g*(di&&dj?1.414:1);
+  for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){if(!di&&!dj)continue;const a=i+di,b=j+dj;if(a<0||b<0||a>=RDN||b>=RDN)continue;const q=b*RDN+a,w=(Cq(q)+Cq(c))/2*RDK.g*(di&&dj?1.414:1);
    if(!isFinite(w))continue;if(v+w<d[q]){d[q]=v+w;nx[q]=c;push(q,v+w)}}}
- return RDW.f[site]={d,nx}}
+ return RDW.f[fk]={d,nx}}
 /* a terrain route from a point to a place: [x,z,off] points (off = 1 away from tracks), or null when it cannot be reached */
 function rdPts(x,z,site){const F=rdField(site);let c=rdI(x,z);if(c<0||!isFinite(F.d[c])){let b=-1,bd=1e9;for(let k=0;k<RDN*RDN;k+=1){if(!isFinite(F.d[k]))continue;const[a,e]=rdXZ(k),q=Math.hypot(a-x,e-z);if(q<bd){bd=q;b=k}}if(b<0||bd>3*RDK.g)return null;c=b}
  const P=[[x,z]];for(let n=0;c>=0&&n<RDN*4;n++){P.push(rdXZ(c));c=F.nx[c]}const s=SITES[site];P.push([s[0],s[1]]);
@@ -6329,7 +6330,7 @@ function rdPts(x,z,site){const F=rdField(site);let c=rdI(x,z);if(c<0||!isFinite(
  return Q.map(p=>[p[0],p[1],trackNear(p[0],p[1]).d<RDK.trk?0:1])}
 const rdLen=P=>{let L=0;for(let k=1;k<P.length;k++)L+=Math.hypot(P[k][0]-P[k-1][0],P[k][1]-P[k-1][1]);return L};
 /* routes between places: tracks where they join, the terrain route where they don't */
-const _rppR=runPathPts;runPathPts=function(a,b){if(!RDW.on||sitePath(a,b))return _rppR(a,b);const k=a+'|'+b;if(!(k in RDW.pc)){const s=SITES[a];RDW.pc[k]=s?rdPts(s[0],s[1],b):null}return RDW.pc[k]||_rppR(a,b)};
+const _rppR=runPathPts;runPathPts=function(a,b){if(!RDW.on||sitePath(a,b))return _rppR(a,b);const k=a+'|'+b+(fordAny()?'~f':'');if(!(k in RDW.pc)){const s=SITES[a];RDW.pc[k]=s?rdPts(s[0],s[1],b):null}return RDW.pc[k]||_rppR(a,b)};
 const _olR=ordLen;ordLen=function(a,b){if(!RDW.on||a===b||sitePath(a,b))return _olR(a,b);const s=SITES[a],P=s&&rdPts(s[0],s[1],b);return P?Math.round(rdLen(P)):null};
 const _rtR=routeTo;routeTo=function(fp){const r=_rtR(fp);if(!RDW.on||!SITES[fp])return r;const d=SITES[fp];if(r.length>2||Math.hypot(d[0]-px,d[1]-pz)<60)return r;return rdPts(px,pz,fp)||r};
 /* ================= RUN-ONLY: P3d biome traits (3-map runs; Brenton 2026-11-08, plan 4.4; numbers to tune after the play-test). Nothing new on screen:
@@ -6351,11 +6352,11 @@ const _goB=ordGo;ordGo=function(n){const R=RUNS,a=R&&R.map.rows[R.i]&&R.map.rows
 const BOXC=M_(0x8d8b84,.95,0);WHOOK.push(W=>{const run=!!(W&&W.lay);for(const g of STR)g.traverse(o=>{if(o.isMesh&&(o.material===bm[3]||o.material===BOXC))o.material=run?BOXC:bm[3]})});
 /* ---------- P4a ammo (3-map runs) ----------
    Each ammo has stats (Damage %, Shell speed %) rolled by rarity, plus an optional effect (P4b). Ammo sits in slots: 1, +1 after boss 1 and after boss 2.
-   Every slotted ammo applies to every round: Damage scales every shell's damage (indirect, direct, mission elements); Shell speed cuts indirect time of flight
+   Every slotted ammo applies to every round: Damage scales every shell's damage (indirect, direct, mission elements); Shell speed cuts time of flight (indirect timers; direct fire rounds fly the same path faster)
    (direct fire keeps its speed so the sight solution stays true). A new ammo with no free slot waits on top of the Ammo card until a slot is freed or it is discarded. */
-const AMO={st:{dmg:{n:'Damage',w:.7,b:[[10,15],[15,25],[25,40]],d:v=>'Every round deals +'+v+'% damage'},spd:{n:'Shell speed',w:.3,b:[[5,10],[10,20],[20,30]],d:v=>'Indirect time of flight −'+v+'%'}},c:[70,110,160],tofMin:.4};
+const AMO={st:{dmg:{n:'Damage',w:.7,b:[[10,15],[15,25],[25,40]],d:v=>'Every round deals +'+v+'% damage'},spd:{n:'Shell speed',w:.3,b:[[5,10],[10,20],[20,30]],d:v=>'Time of flight −'+v+'% (indirect and direct)'}},c:[70,110,160],tofMin:.4};
 const amOn=()=>!!(RUNS&&RUNS.maps>1);
-const amSlots=R=>1+Math.min(2,R.mi||0);
+const amSlots=R=>1+Math.min(2,Math.max(R.mi||0,R.bossN||0)); /* a slot opens as each boss order ends (map 1, map 2) */
 const amList=()=>(RUNS&&RUNS.am)||[];
 const amSum=st=>amList().reduce((s,a)=>s+(a.s[st]||0),0);
 /* one ammo: rarity (ri forces it), stat by weight, value in the rarity's band */
@@ -6363,38 +6364,46 @@ function amRoll(r,o){o=o||{};const q=r(),ri=o.ri!=null?o.ri:q<RAR[0][3]?0:q<RAR[
  return{s:{[st]:Math.round(lo+r()*(hi-lo))},rar:RAR[ri][0],fx:o.fx||null}}
 dmgK=()=>amOn()?1+amSum('dmg')/100:1;
 const amTofK=()=>amOn()?Math.max(AMO.tofMin,1-amSum('spd')/100):1;
-function amAdd(a){const R=RUNS;R.am=R.am||[];if(R.am.length<amSlots(R)){R.am.push(a);return true}(R.amSwap=R.amSwap||[]).push(a);return'swap'}
-function amSync(){const R=RUNS;if(!R||!R.amSwap)return;R.am=R.am||[];while(R.amSwap.length&&R.am.length<amSlots(R))R.am.push(R.amSwap.shift())}
+function amAdd(a){const R=RUNS;R.am=R.am||[];if(R.am.length<amSlots(R)){R.am.push(a);return true}(R.amBag=R.amBag||[]).push(a);return'spare'} /* full slots: the ammo waits in Spare (garage) */
+function amSync(){const R=RUNS;if(!R)return;R.am=R.am||[];R.amBag=R.amBag||[];while(R.amBag.length&&R.am.length<amSlots(R))R.am.push(R.amBag.shift())}
 function amDrop(i){const R=RUNS;if(!R||!R.am||!R.am[i])return;R.am.splice(i,1);amSync()}
-function amToss(){const R=RUNS;if(R&&R.amSwap)R.amSwap.shift()}
+function amDropS(i){const R=RUNS;if(R&&R.amBag)R.amBag.splice(i,1)}
+/* garage moves: an active tile goes to Spare; a Spare tile fills a free slot, or swaps with the selected active tile (click Spare, then the slot) */
+function amMove(k,i){const R=RUNS;amSync();const A=R.am,B=R.amBag;if(k==='a'){if(RG.amSel!=null){const j=RG.amSel;RG.amSel=null;if(B[j]){const t=A[i];A[i]=B[j];B[j]=t}return}if(A[i])B.push(A.splice(i,1)[0]);return}
+ if(!B[i])return;if(A.length<amSlots(R)){A.push(B.splice(i,1)[0]);return}RG.amSel=RG.amSel===i?null:i}
 const amName=a=>(a.fx?AFX[a.fx].n+' · ':'')+Object.keys(a.s).map(k=>AMO.st[k].n+' +'+a.s[k]+'%').join(', ');
 const amDesc=a=>Object.keys(a.s).map(k=>AMO.st[k].d(a.s[k])).join('. ')+(a.fx?'. '+AFX[a.fx].d:'');
 const amTip=a=>' data-tip="'+amName(a)+'|'+amDesc(a)+'"';
-const amTile=(a,btn)=>'<div class="rtile ram '+(a.evo?'rV':RCL[a.rar])+'"'+amTip(a)+'>'+(a.fx?'<i class="amfx">'+AFX[a.fx].n+'</i>':'')+Object.keys(a.s).map(k=>'<b>+'+a.s[k]+'%</b><small>'+(k==='dmg'?'DMG':'SPD')+'</small>').join('')+(btn||'')+'</div>';
-function amCard(){const R=RUNS;if(!amOn()||!R)return'';const A=amList(),n=amSlots(R),w=R.amSwap&&R.amSwap[0];
+/* tile: stat in its own colour and glyph (Damage red-orange ✸, Shell speed cyan »), effect as a full-width band on top (none = plain), rarity = border */
+const amTile=(a,btn,at)=>'<div class="rtile ram '+(a.evo?'rV':RCL[a.rar])+(a.fx?' fx':'')+'"'+amTip(a)+(at||'')+'>'+(a.fx?'<i class="amfx'+(a.evo?' ev':'')+'">'+AFX[a.fx].n+'</i>':'')+Object.keys(a.s).map(k=>'<span class="amst '+k+'"><u>'+(k==='dmg'?'✸':'»')+'</u><b>+'+a.s[k]+'%</b><small>'+(k==='dmg'?'Damage':'Speed')+'</small></span>').join('')+(btn||'')+'</div>';
+function amCard(){const R=RUNS;if(!amOn()||!R)return'';amSync();const A=R.am,B=R.amBag,n=amSlots(R),sel=RG.amSel;
  let h='<div class="rcard" data-c="ammo"><div class="rlbl">Ammo <span>'+A.length+'/'+n+'</span></div>';
- if(w)h+='<div class="rinv rnew">'+amTile(w,'<button class="rx" data-amtoss="1" aria-label="Discard">✕</button>')+'</div>';
- return h+'<div class="rinv'+(w?' sw':'')+'" style="grid-template-columns:repeat(3,1fr)">'+Array.from({length:3},(_,i)=>i>=n?'<div class="rtile e z" title="Slot opens after boss '+i+'"></div>':A[i]?amTile(A[i],'<button class="rx" data-amdrop="'+i+'" aria-label="Drop">✕</button>'):'<div class="rtile e"></div>').join('')+'</div>'+amCombos()+'</div>'}
-/* combine buttons: every pair that can merge or evolve (a pending ammo counts as the 4th place, index 3) */
-function amCombos(){const R=RUNS,A=(R.am||[]).concat(R.amSwap&&R.amSwap[0]?[R.amSwap[0]]:[]),b=[];
- for(let i=0;i<A.length;i++)for(let j=i+1;j<A.length;j++){const ev=amRecipe(A[i],A[j]);if(ev)b.push('<button class="rV" data-amc="'+i+','+j+'" data-tip="'+AFX[ev].n+'|'+AFX[ev].d+'">⇄ '+AFX[ev].n+'</button>');else if(amCanMerge(A[i],A[j]))b.push('<button data-amc="'+i+','+j+'" data-tip="Merge|'+amName(A[i])+' + '+amName(A[j])+'">⇄ Merge '+(i+1)+'+'+(j+1)+'</button>')}
+ h+='<div class="rinv'+(sel!=null?' sw':'')+'" style="grid-template-columns:repeat(3,1fr)">'+Array.from({length:3},(_,i)=>i>=n?'<div class="rtile e z" title="Slot opens after boss '+i+'"></div>':A[i]?amTile(A[i],'<button class="rx" data-amdrop="'+i+'" aria-label="Drop">✕</button>',' data-ama="'+i+'"'):'<div class="rtile e"></div>').join('')+'</div>';
+ if(B.length)h+='<div class="rlbl">Spare</div><div class="rinv ams" style="grid-template-columns:repeat(4,1fr)">'+B.map((a,i)=>amTile(a,'<button class="rx" data-amdrops="'+i+'" aria-label="Drop">✕</button>',' data-ams="'+i+'"'+(sel===i?' data-sel="1"':''))).join('')+'</div>';
+ return h+amCombos()+'</div>'}
+/* combine buttons: every pair (active and Spare) that can merge or evolve; index = active first, then Spare */
+const amAll=()=>{const R=RUNS;return(R.am||[]).concat(R.amBag||[])};
+function amCombos(){const A=amAll(),b=[],nm=a=>(a.fx?AFX[a.fx].n+' ':'')+Object.keys(a.s).map(k=>(k==='dmg'?'Damage':'Speed')+' +'+a.s[k]+'%').join();
+ for(let i=0;i<A.length;i++)for(let j=i+1;j<A.length;j++){const ev=amRecipe(A[i],A[j]);if(ev)b.push('<button class="rV" data-amc="'+i+','+j+'" data-tip="'+AFX[ev].n+'|'+AFX[ev].d+'">'+nm(A[i])+' + '+nm(A[j])+' ⇄ '+AFX[ev].n+'</button>');else if(amCanMerge(A[i],A[j]))b.push('<button data-amc="'+i+','+j+'" data-tip="Merge|'+amName(A[i])+' + '+amName(A[j])+'">'+nm(A[i])+' + '+nm(A[j])+' ⇄ Merge</button>')}
  return b.length?'<div class="rshop amc" style="grid-template-columns:1fr">'+b.join('')+'</div>':''}
-const _ivA=invCard;invCard=function(){amSync();return _ivA()+amCard()};
+const _ivA=invCard;invCard=function(){return _ivA()+amCard()};
 const _ruiA=runUI;runUI=function(mode,tab){_ruiA(mode,tab);const R=RUNS;if(!R||!amOn())return;const re=()=>{const nd=RG.node,t=RG.tab;runUI(RG.mode,t);if(nd)RG.node=nd};
- ov.querySelectorAll('[data-amdrop]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amDrop(+b.dataset.amdrop);runSave();re()});
- ov.querySelectorAll('[data-amc]').forEach(b=>b.onclick=e=>{e.stopPropagation();const[i,j]=b.dataset.amc.split(',').map(Number);if(j>=(R.am||[]).length&&R.amSwap&&R.amSwap.length)R.am.push(R.amSwap.shift());aud();amCombine(i,j);runSave();re()});
- ov.querySelectorAll('[data-amtoss]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amToss();runSave();re()});
+ ov.querySelectorAll('[data-amdrop]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amDrop(+b.dataset.amdrop);RG.amSel=null;runSave();re()});
+ ov.querySelectorAll('[data-amdrops]').forEach(b=>b.onclick=e=>{e.stopPropagation();aud();amDropS(+b.dataset.amdrops);RG.amSel=null;runSave();re()});
+ ov.querySelectorAll('[data-ama]').forEach(b=>b.onclick=()=>{aud();amMove('a',+b.dataset.ama);runSave();re()});
+ ov.querySelectorAll('[data-ams]').forEach(b=>b.onclick=()=>{aud();amMove('s',+b.dataset.ams);runSave();re()});
+ ov.querySelectorAll('[data-amc]').forEach(b=>b.onclick=e=>{e.stopPropagation();const[i,j]=b.dataset.amc.split(',').map(Number);aud();RG.amSel=null;amCombine(i,j);runSave();re()});
  const ab=ov.querySelector('[data-amb]');if(ab){const s=R.stock&&R.stock[nodeKey()];if(s&&s.am)ab.onclick=()=>{const c=shopC(s.am.c);if(s.amGot||R.sp<c)return;aud();R.sp-=c;spLog('shop',-c);amAdd(s.am.a);s.amGot=1;runSave();re()}}};
-/* Shell speed: indirect rounds land sooner. Set where the round's flight time is set (13-firing), so the Splash call and every other timer follow it */
+/* Shell speed: rounds land sooner. Set where the round's flight time is set (13-firing), so the Splash call and every other timer follow it */
 flyK=()=>amTofK();
 /* shops sell 1 ammo (no effect until P4b) */
 const _ssA=shopStock;shopStock=function(R,key,again){const s=_ssA(R,key,again);if(R.maps>1&&!s.am){const[a,b]=key.split('.').map(Number),r=rng(R.seed^0xa330^(a*97+b*13)^(again?0x77:0)),am=r()<.3?amRollFx(r,(p=>p[Math.floor(r()*p.length)])(AFX_BASE.filter(k=>AFX[k].r<3))):amRoll(r);s.am={a:am,c:AMO.c[RAR.findIndex(x=>x[0]===am.rar)]}}return s};
 const _ncA=nodeCard;nodeCard=function(){const h=_ncA(),R=RUNS,a=R.map&&RG.node&&R.map.rows[RG.node.r].nodes[RG.node.n];if(!a||a.t!=='S'||R.maps<2)return h;const s=shopStock(R,nodeKey());if(!s.am)return h;const c=shopC(s.am.c);
  return h.replace('<div class="rshop" style="grid-template-columns:1fr">','<div class="rshop" style="grid-template-columns:1fr"><button data-amb="1" class="'+RCL[s.am.a.rar]+'"'+amTip(s.am.a)+(s.amGot||R.sp<c?' disabled':'')+'><b>'+(s.amGot?'✓':'Ammo · '+amName(s.am.a))+'</b><span>'+rIco('sp','i sm')+c+'</span></button>')};
 /* save and load */
-const _svA=runSave;runSave=function(){_svA();const R=RUNS;if(!R||R.dead||!amOn())return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));s.am=R.am||[];s.amSwap=R.amSwap||[];localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
-const _ldA=runLoad;runLoad=function(){const s=runSaved();if(!_ldA())return false;const R=RUNS;R.am=(s&&s.am)||[];R.amSwap=(s&&s.amSwap)||[];return true};
-document.head.insertAdjacentHTML('beforeend','<style>.rtile.ram{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}.rtile.ram b{position:static;font:700 15px var(--fd)}.rtile.ram small{font:600 10px var(--fd);opacity:.75}.rtile.e.z{opacity:.35}.rtile.rV,.amc .rV{border-color:#b07cff}.rtile.ram .amfx{position:absolute;top:2px;left:0;right:0;font:600 9px var(--fd);font-style:normal;text-align:center;white-space:nowrap;overflow:hidden}</style>');
+const _svA=runSave;runSave=function(){_svA();const R=RUNS;if(!R||R.dead||!amOn())return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));s.am=R.am||[];s.amBag=R.amBag||[];s.bossN=R.bossN||0;localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
+const _ldA=runLoad;runLoad=function(){const s=runSaved();if(!_ldA())return false;const R=RUNS;R.am=(s&&s.am)||[];R.amBag=((s&&s.amBag)||[]).concat((s&&s.amSwap)||[]);R.bossN=(s&&s.bossN)||0;return true};
+document.head.insertAdjacentHTML('beforeend','<style>.rtile.ram{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}.rtile.ram b{position:static;font:700 15px var(--fd)}.rtile.ram small{font:600 10px var(--fd);opacity:.75}.rtile.e.z{opacity:.35}.rtile.rV,.amc .rV{border-color:#b07cff}.rtile.ram [data-ama],[data-ams]{cursor:pointer}.ram[data-sel]{outline:2px solid #e2b93b;outline-offset:2px}.amfx{position:absolute;top:0;left:0;right:0;padding:2px 3px;border-radius:7px 7px 0 0;background:#e2b93b;color:#1b1b1b;font:800 10px var(--fd);font-style:normal;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.amfx.ev{background:#b07cff;color:#fff}.amst{display:flex;flex-direction:column;align-items:center;line-height:1.05}.rtile.fx .amst{margin-top:12px}.amst u{text-decoration:none;font-size:18px;line-height:1}.amst.dmg{color:#ff8a5c}.amst.spd{color:#6fd3ff}.rtile.ram .amst b{position:static;font:800 15px var(--fd);color:inherit}.amst small{font:600 9px var(--fd);opacity:.85;text-transform:uppercase;letter-spacing:.06em}</style>');
 /* ---------- P4b effects: every slotted ammo's effect fires on every HE round. Two ammo whose effects form a recipe evolve into one ammo with a new effect (BALL x PIT style) ---------- */
 const AFX={
  crit:{n:'Critical',r:1,d:'15% chance a round deals ×2.5 damage'},
@@ -6422,9 +6431,9 @@ const AFX_BASE=Object.keys(AFX).filter(k=>!AFX[k].ev),AFX_RAR=['','Standard','Im
 const amFx=k=>amList().some(a=>a.fx===k);
 const amRecipe=(a,b)=>a&&b&&a.fx&&b.fx&&!AFX[a.fx].ev&&!AFX[b.fx].ev?Object.keys(AFX).find(k=>AFX[k].ev&&AFX[k].ev.includes(a.fx)&&AFX[k].ev.includes(b.fx)&&a.fx!==b.fx):null;
 const amCanMerge=(a,b)=>a&&b&&a!==b&&!(a.fx&&AFX[a.fx].ev)&&!(b.fx&&AFX[b.fx].ev)&&Object.keys(a.s).length===1&&Object.keys(b.s).join()===Object.keys(a.s).join()&&!(a.fx&&b.fx);
-function amCombine(i,j){const R=RUNS,A=R.am,a=A[i],b=A[j];if(!a||!b||i===j)return false;const ev=amRecipe(a,b);if(!ev&&!amCanMerge(a,b))return false;
+function amCombine(i,j){const R=RUNS;R.am=R.am||[];R.amBag=R.amBag||[];const X=amAll(),a=X[i],b=X[j];if(!a||!b||i===j)return false;const ev=amRecipe(a,b);if(!ev&&!amCanMerge(a,b))return false;
  const s={};for(const x of[a,b])for(const k in x.s)s[k]=(s[k]||0)+x.s[k];const ri=Math.max(RAR.findIndex(x=>x[0]===a.rar),RAR.findIndex(x=>x[0]===b.rar));
- const c={s,rar:RAR[ri][0],fx:ev||a.fx||b.fx||null};if(ev)c.evo=1;A.splice(Math.max(i,j),1);A.splice(Math.min(i,j),1,c);amSync();return c}
+ const c={s,rar:RAR[ri][0],fx:ev||a.fx||b.fx||null};if(ev)c.evo=1;const n=R.am.length,at=k=>k<n?[R.am,k]:[R.amBag,k-n],[La,ia]=at(Math.min(i,j)),[Lb,ib]=at(Math.max(i,j));Lb.splice(ib,1);La.splice(ia,1,c);amSync();return c} /* the result takes the first one's place (active if it was active); the other frees its place */
 /* an effect ammo: rarity follows the effect (Common = Standard band ... Elite) */
 function amRollFx(r,fx){if(!fx){const p=AFX_BASE;fx=p[Math.floor(r()*p.length)]}return amRoll(r,{ri:AFX[fx].r-1,fx})}
 /* shared helpers */
@@ -6488,8 +6497,10 @@ const _rsA=runStart;runStart=function(j){const r=_rsA(j);const R=RUNS;if(amOn()&
    A 5 s intro shows the boss (any key or click skips it). A health bar sits at the top of the screen with the timer. */
 const BOSS={lim:480,otHeat:150,cine:5,kinds:['rb','rg','gd'],
  rb:{n:'Redback assault',o:'Destroy the staging areas',sp:3,every:45,cap:6,dis:650},
- rg:{n:'Rail gun',o:'Destroy the rail gun',fps:4,spd:12,chg:10,rounds:6,rad:60,dmg:18,spread:30},
- gd:{n:'Gun Duel',o:'Destroy the enemy guns',guns:3,every:22,lead:7}};
+ rg:{n:'Rail gun',o:'Destroy the rail gun',fps:4,gap:450,edge:250,spd:12,chg:10,hold:8,wait:2,
+  clus:{rad:55,n:9,dmg:14,br:12},nap:{n:3,spread:35,rad:24,dps:4,life:12},shock:{n:4,step:.7,rad:15,dmg:9,slow:4,vmax:3},slug:{w:9,len:2600,dmg:34}},
+ gd:{n:'Gun Duel',o:'Destroy the enemy guns',guns:3,lead:7,hide:[18,26],pair:8,move:[200,400],mt:20,flee:600,err:[200,80],stale:60,loc:[1,2,3],locP:.5,
+  smk:{life:20,r:45},clus:{rad:70,n:8,br:12,dmg:12},spot:{wait:10,move:50,heat:25}}};
 NTK.stg={n:'Staging area',m:'stg',spd:0,stop:0,rel:0,dmg:0};NTK.rail={n:'Rail gun',m:'rail',spd:0,stop:0,rel:0,dmg:0};NTK.egun={n:'Enemy gun',m:'egun',spd:0,stop:0,rel:0,dmg:0};
 NTK.rbifv={n:'Redback',m:'ifv',spd:8,stop:600,rel:8,dmg:3,hit:.15,ac:1,veh:1};
 RUN_MODES.BOSS={n:'Boss',d:'Destroy it within 8:00. Its rally point ends the map.',ev:1}; /* ev: never drawn into an offer pool; r18 places it as the last order */
@@ -6508,13 +6519,13 @@ function bossPts(n,minD,maxD){const c=[];for(let x=-1100;x<=1100;x+=100)for(let 
  while(out.length<n){let b=null,bd=-1;for(const p of c){const d=Math.min(...out.map(q=>Math.hypot(p[0]-q[0],p[1]-q[1])));if(d>bd){bd=d;b=p}}out.push(b)}return out}
 function bossPart(kind,x,z){const t=ntSpawn(kind,x,z,{hold:true});t.boss=1;t.hp=t.hp0=EHP[kind]*hpMul();BS.parts.push(t);return t}
 const bossLive=()=>BS.parts.filter(t=>t.alive);
-function bossStart(e){const R=RUNS,k=bossKind(R);bossEnd();Object.assign(BS,{on:1,k,parts:[],t:T,st:{},cine:null,won:0});R.bossOT=0;
+function bossStart(e){const R=RUNS,k=bossKind(R);bossEnd();Object.assign(BS,{on:1,k,parts:[],t:T,st:{},cine:null,won:0,fire:[],slow:0});R.bossOT=0;
  if(k==='rb'){for(const[x,z]of bossPts(BOSS.rb.sp,1100,1700)){const t=bossPart('stg',x,z);t.next=T+8+RT.rr()*10}}
- if(k==='rg'){const P=bossPts(BOSS.rg.fps,1000,1600);P.sort((a,b)=>Math.atan2(a[1]-pz,a[0]-px)-Math.atan2(b[1]-pz,b[0]-px));const t=bossPart('rail',P[0][0],P[0][1]);BS.st={P,i:0,mode:'move',tgt:1}}
- if(k==='gd'){for(const[x,z]of bossPts(BOSS.gd.guns,1300,1900)){const t=bossPart('egun',x,z);t.next=T+15+RT.rr()*12}}
+ if(k==='rg'){const P=railRoute();const t=bossPart('rail',P[0][0],P[0][1]);BS.st={P,at:0,dir:1,mode:'wait',t:T+BOSS.cine,n:0};railRoad(P)}
+ if(k==='gd'){let i=0;for(const[x,z]of bossPts(BOSS.gd.guns,1500,2000)){const t=bossPart('egun',x,z);t.hid=1;t.gs='hide';t.next=T+BOSS.cine+8+i*6+RT.rr()*6;t.cyc=i++;t.mk=null}}
  const f=BS.parts[0];BS.cine={t0:T,x:f.x,z:f.z,a0:Math.atan2(pz-f.z,px-f.x)};bossCineShow(BOSS[k].n);
  msg('HAMMER 0','BIG PRAWN, '+BOSS[k].n+'. Destroy it within the time limit, then move to the rally point, over',{cls:'cf',voice:false})}
-function bossEnd(){BS.on=0;BS.parts.forEach(t=>{if(t.alive&&t.g)sc.remove(t.g);t.alive=false});BS.parts=[];BS.rings.forEach(m=>sc.remove(m));BS.rings=[];bossHud(0);bossCineEnd()}
+function bossEnd(){BS.on=0;railRoad(null);BS.slow=0;BS.parts.forEach(t=>{if(t.alive&&t.g)sc.remove(t.g);t.alive=false});BS.parts=[];BS.rings.forEach(m=>sc.remove(m));BS.rings=[];bossHud(0);bossCineEnd()}
 /* every other system's mission-start step runs first (item and shield state, mines, caches, the P3f rules for boss orders), then the boss arrives */
 const _rmsBo=runModeStart;runModeStart=function(e){_rmsBo(e);if(e&&e.boss&&RUNS&&RUNS.maps>1)bossStart(e)};
 /* the boss leaves with its mission: a new mission or world, a death, a new run. The mission tick stops when the run is not live, so the clean-up cannot wait for it */
@@ -6532,24 +6543,101 @@ function bossTick(dt){const R=RUNS;if(!BS.on)return;if(!bossOn()){bossEnd();retu
  if(BS.cine)return bossHud(1);
  if(BS.k==='rb'){const B=BOSS.rb;for(const s of live)if(T>=s.next){s.next=T+B.every;if(ntLive().filter(t=>t.nt==='rbifv').length<B.cap){const t=ntSpawn('rbifv',s.x+rr_(RT.rr,-25,25),s.z+rr_(RT.rr,-25,25));t.rb=1;puff(s.x,H(s.x,s.z)+3,s.z,0x9a8f80,3,3,8,.7,.8)}}
   for(const t of ntLive())if(t.nt==='rbifv'&&!t.dis&&Math.hypot(t.x-px,t.z-pz)<B.dis){t.dis=1;ntSpawn('inf',t.x+6,t.z+6);msg('BIG PRAWN','Redback dismounting infantry',{cls:'me',voice:false})}}
- if(BS.k==='rg'&&live[0])railTick(live[0],dt);
- if(BS.k==='gd'){const B=BOSS.gd;for(const g of live)if(T>=g.next){g.next=T+B.every*(.8+.4*RT.rr());puff(g.x,H(g.x,g.z)+5,g.z,0xd8d0c0,2,2,6,.6,.6);const a=heatAim(px,pz,false);bossRing(a.ax,a.az,a.sg+25,B.lead+a.pts.length*.45);sched(B.lead,()=>{if(bossOn()||RUNS&&RUNS.bossOT)heatSalvo(a.ax,a.az,false,a)})}}
+ if(BS.k==='rg'){if(live[0])railTick(live[0],dt);railFx(dt)}
+ if(BS.k==='gd'){for(const g of live)duelTick(g,dt);duelFx()}
  bossHud(1)}
 /* one warning ring per salvo or volley: each stays until its own rounds have landed */
-function bossRing(x,z,r,life){const m=noRng(()=>new THREE.Mesh(new THREE.TorusGeometry(r,1.2,6,72),new THREE.MeshBasicMaterial({color:0xff3b30,transparent:true,opacity:.85})));m.rotation.x=Math.PI/2;m.position.set(x,H(x,z)+.6,z);sc.add(m);BS.rings.push(m);
+function bossRing(x,z,r,life,col){const m=noRng(()=>new THREE.Mesh(new THREE.TorusGeometry(r,1.2,6,72),new THREE.MeshBasicMaterial({color:col||0xff3b30,transparent:true,opacity:.85})));m.rotation.x=Math.PI/2;m.position.set(x,H(x,z)+.6,z);sc.add(m);BS.rings.push(m);
  sched(life+1.5,()=>{const i=BS.rings.indexOf(m);if(i>=0){BS.rings.splice(i,1);sc.remove(m)}})}
+/* Rail gun: its own strip along the top (north) edge of the map. A road joins 4 firing points 450 m apart; the gun drives the road (12 m/s), stops at
+   every firing point (the first one too), charges 10 s with its warning on the ground, fires, holds 8 s, then drives on to the next point (back and forth).
+   Each stop uses the next attack in turn, all in rail blue-white (not artillery red): Cluster (one shell bursts into 9 bomblets), Napalm (3 rounds leave
+   burning ground for 12 s), Shock chain (4 strikes that walk to the gun's crew and slow the vehicle for 4 s), Rail slug (one hit along a lane through the gun). */
+const RGC=0x9fe3ff,RGK=['clus','nap','shock','slug'];
+function railRoute(){const B=BOSS.rg,L=(B.fps-1)*B.gap,r=RT.rr,x0=rr_(r,-HALF+150,HALF-150-L);
+ for(const dz of[0,-60,60,-120,120,-180]){const z=-HALF+B.edge+dz,P=[];for(let i=0;i<B.fps;i++)P.push([x0+i*B.gap,z]);
+  let ok=true;for(let i=0;i<P.length-1&&ok;i++)for(let k=0;k<=30;k++){const x=P[i][0]+(P[i+1][0]-P[i][0])*k/30,zz=z;if(depthAt(x,zz)>FORD||H(x,zz)<WL+.3){ok=false;break}}if(ok)return P}
+ const z=-HALF+B.edge;return Array.from({length:B.fps},(_,i)=>[x0+i*B.gap,z])}
+/* the road: a dark gravel ribbon on the ground between the firing points, with a pad at each */
+function railRoad(P){if(BS.road){sc.remove(BS.road);BS.road=null}if(!P)return;BS.road=noRng(()=>{const g=new THREE.Group(),m=new THREE.MeshBasicMaterial({color:0x4a4238}),pm=new THREE.MeshBasicMaterial({color:0x2c3a44}),w=5,pos=[],idx=[];
+  for(let i=0;i<P.length-1;i++){const[a0,b0]=P[i],[a1,b1]=P[i+1],L=Math.hypot(a1-a0,b1-b0),n=Math.ceil(L/6),nx=-(b1-b0)/L,nz=(a1-a0)/L;for(let k=0;k<=n;k++){const x=a0+(a1-a0)*k/n,z=b0+(b1-b0)*k/n,o=pos.length/3;
+   for(const sd of[-1,1]){const X=x+nx*w*sd,Z=z+nz*w*sd;pos.push(X,Math.max(H(X,Z),WL)+.25,Z)}if(k)idx.push(o-2,o-1,o,o-1,o+1,o)}}
+  const gm=new THREE.BufferGeometry();gm.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));gm.setIndex(idx);g.add(new THREE.Mesh(gm,m));
+  for(const[x,z]of P){const c=new THREE.Mesh(new THREE.CircleGeometry(16,24).rotateX(-Math.PI/2),pm);c.position.set(x,H(x,z)+.3,z);g.add(c)}return g});sc.add(BS.road)}
+function railRing(x,z,r,life){bossRing(x,z,r,life,RGC)}
+function railLane(t,ax,az,life){const B=BOSS.rg.slug,a=Math.atan2(az-t.z,ax-t.x),m=noRng(()=>new THREE.Mesh(new THREE.PlaneGeometry(B.len,B.w*2).rotateX(-Math.PI/2),new THREE.MeshBasicMaterial({color:RGC,transparent:true,opacity:.28,depthWrite:false})));
+ m.rotation.y=-a;m.position.set(t.x+Math.cos(a)*B.len/2,Math.max(H(ax,az),H(t.x,t.z))+1.5,t.z+Math.sin(a)*B.len/2);sc.add(m);BS.rings.push(m);sched(life+.6,()=>{const i=BS.rings.indexOf(m);if(i>=0){BS.rings.splice(i,1);sc.remove(m)}});return a}
+function railHit(x,z,rad,dmg,big){const q=new THREE.Vector3(x,H(x,z),z);boom(q,big);puff(x,q.y+2,z,RGC,1.2,3,9,.8,.5);crater(x,z,big?9:5,big?2.4:1.2);destroyAt(q,big?9:5);const dl=Math.hypot(x-px,z-pz);sfx(1,dl/340,1/(1+dl/60));if(dl<rad*.6)shake=1.4;
+ const dd=dl<rad*.25?dmg:dl<rad?dmg*(1-(dl-rad*.25)/(rad*.75)):0;if(dd>0)runHit(dd,'rail gun','frag');return dl<rad}
+function railFire(t,k,S){const B=BOSS.rg,live=()=>runLive()&&BS.on;puff(t.x,H(t.x,t.z)+6,t.z,RGC,1.5,3,10,.9,.4);
+ if(k==='clus'){const c=B.clus;railHit(S.ax,S.az,c.br*1.5,c.dmg,1);for(let i=0;i<c.n;i++)sched(.25+.12*i,()=>{if(!live())return;const a=RT.rr()*6.283,d=Math.sqrt(RT.rr())*c.rad;railHit(S.ax+Math.cos(a)*d,S.az+Math.sin(a)*d,c.br,c.dmg)})}
+ if(k==='nap'){const c=B.nap;for(let i=0;i<c.n;i++)sched(.4*i,()=>{if(!live())return;const x=S.ax+gauss()*c.spread*.5,z=S.az+gauss()*c.spread*.5;railHit(x,z,c.rad*.7,c.dps*2);(BS.fire=BS.fire||[]).push({x,z,end:T+c.life});bossRing(x,z,c.rad,c.life,0xff8a3a)})}
+ if(k==='shock'){const c=B.shock;let x=S.ax,z=S.az;for(let i=0;i<c.n;i++)sched(c.step*i,()=>{if(!live())return;const d=Math.hypot(px-x,pz-z),st=Math.min(d,40);if(d>1){x+=(px-x)/d*st;z+=(pz-z)/d*st}if(railHit(x,z,c.rad,c.dmg))BS.slow=T+c.slow;puff(x,H(x,z)+1,z,0xe8f8ff,.5,2,4,1,2)})}
+ if(k==='slug'){const c=B.slug,a=S.la;for(let d=40;d<c.len;d+=60){const x=t.x+Math.cos(a)*d,z=t.z+Math.sin(a)*d;if(Math.abs(x)>HALF||Math.abs(z)>HALF)break;sched(d/2500,()=>{if(live())puff(x,H(x,z)+2,z,RGC,.6,3,6,.9,.2)})}
+  const dx=px-t.x,dz=pz-t.z,along=dx*Math.cos(a)+dz*Math.sin(a),off=Math.abs(-dx*Math.sin(a)+dz*Math.cos(a));sched(Math.max(0,along)/2500,()=>{if(!live())return;if(along>0&&off<c.w){runHit(c.dmg*(1-off/c.w*.5),'rail gun','frag');shake=1.8}const q=new THREE.Vector3(t.x+Math.cos(a)*Math.max(60,along),0,t.z+Math.sin(a)*Math.max(60,along));q.y=H(q.x,q.z);boom(q,1)})}}
 function railTick(t,dt){const B=BOSS.rg,S=BS.st,g=t.g.getObjectByName('glow');
- if(S.mode==='move'){const[tx,tz]=S.P[S.tgt],dx=tx-t.x,dz=tz-t.z,d=Math.hypot(dx,dz);if(d<5){S.mode='chg';S.t=T;S.ax=px;S.az=pz;bossRing(px,pz,B.rad,B.chg);t.chg=1;msg('BIG PRAWN','Rail gun charging! Get out of the ring',{cls:'cf',voice:false});return}
-  const s=Math.min(B.spd*dt,d);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-(pz-t.z),px-t.x);if(g)g.material.opacity=0;return}
- if(S.mode==='chg'){t.g.rotation.y=Math.atan2(-(S.az-t.z),S.ax-t.x);if(g)g.material.opacity=Math.min(.9,(T-S.t)/B.chg);if(T-S.t<B.chg)return;S.mode='move';t.chg=0;S.tgt=(S.tgt+1)%S.P.length;
-  for(let i=0;i<B.rounds;i++)sched(.5*i,()=>{if(!runLive())return;const x=S.ax+gauss()*B.spread*.5,z=S.az+gauss()*B.spread*.5,q=new THREE.Vector3(x,H(x,z),z);boom(q,1);crater(x,z,10,3);destroyAt(q,10);const dl=Math.hypot(x-px,z-pz);sfx(1,dl/340,1/(1+dl/60));if(dl<30)shake=1.6;
-   const dd=dl<10?B.dmg:dl<B.rad?B.dmg*(1-dl/B.rad):0;if(dd>0)runHit(dd,'rail gun','frag')});puff(t.x,H(t.x,t.z)+6,t.z,0xbfe8ff,1.5,3,10,.9,.4)}}
+ if(S.mode==='move'){const[tx,tz]=S.P[S.at],dx=tx-t.x,dz=tz-t.z,d=Math.hypot(dx,dz);if(d<3){S.mode='wait';S.t=T+B.wait;return}
+  const s=Math.min(B.spd*dt,d);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-dz,dx);if(g)g.material.opacity=0;return}
+ if(S.mode==='wait'){if(T<S.t)return;const k=RGK[S.n%RGK.length];S.k=k;S.mode='chg';S.t=T;S.ax=px;S.az=pz;t.chg=1;
+  if(k==='slug')S.la=railLane(t,px,pz,B.chg);else railRing(px,pz,k==='clus'?B.clus.rad:k==='nap'?B.nap.spread+B.nap.rad:B.shock.rad*2,B.chg);
+  msg('BIG PRAWN',k==='slug'?'Rail gun charging! Get off its line':'Rail gun charging! Get out of the ring',{cls:'cf',voice:false});return}
+ if(S.mode==='chg'){t.g.rotation.y=Math.atan2(-(S.az-t.z),S.ax-t.x);if(g)g.material.opacity=Math.min(.9,(T-S.t)/B.chg);if(T-S.t<B.chg)return;t.chg=0;S.n++;railFire(t,S.k,S);S.mode='hold';S.t=T+B.hold;return}
+ if(S.mode==='hold'&&T>=S.t){if(S.at+S.dir<0||S.at+S.dir>=S.P.length)S.dir*=-1;S.at+=S.dir;S.mode='move'}}
+
+/* Gun Duel: an indirect duel. 3 enemy guns hide 1.5-2 km out, unseen on the map. Each salvo puts a "located" mark (red circle) on the map where it came from:
+   200 m error for its first salvo from a hide, 80 m for the second (8 s later); then the gun drives 200-400 m to a new hide in ~20 s and its mark turns grey
+   (last known, gone after 60 s). Get within 600 m and the gun drives off at once. Each gun cycles its rounds: HE salvo, Smoke on the crew (no LRF return inside
+   it for 20 s), Cluster (8 bomblets in a 70 m ring), Spotting round (move 50 m within 10 s or heat +25). Local enemies are capped by map (1/2/3) while it lasts. */
+const GDK=['he','smk','clus','spot'];
+function duelMark(g){const B=BOSS.gd,e=B.err[Math.min(g.shots,B.err.length-1)],a=RT.rr()*6.283,d=Math.sqrt(RT.rr())*e*.8;g.mk={x:g.x+Math.cos(a)*d,z:g.z+Math.sin(a)*d,r:e,t:T,live:1}}
+function duelMove(g,away){const B=BOSS.gd;for(let k=0;k<20;k++){let a=RT.rr()*6.283;if(away)a=Math.atan2(g.z-pz,g.x-px)+(RT.rr()-.5)*1.2;const d=away?B.flee*.8:rr_(RT.rr,B.move[0],B.move[1]),x=g.x+Math.cos(a)*d,z=g.z+Math.sin(a)*d;
+  if(Math.abs(x)<HALF-80&&Math.abs(z)<HALF-80&&depthAt(x,z)<.1&&Math.hypot(x-px,z-pz)>900){g.to=[x,z];g.gs='move';if(g.mk)g.mk.live=0;puff(g.x,H(g.x,g.z)+2,g.z,0xb8ad98,2,3,8,.6,.5);return}}g.gs='hide';g.next=T+5}
+function duelFire(g){const B=BOSS.gd,k=GDK[g.cyc%GDK.length];g.cyc++;g.shots=(g.shots||0);duelMark(g);g.shots++;puff(g.x,H(g.x,g.z)+5,g.z,0xd8d0c0,2,2,6,.6,.6);
+ if(k==='he'){const a=heatAim(px,pz,false);bossRing(a.ax,a.az,a.sg+25,B.lead+a.pts.length*.45);sched(B.lead,()=>{if(bossOn()||RUNS&&RUNS.bossOT)heatSalvo(a.ax,a.az,false,a)})}
+ if(k==='smk'){const x=px+gauss()*15,z=pz+gauss()*15;bossRing(x,z,B.smk.r,B.lead,0xdcdcdc);sched(B.lead,()=>{if(!BS.on)return;noRng(()=>smoke3(new THREE.Vector3(x,H(x,z),z)));BS.smk={x,z,end:T+B.smk.life}})}
+ if(k==='clus'){const c=B.clus,x=px,z=pz;bossRing(x,z,c.rad,B.lead+1.5);sched(B.lead,()=>{if(!BS.on)return;for(let i=0;i<c.n;i++)sched(.15*i,()=>{if(!BS.on)return;const a=RT.rr()*6.283,d=Math.sqrt(RT.rr())*c.rad;bossHit(x+Math.cos(a)*d,z+Math.sin(a)*d,c.br,c.dmg,0xff8a3a)})})}
+ if(k==='spot'){const x=px+gauss()*20,z=pz+gauss()*20;bossRing(px,pz,B.spot.move,B.spot.wait,0xffd23a);sched(B.lead*.6,()=>{if(BS.on)puff(x,H(x,z)+1,z,0xffd23a,3,2,6,.8,.4)});const p0=[px,pz];
+  sched(B.spot.wait,()=>{const R=RUNS;if(!BS.on||!R)return;if(Math.hypot(px-p0[0],pz-p0[1])<B.spot.move){R.heat+=B.spot.heat;heatFix('has spotted you')}})}}
+function duelTick(g,dt){const B=BOSS.gd;if(g.gs!=='move'&&Math.hypot(g.x-px,g.z-pz)<B.flee)return duelMove(g,1);
+ if(g.gs==='hide'&&T>=g.next){duelFire(g);if(g.shots>=2){g.gs='wait';g.next=T+3}else g.next=T+B.pair}
+ else if(g.gs==='wait'&&T>=g.next){g.shots=0;duelMove(g,0)}
+ else if(g.gs==='move'){const[tx,tz]=g.to,dx=tx-g.x,dz=tz-g.z,d=Math.hypot(dx,dz),sp=Math.max(10,(B.move[1])/B.mt);if(d<3){g.gs='hide';g.next=T+rr_(RT.rr,B.hide[0],B.hide[1]);return}
+  const s=Math.min(sp*dt,d);g.x+=dx/d*s;g.z+=dz/d*s;g.g.position.set(g.x,H(g.x,g.z),g.z);g.g.rotation.y=Math.atan2(-dz,dx)}}
+function duelFx(){if(BS.smk&&T>BS.smk.end)BS.smk=null}
+function bossHit(x,z,rad,dmg,col){const q=new THREE.Vector3(x,H(x,z),z);boom(q);puff(x,q.y+2,z,col||0xd8d0c0,1,3,8,.8,.5);crater(x,z,5,1.2);destroyAt(q,5);const dl=Math.hypot(x-px,z-pz);sfx(1,dl/340,1/(1+dl/60));
+ const dd=dl<rad*.25?dmg:dl<rad?dmg*(1-(dl-rad*.25)/(rad*.75)):0;if(dd>0)runHit(dd,'enemy gun','frag')}
+/* no laser return through the smoke: the crew inside it, or a line through it */
+const _laGd=lase;lase=function(){const S=BS.smk;if(S&&BS.on&&T<S.end&&st!=='TRAVEL'&&Math.hypot(px-S.x,pz-S.z)<BOSS.gd.smk.r*1.4){aud();return toast('LRF: no return (smoke)')}return _laGd.apply(this,arguments)};
+/* local enemies during the duel: at most 1/2/3 alive (map 1/2/3), half the waves skipped */
+const _nwGd=ntWave;ntWave=function(){const R=RUNS;if(BS.on&&BS.k==='gd'&&R){const B=BOSS.gd,n=ntLive().filter(t=>!t.boss).length;const cap=B.loc[Math.min(2,R.mi||0)];if(n>=cap||RT.rr()<B.locP)return;const r=_nwGd();ntLive().filter(t=>!t.boss).slice(cap).forEach(t=>{t.alive=false;sc.remove(t.g)});return r}return _nwGd()};
+/* enemy guns are never shown where they are (t.hid): r14 red dots and the PPI skip them; their marks stand in */
+/* burning ground and the shock slow */
+function railFx(dt){if(BS.fire){const c=BOSS.rg.nap;BS.fire=BS.fire.filter(f=>T<f.end);for(const f of BS.fire){if(RT.rr()<dt*3)puff(f.x+gauss()*c.rad*.4,H(f.x,f.z)+1,f.z+gauss()*c.rad*.4,0xff7a2a,1,2,5,.8,1.2);if(Math.hypot(px-f.x,pz-f.z)<c.rad)runHit(c.dps*dt,'napalm','fire')}}
+ if(BS.slow>T&&Math.abs(v)>BOSS.rg.shock.vmax)v=Math.sign(v)*BOSS.rg.shock.vmax}
 /* hits on a charging rail gun count double */
 const _ntdB=ntDmg;ntDmg=function(t,x,z,r,k){return _ntdB(t,x,z,r,t.chg?k*2:k)};
+/* map and minimap: the rail gun's road and firing points, and the gun as a blue barrel icon */
+const railOn=()=>BS.on&&BS.k==='rg'&&BS.st&&BS.st.P;
+function railIco(c,x,y,s,a){c.save();c.translate(x,y);c.rotate(a);c.fillStyle='#9fe3ff';c.strokeStyle='#0d1a22';c.lineWidth=Math.max(1,s*.18);c.beginPath();c.rect(-s,-s*.55,s*1.3,s*1.1);c.rect(s*.3,-s*.18,s*1.6,s*.36);c.fill();c.stroke();c.restore()}
+const _dmRg=drawMap;drawMap=function(){_dmRg();if(!railOn()||curTab!=='map'||!mc._dp)return;const c=mx,dp=mc._dp,P=BS.st.P.map(([x,z])=>{const g=toG(x,z);return w2s(g.e,g.n)});c.strokeStyle='#9fe3ff';c.lineWidth=3*dp;c.globalAlpha=.7;c.beginPath();P.forEach(([a,b],i)=>i?c.lineTo(a,b):c.moveTo(a,b));c.stroke();c.globalAlpha=1;
+ for(const[a,b]of P){c.fillStyle='#2c3a44';c.strokeStyle='#9fe3ff';c.lineWidth=1.5*dp;c.beginPath();c.arc(a,b,5*dp,0,6.283);c.fill();c.stroke()}const t=bossLive()[0];if(t){const g=toG(t.x,t.z),[a,b]=w2s(g.e,g.n);railIco(c,a,b,7*dp,-t.g.rotation.y)}};
+const _dmmRg=drawMini;drawMini=function(){_dmmRg();if(!railOn())return;const cv=$('mm');if(!cv.clientWidth)return;const c=cv.getContext('2d'),dp=Math.min(devicePixelRatio,2),k=cv.width/(HALF*2),P=BS.st.P.map(([x,z])=>[(x+HALF)*k,(z+HALF)*k]);c.setTransform(1,0,0,1,0,0);
+ c.strokeStyle='#9fe3ff';c.globalAlpha=.6;c.lineWidth=2*dp;c.beginPath();P.forEach(([a,b],i)=>i?c.lineTo(a,b):c.moveTo(a,b));c.stroke();c.globalAlpha=1;const t=bossLive()[0];if(t)railIco(c,(t.x+HALF)*k,(t.z+HALF)*k,4*dp,-t.g.rotation.y)};
+
+/* map aim: in a run the map's Set aim works on any point (no auto-aim: the crew still lays); a boss's parts are its map targets (snap) */
+const _rtBo=runTargets;runTargets=function(){const R=RUNS,e=R&&R.cur;if(BS.on&&runLive()&&e&&e.boss&&BS.k==='gd')return bossLive().filter(t=>t.mk).map(t=>{const g=toG(t.mk.x,t.mk.z);return{e:g.e,n:g.n,id:'EG'+(BS.parts.indexOf(t)+1),t}});if(BS.on&&runLive()&&e&&e.boss)return bossLive().map((t,i)=>{const g=toG(t.x,t.z);return{e:g.e,n:g.n,id:(BS.k==='rb'?'SA':BS.k==='rg'?'RG':'EG')+(BS.parts.indexOf(t)+1),t}});return _rtBo()};
+const _smBo=selMap;selMap=function(w){_smBo(w);if(RUNS&&runLive())$('mapAim').hidden=false};
+/* map and minimap icons for every boss part: staging area (tent + flag), enemy gun (gun on a hull), rail gun (blue barrel, drawn with its road) */
+function bossIco(c,k,x,y,s,a,col){c.save();c.translate(x,y);c.lineWidth=Math.max(1,s*.18);c.strokeStyle='#14090a';
+ if(k==='stg'){c.fillStyle='#e0432f';c.beginPath();c.moveTo(-s,s*.6);c.lineTo(0,-s*.7);c.lineTo(s,s*.6);c.closePath();c.fill();c.stroke();c.fillRect(s*.55,-s*1.5,s*.18,s*1.3);c.beginPath();c.moveTo(s*.73,-s*1.5);c.lineTo(s*1.45,-s*1.25);c.lineTo(s*.73,-s*1);c.fill()}
+ else{c.rotate(a);c.fillStyle=col||'#ff6a3a';c.beginPath();c.rect(-s*.8,-s*.6,s*1.4,s*1.2);c.fill();c.stroke();c.beginPath();c.rect(s*.4,-s*.16,s*1.3,s*.32);c.fill();c.stroke()}c.restore()}
+function duelMk(c,x,y,r,t,live,s){c.save();c.globalAlpha=live?.9:.45;c.strokeStyle=live?'#ff3b30':'#9a9a9a';c.lineWidth=2*s;c.setLineDash(live?[]:[4*s,3*s]);c.beginPath();c.arc(x,y,r,0,6.283);c.stroke();c.setLineDash([]);c.restore();bossIco(c,'egun',x,y,6*s,0,live?null:'#9a9a9a')}
+const _dmBi=drawMap;drawMap=function(){_dmBi();if(!BS.on||BS.k==='rg'||curTab!=='map'||!mc._dp)return;if(BS.k==='gd'){for(const t of BS.parts){const m=t.mk;if(!m||!t.alive||T-m.t>BOSS.gd.stale&&!m.live)continue;const g=toG(m.x,m.z),[a,b]=w2s(g.e,g.n),[a2]=w2s(g.e+m.r,g.n);duelMk(mx,a,b,Math.abs(a2-a),t,m.live,mc._dp)}return}for(const t of bossLive()){const g=toG(t.x,t.z),[a,b]=w2s(g.e,g.n);bossIco(mx,t.nt,a,b,8*mc._dp,Math.atan2(pz-t.z,px-t.x))}};
+const _dmmBi=drawMini;drawMini=function(){_dmmBi();if(!BS.on||BS.k==='rg')return;const cv=$('mm');if(!cv.clientWidth)return;const c=cv.getContext('2d'),dp=Math.min(devicePixelRatio,2),k=cv.width/(HALF*2);c.setTransform(1,0,0,1,0,0);if(BS.k==='gd'){for(const t of BS.parts){const m=t.mk;if(!m||!t.alive||T-m.t>BOSS.gd.stale&&!m.live)continue;duelMk(c,(m.x+HALF)*k,(m.z+HALF)*k,Math.max(4*dp,m.r*k),t,m.live,dp*.6)}return}for(const t of bossLive())bossIco(c,t.nt,(t.x+HALF)*k,(t.z+HALF)*k,5*dp,Math.atan2(pz-t.z,px-t.x))};
 const _mtB=modeTick;modeTick=function(dt){_mtB(dt);bossTick(dt)};
 /* rewards: an ammo with an effect at the rally point; no mission Supply after overtime */
 const _spmB=spMission;spMission=function(t){const s=_spmB(t),R=RUNS;if(R&&R.bossOT&&R.cur&&R.cur.boss){for(const k in s)if(typeof s[k]==='number')s[k]=0}return s};
-const _arrB=runArrive;runArrive=function(){const R=RUNS,e=R&&R.cur;if(e&&e.boss&&R.maps>1&&R.phase==='exfil'){const a=amRollFx(rng(R.rseed^0xb0a^R.mi));amAdd(a);R.bossAm=a}const r=_arrB();if(e&&e.boss)bossEnd();return r};
+const _arrB=runArrive;runArrive=function(){const R=RUNS,e=R&&R.cur;if(e&&e.boss&&R.maps>1&&R.phase==="exfil"){R.bossN=(R.bossN||0)+1;const a=amRollFx(rng(R.rseed^0xb0a^R.mi));amAdd(a);R.bossAm=a}const r=_arrB();if(e&&e.boss)bossEnd();return r};
 /* HUD: name, health (one bar, a segment per part) and the time left */
 function bossHud(on){let h=$('bossHud');if(!h){document.body.insertAdjacentHTML('beforeend','<div id="bossHud" hidden><b></b><div class="bb"></div><span></span></div>');h=$('bossHud')}if(!on||!BS.on){h.hidden=true;return}h.hidden=false;const R=RUNS;
  h.querySelector('b').textContent=BOSS[BS.k].n;h.querySelector('.bb').innerHTML=BS.parts.map(t=>'<i><u style="width:'+Math.max(0,Math.round(100*(t.alive?(t.hp==null?1:t.hp/t.hp0):0)))+'%"></u></i>').join('');

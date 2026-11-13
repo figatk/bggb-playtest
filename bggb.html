@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.16.1","c":"8b9359e"};
+const BUILD={"v":"9.17.0","c":"3d3e223"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -587,9 +587,11 @@ const clockAt=t=>{const o=T;T=t;const c=clock();T=o;return c};
 function bnrTop(){const b=$('banner');if(document.body.classList.contains('tut')){b.style.top='';return}const r=$('hud').getBoundingClientRect();let y=r.height?r.bottom+6:8;
  const o=$('obj');if(o&&!o.hidden){o.style.top=Math.round(y)+'px';y=o.getBoundingClientRect().bottom+6}b.style.top=Math.round(y)+'px'}
 function vmf(title,f){const w=Math.max(...Object.keys(f).map(k=>k.length));return'VMF '+title+'\n'+Object.entries(f).map(([k,v])=>k.padEnd(w)+'  '+v).join('\n')}
-function msg(from,body,o={}){const voiceOnly=DEG.comms&&from!=='BIG PRAWN';const m={t:T,clk:clock(),from,body,vmf:voiceOnly?null:o.vmf||null,cls:o.cls||'cp',voice:o.voice!==false};MSG.unshift(m);if(MSG.length>200)MSG.pop();
- if(!o.quiet){const b=$('banner');bnrTop();b.innerHTML='<span class="f">'+esc(from)+(voiceOnly&&from!=='BIG PRAWN'?' · VOICE':'')+'</span> '+esc(body);b.className=o.cls==='cf'?'cf':'';b.style.opacity=1;clearTimeout(b._t);b._t=setTimeout(()=>b.style.opacity=0,o.cls==='cf'?12000:7000)}
- if(from!=='BIG PRAWN'&&m.voice&&(S.comms!=='data'||DEG.comms))speak(o.say||body,o.cls==='fo')
+/* ME: the player's own callsign on the net. The trainer is always BIG PRAWN; BGGB sets it from the save file (r0b-profile.js) */
+let ME='BIG PRAWN';
+function msg(from,body,o={}){const voiceOnly=DEG.comms&&from!==ME;const m={t:T,clk:clock(),from,body,vmf:voiceOnly?null:o.vmf||null,cls:o.cls||'cp',voice:o.voice!==false};MSG.unshift(m);if(MSG.length>200)MSG.pop();
+ if(!o.quiet){const b=$('banner');bnrTop();b.innerHTML='<span class="f">'+esc(from)+(voiceOnly&&from!==ME?' · VOICE':'')+'</span> '+esc(body);b.className=o.cls==='cf'?'cf':'';b.style.opacity=1;clearTimeout(b._t);b._t=setTimeout(()=>b.style.opacity=0,o.cls==='cf'?12000:7000)}
+ if(from!==ME&&m.voice&&(S.comms!=='data'||DEG.comms))speak(o.say||body,o.cls==='fo')
  if(S.comms==='voice'&&!DEG.comms)m.vmf=null;
  if(curTab==='net')renderNet()}
 /* ================= targets & effects ================= */
@@ -4753,6 +4755,40 @@ const RUNB=true;
 /* run state lives here from P1 on; rmod bonuses (01-util.js RMOD) are set from the run's upgrades */
 let RUNS=null;
 function runSetMods(mods){for(const k in RMOD)delete RMOD[k];Object.assign(RMOD,mods||{})}
+/* ================= RUN-ONLY: P5a save files. Up to 3 profiles, each a callsign + random 8-character id; each keeps its own current run and history
+   (settings stay per device, key bggbs). Index key bggbp = {v:1,cur:id,list:[{id,cs,t0,t1,tut}]}; run and history keys get '.'+id.
+   The pre-P5a single save (bggbrun, as9runhist) moves into the first profile made. The callsign replaces BIG PRAWN on the radio (msg below). ================= */
+const PROF_KEY='bggbp',PROF_MAX=3,PROF_OLD=['bggbrun','as9runhist'],CS_MAX=20;
+function profIdx(){try{const p=JSON.parse(localStorage.getItem(PROF_KEY)||'null');if(p&&p.v===1&&Array.isArray(p.list))return p}catch(e){}return{v:1,cur:null,list:[]}}
+function profPut(p){try{localStorage.setItem(PROF_KEY,JSON.stringify(p));return true}catch(e){return false}}
+let PROF=(()=>{const p=profIdx();return p.list.find(x=>x.id===p.cur)||null})();
+const PSUF=PROF?'.'+PROF.id:'.none'; /* no profile yet: nothing can start a run (the callsign screen is up), so these keys stay unused */
+if(PROF)ME=PROF.cs;
+/* ids come from crypto, never Math.random (the seeded game stream must not move) */
+function profNewId(){const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',b=new Uint8Array(8);crypto.getRandomValues(b);return Array.from(b,x=>a[x%a.length]).join('')}
+/* callsign rules: A-Z 0-9 - _, 20 max; a very basic word check on each word (split at - _ and digits) so names like SCUNTHORPE pass */
+const CS_BAD=['FUCK','SHIT','CUNT','NIGG','FAG','SLUT','WHORE','RAPE','NAZI','COCK','DICK','PUSSY','BITCH','WANK','RETARD'];
+const csClean=v=>String(v||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,CS_MAX);
+const csBad=v=>v.split(/[-_0-9]+/).some(w=>w&&CS_BAD.some(b=>w.startsWith(b)));
+const csSay=v=>v.replace(/[-_]+/g,' ').trim(); /* the voice reads RAIN_MAN as "RAIN MAN" */
+/* make the profile current without a reload (no run state exists when this is called) */
+function profUse(p){PROF=p;ME=p.cs;RUN_KEY='bggbrun.'+p.id;HIST_KEY='as9runhist.'+p.id;const x=profIdx();x.cur=p.id;profPut(x)}
+/* new profile; the first one made also takes the old single save (copied, read back, then the old keys go) */
+function profCreate(cs){const x=profIdx();if(x.list.length>=PROF_MAX)return null;cs=csClean(cs);if(!cs||csBad(cs))return null;
+ const p={id:profNewId(),cs,t0:Date.now(),t1:Date.now(),tut:0};
+ if(!x.list.length){let moved=0;for(const k of PROF_OLD){const v=localStorage.getItem(k);if(v==null)continue;try{localStorage.setItem(k+'.'+p.id,v);if(localStorage.getItem(k+'.'+p.id)===v){localStorage.removeItem(k);moved++}}catch(e){}}
+  if(moved)p.tut=1} /* an existing player has already learnt the game */
+ x.list.push(p);x.cur=p.id;if(!profPut(x))return null;profUse(p);return p}
+function profDelete(id){const x=profIdx();x.list=x.list.filter(p=>p.id!==id);for(const k of PROF_OLD)try{localStorage.removeItem(k+'.'+id)}catch(e){}if(x.cur===id)x.cur=x.list.length?x.list[0].id:null;profPut(x);return x}
+function profTouch(){if(!PROF)return;const x=profIdx(),p=x.list.find(q=>q.id===PROF.id);if(!p)return;p.t1=PROF.t1=Date.now();profPut(x)}
+/* display name: a second local save with the same callsign shows as "SAM #2" */
+function profLabel(p,list){const same=(list||profIdx().list).filter(q=>q.cs===p.cs);const i=same.findIndex(q=>q.id===p.id);return p.cs+(i>0?' #'+(i+1):'')}
+/* the radio: every BIG PRAWN in text, voice and data messages becomes the callsign; the voice reads it without - and _ */
+const csSwap=s=>typeof s==='string'?s.split('BIG PRAWN').join(ME):s;
+const _msgP=msg;msg=function(from,body,o={}){if(ME==='BIG PRAWN')return _msgP(from,body,o);
+ const b=csSwap(body),o2=Object.assign({},o);if(o.vmf)o2.vmf=csSwap(o.vmf);
+ const say=o.say!=null?o.say:typeof body==='string'&&body.includes('BIG PRAWN')?body:null;if(say!=null)o2.say=say.split('BIG PRAWN').join(csSay(ME));
+ return _msgP(csSwap(from),b,o2)};
 /* ================= RUN-ONLY: the run. One generated sector, a chain of missions with one vehicle state (position, hull, faults, ammunition, upgrades); route choice between missions; permadeath; save between missions ================= */
 const RUN_MODES={
  FIRE:{n:'Fire mission',d:'Destroy the ordered targets, then get out.'},
@@ -4763,7 +4799,7 @@ const RUN_MODES={
  AREA:{n:'Area control',d:'Hold 2 of 3 zones against an enemy battery for 3 minutes.'},
  SALV:{n:'Salvage',d:'Collect at least 3 of the caches marked on your map, then leave when you like. Heat rises faster the longer you stay.',from:1},
  PROT:{n:'Protect friendlies',d:'A friendly post is attacked in 4 waves. Keep it alive for Supply and an item.',from:1}};
-const RUN_KEY='bggbrun',RUN_LEN=6,RUN_EXTRA=['HIDE','RSP'],RUN_MAPS=3,RUN_PER=4,RUN_ORD=8,SC_MAP=150; /* P3: a run is 3 maps, each 8 orders (3 orders, a stop, 3 orders, the boss: r18), a depot between maps. Saves are v2; a P2 save (key as9run) is dropped */
+let RUN_KEY='bggbrun'+PSUF;const RUN_LEN=6,RUN_EXTRA=['HIDE','RSP'],RUN_MAPS=3,RUN_PER=4,RUN_ORD=8,SC_MAP=150; /* P3: a run is 3 maps, each 8 orders (3 orders, a stop, 3 orders, the boss: r18), a depot between maps. Saves are v2; a P2 save (key as9run) is dropped */
 try{localStorage.removeItem('as9run')}catch(e){}
 const sDist=(a,b)=>Math.hypot(SITES[a][0]-SITES[b][0],SITES[a][1]-SITES[b][1]);
 const runSites=()=>[...FPS,...RUN_EXTRA].filter(k=>SITES[k]);
@@ -4911,7 +4947,7 @@ const HT={frag:{n:'Frag',f:['sig'],it:'spall',cut:.3},ac:{n:'Autocannon',f:['trk
 function runHit(dmg,why,ty){const R=RUNS;if(!R||R.dead||!runLive())return;const T_=HT[ty],h0=R.hp/R.hpMax,dd=dmg*hitK()*armK()*(T_?Math.pow(1-T_.cut,itN(T_.it)):1);R.hp=Math.max(0,R.hp-dd);R.hitT=T;R.dmgBy=R.dmgBy||{};R.dmgBy[why]=(R.dmgBy[why]||0)+dd;const h1=R.hp/R.hpMax;R.hits=(R.hits||0)+1;
  const pool=(T_?T_.f:[]).concat(['trv','sig','eng','trk']),f=()=>{const k=pool.find(x=>!fltHas(x));if(k)fltAdd(k,why)};
  if(R.maps<2){for(const lim of[.5,.25])if(h0>lim&&h1<=lim)f();if(T_&&T_.fc&&Math.random()<T_.fc)f()} /* P3f: no hull or random faults in 3-map runs */
- if(R.hp<=0)runDie('BIG PRAWN destroyed by '+why+'.');renderSoon()}
+ if(R.hp<=0)runDie(ME+' destroyed by '+why+'.');renderSoon()}
 function heatTick(dt){const R=RUNS;if(!runLive())return;
  const m=Math.hypot(px-RH.lx,pz-RH.lz);RH.lx=px;RH.lz=pz;
  R.heat=Math.max(heatFloor(),R.heat+HEAT.base*heatK()*dt-(m<30?(p3()?HEAT.driveP3:HEAT.drive)*m/HEAT.per:0)); /* P3g.3b: driving cools 25/300 m in 3-map runs (45 legacy) */ R.heatMax=Math.max(R.heatMax,R.heat);R.hs+=R.heat*dt;R.ht+=dt;if(R.heat>100)R.over100+=dt;
@@ -5128,7 +5164,7 @@ const _bglRun=bgLabels;bgLabels=function(){if(RUNS&&runLive())return;return _bgl
 /* per mission: (base + met + speed + targets) x (1 + avg heat/200) x (1 + 0.1 k) + 25 x min(kills,10) + 100 clean; failed but alive: base x multipliers + kills; destroyed: kills only. +500 for finishing the run */
 const CF_PEN=50; /* each round fired during check firing: -50 and no clean bonus (shown in the Clean column) */
 const _mofCF=mOnFire;mOnFire=function(f){const R=RUNS;if(R&&R.phase==='mission'&&M&&M.checkFire)R.cf=(R.cf||0)+1;return _mofCF(f)};
-const SCORE_V=1,SC_FIN=500,HIST_KEY='as9runhist';
+const SCORE_V=1,SC_FIN=500;let HIST_KEY='as9runhist'+PSUF;
 /* par time per mode (s): the bot's median from tests/out/run-telemetry.json until play-tests give real ones */
 const PAR={FIRE:255,HOT:290,AMBUSH:80,EVAC:95,ESCORT:255,AREA:345,SALV:300,PROT:200}; /* SALV and PROT: guesses, the bot does not play them yet */
 /* speed: 100 at or under par, falling to 0 at twice par */
@@ -5207,7 +5243,7 @@ document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="p
  ['m-escort','<rect x="3" y="10" width="7" height="6" rx="1"/><rect x="14" y="10" width="7" height="6" rx="1"/><path d="M10 13h4"/>'],['m-area','<path d="M4 4h16v16H4z" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="3"/>'],
  ['h-score','<path d="M7 4h10v5a5 5 0 0 1-10 0zM12 14v4m-4 2h8M7 6H4a3 3 0 0 0 3 4m10-4h3a3 3 0 0 1-3 4"/>'],['h-far','<path d="M5 21V4m0 0h11l-2 4 2 4H5"/>'],['h-hit','<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>'],
  ['h-runs','<path d="M4 6h16M4 12h16M4 18h10"/>'],['r-kia','<path d="M6 6l12 12M18 6L6 18"/>'],['r-quit','<path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"/>'],
- ['t-garage','<path d="M3 18h18M5 18v-4l3-3h8l3 3v4M8 11V8h5v3M13 9h7"/>'],['t-map','<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="17" cy="16" r="2"/><path d="M8 17l7-1M7 16l10-9"/>'],['t-hist','<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>'],
+ ['t-garage','<path d="M3 18h18M5 18v-4l3-3h8l3 3v4M8 11V8h5v3M13 9h7"/>'],['t-map','<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="17" cy="16" r="2"/><path d="M8 17l7-1M7 16l10-9"/>'],['t-hist','<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>'],['t-saves','<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v5h8V4M8 20v-6h8v6"/>'],
  ['n-mis','<path d="M12 4l8 8-8 8-8-8z"/><circle cx="12" cy="12" r="1.5"/>'],['n-eli','<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>'],
  ['n-shop','<path d="M5 9h14l-1 11H6z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/>'],['n-rest','<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/>'],['sp','<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 8v8M9.5 10.5h5"/>'],['n-ev','<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17v.5"/>'],['ev-up','<path d="M12 19V5M6 11l6-6 6 6"/>']
 ].map(([k,p])=>'<symbol id="ri-'+k+'" viewBox="0 0 24 24">'+p+'</symbol>').join('')+'</svg>');
@@ -5247,7 +5283,7 @@ const legCard=()=>'<div class="rcard" data-c="leg"><div class="rlbl">Map</div><d
 /* ---------- the frame ---------- */
 function runUI(mode,tab){const R=RUNS,s=mode==='home'?runSaved():null;RG.mode=mode;RG.tab=tab||(mode==='score'?'hist':'garage');RG.sel=null;if(mode!=='node')delete RG.node;ov.hidden=false;try{speechSynthesis.cancel()}catch(e){}
  const ups=R&&mode!=='home'?R.ups:s?s.snap.ups:[],live=R&&mode!=='home'?{m:R.maps>1?R.mi+1:0,b:R.bio?BIOME[R.bio[R.mi]].n:'',i:Math.min(R.i+1,R.n),hp:R.hp,max:R.hpMax,sc:runScore(R),sp:R.sp||0}:s?{i:s.i+1,hp:s.snap.hp,max:s.snap.hpMax,sc:(s.res||[]).reduce((a,x)=>a+(x.sc?x.sc.total:0),0),sp:s.snap.sp||0}:null;
- let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['garage','t-garage','Garage'],['map','t-map','Map'],['hist','t-hist',mode==='home'?'History':'This run']].filter(t=>t[0]!=='map'||R&&mode!=='home').map(t=>'<button data-t="'+t[0]+'" aria-label="'+t[2]+'">'+rIco(t[1])+'<span>'+t[2]+'</span></button>').join('')+'</nav><span class="sp"></span>';
+ let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['garage','t-garage','Garage'],['map','t-map','Map'],['hist','t-hist',mode==='home'?'History':'This run'],['saves','t-saves','Save files']].filter(t=>t[0]==='saves'?mode==='home':t[0]!=='map'||R&&mode!=='home').map(t=>'<button data-t="'+t[0]+'" aria-label="'+t[2]+'">'+rIco(t[1])+'<span>'+t[2]+'</span></button>').join('')+'</nav><span class="sp"></span>';
  if(live){const f=live.hp/live.max;h+='<span class="st" title="'+(live.b?'Map · '+live.b:'Mission')+'"><span class="rchip num">'+(live.m?live.m+'·':'M')+live.i+'</span></span><span class="st" title="Hull" style="color:var(--'+(f>.5?'ok':f>.25?'wa':'bd')+')">'+rIco('hull')+'<span class="rhp"><i style="width:'+(f*100).toFixed(0)+'%;background:currentColor"></i></span><span class="num" style="color:var(--fg)">'+Math.ceil(live.hp)+'</span></span><span class="st" title="Supply" style="color:var(--ac)">'+rIco('sp')+'<span class="num" id="rSP" style="font-size:20px;font-weight:700">'+live.sp+'</span></span><span class="st" title="Score"><span class="num rscore">'+fmtN(live.sc)+'</span></span>'}
  h+='</header><div class="rmain"><section data-s="garage">';
  if(mode==='pause'||mode==='between'||mode==='node')h+='<div class="rrail">'+(mode==='pause'?'<button class="pri" id="rRes">Resume</button>':'')+'<button id="rSet">Settings</button><button id="rSQ">Save and quit</button><button class="warn" id="rAb">Abandon run</button></div>';
@@ -5255,17 +5291,17 @@ function runUI(mode,tab){const R=RUNS,s=mode==='home'?runSaved():null;RG.mode=mo
  if(mode==='upgrade'){const c=rollCost();h+='<div class="rcard"><div class="rlbl">Pick one<button id="rRoll" class="rcost" title="New offers"'+(R.sp<c?' disabled':'')+'>↻ '+rIco('sp')+c+'</button></div><div class="roffer">'+R.offers.map((o,j)=>'<button id="rUp'+j+'" class="'+RCL[o.rar]+'" data-k="'+o.k+'" data-j="'+j+'">'+rIco(o.k)+'<b>'+upAmt(o)+'</b><span>'+UPS[o.k].n+'</span><small class="rux">'+upX(o.k,o.pct)+'</small></button>').join('')+'</div></div>';}
  if(mode==='node')h+=nodeCard();
  h+=statsCard(modsAll(ups))+(R&&mode!=='home'?legCard():'')+upCard(ups);
- if(mode==='home'){h+='<div class="rname">Big Gun Gets Bigger</div>';h+=s?'<button class="rgo" id="rResume">RESUME</button><div class="rsub"><button id="rNew">New run</button></div>':'<button class="rgo" id="rNew">NEW RUN</button>';
+ if(mode==='home'){h+=(PROF?'<div class="rwho"><small>Callsign</small><b>'+esc(profLabel(PROF))+'</b></div>':'')+'<div class="rname">Big Gun Gets Bigger</div>';h+=s?'<button class="rgo" id="rResume">RESUME</button><div class="rsub"><button id="rNew">New run</button></div>':'<button class="rgo" id="rNew">NEW RUN</button>';
   h+='<div class="rsub"><input id="rSeed" placeholder="Seed" aria-label="Seed code"><button id="rSeedGo">Start seed</button><button id="rTrainer">Settings</button></div>'}
  if(mode==='between')h+='<button class="rgo" id="rGo"></button>';
  if(mode==='node')h+='<button class="rgo" id="rLeave">LEAVE</button>';
  if(mode==='score')h+='<button class="rgo" id="rAgain">NEW RUN</button><div class="rsub"><button id="rHome">Home</button></div>';
- h+='</div></section><section data-s="hist"><div class="rhist">'+(mode==='home'?histHome(s):mode==='score'?histScore():histRun())+'</div></section></div></div><div class="rtip" id="rTip" hidden></div>';
+ h+='</div></section><section data-s="hist"><div class="rhist">'+(mode==='home'?histHome(s):mode==='score'?histScore():histRun())+'</div></section>'+(mode==='home'?'<section data-s="saves"><div class="rhist">'+profSaves()+'</div></section>':'')+'</div></div><div class="rtip" id="rTip" hidden></div>';
  ov.innerHTML=h;grMount($('rStage'));rgWire(s);rgShow(RG.tab)}
-function rgShow(t){RG.tab=t;ov.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));ov.querySelector('[data-s="garage"]').hidden=t==='hist';ov.querySelector('[data-s="hist"]').hidden=t!=='hist';
+function rgShow(t){RG.tab=t;ov.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));ov.querySelector('[data-s="garage"]').hidden=t==='hist'||t==='saves';ov.querySelector('[data-s="hist"]').hidden=t!=='hist';const sv_=ov.querySelector('[data-s="saves"]');if(sv_)sv_.hidden=t!=='saves';
  const st_=$('rStage');st_.classList.toggle('mapmode',t==='map');const c=k=>ov.querySelector('[data-c="'+k+'"]');if(c('stats'))c('stats').hidden=t==='map'&&!!c('leg');if(c('leg'))c('leg').hidden=t!=='map';
  const go=$('rGo');if(go){go.textContent=t==='map'?'DEPLOY':'CHOOSE NEXT';go.disabled=t==='map'&&RG.sel==null}
- if(t!=='hist'&&GR.rd)grSize();if(t==='map')rgMap()}
+ if(t!=='hist'&&t!=='saves'&&GR.rd)grSize();if(t==='map')rgMap()}
 function rgHl(k){ov.querySelectorAll('[data-c="stats"] tr').forEach(r=>r.classList.toggle('hl',r.dataset.k===k))}
 function rgWire(s){const R=RUNS,on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
  ov.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>rgShow(b.dataset.t));
@@ -6781,7 +6817,7 @@ function bgsUI(back){const o=(k,v,l)=>'<button data-bs="'+k+'" data-v="'+v+'" cl
  h+='</div></div>';ov.hidden=false;ov.innerHTML=h;
  ov.querySelectorAll('[data-bt]').forEach(b=>b.onclick=()=>{BGS_TAB=b.dataset.bt;bgsUI(back)});
  ov.querySelectorAll('[data-bs]').forEach(b=>b.onclick=()=>{aud();const k=b.dataset.bs,v=b.dataset.v;S[k]=v==='true'?true:v==='false'?false:isNaN(+v)?v:+v;sv('as9s',S);if(k==='snd'&&mg)mg.gain.value=S.snd?1:0;if(k==='camo')setCamo();bgsUI(back)});
- ov.querySelectorAll('[data-bv]').forEach(b=>b.onclick=()=>{aud();S.voiceName=b.dataset.bv;sv('as9s',S);bgsUI(back);speak('BIG PRAWN, this is HAMMER 0. Fire mission, grid 1520 1850, over')});
+ ov.querySelectorAll('[data-bv]').forEach(b=>b.onclick=()=>{aud();S.voiceName=b.dataset.bv;sv('as9s',S);bgsUI(back);speak(ME+', this is HAMMER 0. Fire mission, grid 1520 1850, over')});
  ov.querySelectorAll('[data-bg]').forEach(b=>b.onclick=()=>{aud();S.gfx=b.dataset.bg;delete S.gfxAuto;PFM.pick=1;sv('as9s',S);gfxApply();bgsUI(back)});
  shdRow('bgsShd',$('bgsGfx')||(MOB?null:ov.querySelector('.rbgs .rcard:last-child .row:last-child')));
  $('bgsBack').onclick=back}
@@ -6858,4 +6894,63 @@ function kitOpen(){const on=location.hash==='#kit';if(on===KV.on)return;KV.on=on
  if(ov.hidden||!$('rStage'))runHome();if(RG.tab!=='garage')rgShow('garage');if(!KV.el)kitBuild();KV.el.hidden=false;kitShow()}
 const _gmK=grMount;grMount=function(el){_gmK(el);if(KV.on)kitShow()};
 addEventListener('hashchange',kitOpen);addEventListener('load',()=>setTimeout(kitOpen,0));
+/* ================= RUN-ONLY: P5a save-file screens (design: plans/p5/bggb-first-contact.html, confirmed by Brenton 2026-11-12).
+   First launch: Title (any click or key), then Callsign (required), then the welcome voice line and Home. Home gets a Save files tab:
+   3 slots with callsign, best score, runs and last played; Play as (reloads into that save), Delete (asks first; leaderboard runs stay), New save.
+   The tutorial start (P5i) and the full home screen (P5f) come later. ================= */
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '.pfS{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;height:calc(100dvh - 28px);font:16px/1.35 var(--fd)}'+
+ '.pfS .wm{font:800 clamp(64px,13vw,150px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.pfS .sub{font:600 clamp(16px,2.4vw,24px) var(--fd);letter-spacing:.32em;text-transform:uppercase;color:var(--mu)}'+
+ '.pfS .press{margin-top:22px;font:600 14px var(--fd);letter-spacing:.3em;color:var(--ac);animation:pfBl 1.6s ease-in-out infinite}@keyframes pfBl{50%{opacity:.35}}@media (prefers-reduced-motion:reduce){.pfS .press{animation:none}}'+
+ '.pfS .lbl{font:600 12px var(--fd);letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}.pfS h2{font-size:34px;letter-spacing:.08em;text-transform:uppercase;margin:0}'+
+ '.pfS .csin{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}#pfCs{width:min(340px,80vw);background:#0a0d0a;color:var(--fg);border:1px solid var(--ln,#2c3940);border-radius:6px;padding:12px 14px;font:700 26px var(--fd);letter-spacing:.12em;text-transform:uppercase;text-align:center}'+
+ '#pfCs.flash{animation:pfFl .25s}@keyframes pfFl{50%{border-color:var(--bd);background:#2a1110}}.pfS .hint{font-size:13px;min-height:18px;color:var(--bd)}'+
+ '.pfS .priv{position:absolute;left:0;right:0;bottom:18px;font-size:11px;color:var(--mu);padding:0 24px}.pfS .back{position:absolute;top:12px;left:12px}.pfS .ver{position:absolute;bottom:16px;right:20px;font-size:11px;color:var(--mu)}'+
+ '.rwho{display:flex;gap:8px;align-items:baseline;margin-top:auto}.rwho small{color:var(--mu);font-size:12px;letter-spacing:.12em;text-transform:uppercase}.rwho b{font:700 20px var(--fd);letter-spacing:.1em}.rwho+.rname{margin-top:4px}'+
+ '.pfSlots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.pfSlot{background:var(--p1);border:1px solid var(--rl);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:190px}'+
+ '.pfSlot.cur{border-color:var(--ac)}.pfSlot h3{margin:0;font-size:24px;letter-spacing:.1em}.pfSlot dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:13px}.pfSlot dt{color:var(--mu)}.pfSlot dd{margin:0}'+
+ '.pfSlot .pfActs{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}.pfSlot.empty{align-items:center;justify-content:center;border-style:dashed;color:var(--mu)}.pfSlot .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}'+
+ '</style>');
+/* declarations, not consts: r8 draws Home once while loading, before this file runs */
+function pfDate(t){return t?new Date(t).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'}):'-'}
+function pfHist(id){try{return JSON.parse(localStorage.getItem('as9runhist.'+id)||'[]')}catch(e){return[]}}
+/* title: wordmark and one prompt; any click or key goes on to the callsign */
+function profTitle(){RUNS=null;ov.hidden=false;
+ ov.innerHTML='<div class="pfS" id="pfT"><div class="wm">BGGB</div><div class="sub">Big Gun Gets Bigger</div><div class="press">Click or press any key</div><div class="ver">v'+BUILD.v+'</div></div>';
+ $('pfT').onclick=()=>{aud();profCallsign(false)}}
+/* callsign: heading, input and the data note only; a refused key flashes the box; a message only when a name is blocked */
+function profCallsign(back){const n=profIdx().list.length;if(n>=PROF_MAX)return runHome();ov.hidden=false;
+ ov.innerHTML='<div class="pfS">'+(back?'<button class="back" id="pfBack">Back</button>':'')+'<div class="lbl">New save · slot '+(n+1)+' of '+PROF_MAX+'</div><h2>Your callsign</h2>'+
+  '<div class="csin"><input id="pfCs" maxlength="'+CS_MAX+'" autocomplete="off" spellcheck="false" aria-label="Callsign" aria-describedby="pfH" placeholder="CALLSIGN"><button class="on" id="pfGo" disabled>Confirm</button></div><div class="hint" id="pfH" role="status"></div>'+
+  '<div class="priv">Your runs are sent to the developer to improve the game, and appear on the public leaderboard under your callsign.</div></div>';
+ const i=$('pfCs'),go=$('pfGo'),h=$('pfH');let prev='';
+ i.oninput=()=>{const v=csClean(i.value);if(v!==i.value||v===prev&&i.value!==''){i.classList.remove('flash');void i.offsetWidth;i.classList.add('flash')}i.value=v;prev=v;const bad=csBad(v);go.disabled=!v||bad;h.textContent=bad?'Pick a different callsign':''};
+ i.onkeydown=e=>{if(e.key==='Enter'&&!go.disabled)go.click()};
+ go.onclick=()=>{const p=profCreate(i.value);if(!p){h.textContent='Pick a different callsign';return}aud();RUNS=null;runSetMods({});
+  speak('Welcome to the big guns, '+csSay(p.cs)+'.');runUI('home')};
+ if(back)$('pfBack').onclick=()=>runUI('home','saves');
+ setTimeout(()=>i.focus(),0)}
+/* Save files tab (home only) */
+function profSaves(){const x=profIdx(),L=x.list;let h='<div class="pfSlots">';
+ for(let k=0;k<PROF_MAX;k++){const p=L[k];if(!p){h+='<div class="pfSlot empty"><span class="lbl">Slot '+(k+1)+' · empty</span><button data-pn="1">New save</button></div>';continue}
+  const cur=PROF&&p.id===PROF.id,rc=runRecords(pfHist(p.id));
+  h+='<div class="pfSlot'+(cur?' cur':'')+'" data-pid="'+p.id+'"><span class="lbl">Slot '+(k+1)+(cur?' · in use':'')+'</span><h3>'+esc(profLabel(p,L))+'</h3><dl><dt>Best score</dt><dd class="num">'+(rc.best?fmtN(rc.best.score):'-')+'</dd><dt>Runs</dt><dd class="num">'+rc.runs+'</dd><dt>Last played</dt><dd>'+pfDate(p.t1)+'</dd></dl>'+
+   '<div class="pfActs">'+(cur?'<button disabled>In use</button>':'<button class="on" data-pa="'+p.id+'">Play as</button>')+'<button class="warn" data-pd="'+p.id+'">Delete</button></div></div>'}
+ return h+'</div>'}
+function profWire(){ov.querySelectorAll('[data-pn]').forEach(b=>b.onclick=()=>{aud();profCallsign(true)});
+ ov.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{aud();const x=profIdx();x.cur=b.dataset.pa;profPut(x);location.reload()});
+ ov.querySelectorAll('[data-pd]').forEach(b=>b.onclick=()=>{if(!b.dataset.ok){b.dataset.ok=1;b.textContent='Delete? Leaderboard runs stay. Tap again';return}
+  const id=b.dataset.pd,x=profDelete(id);if(PROF&&id!==PROF.id)return runUI('home','saves');
+  if(x.cur)return location.reload();PROF=null;ME='BIG PRAWN';profTitle()})}
+const _ruPF=runUI;runUI=function(mode,tab){_ruPF(mode,tab);if(mode==='home')profWire()};
+/* no save file yet: the title and callsign screens come first, whatever asks for home */
+const _rhPF=runHome;runHome=function(){if(!PROF)return $('pfCs')?void 0:profTitle();return _rhPF()};
+/* while the title or callsign screen is up, keys belong to it (Esc goes back from a second save's callsign) */
+addEventListener('keydown',e=>{if(ov.hidden)return;const f=$('pfT')?'title':$('pfCs')?'cs':null;if(!f)return;
+ if(f==='title'){e.preventDefault();e.stopImmediatePropagation();aud();profCallsign(false);return}
+ if(f==='cs'){if(e.key==='Escape'){e.preventDefault();const b=$('pfBack');if(b)b.click()}e.stopImmediatePropagation()}},true);
+/* last played */
+const _svPF=runSave;runSave=function(){_svPF();profTouch()};
+const _haPF=runHistAdd;runHistAdd=function(R,res){_haPF(R,res);profTouch()};
+if(!PROF&&!ov.hidden)profTitle();
 </script>

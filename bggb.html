@@ -249,7 +249,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.17.0","c":"3d3e223"};
+const BUILD={"v":"9.18.0","c":"c3e9efa"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -5283,7 +5283,7 @@ const legCard=()=>'<div class="rcard" data-c="leg"><div class="rlbl">Map</div><d
 /* ---------- the frame ---------- */
 function runUI(mode,tab){const R=RUNS,s=mode==='home'?runSaved():null;RG.mode=mode;RG.tab=tab||(mode==='score'?'hist':'garage');RG.sel=null;if(mode!=='node')delete RG.node;ov.hidden=false;try{speechSynthesis.cancel()}catch(e){}
  const ups=R&&mode!=='home'?R.ups:s?s.snap.ups:[],live=R&&mode!=='home'?{m:R.maps>1?R.mi+1:0,b:R.bio?BIOME[R.bio[R.mi]].n:'',i:Math.min(R.i+1,R.n),hp:R.hp,max:R.hpMax,sc:runScore(R),sp:R.sp||0}:s?{i:s.i+1,hp:s.snap.hp,max:s.snap.hpMax,sc:(s.res||[]).reduce((a,x)=>a+(x.sc?x.sc.total:0),0),sp:s.snap.sp||0}:null;
- let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['garage','t-garage','Garage'],['map','t-map','Map'],['hist','t-hist',mode==='home'?'History':'This run'],['saves','t-saves','Save files']].filter(t=>t[0]==='saves'?mode==='home':t[0]!=='map'||R&&mode!=='home').map(t=>'<button data-t="'+t[0]+'" aria-label="'+t[2]+'">'+rIco(t[1])+'<span>'+t[2]+'</span></button>').join('')+'</nav><span class="sp"></span>';
+ let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['garage','t-garage','Garage'],['map','t-map','Map'],['hist','t-hist',mode==='home'?'History':'This run'],['saves','t-saves','Save files']].filter(t=>t[0]==='saves'?false:t[0]==='hist'?mode!=='home':t[0]!=='map'||R&&mode!=='home').map(t=>'<button data-t="'+t[0]+'" aria-label="'+t[2]+'">'+rIco(t[1])+'<span>'+t[2]+'</span></button>').join('')+'</nav><span class="sp"></span>';
  if(live){const f=live.hp/live.max;h+='<span class="st" title="'+(live.b?'Map · '+live.b:'Mission')+'"><span class="rchip num">'+(live.m?live.m+'·':'M')+live.i+'</span></span><span class="st" title="Hull" style="color:var(--'+(f>.5?'ok':f>.25?'wa':'bd')+')">'+rIco('hull')+'<span class="rhp"><i style="width:'+(f*100).toFixed(0)+'%;background:currentColor"></i></span><span class="num" style="color:var(--fg)">'+Math.ceil(live.hp)+'</span></span><span class="st" title="Supply" style="color:var(--ac)">'+rIco('sp')+'<span class="num" id="rSP" style="font-size:20px;font-weight:700">'+live.sp+'</span></span><span class="st" title="Score"><span class="num rscore">'+fmtN(live.sc)+'</span></span>'}
  h+='</header><div class="rmain"><section data-s="garage">';
  if(mode==='pause'||mode==='between'||mode==='node')h+='<div class="rrail">'+(mode==='pause'?'<button class="pri" id="rRes">Resume</button>':'')+'<button id="rSet">Settings</button><button id="rSQ">Save and quit</button><button class="warn" id="rAb">Abandon run</button></div>';
@@ -5292,11 +5292,11 @@ function runUI(mode,tab){const R=RUNS,s=mode==='home'?runSaved():null;RG.mode=mo
  if(mode==='node')h+=nodeCard();
  h+=statsCard(modsAll(ups))+(R&&mode!=='home'?legCard():'')+upCard(ups);
  if(mode==='home'){h+=(PROF?'<div class="rwho"><small>Callsign</small><b>'+esc(profLabel(PROF))+'</b></div>':'')+'<div class="rname">Big Gun Gets Bigger</div>';h+=s?'<button class="rgo" id="rResume">RESUME</button><div class="rsub"><button id="rNew">New run</button></div>':'<button class="rgo" id="rNew">NEW RUN</button>';
-  h+='<div class="rsub"><input id="rSeed" placeholder="Seed" aria-label="Seed code"><button id="rSeedGo">Start seed</button><button id="rTrainer">Settings</button></div>'}
+  h+='<div class="rsub"><input id="rSeed" placeholder="Seed" aria-label="Seed code"><button id="rSeedGo">Start seed</button><button id="rTrainer">Settings</button></div><div class="rsub"><button id="rHistS">Run history</button><button id="rSavesS">Save files</button></div>'}
  if(mode==='between')h+='<button class="rgo" id="rGo"></button>';
  if(mode==='node')h+='<button class="rgo" id="rLeave">LEAVE</button>';
  if(mode==='score')h+='<button class="rgo" id="rAgain">NEW RUN</button><div class="rsub"><button id="rHome">Home</button></div>';
- h+='</div></section><section data-s="hist"><div class="rhist">'+(mode==='home'?histHome(s):mode==='score'?histScore():histRun())+'</div></section>'+(mode==='home'?'<section data-s="saves"><div class="rhist">'+profSaves()+'</div></section>':'')+'</div></div><div class="rtip" id="rTip" hidden></div>';
+ h+='</div></section><section data-s="hist"><div class="rhist">'+(mode==='home'?histHome(s):mode==='score'?histScore():histRun())+'</div></section>'+'</div></div><div class="rtip" id="rTip" hidden></div>';
  ov.innerHTML=h;grMount($('rStage'));rgWire(s);rgShow(RG.tab)}
 function rgShow(t){RG.tab=t;ov.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));ov.querySelector('[data-s="garage"]').hidden=t==='hist'||t==='saves';ov.querySelector('[data-s="hist"]').hidden=t!=='hist';const sv_=ov.querySelector('[data-s="saves"]');if(sv_)sv_.hidden=t!=='saves';
  const st_=$('rStage');st_.classList.toggle('mapmode',t==='map');const c=k=>ov.querySelector('[data-c="'+k+'"]');if(c('stats'))c('stats').hidden=t==='map'&&!!c('leg');if(c('leg'))c('leg').hidden=t!=='map';
@@ -5361,9 +5361,9 @@ function histHome(s){const H_=runHist(),rc=runRecords(H_);let h='<div class="rre
  const f=Object.keys(MICO).filter(m=>rc.fast[m]!=null);if(f.length)h+='<div class="rfast">'+f.map(m=>'<span title="Fastest '+RUN_MODES[m].n+'">'+rIco(MICO[m])+'<b>'+fmtT(rc.fast[m])+'</b></span>').join('')+'</div>';
  const rows=(s?[{res:'live',score:(s.res||[]).reduce((a,x)=>a+(x.sc?x.sc.total:0),0),rows:(s.res||[]).map(x=>({mode:x.mode,ok:x.ok})),ups:s.snap.ups.map(u=>u.k),d:null}]:[]).concat(H_);
  if(!rows.length)return h;
- return h+'<div class="rruns"><table>'+rows.map(r=>'<tr class="'+(rc.best&&r===rc.best?'best':'')+'"><td style="color:'+RES_I[r.res][1]+'">'+rIco(RES_I[r.res][0])+'</td><td class="num" style="font-size:19px;font-weight:700">'+fmtN(r.score)+'</td>'+
-  '<td><div class="rdots">'+r.rows.map(x=>'<i class="'+(x.dead||x.ab?'x':x.ok?'':'f')+'" title="'+(RUN_MODES[x.mode]?RUN_MODES[x.mode].n:'')+'"></i>').join('')+'</div></td><td><div class="rmods">'+r.ups.filter(k=>UPS[k]).map(k=>rIco(k)).join('')+'</div></td>'+
-  '<td class="r" style="color:var(--mu)">'+(r.d?new Date(r.d).toLocaleDateString('en-AU',{day:'numeric',month:'short'}):'')+'</td></tr>').join('')+'</table></div>'}
+ return h+'<div class="rruns"><table>'+rows.map(r=>'<tr class="'+(rc.best&&r===rc.best?'best':'')+(r.rid?' rlink':'')+'"'+(r.rid?' data-rid="'+r.rid+'" tabindex="0" title="Run details"':'')+'><td style="color:'+RES_I[r.res][1]+'">'+rIco(RES_I[r.res][0])+'</td><td class="num" style="font-size:19px;font-weight:700">'+fmtN(r.score)+'</td>'+
+  '<td><div class="rdots">'+r.rows.map(x=>'<i class="'+(x.dead||x.ab?'x':x.ok?'':'f')+'" title="'+(RUN_MODES[x.mode]?RUN_MODES[x.mode].n:'')+'"></i>').join('')+'</div></td><td><div class="rmods">'+r.ups.filter(k=>UPS[k]).map(k=>rIco(k)).join('')+(r.inv||[]).map(k=>rIco('it-'+k)).join('')+'</div></td>'+
+  '<td class="num r" style="color:var(--mu)">'+(r.rt?fmtT(r.rt):'')+'</td><td class="r" style="color:var(--mu)">'+(r.d?new Date(r.d).toLocaleDateString('en-AU',{day:'numeric',month:'short'}):'')+'</td></tr>').join('')+'</table></div>'}
 function histRun(){const R=RUNS,L=R?R.res:[],sum=k=>L.reduce((a,x)=>a+(x[k]||0),0),mx=Math.max(1,...L.map(x=>x.dmg||0));
  let h='<div class="rrecs">'+rRec('h-score',fmtN(runScore(R)),'Score')+rRec('hull',Math.round(sum('dmg')),'Damage taken')+rRec('h-hit',sum('kills'),'Kills')+rRec('h-far',L.length+' / '+(R?R.n:0),'Missions')+'</div>';
  if(!L.length)return h;
@@ -6895,8 +6895,7 @@ function kitOpen(){const on=location.hash==='#kit';if(on===KV.on)return;KV.on=on
 const _gmK=grMount;grMount=function(el){_gmK(el);if(KV.on)kitShow()};
 addEventListener('hashchange',kitOpen);addEventListener('load',()=>setTimeout(kitOpen,0));
 /* ================= RUN-ONLY: P5a save-file screens (design: plans/p5/bggb-first-contact.html, confirmed by Brenton 2026-11-12).
-   First launch: Title (any click or key), then Callsign (required), then the welcome voice line and Home. Home gets a Save files tab:
-   3 slots with callsign, best score, runs and last played; Play as (reloads into that save), Delete (asks first; leaderboard runs stay), New save.
+   First launch: Title (any click or key), then Callsign (required), then the welcome voice line and Home. The Save files screen is in r45-screens.js.
    The tutorial start (P5i) and the full home screen (P5f) come later. ================= */
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.pfS{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;height:calc(100dvh - 28px);font:16px/1.35 var(--fd)}'+
@@ -6907,9 +6906,6 @@ document.head.insertAdjacentHTML('beforeend','<style>'+
  '#pfCs.flash{animation:pfFl .25s}@keyframes pfFl{50%{border-color:var(--bd);background:#2a1110}}.pfS .hint{font-size:13px;min-height:18px;color:var(--bd)}'+
  '.pfS .priv{position:absolute;left:0;right:0;bottom:18px;font-size:11px;color:var(--mu);padding:0 24px}.pfS .back{position:absolute;top:12px;left:12px}.pfS .ver{position:absolute;bottom:16px;right:20px;font-size:11px;color:var(--mu)}'+
  '.rwho{display:flex;gap:8px;align-items:baseline;margin-top:auto}.rwho small{color:var(--mu);font-size:12px;letter-spacing:.12em;text-transform:uppercase}.rwho b{font:700 20px var(--fd);letter-spacing:.1em}.rwho+.rname{margin-top:4px}'+
- '.pfSlots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.pfSlot{background:var(--p1);border:1px solid var(--rl);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:190px}'+
- '.pfSlot.cur{border-color:var(--ac)}.pfSlot h3{margin:0;font-size:24px;letter-spacing:.1em}.pfSlot dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:13px}.pfSlot dt{color:var(--mu)}.pfSlot dd{margin:0}'+
- '.pfSlot .pfActs{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}.pfSlot.empty{align-items:center;justify-content:center;border-style:dashed;color:var(--mu)}.pfSlot .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}'+
  '</style>');
 /* declarations, not consts: r8 draws Home once while loading, before this file runs */
 function pfDate(t){return t?new Date(t).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'}):'-'}
@@ -6928,21 +6924,8 @@ function profCallsign(back){const n=profIdx().list.length;if(n>=PROF_MAX)return 
  i.onkeydown=e=>{if(e.key==='Enter'&&!go.disabled)go.click()};
  go.onclick=()=>{const p=profCreate(i.value);if(!p){h.textContent='Pick a different callsign';return}aud();RUNS=null;runSetMods({});
   speak('Welcome to the big guns, '+csSay(p.cs)+'.');runUI('home')};
- if(back)$('pfBack').onclick=()=>runUI('home','saves');
+ if(back)$('pfBack').onclick=()=>fcSaves();
  setTimeout(()=>i.focus(),0)}
-/* Save files tab (home only) */
-function profSaves(){const x=profIdx(),L=x.list;let h='<div class="pfSlots">';
- for(let k=0;k<PROF_MAX;k++){const p=L[k];if(!p){h+='<div class="pfSlot empty"><span class="lbl">Slot '+(k+1)+' · empty</span><button data-pn="1">New save</button></div>';continue}
-  const cur=PROF&&p.id===PROF.id,rc=runRecords(pfHist(p.id));
-  h+='<div class="pfSlot'+(cur?' cur':'')+'" data-pid="'+p.id+'"><span class="lbl">Slot '+(k+1)+(cur?' · in use':'')+'</span><h3>'+esc(profLabel(p,L))+'</h3><dl><dt>Best score</dt><dd class="num">'+(rc.best?fmtN(rc.best.score):'-')+'</dd><dt>Runs</dt><dd class="num">'+rc.runs+'</dd><dt>Last played</dt><dd>'+pfDate(p.t1)+'</dd></dl>'+
-   '<div class="pfActs">'+(cur?'<button disabled>In use</button>':'<button class="on" data-pa="'+p.id+'">Play as</button>')+'<button class="warn" data-pd="'+p.id+'">Delete</button></div></div>'}
- return h+'</div>'}
-function profWire(){ov.querySelectorAll('[data-pn]').forEach(b=>b.onclick=()=>{aud();profCallsign(true)});
- ov.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{aud();const x=profIdx();x.cur=b.dataset.pa;profPut(x);location.reload()});
- ov.querySelectorAll('[data-pd]').forEach(b=>b.onclick=()=>{if(!b.dataset.ok){b.dataset.ok=1;b.textContent='Delete? Leaderboard runs stay. Tap again';return}
-  const id=b.dataset.pd,x=profDelete(id);if(PROF&&id!==PROF.id)return runUI('home','saves');
-  if(x.cur)return location.reload();PROF=null;ME='BIG PRAWN';profTitle()})}
-const _ruPF=runUI;runUI=function(mode,tab){_ruPF(mode,tab);if(mode==='home')profWire()};
 /* no save file yet: the title and callsign screens come first, whatever asks for home */
 const _rhPF=runHome;runHome=function(){if(!PROF)return $('pfCs')?void 0:profTitle();return _rhPF()};
 /* while the title or callsign screen is up, keys belong to it (Esc goes back from a second save's callsign) */
@@ -6953,4 +6936,229 @@ addEventListener('keydown',e=>{if(ov.hidden)return;const f=$('pfT')?'title':$('p
 const _svPF=runSave;runSave=function(){_svPF();profTouch()};
 const _haPF=runHistAdd;runHistAdd=function(R,res){_haPF(R,res);profTouch()};
 if(!PROF&&!ov.hidden)profTitle();
+/* ================= RUN-ONLY: P5b1 run records. One record per run, built as it plays (header, every order, choices, death), kept per save
+   (last 30, key bggbrec.<id>) and queued for upload (bggbq, sent by P5c). Map ends queue a 'live' copy so quit runs still count.
+   Damage by source uses fixed keys (DSRC); a new hit cause shows as 'other' until it gets one. Nothing here draws Math.random. ================= */
+const REC_V=1,REC_N=30,REC_CAP=60000,RECQ_KEY='bggbq',RECQ_N=50;
+const DSRC=[['cb',/^(direct hit|near miss)$/,'Counter-battery'],['ifv',/IFV cannon/,'IFV cannon'],['rpg',/RPG/,'RPG'],['atgm',/anti-tank missile/,'ATGM'],['mine',/^mine$/,'Mine'],
+ ['aa',/anti-artillery/,'Anti-artillery'],['rail',/rail gun/,'Rail gun'],['egun',/enemy gun/,'Enemy gun'],['fire',/napalm/,'Napalm'],['ram',/^ramming/,'Ram']];
+const DSRC_N=Object.fromEntries(DSRC.map(d=>[d[0],d[2]]).concat([['other','Other']]));
+const DSRC_C={cb:'#e06c4f',ifv:'#e8963c',rpg:'#d9b44a',atgm:'#c592f2',mine:'#8fa36b',aa:'#52b6ea',rail:'#5fd0c4',egun:'#ef8fb0',fire:'#f2603c',ram:'#a9b8af',other:'#6c7a80'};
+const dSrc=why=>{for(const[k,re]of DSRC)if(re.test(why||''))return k;return'other'};
+const recKey=id=>'bggbrec.'+id;
+function recId(){const a='abcdefghjkmnpqrstuvwxyz23456789',b=new Uint8Array(10);crypto.getRandomValues(b);return Array.from(b,x=>a[x%a.length]).join('')}
+function recNew(R){return{v:REC_V,id:recId(),pid:PROF?PROF.id:null,cs:ME,ver:BUILD.v+'+'+BUILD.c,seed:R.rseed,maps:R.maps,t0:Date.now(),t1:0,res:'live',reach:[1,1],score:0,runT:0,gfx:S.gfx==='std'?'std':'high',fps:null,ord:[],log:[],death:null}}
+/* choices: [order count when it happened, kind, data] */
+function recLog(k,d){const R=RUNS;if(!R||!R.rec)return;R.rec.log.push([R.res.length,k,d])}
+const amBrief=a=>a&&{rar:a.rar,fx:a.fx||null,s:Object.keys(a.s||{}),evo:a.evo?1:0};
+/* ---------- the open order (lives only in the mission; saves happen between orders) ---------- */
+const _rsR=runStart;runStart=function(j){const R=RUNS;if(R&&!R.rec)R.rec=recNew(R);const opt=R&&R.opts&&R.opts[R.i];_rsR.apply(this,arguments);if(!R||R.phase!=='mission')return;
+ if(opt)recLog('ord',{offer:opt.map(e=>e.mode+(e.elite?'*':'')),pick:R.pick[R.i]||0});
+ R.recO={mode:R.cur.mode,elite:!!R.cur.elite,boss:!!R.cur.boss,map:R.mi+1,step:R.res.length,heat0:Math.round(R.heat),hull0:Math.round(R.hp),dmg:{},kills:{},flt:{},spl0:{...(R.spl||{})}};R.recHit=null};
+/* close every order R.res has and the record has not (mission end, death or abandon) */
+function recSync(){const R=RUNS;if(!R||!R.rec)return;const rec=R.rec;while(rec.ord.length<R.res.length){const x=R.res[rec.ord.length],o=R.recO;
+  const bn=o&&o.boss&&typeof BS!=='undefined'&&BS.k&&BOSS[BS.k]?BOSS[BS.k].n:null;
+  const p=R.recHit;if(o&&x.dead&&p&&!p.done&&R.hp<p.h0){p.done=1;p.dd=Math.round(p.h0-R.hp);o.dmg[p.k]=+((o.dmg[p.k]||0)+p.h0-R.hp).toFixed(1)}
+  const sp={};if(o)for(const k in R.spl||{}){const d=(R.spl[k]||0)-(o.spl0[k]||0);if(d)sp[k]=d}
+  rec.ord.push({mode:x.mode,elite:!!x.elite||!!(o&&o.elite),boss:!!(o&&o.boss),map:(x.mi||0)+1,t:x.t||0,heat:o?[o.heat0,Math.round(x.heatMax!=null?x.heatMax:R.heatMax||0),Math.round(R.heat||0)]:null,
+   hull:o?[o.hull0,Math.round(R.hp)]:null,dmg:o?o.dmg:{},shots:x.shots||0,kills:o?o.kills:{},sp,caches:sp.cache||0,flt:o?o.flt:{},ok:!!x.ok,dead:!!x.dead,ab:!!x.abandoned,score:x.sc?x.sc.total:0,bn});
+  R.recO=null}}
+const _raR=runArrive;runArrive=function(){const r=_raR.apply(this,arguments);recSync();return r};
+/* damage: measured after every other hook (shields and reactive armour may stop it), by fixed source */
+const _rhR=runHit;runHit=function(dmg,why,ty){const R=RUNS;if(!R||!R.recO)return _rhR.apply(this,arguments);
+ const p={k:dSrc(why),why,heat:Math.round(R.heat||0),x:Math.round(px),z:Math.round(pz),h0:R.hp};R.recHit=p;const r=_rhR.apply(this,arguments); /* a killing hit closes the order inside this call: recSync adds it */
+ if(R.recO&&!p.done&&R.hp<p.h0){p.done=1;p.dd=Math.round(p.h0-R.hp);R.recO.dmg[p.k]=+((R.recO.dmg[p.k]||0)+p.h0-R.hp).toFixed(1)}return r};
+const _nkR=ntKill;ntKill=function(t){const R=RUNS,was=t&&t.alive;const r=_nkR.apply(this,arguments);if(R&&R.recO&&was&&!t.alive)R.recO.kills[t.nt]=(R.recO.kills[t.nt]||0)+1;return r};
+const _faR=fltAdd;fltAdd=function(k){const R=RUNS;const n=FLT.on.length;const r=_faR.apply(this,arguments);if(R&&R.recO&&FLT.on.length>n)R.recO.flt[k]=(R.recO.flt[k]||0)+1;return r};
+/* choices outside missions */
+const recVia=()=>{const R=RUNS;if(!R)return'';if(R.phase==='mission'||R.phase==='exfil')return typeof TR!=='undefined'&&TR&&TR.open?'trader':'mission';if(RG.node){const row=R.map.rows[RG.node.r],a=row&&row.nodes[RG.node.n];return{S:'shop',R:'rest',V:'event',D:'depot'}[row&&row.t==='D'?'D':a&&a.t]||'node'}return R.offers?'pick':'other'};
+const _upR=upApply;upApply=function(o){const R=RUNS;if(R)recLog('up',{k:o.k,rar:o.rar,pct:o.pct,offer:R.offers?R.offers.map(x=>x.k+':'+x.rar):null,via:recVia()});return _upR.apply(this,arguments)};
+const _slR=spLog;spLog=function(k,n){if(n<0)recLog('sp',{k,n,via:recVia()});return _slR.apply(this,arguments)};
+const _iaR=itAdd;itAdd=function(k){const r=_iaR.apply(this,arguments);if(r)recLog('it',{k,via:recVia()});return r};
+const _iuR=itUse;itUse=function(i){const R=RUNS,x=typeof itActs==='function'?itActs()[i]:null;const r=_iuR.apply(this,arguments);if(r&&x)recLog('use',{k:x.k,t:R&&R.tm0!=null?Math.round(T-R.tm0):null});return r};
+const _ecR=evChoose;evChoose=function(c){const R=RUNS,e=R&&RG.node&&R.ev?R.ev[evKey()]:null,h0=R?R.hp:0,s0=R?R.sp||0:0;const r=_ecR.apply(this,arguments);if(e&&(r||e.done))recLog('ev',{id:e.id,c:String(c),hp:Math.round(R.hp-h0),sp:(R.sp||0)-s0});return r};
+const _aaR=amAdd;amAdd=function(a){const r=_aaR.apply(this,arguments);if(r)recLog('am',{a:amBrief(a),via:recVia(),spare:r==='spare'?1:0});return r};
+const _acR=amCombine;amCombine=function(i,j){const X=amAll(),a=X[i],b=X[j];const r=_acR.apply(this,arguments);if(r)recLog(r.evo?'evo':'merge',{a:amBrief(a),b:amBrief(b),r:amBrief(r)});return r};
+const _ssR=shopStock;shopStock=function(R,key,again){const had=R.stock&&R.stock[key];const s=_ssR.apply(this,arguments);if(s&&(!had||again))recLog('stock',{key,it:(s.it||[]).slice(),up:s.up?s.up.k+':'+s.up.rar:null,am:s.am?amBrief(s.am.a||s.am):null,again:again?1:0});return s};
+const _nlR=nodeLeave;nodeLeave=function(){const R=RUNS;if(R&&RG.node){const v=recVia();recLog('stop',{t:v,key:RG.node.r+'.'+RG.node.n})}return _nlR.apply(this,arguments)};
+/* fps: real frames only, sampled each second while a mission runs (tests' sim() never counts) */
+const RFPS={n:0,t0:0};
+const _stRec=step;step=function(dt,draw){if(draw){const R=RUNS;if(R&&R.rec&&R.phase==='mission'&&!document.hidden){const now=performance.now();if(!RFPS.t0)RFPS.t0=now;RFPS.n++;
+  if(now-RFPS.t0>=1000){const f=R.rec.fps||(R.rec.fps={s:0,n:0});f.s+=RFPS.n*1000/(now-RFPS.t0);f.n++;RFPS.n=0;RFPS.t0=now}}else RFPS.t0=0}return _stRec.apply(this,arguments)};
+/* ---------- header, storage, upload queue ---------- */
+function recFill(R,res){const rec=R.rec;recSync();rec.res=res;rec.t1=Date.now();rec.score=runScore(R);rec.runT=R.res.reduce((a,x)=>a+(x.t||0),0);rec.reach=[R.mi+1,Math.min(R.i+1,R.n)];rec.cs=ME;rec.pid=PROF?PROF.id:rec.pid;
+ rec.ups=R.ups.map(u=>u.k+':'+u.rar+':'+u.pct);rec.inv=(R.inv||[]).map(x=>x.k);rec.am=(R.am||[]).map(amBrief);
+ if(res==='dead'){const L=R.recHit&&R.recHit.done?R.recHit:null;rec.death=L?{by:L.k,why:L.why,heat:L.heat,x:L.x,z:L.z,dd:L.dd||0}:{by:null,why:R.why||null}}
+ while(JSON.stringify(rec).length>REC_CAP&&rec.log.length)rec.log.splice(0,Math.ceil(rec.log.length/10)); /* 64 KB cap: oldest choices go first */
+ return rec}
+function recQueue(rec){try{const q=JSON.parse(localStorage.getItem(RECQ_KEY)||'[]').filter(x=>x.id!==rec.id);q.push(rec);localStorage.setItem(RECQ_KEY,JSON.stringify(q.slice(-RECQ_N)))}catch(e){}}
+const recQ=()=>{try{return JSON.parse(localStorage.getItem(RECQ_KEY)||'[]')}catch(e){return[]}};
+function recStore(rec){if(!PROF)return;try{const L=recList().filter(x=>x.id!==rec.id);L.unshift(rec);let n=REC_N;let s;do{s=JSON.stringify(L.slice(0,n));n--}while(s.length>2e6&&n>5);localStorage.setItem(recKey(PROF.id),s)}catch(e){}}
+function recList(id){try{return JSON.parse(localStorage.getItem(recKey(id||(PROF&&PROF.id)))||'[]')}catch(e){return[]}}
+const recGet=rid=>recList().find(x=>x.id===rid)||null;
+/* run end (won, dead, abandoned): the history row links to its record */
+const _haR=runHistAdd;runHistAdd=function(R,res){const fresh=!R.logged;_haR.apply(this,arguments);if(!fresh||!R.rec)return;
+ const rec=recFill(R,res);recStore(rec);recQueue(rec);
+ try{const h=runHist();if(h[0]&&h[0].seed===R.rseed&&!h[0].rid){h[0].rid=rec.id;h[0].rt=rec.runT;h[0].inv=rec.inv;const lo=rec.ord[rec.ord.length-1];h[0].where={m:rec.reach[0],o:rec.reach[1],boss:!!(lo&&lo.boss&&(lo.dead||lo.ab))};localStorage.setItem(HIST_KEY,JSON.stringify(h))}}catch(e){}};
+/* map end: queue a live copy */
+const _nmR=runNextMap;runNextMap=function(){const R=RUNS;if(R&&R.rec){recQueue(JSON.parse(JSON.stringify(recFill(R,'live'))))}return _nmR.apply(this,arguments)};
+/* save and resume carry the record */
+const _svR=runSave;runSave=function(){_svR.apply(this,arguments);const R=RUNS;if(!R||R.dead||!R.rec)return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));if(!s)return;s.rec=R.rec;localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
+let REC_LOAD=0;
+const _ldR=runLoad;runLoad=function(){REC_LOAD=1;let ok;try{ok=_ldR.apply(this,arguments)}finally{REC_LOAD=0}if(ok&&RUNS){const s=runSaved();RUNS.rec=s&&s.rec||recNew(RUNS)}return ok};
+/* a new run over a saved one abandons the saved one: its record is stored and queued as abandoned */
+const _rnR=runNew;runNew=function(seed,o){if(!REC_LOAD){const s=runSaved();if(s&&s.rec&&s.rec.res==='live'){const rec=s.rec;rec.res='abandoned';rec.t1=Date.now();rec.runT=(s.res||[]).reduce((a,x)=>a+(x.t||0),0);rec.score=(s.res||[]).reduce((a,x)=>a+(x.sc?x.sc.total:0),0);recStore(rec);recQueue(rec)}} /* the new run's first save replaces the old save */
+ const R=_rnR.apply(this,arguments);if(R&&!REC_LOAD)R.rec=recNew(R);return R};
+/* ================= RUN-ONLY: P5 first-contact screens built as the confirmed mock-up draws them (plans/p5/bggb-first-contact.html):
+   Save files, Run history, Run detail. Full-screen pages on the overlay, the mock's panels, tables and tags (class names prefixed fc).
+   Reached from Home's Run history / Save files buttons until P5f's new Home. ================= */
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '.fcS{position:relative;display:flex;flex-direction:column;min-height:calc(100dvh - 28px);padding:28px 32px;font:13px/1.45 var(--fm);color:var(--fg);background:radial-gradient(120% 90% at 70% 60%,rgba(226,185,59,.06),transparent 60%),repeating-radial-gradient(circle at 65% 55%,transparent 0 34px,rgba(151,162,140,.07) 34px 35px),linear-gradient(160deg,#121812,#0b0f0c)}'+
+ '.fcS button{font:600 15px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;color:var(--fg);background:rgba(10,14,11,.72);border:1px solid rgba(228,232,220,.28);border-radius:6px;padding:10px 14px;cursor:pointer}'+
+ '.fcS button:hover{border-color:var(--ac)}.fcS button.pri{background:var(--ac);color:#15130a;border-color:var(--ac)}.fcS button.ghost{background:none;border-color:transparent;color:var(--mu)}.fcS button.danger{background:var(--bd);border-color:var(--bd);color:#160707}.fcS button:disabled{opacity:.4;cursor:not-allowed}'+
+ '.fcS h2,.fcS h3{font-family:var(--fd);margin:0;color:var(--fg)}.fcS .lbl{font:600 11px var(--fd);letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}.fcS .num{font-family:var(--fd);font-variant-numeric:tabular-nums}'+
+ '.fcS .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}.fcS .top h2{font-size:30px;letter-spacing:.06em;text-transform:uppercase}'+
+ '.fcS .panel{background:rgba(14,19,15,.9);border:1px solid var(--ln);border-radius:8px;padding:14px}.fcS .tw{overflow:auto;margin-top:12px;min-height:0}'+
+ '.fcS table{border-collapse:collapse;width:100%;font-size:13px}.fcS th{font:600 11px var(--fd);letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-align:left;padding:6px 8px;border-bottom:1px solid var(--ln);position:sticky;top:0;background:#111711}'+
+ '.fcS td{text-align:left;vertical-align:middle;padding:7px 8px;border-bottom:1px solid rgba(54,65,47,.55);white-space:nowrap}.fcS td.r,.fcS th.r{text-align:right}.fcS tr.click{cursor:pointer}.fcS tr.click:hover td,.fcS tr.click:focus td{background:rgba(228,232,220,.05)}'+
+ '.fcS .tag{display:inline-block;font:700 11px var(--fd);letter-spacing:.08em;padding:2px 6px;border-radius:3px;background:var(--ln);color:var(--fg)}.fcS .tag.win{background:var(--ok);color:#0b120b}.fcS .tag.died{background:#4a2321;color:#f2b4ae}'+
+ '.fcS .icons{display:inline-flex;gap:3px;vertical-align:middle}.fcS .icons svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;color:var(--mu)}'+
+ '.fcS .tot{display:flex;gap:28px;flex-wrap:wrap;margin-top:12px}.fcS .tot div b{display:block;font:700 26px var(--fd);color:var(--fg)}'+
+ '.fcS .dmg{display:flex;height:16px;border-radius:3px;overflow:hidden;margin:8px 0 6px;background:rgba(54,65,47,.4)}.fcS .dmg span{display:block;height:100%}.fcS .leg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--mu)}.fcS .leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}'+
+ '.fcS .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}.fcS .slot{background:rgba(14,19,15,.9);border:1px solid var(--ln);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:190px}'+
+ '.fcS .slot.cur{border-color:var(--ac)}.fcS .slot h3{font-size:24px;letter-spacing:.1em}.fcS .slot dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:12px}.fcS .slot dt{color:var(--mu)}.fcS .slot dd{margin:0}'+
+ '.fcS .slot .sacts{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}.fcS .slot.empty{align-items:center;justify-content:center;border-style:dashed;color:var(--mu)}'+
+ '.fcS .scrim{position:fixed;inset:0;background:rgba(5,8,6,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:5}.fcS .modal{background:#141a15;border:1px solid var(--ln);border-radius:8px;padding:18px 20px;max-width:440px;width:100%;display:flex;flex-direction:column;gap:12px}'+
+ '.fcS .modal h3{font-size:22px;letter-spacing:.06em;text-transform:uppercase}.fcS .modal p{margin:0;color:var(--mu)}.fcS .modal .macts{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}'+
+ '.fcS .fcMode{display:inline-flex;align-items:center;gap:8px;vertical-align:middle;line-height:18px}.fcS .fcMode svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;color:var(--mu)}'+
+ '@media (max-width:760px){.fcS{padding:20px 16px}}'+
+ '</style>');
+const fcDate=t=>t?new Date(t).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'}):'—';
+const fcT=s=>{s=Math.round(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+function fcPage(h){RUNS=null;ov.hidden=false;ov.innerHTML='<div class="fcS">'+h+'</div>';try{speechSynthesis.cancel()}catch(e){}}
+const fcBuild=(ups,inv)=>'<span class="icons">'+(ups||[]).filter(k=>UPS[k]).map(k=>rIco(k)).join('')+(inv||[]).filter(k=>ITEMS[k]).map(k=>rIco('it-'+k)).join('')+'</span>';
+/* ---------- Save files ---------- */
+function fcSaves(){const x=profIdx(),L=x.list;let h='<div class="top"><h2>Save files</h2><button class="ghost" id="fcBack">Back</button></div><div class="slots">';
+ for(let k=0;k<PROF_MAX;k++){const p=L[k];if(!p){h+='<div class="slot empty"><span class="lbl">Slot '+(k+1)+' · empty</span><button data-pn="1">New save</button></div>';continue}
+  const cur=PROF&&p.id===PROF.id,rc=runRecords(pfHist(p.id));
+  h+='<div class="slot'+(cur?' cur':'')+'"><span class="lbl">Slot '+(k+1)+(cur?' · in use':'')+'</span><h3>'+esc(profLabel(p,L))+'</h3><dl><dt>Best score</dt><dd class="num">'+(rc.best?fmtN(rc.best.score):'—')+'</dd><dt>Runs</dt><dd class="num">'+rc.runs+'</dd><dt>Last played</dt><dd>'+fcDate(p.t1)+'</dd></dl>'+
+   '<div class="sacts">'+(cur?'<button disabled>In use</button>':'<button data-pa="'+p.id+'">Play as</button>')+'<button class="ghost" data-pd="'+p.id+'">Delete</button></div></div>'}
+ h+='</div><div class="scrim" id="fcDel" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="fcDh"><h3 id="fcDh">Delete this save?</h3><p>Its run history and saved run are removed from this device. Its runs stay on the leaderboard.</p><div class="macts"><button class="ghost" id="fcDn">Cancel</button><button class="danger" id="fcDy">Delete save</button></div></div></div>';
+ fcPage(h);$('fcBack').onclick=()=>runHome();
+ ov.querySelectorAll('[data-pn]').forEach(b=>b.onclick=()=>{aud();profCallsign(true)});
+ ov.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{aud();const x=profIdx();x.cur=b.dataset.pa;profPut(x);location.reload()});
+ const m=$('fcDel');let del=null;ov.querySelectorAll('[data-pd]').forEach(b=>b.onclick=()=>{del=b.dataset.pd;m.hidden=false;$('fcDn').focus()});
+ $('fcDn').onclick=()=>{m.hidden=true;del=null};
+ $('fcDy').onclick=()=>{const id=del,x=profDelete(id);if(PROF&&id!==PROF.id)return fcSaves();if(x.cur)return location.reload();PROF=null;ME='BIG PRAWN';profTitle()}}
+/* ---------- Run history: totals line, then every run on this save ---------- */
+const fcWhere=r=>{const w=r.where;if(!w)return'';return r.maps>1||w.m>1?'map '+w.m+' '+(w.boss?'boss':'order '+w.o):'order '+w.o};
+function fcTag(r){const w=fcWhere(r);return r.res==='won'?'<span class="tag win">Win</span>':r.res==='dead'?'<span class="tag died">Died'+(w?' · '+w:'')+'</span>':'<span class="tag">Abandoned'+(w?' · '+w:'')+'</span>'}
+function fcMostBought(){const n={};for(const rec of recList())for(const e of rec.log||[])if(e[1]==='it'&&(e[2].via==='shop'||e[2].via==='trader'))n[e[2].k]=(n[e[2].k]||0)+1;const k=Object.keys(n).sort((a,b)=>n[b]-n[a])[0];return k&&ITEMS[k]?ITEMS[k].n:'—'}
+function fcHist(){const H_=runHist(),rc=runRecords(H_),wins=H_.filter(r=>r.res==='won').length;
+ const far=wins?'Win':H_.reduce((a,r)=>{const w=r.where;if(!w)return a;const v=w.m*100+(w.boss?99:w.o);return!a||v>a.v?{v,t:'Map '+w.m+(w.boss?' boss':' · order '+w.o)}:a},null);
+ let h='<div class="top"><h2>Run history · '+esc(PROF?profLabel(PROF):ME)+'</h2><button class="ghost" id="fcBack">Back</button></div>'+
+  '<div class="tot"><div><span class="lbl">Runs</span><b class="num">'+H_.length+'</b></div><div><span class="lbl">Wins</span><b class="num">'+wins+'</b></div><div><span class="lbl">Best score</span><b class="num">'+(rc.best?fmtN(rc.best.score):'—')+'</b></div>'+
+  '<div><span class="lbl">Furthest</span><b>'+(typeof far==='string'?far:far?far.t:'—')+'</b></div><div><span class="lbl">Most bought</span><b>'+esc(fcMostBought())+'</b></div></div>';
+ h+='<div class="tw"><table><thead><tr><th>Date</th><th>Result</th><th class="r">Score</th><th class="r">Time</th><th>Build</th></tr></thead><tbody>'+
+  H_.map(r=>'<tr'+(r.rid&&recGet(r.rid)?' class="click" tabindex="0" data-rid="'+r.rid+'"':'')+'><td>'+fcDate(r.d)+'</td><td>'+fcTag(r)+'</td><td class="r num">'+(r.res==='abandoned'?'—':fmtN(r.score))+'</td><td class="r num">'+(r.rt?fcT(r.rt):'—')+'</td><td>'+fcBuild(r.ups,r.inv)+'</td></tr>').join('')+
+  '</tbody></table></div>';
+ fcPage(h);$('fcBack').onclick=()=>runHome();
+ ov.querySelectorAll('tr[data-rid]').forEach(t=>{t.onclick=()=>fcRun(t.dataset.rid);t.onkeydown=e=>{if(e.key==='Enter')fcRun(t.dataset.rid)}})}
+/* ---------- Run detail: hull lost by source, then one row per order and per stop ---------- */
+const FC_STOP={shop:'Shop',rest:'Rest',event:'Event',depot:'Depot',node:'Stop'};
+const fcUp=d=>UPS[d.k]?UPS[d.k].n+' ('+d.rar+')':d.k;
+const fcAm=a=>a&&a.fx&&AFX[a.fx]?AFX[a.fx].n:'Ammo';
+function fcRows(rec){const out=[],L=rec.log||[];let stop=null;
+ rec.ord.forEach((o,i)=>{const dm=Object.values(o.dmg||{}).reduce((a,b)=>a+b,0),kl=Object.values(o.kills||{}).reduce((a,b)=>a+b,0),sp=Object.values(o.sp||{}).reduce((a,b)=>a+b,0);
+  const row={ico:MICO[o.mode]||'n-mis',map:o.map,name:o.boss?'Boss'+(o.bn?' · '+o.bn:''):(o.elite?'Elite · ':'')+(RUN_MODES[o.mode]?RUN_MODES[o.mode].n:o.mode),t:o.t,heat:o.heat?o.heat[1]:null,hull:Math.round(dm),kills:kl,sp,chose:o.dead?'Died':o.ab?'Abandoned':''};out.push(row);
+  for(const[n,k,d]of L){if(n!==i+1)continue;
+   if(k==='up'&&d.via==='pick'){row.chose=fcUp(d);continue}
+   if((k==='am')&&(d.via==='elite'||d.via==='mission'||d.via==='pick')&&!stop){row.chose=(row.chose?row.chose+', ':'')+'Ammo: '+fcAm(d.a);continue}
+   if(!stop)stop={map:o.map,name:'',sp:0,ch:[]};
+   if(k==='sp')stop.sp+=d.n;else if(k==='it')stop.ch.push(ITEMS[d.k]?ITEMS[d.k].n:d.k);else if(k==='up')stop.ch.push(fcUp(d));else if(k==='am')stop.ch.push('Ammo: '+fcAm(d.a));
+   else if(k==='ev'){stop.sp+=d.sp||0;stop.ch.push(EVENTS[d.id]?EVENTS[d.id].n:d.id)}else if(k==='evo'||k==='merge')stop.ch.push((k==='evo'?'Evolved ':'Merged ')+fcAm(d.r));
+   else if(k==='stop'){stop.name=FC_STOP[d.t]||'Stop';out.push(stop);stop=null}}
+  if(stop){stop.name=stop.name||'Stop';out.push(stop);stop=null}});
+ return out}
+function fcRun(rid){const rec=recGet(rid);if(!rec)return fcHist();const d={};for(const o of rec.ord)for(const k in o.dmg||{})d[k]=(d[k]||0)+o.dmg[k];
+ const ks=Object.keys(d).filter(k=>d[k]>0).sort((a,b)=>d[b]-d[a]),tot=ks.reduce((a,k)=>a+d[k],0),dash='<span style="color:var(--mu)">—</span>';
+ let h='<div class="top"><h2>Run · '+fcDate(rec.t0)+'</h2><button class="ghost" id="fcBack">Back</button></div>'+
+  '<div class="panel" style="margin-top:12px"><span class="lbl">Hull lost by source · '+Math.round(tot)+' total</span><div class="dmg">'+ks.map(k=>'<span style="width:'+(d[k]/tot*100).toFixed(1)+'%;background:'+DSRC_C[k]+'"></span>').join('')+'</div>'+
+  '<div class="leg">'+ks.map(k=>'<span><i style="background:'+DSRC_C[k]+'"></i>'+DSRC_N[k]+' '+Math.round(d[k])+'</span>').join('')+'</div></div>';
+ h+='<div class="tw"><table><thead><tr><th>Map</th><th>Order</th><th class="r">Time</th><th class="r">Heat max</th><th class="r">Hull lost</th><th class="r">Kills</th><th class="r">Supply</th><th>Chose</th></tr></thead><tbody>'+
+  fcRows(rec).map(r=>{const st=r.t==null;return'<tr><td>'+r.map+'</td><td><span class="fcMode">'+(r.ico?rIco(r.ico):'')+esc(r.name)+'</span></td><td class="r num">'+(st?dash:fcT(r.t))+'</td><td class="r num">'+(st||r.heat==null?dash:r.heat)+'</td><td class="r num">'+(st?dash:r.hull)+'</td><td class="r num">'+(st?dash:r.kills)+'</td>'+
+   '<td class="r num">'+(r.sp>0?'+'+fmtN(r.sp):r.sp<0?'−'+fmtN(-r.sp):dash)+'</td><td>'+esc(r.chose!=null?r.chose:(r.ch||[]).join(', '))+'</td></tr>'}).join('')+'</tbody></table></div>';
+ fcPage(h);$('fcBack').onclick=()=>fcHist()}
+/* Home buttons (until P5f) */
+const _ruFC=runUI;runUI=function(mode,tab){_ruFC(mode,tab);if(mode!=='home')return;const a=$('rHistS'),b=$('rSavesS');if(a)a.onclick=()=>{aud();fcHist()};if(b)b.onclick=()=>{aud();fcSaves()}};
+/* ================= RUN-ONLY: P5b2 after-action report, built as the confirmed mock draws it (plans/p5/bggb-first-contact.html, screen 11).
+   Left: result line, score, Killed by (the final hit), hull lost by source, your build, then the mission breakdown. Right: the garage turntable
+   showing the AS9 as it ended the run; destroyed = burnt hull, drifting smoke and a fire glow (look B, Brenton 2026-11-13).
+   Global rank (P5e) and the feedback box (P5d) come later. ================= */
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '.fcS.aar{flex-direction:row;gap:24px;flex-wrap:wrap;align-items:stretch}.fcS .aarl{flex:1 1 380px;display:flex;flex-direction:column;gap:12px;min-width:0}.fcS .aarr{flex:1 1 320px;display:flex;flex-direction:column;gap:10px;min-width:0}'+
+ '.fcS .score{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end}.fcS .score .big{font:800 64px/.9 var(--fd);color:var(--ac)}'+
+ '.fcS .kb{border:1px solid #6b2a26;background:rgba(229,83,75,.08);border-radius:8px;padding:10px 12px}.fcS .kbm{display:flex;gap:10px;align-items:center;margin-top:4px}'+
+ '.fcS .kbi{width:30px;height:30px;border-radius:4px;flex:none;box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}.fcS .kbm b{display:block;font:700 20px var(--fd);letter-spacing:.04em;color:#f2b4ae}.fcS .kbm small{color:var(--mu)}'+
+ '.fcS table.bt{margin-top:6px;font-size:12px}.fcS table.bt td{padding:5px 6px;white-space:normal}.fcS table.bt td:first-child{white-space:nowrap}.fcS table.bt .fcMode svg.i{width:16px;height:16px}'+
+ '.fcS tr.tot{display:table-row;margin:0}.fcS .aarl .rruns{background:none;padding:0;border-radius:0}.fcS .aarl .rruns svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}.fcS .aarl .rspl svg.i{width:14px;height:14px}.fcS .next{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}'+
+ '.fcS .veh3{position:relative;border:1px solid var(--ln);border-radius:8px;overflow:hidden;background:#17201f;height:300px}.fcS .veh3 canvas{display:block;width:100%;height:100%}.fcS .veh3 .tag{position:absolute;top:10px;left:10px}'+
+ '.fcS .fb{border:1px solid var(--ac);border-radius:8px;padding:14px;background:rgba(226,185,59,.06);display:flex;flex-direction:column;gap:10px}.fcS .fb h3{font-size:20px;letter-spacing:.06em;text-transform:uppercase}.fcS .fb p{margin:0;color:var(--fg)}'+
+ '.fcS .seg{display:flex;gap:6px}.fcS .seg button{flex:1;font-size:14px;padding:8px}.fcS .seg button.on{background:var(--ac);color:#15130a;border-color:var(--ac)}'+
+ '.fcS textarea{width:100%;box-sizing:border-box;min-height:110px;resize:vertical;background:#0a0d0a;color:var(--fg);border:1px solid var(--ln);border-radius:6px;padding:10px;font:13px/1.45 var(--fm)}.fcS .foot{color:var(--mu);font-size:11px}'+
+ '</style>');
+/* the order the run ended on, in words: "map 2 boss" / "order 3" */
+function aarWhere(rec,o){if(!o)return'';const n=rec.ord.filter(x=>x.map===o.map).indexOf(o)+1;return(rec.maps>1?'map '+o.map+' ':'')+(o.boss?'boss':'order '+n)}
+const aarOrd=o=>o.boss?(o.bn||'Boss'):RUN_MODES[o.mode]?RUN_MODES[o.mode].n:o.mode;
+/* the build: upgrades grouped as the garage shows them, then items, then ammunition, each with its value */
+function aarBuild(R){const g={},rows=[],ic=(k,n)=>'<span class="fcMode">'+rIco(k)+esc(n)+'</span>';
+ for(const u of R.ups||[]){if(!UPS[u.k])continue;const o=g[u.k]||(g[u.k]={k:u.k,n:0,pct:0});o.n++;o.pct+=u.pct}
+ for(const o of Object.values(g))rows.push([ic(o.k,UPS[o.k].n+(o.n>1?' ×'+o.n:'')),upX(o.k,o.pct)]);
+ for(const x of R.inv||[])if(ITEMS[x.k])rows.push([ic('it-'+x.k,ITEMS[x.k].n),ITEMS[x.k].d]);
+ for(const a of R.am||[])rows.push([ic('t-garage',a.fx?AFX[a.fx].n:'Ammunition'),amName(a)]);
+ return rows.length?'<div class="panel"><span class="lbl">Your build</span><table class="bt"><tbody>'+rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>').join('')+'</tbody></table></div>':''}
+function fcAAR(){const R=RUNS;if(!R)return runHome();const rec=R.rec&&R.rec.res!=='live'?R.rec:null,last=rec&&rec.ord[rec.ord.length-1],res=R.won?'won':R.why==='Run abandoned.'?'abandoned':'dead';
+ const d={};for(const o of rec?rec.ord:[])for(const k in o.dmg||{})d[k]=(d[k]||0)+o.dmg[k];
+ const ks=Object.keys(d).filter(k=>d[k]>0).sort((a,b)=>d[b]-d[a]),tot=ks.reduce((a,k)=>a+d[k],0),where=last?aarWhere(rec,last):'';
+ let h='<div class="aarl"><span class="lbl">'+(res==='won'?'Run complete':res==='abandoned'?'Run abandoned':'Run over')+(res!=='won'&&last?' · '+(res==='dead'?'died':'ended')+' on '+where+', '+esc(aarOrd(last)):'')+'</span>'+
+  '<div class="score"><div><span class="lbl">Score</span><div class="big num">'+fmtN(runScore(R))+'</div></div></div>';
+ const D=rec&&rec.death;
+ if(res==='dead'&&D)h+='<div class="kb"><span class="lbl">Killed by</span><div class="kbm"><span class="kbi" style="background:'+(DSRC_C[D.by]||DSRC_C.other)+'"></span><div><b>'+esc(D.by?DSRC_N[D.by]:D.why||'Unknown')+'</b>'+
+  '<small>'+[D.dd?D.dd+' damage':'',D.heat!=null?'heat '+D.heat:'',where+(last&&last.t?', '+fcT(last.t)+' in':'')].filter(Boolean).join(' · ')+'</small></div></div></div>';
+ if(tot)h+='<div class="panel"><span class="lbl">Hull lost by source</span><div class="dmg">'+ks.map(k=>'<span style="width:'+(d[k]/tot*100).toFixed(1)+'%;background:'+DSRC_C[k]+'"></span>').join('')+'</div>'+
+  '<div class="leg">'+ks.map(k=>'<span><i style="background:'+DSRC_C[k]+'"></i>'+DSRC_N[k]+' '+Math.round(d[k])+'</span>').join('')+'</div></div>';
+ h+=aarBuild(R)+'<div class="panel">'+histScore().replace(/^<div class="rrecs">[\s\S]*?<\/div>(?=<div class="rruns">)/,'')+'</div>'+
+  '<div class="next"><button class="pri" id="rAgain">New run</button><button id="rHome">Home</button></div></div>';
+ h+='<div class="aarr"><div class="fb" id="fbbox"><h3>How was that run?</h3><p>BGGB is in play-testing. Every report is read and goes straight into the next update, so tell us anything: bugs, what felt unfair, ideas.</p>'+
+  '<div class="seg" role="group" aria-label="Report type"><button class="on" data-fbt="feedback">Feedback</button><button data-fbt="bug">Bug</button><button data-fbt="idea">Idea</button></div>'+
+  '<label class="lbl" for="fbt">Your message</label><textarea id="fbt" maxlength="4000" placeholder="What happened? What would you change?"></textarea>'+
+  '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span class="foot">Sent with your callsign, version and this run\'s summary.</span><button class="pri" id="fbs" disabled>Send</button></div></div>';
+ h+='<div class="veh3" id="aarV">'+(res==='won'?'<span class="tag win">Win</span>':'')+'</div></div>';
+ ov.hidden=false;try{speechSynthesis.cancel()}catch(e){}RG.mode='score';RG.tab='garage';RG.sel=null;delete RG.node;
+ ov.innerHTML='<div class="fcS aar">'+h+'</div>';
+ grMount($('aarV'));if(res==='dead')grWreck();
+ ov.querySelectorAll('[data-fbt]').forEach(b=>b.onclick=()=>ov.querySelectorAll('[data-fbt]').forEach(x=>x.classList.toggle('on',x===b)));
+ $('fbt').onkeydown=e=>e.stopPropagation(); /* typing never reaches the game keys; Send is switched on in P5d */
+ $('rAgain').onclick=()=>{aud();busy('Building the sector',()=>{runNew(newSeed());runShowRoute()})};
+ $('rHome').onclick=()=>{aud();RUNS=null;runSetMods({});runUI('home')}}
+runShowScore=function(){if(!RUNS)return runHome();fcAAR()};
+/* ---------- destroyed look: burnt hull (materials cloned on the garage copy only), smoke column, fire glow ---------- */
+const GRK={on:0,sm:[],ph:0,gl:null,t:0};
+function grWreck(){noRng(()=>{
+ GR.v.traverse(o=>{if(!o.isMesh||!o.material)return;const f=m=>{m=m.clone();if(m.color)m.color.multiplyScalar(.12).lerp(new THREE.Color(0x0a0806),.3);if('roughness'in m)m.roughness=1;if('metalness'in m)m.metalness=0;return m};o.material=Array.isArray(o.material)?o.material.map(f):f(o.material)});
+ let sd=7;const rn=()=>(sd=sd*16807%2147483647)/2147483647; /* own stream: never Math.random */
+ const tex=()=>{const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');for(let j=0;j<26;j++){const cx=64+(rn()-.5)*60,cy=64+(rn()-.5)*60,r=14+rn()*26,g=x.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,'rgba(15,15,15,.35)');g.addColorStop(1,'rgba(15,15,15,0)');x.fillStyle=g;x.fillRect(0,0,128,128)}const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t};
+ const T3=[tex(),tex(),tex()],n=26;GRK.sm=[];
+ for(let i=0;i<n;i++){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:T3[i%3],transparent:true,depthWrite:false,rotation:rn()*6.28,color:0x777777}));s.userData={dv:1,k0:i/(n-1),jx:(rn()-.5)*.8,jz:(rn()-.5)*.8,js:rn()*.6};GR.sc.add(s);GRK.sm.push(s)}
+ const l=new THREE.PointLight(0xff6a20,6,5);l.position.set(-1,2.4,.2);l.userData.dv=1;GR.sc.add(l);GRK.gl=l;
+ const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d'),g=x.createRadialGradient(32,32,1,32,32,32);g.addColorStop(0,'rgba(255,170,60,1)');g.addColorStop(.4,'rgba(255,90,20,.6)');g.addColorStop(1,'rgba(255,60,10,0)');x.fillStyle=g;x.fillRect(0,0,64,64);
+ const f=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));f.position.set(-1.1,2.15,.15);f.scale.setScalar(.9);f.userData.dv=1;GR.sc.add(f)});
+ GRK.on=1;GRK.ph=0;grSmoke(0);grDraw(0)}
+/* each puff rises up the column and starts again at the bottom; the glow flickers (no motion when reduced motion is set) */
+function grSmoke(dt){if(!GR.still)GRK.ph=(GRK.ph+dt*.035)%1;GRK.t+=dt;
+ for(const s of GRK.sm){const u=s.userData,k=(u.k0+GRK.ph)%1;s.position.set(-1.3+u.jx+k*k*2.2,2.3+k*8,.1+u.jz);s.scale.setScalar(1+k*4+u.js);s.material.opacity=(1-k*.75)*Math.min(1,k*12+.15)}
+ if(GRK.gl&&!GR.still)GRK.gl.intensity=6+1.4*Math.sin(GRK.t*11)+.8*Math.sin(GRK.t*17.3)}
+/* the AAR frames the AS9 closer than the garage does (set each frame: the garage resize observer resets it) */
+const _gdW=grDraw;grDraw=function(dt){if(GRK.on)grSmoke(dt);if(RG.mode==='score'&&GR.rd.domElement.parentNode&&GR.rd.domElement.parentNode.id==='aarV')GR.dist=15;return _gdW(dt)};
+const _gmW=grMount;grMount=function(el){if(GR.sc){GR.sc.children.filter(o=>o.userData&&o.userData.dv).forEach(o=>GR.sc.remove(o))}GRK.on=0;GRK.sm=[];GRK.gl=null;return _gmW(el)};
 </script>

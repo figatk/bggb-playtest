@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.20.0","c":"b5efdf4"};
+const BUILD={"v":"9.20.1","c":"fefa96b"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -502,7 +502,7 @@ const DIG=['zero','one','two','three','four','five','six','seven','eight','niner
 const sayify=t=>t.replace(/\b(\d{4}) (\d{4})\b/g,'$1, $2').replace(/\b(\d{4,})\b/g,m=>m.split('').map(d=>DIG[d]).join(' '))
  .replace(/\bAZ\b/g,'azimuth').replace(/\bQE\b/g,'Q.E.').replace(/\bCH ?(\d)\b/g,'charge $1').replace(/\bHE\b/g,'H.E.').replace(/\bPD\b/g,'point detonating').replace(/\bVT\b/g,'V.T.').replace(/\bDLY\b/g,'delay')
  .replace(/\bFFE\b/g,'fire for effect').replace(/\bTOT\b/g,'time on target').replace(/\bMRSI\b/g,'M.R.S.I.').replace(/\bSMK\b/g,'smoke').replace(/\bILL\b/g,'illumination').replace(/\bFP\b/g,'F.P.').replace(/\bAB(\d)/g,'Alpha Bravo $1').replace(/\bCB\b/g,'counter battery')
- .replace(/\bK(\d)(\d)\b/g,(m,a,b)=>'Kilo '+DIG[a]+' '+DIG[b]).replace(/\bm\b/g,'metres').replace(/\bs\b(?=[ ,.]|$)/g,'seconds');
+ .replace(/\bK(\d)(\d)\b/g,(m,a,b)=>'Kilo '+DIG[a]+' '+DIG[b]).replace(/(\d) ?m\b/g,'$1 metres').replace(/(\d) ?s\b(?=[ ,.]|$)/g,'$1 seconds'); /* units only after a number: "I'm", "that's" stay words */
 function squelch(dly=0){if(!AC||!S.snd)return;const t=AC.currentTime+dly,n=AC.sampleRate*.12|0,b=AC.createBuffer(1,n,AC.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
  const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();s.buffer=b;f.type='bandpass';f.frequency.value=1800;f.Q.value=.8;g.gain.value=.12;s.connect(f).connect(g).connect(mg);s.start(t)}
 function speak(t,fo){if(!S.voice||!S.snd)return;try{const u=new SpeechSynthesisUtterance(sayify(t)),v=voiceFor(fo);if(v){u.voice=v;u.lang=v.lang}else u.lang='en-AU';u.rate=fo?1.04:.98;u.pitch=fo?.96:1;u.volume=1;
@@ -1261,12 +1261,13 @@ const reqTxt=L=>{const r=L.req||{};if(L.type==='REG')return'Register: a burst wi
  let s=r.eff?(r.eff>=.3?'Destroy (30% casualties)':'Neutralise (10% casualties)'):L.type==='SUPP'?'Suppress: first round within '+L.timeStd+' s':'Engage';if(r.tot)s+=' · land within '+r.tot+' s of TOT';if(r.spread)s+=' · spread ≤ '+r.spread+' s';if(L.danger)s+=' · DANGER CLOSE';return s};
 function objHtml(){const R=M&&M.cur;if(TUT)return'';const lt=layTarget();let h='',steps=[];
  const step=(done,txt,det)=>steps.push({done,txt,det});
- if(R&&R.L){const L=R.L,s=SITES[L.fp],d=Math.hypot(s[0]-px,s[1]-pz),atFP=d<=15,legs=M.def.legs.length;
+ if(R&&R.L){const L=R.L,s=SITES[L.fp],d=Math.hypot(s[0]-px,s[1]-pz),atFP=dst(gunG(),GSITE(L.fp))<=30,legs=M.def.legs.length;
   h+='<div class="oh"><b>'+esc(M.def.name)+'</b><span>'+(legs>1?'Target '+(M.leg+1)+'/'+legs+' · ':'')+esc(L.tgt.id==='DF'?'Armour':L.tgt.id)+'</span></div><div class="oq">'+esc(reqTxt(L))+'</div>';
   const b=wm(Math.atan2(s[0]-px,-(s[1]-pz))*MIL),onT=trackNear(px,pz).d<3.5;
   const spent=(R.phase==='ffe'||R.phase==='done')&&R.allow<=0&&R.fired>0; /* every ordered round is away: march order early does not undo the drills */
-  step(atFP||spent||(R.phase!=='move'&&st!=='TRAVEL'),'Drive to '+SITEN[L.fp],atFP?'':Math.round(d)+' m · bearing '+p4(b)+(onT?' · on track':' · follow the gold arrows'));
-  step(st==='ACTION'||spent,'Halt, press ACTION',st==='DEPLOY'?'Crew bringing the gun into action':'');
+  /* only the firing point counts (30 m, as for Report ready / Fire): in action anywhere else, the card keeps saying drive */
+  step(atFP||spent,'Drive to '+SITEN[L.fp],atFP?'':Math.round(d)+' m · bearing '+p4(b)+(onT?' · on track':' · follow the gold arrows'));
+  step(st==='ACTION'&&atFP||spent,'Halt, press ACTION',st==='DEPLOY'?'Crew bringing the gun into action':'');
   if(L.type==='DF'){const lt_=layTarget(),lz=!!lt_,isL=lz&&laid()&&Math.abs(dm_(gunBrg()-lt_.b))<2.5&&Math.abs(gunQE()-lt_.q)<2.5,tl=R.phase==='df'?' · '+Math.max(0,Math.ceil(L.timeStd-(T-R.tOrder)))+' s left':'';
    step(lz,'Lase a target','Open the Sight (V), turn toward a red bracket (arrows), press LRF (L)'+tl);step(isL,'Lay on it','Press LAY (G): the FCS adds range and lead'+(lz?' · <span class="ld">'+lt_.id+' '+Math.round(lt_.r)+' m</span>':''));
    step(R.hits>=(L.req.hits||4),'Fire (Space)',R.hits+'/'+(L.req.hits||4)+' hits · then lase the next target')}
@@ -4775,7 +4776,7 @@ function profNewId(){const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',b=new Uint8Array
 const CS_BAD=['FUCK','SHIT','CUNT','NIGG','FAG','SLUT','WHORE','RAPE','NAZI','COCK','DICK','PUSSY','BITCH','WANK','RETARD'];
 const csClean=v=>String(v||'').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,CS_MAX);
 const csBad=v=>v.split(/[-_0-9]+/).some(w=>w&&CS_BAD.some(b=>w.startsWith(b)));
-const csSay=v=>v.replace(/[-_]+/g,' ').trim(); /* the voice reads RAIN_MAN as "RAIN MAN" */
+const csSay=v=>v.replace(/[-_]+/g,' ').trim().toLowerCase().replace(/(^|\s)([a-z])/g,(m,a,b)=>a+b.toUpperCase()); /* the voice reads RAIN_MAN as the words "Rain Man" (capitals alone get spelt out letter by letter) */
 /* make the profile current without a reload (no run state exists when this is called) */
 function profUse(p){PROF=p;ME=p.cs;RUN_KEY='bggbrun.'+p.id;HIST_KEY='as9runhist.'+p.id;const x=profIdx();x.cur=p.id;profPut(x)}
 /* new profile; the first one made also takes the old single save (copied, read back, then the old keys go) */
@@ -5108,6 +5109,9 @@ const _mofRun=mOnFire;mOnFire=function(f){const R=RUNS,c=M&&M.cur;if(f.df||!runL
 Object.assign(THR,{netUp:10,netDn:5,netLock:0});
 /* BGGB: the whole vehicle is hidden while the gun sight view is drawn, so no hull, upgrade or item part can block the scope (Brenton 2026-11-11) */
 veh.userData.sightHide=1;
+/* battery fire missions (Brenton 2026-11-13): guns 2 and 3 are already in action at their slots beside the FP, so they never drive across your route */
+const _bgdR=bgDeploy;bgDeploy=function(L){_bgdR(L);if(!RUNS)return;const tl=toL(L.tgt.e,L.tgt.n);
+ for(const k in BG){const u=BG[k].userData;if(!u.dest)continue;u.x=u.dest.x;u.z=u.dest.z;u.hd=Math.atan2(-(tl.z-u.z),tl.x-u.x);u.tr=0;u.dest=null;u.st='action';u.stT=0;BG[k].position.set(u.x,H(u.x,u.z),u.z)}};
 /* ================= RUN-ONLY: basic upgrades. Rarity sets the % band; each stat scales that band (s) and some are capped. Long barrel waits for a range hook ================= */
 const UPS={spd:{n:'Mobility',d:'Top speed',s:1,x:'Drive faster: shed heat and get clear sooner'},lay:{n:'Turret drive',d:'Laying rate',s:1,x:'Turret traverses and elevates faster'},acc:{n:'Fire control',d:'Accuracy',s:.75,x:'Rounds and direct fire land closer to the aim'},rld:{n:'Autoloader',d:'Reload speed',s:.75,x:'Less time between rounds'},act:{n:'Hydraulics',d:'Into action',s:1,x:'Into action and march order faster'},
  dmg:{n:'Barrel',d:'Damage area',s:.5,x:'Wider damage radius for HE and direct fire'},rep:{n:'Toolkit',d:'Repair speed',s:1,x:'Crew fixes faults faster'},cap:{n:'Ammo capacity',d:'HE carried',s:1,x:'Carry more HE'},armour:{n:'Armour',d:'Armour',s:.5,x:'Less hull damage from every hit'},hull:{n:'Hull',d:'Max hull',s:1,x:'More hull'},camo:{n:'Camo',d:'Signature, net drills',s:.75,x:'Lower signature; faster net drills'}};
@@ -6364,6 +6368,11 @@ const mnDraw=(g,P,rr,dp)=>{g.save();g.strokeStyle='#e8963c';g.lineWidth=1.5*dp;g
 const _dmM=drawMap;drawMap=function(){_dmM();if(!MNF.length||curTab!=='map'||!mc._dp||!runLive())return;const dp=mc._dp,P=(x,z)=>{const q=toG(x,z);return w2s(q.e,q.n)},[a0]=w2s(0,0),[a1]=w2s(1,0);mnDraw(mx,P,r=>Math.abs(a1-a0)*r,dp)};
 const _dmmM=drawMini;drawMini=function(){_dmmM();if(!MNF.length||!runLive())return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);
  mnDraw(g,(x,z)=>[(x+HALF)*s,(z+HALF)*s],r=>r*s,dp)};
+/* reported route-hazard mines (39-hazards, trainer) follow the BGGB mine rule in a run: 15 damage and a Mobility fault, no 45 s immobilised lock (Brenton 2026-11-14) */
+const _taM=todApply;todApply=function(){if(runLive()&&HZ.list.length)for(const h of HZ.list)if(h.kind==='mine'&&!h.hit&&Math.hypot(px-h.x,pz-h.z)<7){h.hit=true;
+  if(itN('plough')&&Math.abs(v)<6.95){puff(px,H(px,pz)+.5,pz,0x8a7a60,3,1,3,.6,.6);sfx(3,0,.4);continue}
+  boom(new THREE.Vector3(px,H(px,pz)+.5,pz),1);sfx(1,0,1);shake=1.4;runHit(AMB.dmg,'mine','shaped');if(!fltHas('trk'))fltAdd('trk','mine')}
+ return _taM.apply(this,arguments)};
 /* ================= RUN-ONLY: P3e road layouts and cross-country routes (3-map runs; Brenton 2026-11-03/08, plan 4.7a).
    Each run world draws a layout by biome: Linked (today's full network), Loops (1-2 links dropped so the network splits into 2-3 parts) or Sparse
    (some places lose every track, plus one link). Loops and Sparse also leave 20-30% / 30-45% of the FPs and objectives off the tracks. HIDE and RSP stay
@@ -6841,7 +6850,7 @@ const _svBG=sv;sv=function(k,v){_svBG(k==='as9s'?BGS_KEY:k,v)};
 addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
  if(e.key==='Tab'){if(!ov.hidden)return;e.preventDefault();am=(am+1)%AMS.length;fz=FZ[AMS[am]][0];renderSoon();return}
  const i='1234'.indexOf(e.key);if(i<0)return;e.stopImmediatePropagation();if(RUNS&&runLive()&&ov.hidden&&itActs()[i])itUse(i)},true);
-const BGS_KEYS=[['Drive','W A S D'],['Action / march order','T'],['Lay gun (FCS)','G'],['Traverse','Q E'],['Elevate','R F (Shift: fine)'],['Report ready','Y'],['Fire','Space'],['Gun sight','V'],['Sight zoom','Z / Shift+Z, wheel or + −'],['Look around','Arrows (in the sight: lay the gun)'],['Elevate in sight','Shift + wheel'],['Laser rangefinder','L'],['Lased target to FCS','K'],['Ammunition','Tab'],['Use item','1 2 3 4 or click its tile'],['Trader stall (when stopped at one)','B'],['Map','M'],['FCS','C'],['Radio net','N'],['Shot log','O'],['Camouflage net','H'],['Repair','X'],['Rearm','U'],['Pause','Esc']];
+const BGS_KEYS=[['Drive','W A S D'],['Action / march order','T'],['Lay gun (FCS)','G'],['Traverse','Q E'],['Elevate','R F (Shift: fine)'],['Report ready','Y'],['Fire','Space'],['Gun sight','V'],['Sight zoom','Z / Shift+Z, wheel or + −'],['Look around','Arrows (in the sight: lay the gun)'],['Elevate in sight','Shift + wheel'],['Laser rangefinder','L'],['Send LRF target to FCS','K'],['Lased target to FCS','K'],['Ammunition','Tab'],['Use item','1 2 3 4 or click its tile'],['Trader stall (when stopped at one)','B'],['Map','M'],['FCS','C'],['Radio net','N'],['Shot log','O'],['Camouflage net','H'],['Repair','X'],['Rearm','U'],['Pause','Esc']];
 let BGS_TAB='set';
 function bgsUI(back){const o=(k,v,l)=>'<button data-bs="'+k+'" data-v="'+v+'" class="'+(String(S[k])===String(v)?'on':'')+'">'+l+'</button>';
  let h='<div class="rg"><header class="rtop"><span class="rbrand" title="Big Gun Gets Bigger">BGGB</span><nav class="rtabs">'+[['set','Settings'],['keys','Controls']].map(t=>'<button data-bt="'+t[0]+'" class="'+(BGS_TAB===t[0]?'on':'')+'"><span>'+t[1]+'</span></button>').join('')+'</nav><span class="sp"></span><button id="bgsBack">Back</button></header><div class="rbgs">';
@@ -7392,4 +7401,307 @@ function bookHtml(){const b=bookGet();return'<div class="ambk">'+AFX_EVO.map(k=>
 const _amcH=amCard;amCard=function(){const h=_amcH();if(!h)return h;const n=bookGet().filter(k=>AFX_EVO.includes(k)).length;
  return h.replace(/<\/div>$/,'<button class="ambkb" data-book>Recipes '+n+'/'+AFX_EVO.length+'</button>'+(RG.book?bookHtml():'')+'</div>')};
 const _ruiH=runUI;runUI=function(mode,tab){_ruiH(mode,tab);const b=ov.querySelector('[data-book]');if(b)b.onclick=e=>{e.stopPropagation();aud();RG.book=!RG.book;const nd=RG.node;runUI(RG.mode,RG.tab);if(nd)RG.node=nd}};
+/* ================= RUN-ONLY: P5i tutorial (script rev 4, P5 plan tab "P5i Tutorial script"; screens 3-5 of plans/p5/bggb-first-contact.html).
+   A new save plays it before any real run: the intro (controls while it loads), M1 Fire mission at once, the upgrade and the order map, M2 Area control,
+   M3 Evacuation, the score, the shop and the hand-off. It is a run of its own on a fixed seed with its own save key: never uploaded, never in Run History.
+   Steps are data: a goal (chip at the bottom, ends by itself when done), a card (pauses the game, waits for Got it) or a voice line. ui steps run on the
+   screens over the game (upgrade, order map, shop) and draw above them. Each step can wait for a condition before it begins; an action done early completes
+   its step as soon as the step comes up. Voice lines carry no keys (keys are in goal and card text); the chip always names the next key or button.
+   Destroyed in a tutorial mission = that mission restarts. Quit = Home offers Continue tutorial (from the last checkpoint: the start of the mission or shop).
+   Leaving the shop = tutorial complete (profile tut=1) at once, whatever happens after; the run then goes on as a normal run. Scripted: the counter-battery salvo after round 3 of M1, the FCS link
+   down (G off until a hand lay), the vehicle that lases you in M2, free Smoke dischargers and a supply cache on the route in M3 ================= */
+const TUT_SEED=7009,TUT_FP=25; /* fixed seed (hand-picked: short drive to the FP, no debris on the way), metres that count as "at the firing point" */
+let TUT_MK=0,TUT_REP=0; /* building or loading the tutorial run (its orders are forced); a replay from Settings */
+let BGT=null; /* {i, s:{t0,begun,done,tD}, f:{} flags, sh0: shot count at mission start, snap: mission start state, keep: real RUN_KEY, clk: real seconds, iq: interrupt goal} */
+const tutOn=()=>!!(BGT&&RUNS&&RUNS.tut);
+const tutCs=()=>ME,tutSay=s=>s.split('{CS}').join(tutCs());
+/* the gun is on the lay readout's data (green readout): laid to the target, not just to wherever the gun was told to go */
+const tutOnData=()=>{const lt=(st==='ACTION'||st==='DEPLOY')?layTarget():null;return!!lt&&laid()&&Math.abs(dm_(layB-lt.b))<1.5&&Math.abs(layQ-lt.q)<1.5};
+const tutFpD=()=>{const e=RUNS&&RUNS.cur,F=e&&e.fp&&SITES[e.fp];return F?Math.hypot(px-F[0],pz-F[1]):1e9};
+const tutRings=()=>typeof warnList==='function'?warnList():[];
+const tutShots=()=>shotN-(BGT.sh0||0);
+/* the chip always names the next key: a drive goal first asks for Net down and March order when they are needed; a fire goal asks for Lay when the gun is off */
+const tutDrv=w=>(THR.netGoal===1||THR.net>0?'Net down (H), then ':'')+(st==='ACTION'||st==='DEPLOY'?'March order (T), then ':'')+w+' (W A S D)';
+const tutFireT=w=>tutOnData()||BGT.f.noG?w:'Lay (G), then '+w.charAt(0).toLowerCase()+w.slice(1);
+/* overlay screens: the run's between screens are up (upgrade, order map, shop) */
+function tutUiW(){return!ov.hidden&&RUNS.phase!=='mission'&&RUNS.phase!=='exfil'&&['upgrade','between','node'].includes(RG.mode)}
+/* order map pick: Click the order, then DEPLOY (CHOOSE NEXT first when the garage tab is up) */
+function tutPickT(n){return()=>RG.tab!=='map'?'Press CHOOSE NEXT':RG.sel==null?'Click the '+n+' order on the map':'Press DEPLOY'}
+function tutPickH(){return RG.tab!=='map'||RG.sel!=null?'#rGo':'#rMapS g.onode.next'}
+/* Area control: which zone a map point is in (-1 none); the aim point's zone (fresh: not one you already hold); zones held */
+function tutZoneAt(p){if(!p||!RM.zones)return-1;const q=toL(p.e,p.n);return RM.zones.findIndex(z=>Math.hypot(z.x-q.x,z.z-q.z)<z.r)}
+function tutAimZ(fresh){const z=tutZoneAt(aim);return fresh&&z>=0&&RM.zones[z].c>0?-1:z}
+function tutZones(){return(RM.zones||[]).filter(z=>z.c>0).length}
+function tutMapT(w){const sec=!!w;if(curTab!=='map')return'Open the map (M), then click '+(sec?'another':'a')+' red zone circle (Z1, Z2 or Z3)';const z=tutZoneAt(mapV.sel);return z<0||sec&&RM.zones[z].c>0?'Click '+(sec?'another':'a')+' red zone circle (Z1, Z2 or Z3)':'Press Set aim'}
+function tutMapH(){return curTab!=='map'?'#bMap':tutZoneAt(mapV.sel)>=0?'#mapAim':'#mapc'}
+/* direct fire chain: Action, sight, lase the vehicle, lay, fire */
+function tutDfT(){const t=BGT.f.ifv;if(st!=='ACTION'&&st!=='DEPLOY')return'Into action (T), then Laser (L) the vehicle';if(!sight)return'Open the gun sight (V)';
+ if(!(lased&&lased.t===t))return'Aim at the vehicle (drag or arrow keys), then Laser (L)';if(!(aim&&aim.id==='LRF'))return'Send to FCS (K), then Lay (G)';return tutOnData()?'Fire (Space)':'Lay (G) on it, then fire (Space)'}
+/* the vehicle that lases you in M2: 400-1400 m off (furthest first) with line of sight to the gun, the nearest bearing to east (else the clearest spot found) */
+function tutIfv(){let p=null,bk=-1;for(const d of[600,700,500,800,900,450,1000,1100])for(let i=0;i<36&&!p;i++){const a=Math.PI/2+(i%2?1:-1)*Math.ceil(i/2)*Math.PI/18,x=px+Math.sin(a)*d,z=pz-Math.cos(a)*d;
+  if(Math.abs(x)>HALF-100||Math.abs(z)>HALF-100||depthAt(x,z)>=.1)continue;const k=ntLos(x,z,px,pz);if(k>=1)p=[x,z];else if(k>bk){bk=k;BGT.f.ifvB=[x,z]}}
+ p=p||BGT.f.ifvB||[Math.min(HALF-100,px+1200),pz];BGT.f.ifv=ntSpawn('ifv',p[0],p[1],{hold:true})}
+function tutDir(t){if(!t)return'east';const a=Math.atan2(t.x-px,-(t.z-pz));return['north','north-east','east','south-east','south','south-west','west','north-west'][((Math.round(a/(Math.PI/4))%8)+8)%8]}
+/* M3: the supply cache on the route, the free smoke dischargers (the salvo they break is scripted when none is on the way) */
+function tutCacheD(){const c=(RUNS.cur&&RUNS.cur.caches||[]).find(c=>c.tut);return c?Math.hypot(px-c.x,pz-c.z):1e9}
+function tutSmk(){return(RUNS.inv||[]).filter(x=>x.k==='smoke').reduce((a,x)=>a+(x.u||0),0)}
+function tutSmkGo(){BGT.f.sm0=tutSmk();if(!RH.fix)heatFix('radar has located you');if(RH.fix)RH.fix.t=Math.max(RH.fix.t,T+15)}
+/* shop: Supply buys any two of the three (the most expensive pair, never all three); things bought */
+function tutShopSp(){const R=RUNS,s=shopStock(R,nodeKey()),c=[shopC(ITEMS[s.it[0]].c),shopC(s.up.c)].concat(s.am?[shopC(s.am.c)]:[]);R.sp=c.reduce((a,x)=>a+x,0)-Math.min(...c);runSave();runUI('node')}
+function tutBought(){const s=RUNS.stock&&RG.node&&RUNS.stock[nodeKey()];return s?s.got.length+(s.upGot?1:0)+(s.amGot?1:0):0}
+/* ---------- the script (P5i rev 4). k: goal | card | voice; say: HAMMER 0; txt: chip or card text; h: card heading; hl: what to highlight (CSS selector or a
+   function returning an element or null); wait(): the step begins only when true; done(): a goal ends when true; on(): when it begins ---------- */
+const TUTS=[
+ /* M1 Fire mission: starts at once, no map */
+ {m:1,k:'goal',say:"{CS}, HAMMER 0. Your firing point's marked on your map. Follow the arrows on the ground and get yourself over there.",txt:()=>tutDrv('Drive to the firing point: follow the arrows, or check the map (M)'),hl:'#mm',done:()=>tutFpD()<TUT_FP},
+ {m:1,k:'goal',say:"That'll do. Bring her into Action.",txt:'Into action (T). W A S D now drive the gun.',hl:'#bSt',done:()=>st==='ACTION'},
+ {m:1,k:'goal',say:"Now get the camouflage net up. Drones can't hit what they can't see. Just remember, you can't drive with it up.",txt:'Raise the camo net (H)',hl:'#bCamo',done:()=>THR.net>=1||THR.netGoal===1},
+ {m:1,k:'voice',say:"Righto, fire mission inbound. The data's in your FCS.",wait:()=>!!(M&&M.cur&&M.cur.tOrder)},
+ {m:1,k:'goal',say:"Open the FCS and have a squiz at the data.",txt:'Open the FCS (C)',hl:'#bFcs',done:()=>curTab==='fcs'},
+ {m:1,k:'card',h:'FCS',txt:'The firing data for the target: range, charge, bearing, QE and time of flight. G lays the gun to it.',hl:'#panel',on:()=>{if(curTab!=='fcs')openPanel('fcs')}},
+ {m:1,k:'goal',say:"Happy with that? Lay the gun on it.",txt:'Lay the gun (G)',hl:'#bLay',done:tutOnData},
+ {m:1,k:'goal',say:"Report Ready when you're set.",txt:'Report ready (Y)',hl:'#bRdy',done:()=>!!(M&&M.cur&&M.cur.ready)},
+ {m:1,k:'goal',say:"Roger. Fire when ready.",txt:()=>tutFireT('Fire (Space)'),hl:'#f',wait:()=>!!(M&&M.cur&&M.cur.auth),done:()=>tutShots()>=1},
+ {m:1,k:'voice',say:"Shot's away. Takes a while to get there, so I'll call splash five seconds out."},
+ {m:1,k:'card',h:'Heat',txt:'Every round you fire raises heat. The higher it gets, the faster the enemy finds you and fires back. Driving cools it: about 25 for every 300 m.',hl:'#hud'},
+ {m:1,k:'goal',say:"{CS}, they've got a fix on you! Net down, March order, and get out of that ring, now!",txt:'Net down (H), march order (T), drive out of the ring',hl:null,on:()=>closePanel(),wait:()=>tutRings().length>0,done:()=>tutRings().every(w=>Math.hypot(px-w.x,pz-w.z)>w.r)},
+ {m:1,k:'card',h:'Counter-battery',txt:'When the enemy fixes you, a ring shows where their rounds will land. Move before they arrive.',hl:null,wait:()=>!RH.fix&&!tutRings().length&&T>=(BGT.f.cbLand||0)},
+ {m:1,k:'goal',say:"Phew, close one. Back to the firing point, let's finish this.",txt:()=>tutDrv('Drive back to the firing point'),hl:null,done:()=>tutFpD()<TUT_FP},
+ {m:1,k:'goal',say:'Back into Action.',txt:'Into action (T)',hl:'#bSt',done:()=>st==='ACTION'},
+ {m:1,k:'voice',say:"Ah, bad news. Your FCS link's dropped out. You'll have to Lay this one by hand.",on:()=>{BGT.f.noG=1;layOn=false;layQd=0;if(curTab==='fcs')closePanel()}},
+ {m:1,k:'card',h:'Manual lay',txt:'With the FCS down you lay the gun yourself. In action, A and D traverse the gun; W and S raise and lower the barrel. Hold a key to move fast, tap it for one step. Hold Shift for fine adjustment as you get close.',hl:'#wasd'},
+ {m:1,k:'card',h:'Lay line and lay readout',txt:'The orange dashed line on the ground is where the gun must point; the white one is where it points now. The lay readout shows what is left: L or R to traverse, ▲ or ▼ to elevate. LAID means you are on.',hl:'#layr'},
+ {m:1,k:'card',h:'Gun dial (PPI)',txt:'The PPI shows your gun from above. The orange dashed line is where it must point; the white line is the barrel. The quarter dial beside it is elevation, with an orange tick for the target. The barrel turns green when laid.',hl:'#ppi'},
+ {m:1,k:'goal',say:'Swing her round onto the orange line. Keep an eye on the PPI, it shows you how far to go.',txt:'Traverse onto the lay line (A D, Shift for fine). Watch the PPI',hl:'#layr',done:()=>{const lt=layTarget();return!!lt&&st==='ACTION'&&Math.abs(dm_(lt.b-gunBrg()))<1.5}},
+ {m:1,k:'goal',say:'Now bring the barrel up until the readout says laid.',txt:'Elevate until the lay readout says LAID (W S, Shift for fine). Watch the PPI quarter dial',hl:'#layr',done:tutOnData,end:()=>{BGT.f.noG=0}},
+ {m:1,k:'goal',say:"Spot on. Fire the rest.",txt:()=>tutFireT('Destroy the targets (Space)'),hl:'#f',done:()=>!!RUNS.taskDone||RUNS.phase==='exfil'},
+ {m:1,k:'goal',say:"Lovely shooting. Rally point's marked, let's get you out of there.",txt:()=>tutDrv('Drive to the rally point'),hl:null,done:()=>RUNS.phase!=='mission'&&RUNS.phase!=='exfil'},
+ /* ---- between M1 and M2: the upgrade pick and the order map (screens over the game: ui steps, drawn above the overlay) ---- */
+ {k:'card',ui:1,ck:1,h:'Upgrades',txt:'Pick one after each mission. The colour shows rarity: rarer, bigger bonus. Not keen on any? Reroll (↻) for new ones, for Supply.',hl:()=>{const o=document.querySelector('.roffer');return o&&o.closest('.rcard')},wait:()=>tutUiW(),skip:()=>RG.mode!=='upgrade'},
+ {k:'goal',ui:1,txt:'Pick an upgrade (click a card), or reroll (↻)',hl:'.roffer',wait:()=>tutUiW(),skip:()=>RG.mode!=='upgrade',done:()=>RG.mode!=='upgrade'},
+ {k:'card',ui:1,h:'Orders',txt:'Each map is a set of orders. Pick your route: the drive between them is real.',hl:'#oBox',wait:()=>tutUiW()&&RG.mode==='between',on:()=>{if(RG.tab!=='map')rgShow('map')}},
+ {k:'card',ui:1,say:"See that one at the end? That's the boss. Every map finishes with one.",h:'Boss',txt:'Every map ends with one. Destroy it within 8:00 for the full reward. After that the heat climbs fast. On maps 1 and 2 you can still pull out to the rally point, for no Supply or score; on map 3 you have to destroy it.',hl:'.opm.cur .opp i.boss'},
+ {k:'card',ui:1,h:'Shops, rests and events',txt:'Shops sell kit, rests repair. Events are one-off choices: some help, some cost you.',hl:'.opm.cur .opp i.stop'},
+ {k:'goal',ui:1,txt:tutPickT('Area control'),hl:tutPickH,wait:()=>tutUiW(),done:()=>RUNS.phase==='mission'&&RUNS.i===1},
+ /* ---- M2 Area control: you choose the aim point; a vehicle lases you; the repair and AS10 hints come when they are needed ---- */
+ {m:2,k:'card',h:'Area control',txt:'Your rounds landing in a zone give you control. It fades over time and enemy shells take it back. Hold 2 of 3 when the 3:00 ends. Their battery shells the zones, not you: no counter-battery fire here.',hl:'#obj'},
+ {m:2,k:'goal',say:'No need to drive anywhere this time. You can reach the zones from right here, so bring her into Action.',txt:'Into action (T)',hl:'#bSt',done:()=>st==='ACTION'},
+ {m:2,k:'goal',say:"No data this time. You choose where the rounds go.",txt:tutMapT,hl:tutMapH,done:()=>tutAimZ()>=0||RUNS.phase!=='mission'},
+ {m:2,k:'card',h:'Aiming',txt:'Click a target, or any point on the map, then Set aim to aim there. Then G lays the gun to it.',hl:'#layr',on:()=>{if(curTab==='map')closePanel()}},
+ {m:2,k:'goal',say:'The clock starts with your first round.',txt:()=>tutAimZ()<0?tutMapT():tutFireT('Fire (Space) into the zone'),hl:'#f',done:()=>tutZones()>=1||RUNS.phase!=='mission'},
+ {m:2,k:'goal',say:'Good. Now grab a second zone.',txt:()=>tutAimZ(1)<0?tutMapT('a second zone'):tutFireT('Fire (Space) into it'),hl:()=>tutAimZ(1)<0?tutMapH():'#f',done:()=>tutZones()>=2||RUNS.phase!=='mission'},
+ {m:2,k:'goal',say:()=>"Contact! Enemy vehicle lasing you from the "+tutDir(BGT.f.ifv)+", I've marked it red. A red laser means they're tracking you. When it goes bright, they're about to fire.",txt:'Open the gun sight (V)',hl:'#bSight',on:tutIfv,done:()=>!!sight},
+ {m:2,k:'goal',say:"Lase it, send it to the FCS, lay on and take it out. Or aim it yourself through the sight, just allow for the drop.",txt:tutDfT,hl:null,done:()=>!BGT.f.ifv||!BGT.f.ifv.alive},
+ {m:2,k:'card',h:'Direct fire',txt:'Shoot anything you can see through the sight: Laser (L) measures the range, Send to FCS (K) hands it over, Lay (G) points the gun. Or aim it yourself in the sight: hold a little high for the drop. Quick, but you need line of sight.',hl:'#ret',wait:()=>T>=(BGT.f.dk||0)},
+ {m:2,k:'goal',say:"Getting low on HE? Call up the AS10 and it'll bring more.",txt:'Call the AS10 (U)',hl:'#bAs10',wait:tutGap,end:tutGapSet,skip:()=>!!BGT.f.he||!rsNeed(),on:()=>{BGT.f.he=1},done:()=>RS.req!=null||RS.st==='out'||RS.st==='xfer'||RUNS.phase!=='mission'},
+ {m:2,k:'goal',say:"Bad news, that vehicle's damaged a track. Get the crew onto the repair.",txt:'Repair the fault (X)',hl:'#bFix',wait:tutGap,end:tutGapSet,skip:()=>!!BGT.f.fx,on:()=>{BGT.f.fx=BGT.f.hit=1;FLT.last=-99;fltAdd('trk','IFV hit')},done:()=>!FLT.on.length||RUNS.phase!=='mission'},
+ {m:2,k:'goal',txt:()=>{const n=tutZones();return(n>=2?'Hold 2 zones till the clock ends':'Retake a zone ('+n+' of 2 held)')+': map (M), Set aim, Lay (G), Fire (Space)'},hl:'#obj',done:()=>RUNS.phase==='exfil'},
+ {m:2,k:'goal',say:()=>RUNS.ok?"That's the zones held. Rally point's marked.":"Didn't hold them this time, no stress. Rally point's marked.",txt:()=>tutDrv('Drive to the rally point'),hl:null,done:()=>RUNS.phase!=='mission'&&RUNS.phase!=='exfil'},
+ /* ---- between M2 and M3 ---- */
+ {k:'goal',ui:1,ck:1,txt:'Pick an upgrade (click a card), or reroll (↻)',hl:'.roffer',wait:()=>tutUiW(),skip:()=>RG.mode!=='upgrade',done:()=>RG.mode!=='upgrade'},
+ {k:'goal',ui:1,txt:tutPickT('Evacuation'),hl:tutPickH,wait:()=>tutUiW(),done:()=>RUNS.phase==='mission'&&RUNS.i===2},
+ /* ---- M3 Evacuation: a normal one, with a supply cache on the route and smoke dischargers to use ---- */
+ {m:3,k:'goal',say:"{CS}, you've been spotted. It'll be hot to start with, but it cools off as you get away. Head for the rally point.",txt:()=>tutDrv('Drive to the rally point'),hl:'#hud',done:()=>tutCacheD()<350||(RUNS.caches||0)>BGT.c0||BGT.clk-BGT.s.t0>15},
+ {m:3,k:'goal',say:"There's a supply cache on your route. Grab it, Supply buys you kit at the shops.",txt:()=>tutDrv('Drive over the supply cache'),hl:'#mm',done:()=>(RUNS.caches||0)>BGT.c0},
+ {m:3,k:'goal',say:'Incoming! Pop your smoke.',txt:'Use item 1, Smoke dischargers (1). Items sit on keys 1 to 4.',hl:'#rInv',skip:()=>!tutSmk(),on:tutSmkGo,done:()=>tutSmk()<BGT.f.sm0},
+ {m:3,k:'goal',txt:()=>tutDrv('Drive to the rally point'),hl:null,done:()=>RUNS.phase!=='mission'&&RUNS.phase!=='exfil'},
+ /* ---- after M3: the score (shown from here on), the upgrade, the shop ---- */
+ {k:'goal',ui:1,ck:1,say:"Good work. Have a look at how you did.",txt:'Open This run (top) to see your score',hl:'[data-t="hist"]',wait:()=>tutUiW(),on:()=>document.body.classList.remove('bgt-ns'),done:()=>RG.tab==='hist'},
+ {k:'card',ui:1,h:'Score',txt:'Points for the task, speed and targets, multiplied by your heat. Kills and a clean mission add more.',hl:'.rhist .rrecs'},
+ {k:'goal',ui:1,txt:'Back to the Garage (top)',hl:'[data-t="garage"]',done:()=>RG.tab==='garage'},
+ {k:'card',ui:1,h:'Garage',txt:'Your gun with its upgrades, items and ammo. Hover over anything to see what it does.',hl:'#rStage'},
+ {k:'goal',ui:1,txt:'Pick an upgrade (click a card), or reroll (↻)',hl:'.roffer',wait:()=>tutUiW(),skip:()=>RG.mode!=='upgrade',done:()=>RG.mode!=='upgrade'},
+ {k:'goal',ui:1,ck:1,txt:tutPickT('Shop'),hl:tutPickH,wait:()=>tutUiW(),done:()=>RUNS.phase==='transit'||RG.mode==='node'},
+ {k:'goal',say:"Easy drive, this one. Getting to a shop or event, there's no heat, no enemies and no caches. Just roll on over.",txt:()=>tutDrv('Drive to the shop'),hl:'#mm',wait:()=>RUNS.phase==='transit'||RG.mode==='node',done:()=>RG.mode==='node'&&!ov.hidden},
+ {k:'card',ui:1,h:'Shop',txt:"You can't afford everything. Choose what fits your build.",hl:'#rSP',wait:()=>RG.mode==='node'&&!ov.hidden,on:tutShopSp},
+ {k:'card',ui:1,h:'Items and upgrades',txt:'Active items have uses, passive items always work. Upgrades are permanent stat boosts.',hl:'.rshop'},
+ {k:'card',ui:1,h:'Ammo',txt:'Adds damage or shell speed, sometimes an effect. Every slotted ammo works on every round.',hl:'[data-amb]'},
+ {k:'goal',ui:1,txt:()=>'Buy two things (click to buy): '+Math.min(2,tutBought())+' of 2',hl:'.rside .rcard',done:()=>tutBought()>=2},
+ {k:'card',ui:1,h:'Combining ammo',txt:'Two ammo can be combined in the garage. Some pairs make something new: find out which.',hl:'[data-c="ammo"]'},
+ {k:'goal',ui:1,txt:'Leave the shop (LEAVE)',hl:'#rLeave',done:()=>false} /* LEAVE ends the tutorial (tutFinish) */
+];
+TUTS.forEach((s,i)=>s.n=i+1);
+const tutStep=()=>BGT&&(BGT.xc||TUTS[BGT.i])||null; /* xc: a one-off card outside the script (destroyed) */
+/* ---------- the tutorial run: map 1 of a normal 3-map run on the fixed seed, its first four orders forced: Fire mission (battery fire for effect at my command,
+   no events), Area control, Evacuation (a supply cache on the route), a stop with only a Shop. The rest of the map (boss included) is only shown ---------- */
+function tutFire(R){const C=ordCtx(R);ORD.R=R;for(let k=0;k<60;k++){const e=ordMis(rng(R.seed^0x7070^k*7919),C,'FIRE',0,[]);
+  if(e&&e.def&&e.def.legs&&e.def.legs.length===1&&e.def.legs[0].type==='NEUT'){e.def.manual=[]; /* the FCS lays it (no random hand-laid order: the hand lay is its own scripted lesson) */e.def.events=[];e.caches=[];e.spawns=[];return e}}
+ throw Error('tutorial: no fire mission on seed '+R.seed)}
+function tutCache(e){const P=runPathPts(e.start,e.exfil);if(!P||P.length<4)return;const q=P[Math.floor(P.length*.4)];e.caches.push({x:Math.round(q[0]+6),z:Math.round(q[1]+6),v:40,am:true,drop:1,tut:1})}
+function tutOffer(R,k){ORD.R=R;const o=R.og,C=ordCtx(R),U=[];let e=null;
+ if(k===0)e=tutFire(R);
+ else if(k===ORD.stop){const at=ordSite(rng(R.seed^0x5e0b),o.at,...ORD.near,[],o.vis)||o.at;U.push({t:'S',at,d0:ordLen(o.at,at)||0})}
+ else{const m=k===1?'AREA':'EVAC',sd=k===1?0xa4ea:0xe7ac;for(let q=0;q<20&&!e;q++)e=ordMis(rng(R.seed^sd^q*7919),C,m,k,[]);if(!e)throw Error('tutorial: no '+m+' on seed '+R.seed);
+  e.def.events=[];e.caches=[];if(m==='AREA')e.spawns=[];else{e.spawns=(e.spawns||[]).filter(p=>depthAt(p[0],p[1])<.1&&isFinite(H(p[0],p[1])));tutCache(e)}}
+ R.opts[k]=e?[e]:[];R.plan[k]=e;R.pick[k]=undefined;R.map.rows[k]={t:'M',k,nodes:U.concat(e?[{t:'M',j:0,at:e.at,d0:e.d0}]:[])};return R.map.rows[k]}
+const _ooTu=ordOffer;ordOffer=function(R,k){if(k==null)k=R.i;if(!(R.tut||TUT_MK)||k>ORD.stop)return _ooTu(R,k);return tutOffer(R,k)};
+const tutKey=()=>'bggbtut.'+(PROF?PROF.id:'none'),tutCkKey=()=>'bggbtutc.'+(PROF?PROF.id:'none');if(typeof PROF_OLD!=='undefined')PROF_OLD.push('bggbtut','bggbtutc'); /* a deleted save takes them along */
+const tutNew=keep=>({i:0,s:null,f:{},keep,sh0:shotN,clk:0,iq:null});
+/* build the run behind the intro (its own save key: a real saved run is never touched or marked abandoned) */
+function tutPrep(){const keep=BGT&&BGT.keep||RUN_KEY;RUN_KEY=tutKey();let R;TUT_MK=1;try{R=runNew(TUT_SEED)}finally{TUT_MK=0}R.tut=1;BGT=tutNew(keep)}
+function tutStart(){aud();if(!BGT||!RUNS||!RUNS.tut)tutPrep();document.body.classList.add('bgt','bgt-ns');tutCkSet({i:0});runStart(0);closeOv();tutBegin(0)}
+function tutEnd(){if(!BGT)return;if(BGT.keep)RUN_KEY=BGT.keep;BGT=null;document.body.classList.remove('bgt','bgt-ns');tutDraw()}
+/* checkpoints: the start of each mission or shop (the save as it stood, the step, the screen); Continue tutorial resumes there */
+const tutCkGet=()=>{try{return JSON.parse(localStorage.getItem(tutCkKey())||'null')}catch(e){return null}};
+function tutCkSet(o){try{localStorage.setItem(tutCkKey(),JSON.stringify(o))}catch(e){}}
+function tutCk(){runSave();tutCkSet({i:BGT.i,save:localStorage.getItem(RUN_KEY),view:RG.mode==='upgrade'?'upgrade':'route',ns:document.body.classList.contains('bgt-ns')?1:0})}
+function tutResume(){aud();const c=tutCkGet();if(!c||!c.save){tutPrep();return tutStart()}const keep=RUN_KEY;
+ busy('Loading the tutorial',()=>{RUN_KEY=tutKey();try{localStorage.setItem(RUN_KEY,c.save)}catch(e){}TUT_MK=1;try{runLoad()}finally{TUT_MK=0}RUNS.tut=1;BGT=tutNew(keep);
+  document.body.classList.add('bgt');document.body.classList.toggle('bgt-ns',!!c.ns);if(c.view==='upgrade')runShowUpgrades();else runShowRoute();tutBegin(c.i)})}
+/* done: the profile is marked trained the moment the shop is left, then the hand-off */
+function tutMark(){const x=profIdx(),p=x.list.find(q=>q.id===PROF.id);if(p){p.tut=1;profPut(x)}PROF.tut=1;try{localStorage.removeItem(tutCkKey());localStorage.removeItem(tutKey())}catch(e){}}
+/* LEAVE in the shop: the save is trained at once; the same run then carries on as a normal run on its real save key (Brenton 2026-11-14: play the seed on until
+   death or the win). A replay from Settings while a real run is saved ends here instead (Home), so that run is never replaced */
+function tutFinish(){const rep=TUT_REP,R=RUNS,keep=BGT.keep||RUN_KEY,line=tutSay("{CS}, that's all I can teach you. You're on your own now, kiddo. HAMMER 0 out."),say={cls:'cp',say:line.split(ME).join(csSay(ME))};
+ let real=null;try{real=localStorage.getItem(keep)}catch(e){}tutMark();TUT_REP=0;
+ if(rep&&real){tutEnd();RUNS=null;runSetMods({});delete RG.node;ov.hidden=false;
+  ov.innerHTML='<div class="tuI tuF"><div class="radio"><div class="f">HAMMER 0</div>'+esc(line)+'</div><div class="lbl">Training complete</div><h2>You\'re on your own</h2><div class="load"><button id="tuHome" class="tuB">Home</button></div></div>';
+  msg('HAMMER 0',line,say);$('tuHome').onclick=()=>{aud();runUI('home')};$('tuHome').focus();return}
+ tutEnd();R.tut=0;_nlTu();msg('HAMMER 0',line,say)}
+/* each tutorial mission: quiet (no drones in M1-M2, no threats until scripted), heat floor 0, its start kept for a restart; M3 brings Smoke dischargers */
+function tutMission(){const R=RUNS;Object.assign(BGT,{sh0:shotN,mi:R.i,m0:TUTS.findIndex(s=>s.m===R.i+1),snap:runSnap(),hp0:R.hp,c0:R.caches||0,iq:null});
+ if(R.i<2)THR.next=1e9;if(typeof DB!=='undefined')DB.list.forEach(x=>{x.on=false;if(x.g)x.g.visible=false}); /* no fallen trees on a tutorial route */
+ Object.assign(BGT.f,{cb:0,noG:0,ifv:null});if(R.i===2&&!tutSmk())itAdd('smoke')}
+const _rsTu=runStart;runStart=function(j){const r=_rsTu.apply(this,arguments);if(tutOn())tutMission();return r};
+/* ---------- the engine (its clock is real time: it runs on the screens over the game too) ---------- */
+function tutBegin(i){BGT.i=i;BGT.s={t0:BGT.clk,begun:false,done:false,tD:0}}
+function tutRadio(t){msg('HAMMER 0',t,{cls:'cp',bgt:1,say:t.split(tutCs()).join(csSay(tutCs()))})}
+function tutGo(){const s=tutStep(),b=BGT.s;b.begun=true;b.t0=BGT.clk;if(s.ck)tutCk();if(s.on)s.on();const say=s.say&&tutSay(typeof s.say==='function'?s.say():s.say);if(say)tutRadio(say);
+ if(s.k==='voice')b.tV=BGT.clk+Math.max(3,say.split(/\s+/).length/2.6+1); /* about how long the line takes to say */
+ if(s.k==='card'&&!s.ui)BGT.hold=1;tutDraw()}
+function tutNext(){const s=tutStep();if(s&&s.end&&BGT.s.begun)s.end();if(BGT.i+1<TUTS.length)tutBegin(BGT.i+1);else BGT.s=null;tutDraw()}
+function tutGot(){if(BGT&&BGT.xc){BGT.xc=null;BGT.hold=0;tutBegin(BGT.m0);tutDraw();return}const s=tutStep();if(!s||s.k!=='card'||!BGT.s.begun)return;BGT.hold=0;tutNext()}
+function tutTick(){if(!tutOn()||BGT.xc)return;tutInt();const s=tutStep(),b=BGT.s;if(!s||!b||RUNS.dead)return;const ph=RUNS.phase,inM=ph==='mission'||ph==='exfil';
+ if(!b.begun){if(s.m&&s.m<RUNS.i+1&&!inM){tutNext();return}if(s.m&&(s.m!==RUNS.i+1||!inM))return; /* a mission's steps begin in that mission */if(s.wait&&!s.wait())return;if(s.skip&&s.skip()){if(s.ck)tutCk();(BGT.sk=BGT.sk||[]).push(s.n);tutNext();return}tutGo();return}
+ if(s.m&&ph==='mission'&&s.m!==RUNS.i+1)return;
+ if(s.m&&s.m<RUNS.i+1&&!inM){BGT.hold=0;tutNext();return} /* that mission is over (its clock ran out first): its steps are passed */
+ if(b.done){if(BGT.clk>=b.tD)tutNext();return}
+ if(s.k==='goal'&&s.done&&s.done()){b.done=true;b.tD=BGT.clk+.7;beep(1200,.12);tutDraw()}
+ else if(s.k==='voice'&&BGT.clk>=b.tV)tutNext()}
+/* hints that come when needed (M2 on): a zone slipping (voice), the first hit (voice; Repair while a fault is on), HE low (Call the AS10). Their goal shows on the chip */
+/* the repair and AS10 hints never come back to back: TUT_GAP s of real time after the last one is done */
+const TUT_GAP=20;function tutGapSet(){BGT.f.hintT=BGT.clk}function tutGap(){return BGT.clk-(BGT.f.hintT==null?-1e9:BGT.f.hintT)>=TUT_GAP}
+function tutInt(){const R=RUNS,f=BGT.f;if(R.i<1||R.phase!=='mission'){BGT.iq=null;return}
+ if(R.cur&&R.cur.mode==='AREA'){f.zp=f.zp||[];RM.zones.forEach((z,i)=>{if(z.c>0)f.zp[i]=1;else if(f.zp[i]===1){f.zp[i]=2;tutRadio('Zone '+(i+1)+' is slipping, get some rounds on it.')}})}
+ if(BGT.iq){if(BGT.iq.done()){BGT.iq=null;tutGapSet();beep(1200,.12)}return}
+ if(!tutGap())return;
+ {const c=tutStep();if(c&&BGT.s.begun&&(c.hl==='#bFix'||c.hl==='#bAs10'))return} /* a hint step is on */
+ if(!f.hit&&R.hp<BGT.hp0-.5){f.hit=1;tutRadio("You've taken a hit. If something breaks, get the crew onto the repair.")}
+ if(f.hit&&!f.fx&&FLT.on.length){f.fx=1;BGT.iq={txt:'Repair the fault (X)',hl:'#bFix',done:()=>!FLT.on.length};return}
+ if(!f.he&&ammo.HE<=12&&RS.st!=='out'&&RS.st!=='xfer'){f.he=1;tutRadio("Getting low on HE? Call up the AS10 and it'll bring more.");BGT.iq={txt:'Call the AS10 (U)',hl:'#bAs10',done:()=>RS.req!=null||RS.st==='out'||RS.st==='xfer'||ammo.HE>12}}}
+/* scripted counter-battery after round 3 of M1: a real fix, its ring shown from the call, landing 25 s later (a normal call shows 10 s or less) */
+function tutCB(){if(!tutOn()||BGT.f.cb||RUNS.i!==0||tutShots()<3)return;BGT.f.cb=1;BGT.f.cbGo=1;try{heatFix('radar has located you')}finally{BGT.f.cbGo=0}
+ const f=RH.fix;if(f){f.t=T+25;BGT.f.cbLand=f.t+2}}
+/* ---------- screen: goal chip, card, highlight (the mock's styles) ---------- */
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '#tuObj{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:44;display:flex;align-items:center;gap:10px;background:rgba(14,19,15,.93);border:1px solid var(--ac,#e2b93b);border-radius:6px;padding:9px 14px;font:700 16px var(--fd);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--fg,#e4e8dc);pointer-events:none;max-width:calc(100vw - 32px)}'+
+ '#tuObj .chk{width:16px;height:16px;border:2px solid var(--ac,#e2b93b);border-radius:3px;flex:none}#tuObj.ok .chk{background:var(--ok,#79c97a);border-color:var(--ok,#79c97a)}#tuObj.ok{border-color:var(--ok,#79c97a)}'+
+ '#tuCard{position:fixed;right:22px;bottom:22px;z-index:47;width:min(360px,86vw);background:var(--pn,#141a15);border:1px solid var(--ln,#36412f);border-top:3px solid var(--ac,#e2b93b);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;font:13px/1.45 var(--fm,monospace);color:var(--fg,#e4e8dc)}'+
+ '#tuCard h3{margin:0;font:700 20px var(--fd);letter-spacing:.06em;text-transform:uppercase;color:var(--ac,#e2b93b)}#tuCard p{margin:0}#tuCard .acts{display:flex;justify-content:space-between;align-items:center;gap:8px}#tuCard .step{font-size:11px;color:var(--mu,#97a28c)}'+
+ '#tuCard button{font:600 15px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;background:var(--ac,#e2b93b);color:#15130a;border:1px solid var(--ac,#e2b93b);border-radius:6px;padding:10px 14px;cursor:pointer}'+
+ '#tuHl{position:fixed;z-index:46;border:2px solid var(--ac,#e2b93b);border-radius:8px;pointer-events:none;box-shadow:0 0 18px rgba(226,185,59,.55);animation:tuP 1.4s ease-in-out infinite}#tuHl.dim{box-shadow:0 0 0 9999px rgba(5,8,6,.55),0 0 18px rgba(226,185,59,.55);animation:none}'+
+ '#tuDim{position:fixed;inset:0;z-index:45;background:rgba(5,8,6,.55)}@keyframes tuP{50%{box-shadow:0 0 4px rgba(226,185,59,.2)}}@media (prefers-reduced-motion:reduce){#tuHl{animation:none}}'+
+ 'body.bgt-ns .rscore,body.bgt-ns [title="Score"],body.bgt-ns [data-t="hist"],body.bgt #rAb,body.bgt #rStk{display:none!important}'+ /* scores hidden until the scoring lesson; no abandon or restock in the tutorial */
+ '</style>');
+document.body.insertAdjacentHTML('beforeend','<div id="tuObj" hidden role="status"><span class="chk"></span><span id="tuObjT"></span></div><div id="tuDim" hidden></div><div id="tuHl" hidden></div>'+
+ '<div id="tuCard" hidden role="dialog" aria-labelledby="tuCh"><h3 id="tuCh"></h3><p id="tuCp"></p><div class="acts"><span class="step" id="tuCn"></span><button id="tuGot">Got it</button></div></div>');
+$('tuGot').onclick=()=>{aud();tutGot()};
+const tutEl=s=>{const h=!s||!s.hl?null:typeof s.hl==='function'?s.hl():s.hl;return typeof h==='string'?document.querySelector(h):h||null};
+/* the chip keeps the last goal's text while a card or voice line is up, or while a step waits to begin */
+function tutDraw(){const s=tutStep(),b=BGT&&BGT.s,on=tutOn()&&!!s&&!!b&&(ov.hidden||!!s.ui&&b.begun);const o=$('tuObj'),c=$('tuCard'),h=$('tuHl'),d=$('tuDim');
+ const card=on&&s.k==='card'&&b.begun,iq=on&&ov.hidden&&!card&&BGT.iq;c.hidden=!card;
+ const tx=x=>typeof x==='function'?x():x;let chip=null;if(on){const g=s.k==='goal'&&b.begun?s:ov.hidden?BGT.chipS:null;chip=iq?tx(iq.txt):g?tx(g.txt):null}
+ if(on&&s.k==='goal'&&b.begun&&!s.ui)BGT.chipS=s;
+ o.hidden=!chip||card;o.style.bottom=ov.hidden&&!$('rInv').hidden?'100px':''; /* above the item strip and the lay readout */if(chip){$('tuObjT').textContent=chip;o.classList.toggle('ok',!iq&&!!(s.k==='goal'&&b.done))}
+ if(card){if(s.ui){c.style.left='22px';c.style.right='auto'}else{c.style.left='auto';c.style.right=(document.body.classList.contains('po')&&$('panel').offsetWidth<innerWidth*.7?$('panel').offsetWidth+22:22)+'px'}
+  $('tuCh').textContent=s.h;$('tuCp').textContent=s.txt;$('tuCn').textContent=s.n?'Step '+s.n+' of '+TUTS.length:''}
+ const el=iq?tutEl(iq):on&&b.begun&&(s.k==='goal'&&!b.done||card)?tutEl(s):null,r=el&&el.getClientRects().length?el.getBoundingClientRect():null;
+ h.hidden=!r||!r.width;d.hidden=!card||!h.hidden;h.classList.toggle('dim',!!card);
+ if(r&&r.width){const p=6;Object.assign(h.style,{left:(r.left-p)+'px',top:(r.top-p)+'px',width:(r.width+2*p)+'px',height:(r.height+2*p)+'px'})}}
+/* ---------- hooks ---------- */
+/* the loop: a card holds the game (no time passes), the engine runs after each frame */
+const _stTu=step;step=function(dt,draw){if(!tutOn())return _stTu(dt,draw);BGT.clk+=dt;if(BGT.hold){_stTu(0,draw);if(draw)tutDraw();return}
+ const R=RUNS;if(R.phase==='mission'&&R.cur&&R.cur.mode==='AREA'&&RM.ts==null)RM.t0=T; /* Area control: the clock starts with the first round only */
+ _stTu(dt,draw);if(tutOn()){tutCB();tutTick();if(draw)tutDraw()}};
+/* keys: while a card is up only Enter, Space and Esc work (Enter or Space = Got it); G is refused while the FCS link is down */
+addEventListener('keydown',e=>{if(!tutOn())return;const k=e.key.toLowerCase();
+ if(!ov.hidden){const s=tutStep();if(s&&s.ui&&s.k==='card'&&BGT.s&&BGT.s.begun&&(k==='enter'||k===' ')){e.preventDefault();e.stopImmediatePropagation();tutGot()}return}
+ if(BGT.hold){if(k==='enter'||k===' '){e.preventDefault();tutGot()}if(k!=='escape'){e.stopImmediatePropagation();e.preventDefault()}return}
+ if(BGT.f.noG&&k==='g'){e.stopImmediatePropagation();e.preventDefault();tutNoG()}},true);
+function tutNoG(){const b=$('bLay');if(b){b.classList.remove('flash');void b.offsetWidth;b.classList.add('flash')}beep(300,.12)}
+const _dlTu=doLay;doLay=function(){if(tutOn()&&BGT.f.noG){tutNoG();return}return _dlTu.apply(this,arguments)};
+/* the radio: tutorial lines speak; the mission's own traffic goes to the log quietly (splash calls and incoming warnings still show) */
+const _msgTu=msg;msg=function(from,body,o={}){if(tutOn()&&!o.bgt&&!/^(Splash|Incoming|Walking fire)/.test(String(body)))o=Object.assign({},o,{quiet:true,voice:false});return _msgTu(from,body,o)};
+/* no random fixes or near threats in M1 (the scripted salvo only); heat starts from 0 */
+const _hfTu=heatFix;heatFix=function(why){if(tutOn()&&RUNS.i===0&&!BGT.f.cbGo)return;return _hfTu.apply(this,arguments)};
+const _ceTu=cbEarly;cbEarly=function(){return tutOn()&&RUNS.i===0&&!!BGT.f.cb||_ceTu()};
+const _nwTu=ntWave;ntWave=function(){if(tutOn()&&RUNS.i===0)return;return _nwTu.apply(this,arguments)};
+const _hflTu=heatFloor;heatFloor=function(){if(tutOn())return 0;return _hflTu.apply(this,arguments)};
+/* destroyed: the mission restarts from its start (damage otherwise as in real runs) */
+const _rdTu=runDie;runDie=function(why){const R=RUNS;if(!tutOn()||R.dead)return _rdTu.apply(this,arguments);tutRestart()};
+function tutRestart(){const R=RUNS,k=BGT.snap;R.phase='between';RH.fix=null;RH.wk=null;ordQuiet();Object.assign(R,{hp:k.hp,hpMax:k.hpMax});ammo=Object.assign({},k.ammo);Object.assign(RS.stock,k.stock);
+ FLT.on.slice().forEach(f=>fltFix(f,'reset'));FLT.on=k.faults.slice();px=k.px;pz=k.pz;psi=k.psi;v=0;st='TRAVEL';THR.net=0;THR.netGoal=0;layOn=false;
+ ((R.plan[R.i]||{}).caches||[]).forEach(c=>{c.got=false}); /* the route's cache is back too */runStart(R.pick[R.i]||0);closeOv();BGT.chipS=null;BGT.hold=0;tutBegin(BGT.m0);
+ BGT.xc={k:'card',h:'Destroyed',txt:"You were destroyed. Lucky this is only training: the mission starts again from the beginning. In a real run, being destroyed ends the run.",hl:null};BGT.s={t0:BGT.clk,begun:true,done:false,tD:0};BGT.hold=1;tutDraw();
+ tutRadio(tutSay("{CS}, you've been destroyed. Lucky it's only training. Let's try that one again."))}
+/* a tutorial is never a run: no history, no upload */
+const _haTu=runHistAdd;runHistAdd=function(R){if(R&&R.tut)return;return _haTu.apply(this,arguments)};
+/* ---------- intro (mock screen 3): the welcome line, the controls while the tutorial loads, Ready once it has ---------- */
+const TUT_KEYS=[['Move',[[['W','A','S','D'],'Drive (in action: gun drive)'],[['T'],'Action / march order'],[['H'],'Camouflage net'],[['←','→','↑','↓'],'Look around']]],
+ ['Indirect fire',[[['M'],'Map: click a target or any point'],[['C'],'Fire control (FCS)'],[['G'],'Lay gun on the data (automatic)'],[['W','A','S','D'],'Gun drive by hand (in action)'],[['Space'],'Fire']]],
+ ['Direct fire',[[['V'],'Gun sight'],[['Drag'],'Aim (traverse and elevate)'],[['←','→','↑','↓'],'Aim by key (or W A S D)'],[['Shift','Wheel'],'Elevate'],[['Z'],'Zoom in'],[['Shift','Z'],'Zoom out'],[['Wheel'],'Zoom in / out'],[['L'],'Laser (measures range)'],[['K'],'Send to FCS, then <b>G</b> lays on it'],[['Space'],'Fire']]],
+ ['Kit',[[['Tab'],'Cycle ammunition'],[['X'],'Repair'],[['U'],'Rearm (AS10)'],[['1','2','3','4'],'Use item'],[['Esc'],'Pause']]]];
+document.head.insertAdjacentHTML('beforeend','<style>'+
+ '.tuI{position:relative;display:flex;flex-direction:column;gap:16px;min-height:calc(100dvh - 28px);padding:22px clamp(16px,3vw,40px);font:13px/1.45 var(--fm,monospace);color:var(--fg,#e4e8dc)}'+
+ '.tuI .radio{max-width:min(520px,100%);background:rgba(14,19,15,.93);border-left:3px solid var(--ac,#e2b93b);padding:8px 11px;border-radius:4px;font-size:13px}.tuI .radio .f{font:700 12px var(--fd);letter-spacing:.1em;color:var(--ac,#e2b93b)}'+
+ '.tuI .lbl{font:600 11px var(--fd);letter-spacing:.14em;text-transform:uppercase;color:var(--mu,#97a28c);margin-top:40px}.tuI h2{margin:0;font:700 34px var(--fd);letter-spacing:.06em;text-transform:uppercase}'+
+ '.tuI .cgrp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 26px;margin-top:6px}.tuI .cgrp>div{display:flex;flex-direction:column;gap:9px;min-width:0}'+
+ '.tuI .cgrp h3{margin:0;font:700 14px var(--fd);letter-spacing:.14em;text-transform:uppercase;color:var(--ac,#e2b93b);border-bottom:1px solid var(--ln,#36412f);padding-bottom:5px}.tuI .cgrp>div>div{display:flex;gap:8px;align-items:center}'+
+ '.tuI kbd{display:inline-flex;min-width:30px;height:28px;align-items:center;justify-content:center;padding:0 7px;border:1px solid rgba(228,232,220,.35);border-bottom-width:3px;border-radius:5px;font:700 13px var(--fd);letter-spacing:.04em;background:#0a0d0a;color:var(--fg,#e4e8dc)}'+
+ '.tuI .load{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:auto}.tuI .bar{flex:1;min-width:180px;height:6px;background:var(--ln,#36412f);border-radius:3px;overflow:hidden}.tuI .bar i{display:block;height:100%;width:0;background:var(--ac,#e2b93b);transition:width .4s linear}'+
+ '.tuI .tuB{font:600 15px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;background:var(--ac,#e2b93b);color:#15130a;border:1px solid var(--ac,#e2b93b);border-radius:6px;padding:10px 14px;cursor:pointer}.tuI .tuB.ghost{background:none;color:var(--fg,#e4e8dc);border-color:var(--ln,#36412f)}.tuF{justify-content:center}.tuF .load{margin-top:16px}'+
+ '.tuI #tuReady{font:600 15px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;background:var(--ac,#e2b93b);color:#15130a;border:1px solid var(--ac,#e2b93b);border-radius:6px;padding:10px 14px;cursor:pointer}'+
+ '</style>');
+/* rep: a replay from Settings (Back instead of Skip). Skip shows only when another save on this device has finished the tutorial */
+function tutIntro(rep){RUNS=null;ov.hidden=false;TUT_REP=rep?1:0;const skip=!rep&&profIdx().list.some(p=>p.id!==(PROF&&PROF.id)&&p.tut);
+ ov.innerHTML='<div class="tuI"><div class="radio"><div class="f">HAMMER 0</div>'+esc(tutCs())+', welcome to the big guns. Training starts now, over.</div>'+
+  '<div class="lbl">Training · first mission loading</div><h2>Controls</h2><div class="cgrp">'+
+  TUT_KEYS.map(([g,L])=>'<div><h3>'+g+'</h3>'+L.map(([k,t])=>'<div>'+k.map(x=>'<kbd>'+esc(x)+'</kbd>').join('')+'<span>'+t+'</span></div>').join('')+'</div>').join('')+'</div>'+
+  '<div class="load"><div class="bar"><i id="tuLb"></i></div>'+(rep?'<button id="tuBack" class="tuB ghost">Back</button>':skip?'<button id="tuSkip" class="tuB ghost">Skip tutorial</button>':'')+'<button id="tuReady" hidden>Ready</button><span class="lbl" style="margin:0" id="tuLt">Loading</span></div></div>';
+ const out=()=>{aud();tutEnd();RUNS=null;TUT_REP=0;runUI('home')};if($('tuBack'))$('tuBack').onclick=out;if($('tuSkip'))$('tuSkip').onclick=()=>{tutMark();out()};
+ requestAnimationFrame(()=>{const b=$('tuLb');if(b)b.style.width='70%'});
+ setTimeout(()=>{if(!$('tuReady'))return;tutPrep();const b=$('tuLb');if(b)b.style.width='100%';$('tuLt').textContent='';const r=$('tuReady');r.hidden=false;r.onclick=()=>tutStart();r.focus()},60)}
+/* Home: a save that has not started the tutorial gets the intro; one that has started it gets Continue tutorial in place of New Run (and no Continue run) */
+const _ruiTu=runUI;runUI=function(mode,tab){if(mode==='home'){if(BGT)tutEnd();if(PROF&&!PROF.tut&&!tutCkGet())return tutIntro()}
+ const r=_ruiTu.apply(this,arguments);if(mode==='home'&&PROF&&!PROF.tut)tutHome();return r};
+function tutHome(){const n=$('rNew'),r=$('rResume');if(r)r.remove();if(!n)return;const b=document.createElement('button');b.className='pri';b.id='tuCont';b.innerHTML='Continue tutorial';n.replaceWith(b);b.onclick=tutResume}
+/* Settings (from Home, trained saves): Replay tutorial */
+const _bgsTu=bgsUI;bgsUI=function(back){_bgsTu.apply(this,arguments);if(BGS_TAB!=='set'||RG.mode!=='home'||!PROF||!PROF.tut)return;const c=ov.querySelector('.rbgs');if(!c)return;
+ c.insertAdjacentHTML('beforeend','<div class="rcard"><div class="row"><label>Tutorial</label><button id="bgsTut">Replay tutorial</button></div></div>');$('bgsTut').onclick=()=>{aud();tutIntro(1)}};
+/* the shop: one item, the upgrade and the ammo (r23); LEAVE ends the tutorial */
+const _ssTu=shopStock;shopStock=function(R,key,again){const s=_ssTu.apply(this,arguments);if(R&&R.tut&&s&&s.it.length>1)s.it=s.it.slice(0,1);return s};
+
+const _nlTu=nodeLeave;nodeLeave=function(){if(tutOn()&&RG.node&&RG.node.r===ORD.stop)return tutFinish();return _nlTu.apply(this,arguments)};
+/* M3: the route's supply cache stands out until it is collected: a gold beam in the world, a ring on the map and the mini map */
+const tutCacheOn=()=>{if(!tutOn()||RUNS.phase!=='mission'||!RUNS.cur||RUNS.cur.mode!=='EVAC'||(RUNS.caches||0)>BGT.c0)return null;return(RUNS.cur.caches||[]).find(c=>c.tut)||null};
+const TCM=noRng(()=>{const g=new THREE.Group(),r=new THREE.Mesh(new THREE.TorusGeometry(9,.4,6,48),new THREE.MeshBasicMaterial({color:0xe2b93b}));r.rotation.x=Math.PI/2;r.position.y=.5;g.add(r);
+ const c=new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.2,60,10),new THREE.MeshBasicMaterial({color:0xe2b93b,transparent:true,opacity:.4}));c.position.y=30;g.add(c);g.visible=false;sc.add(g);return g});
+const _stCm=step;step=function(dt,draw){_stCm(dt,draw);const c=tutCacheOn();TCM.visible=!!c;if(c)TCM.position.set(c.x,H(c.x,c.z),c.z)};
+const _dmTu=drawMap;drawMap=function(){_dmTu();const c=tutCacheOn();if(!c||curTab!=='map'||!mc._dp)return;const g=toG(c.x,c.z),[p,q]=w2s(g.e,g.n),x=mx,dp=mc._dp;
+ x.strokeStyle='#e2b93b';x.lineWidth=3*dp;x.beginPath();x.arc(p,q,14*dp,0,6.283);x.stroke();x.font='600 '+(12*dp)+'px IBM Plex Mono,monospace';x.fillStyle='#e2b93b';x.fillText('CACHE',p+18*dp,q+4*dp)};
+const tutIfvOn=()=>{const v=tutOn()&&RUNS.phase==='mission'&&BGT.f.ifv;return v&&v.alive?v:null};
+const TIM=noRng(()=>{const g=new THREE.Group(),r=new THREE.Mesh(new THREE.TorusGeometry(9,.5,6,48),new THREE.MeshBasicMaterial({color:0xe5534b}));r.rotation.x=Math.PI/2;r.position.y=.5;g.add(r);
+ const c=new THREE.Mesh(new THREE.CylinderGeometry(1,1,40,10),new THREE.MeshBasicMaterial({color:0xe5534b,transparent:true,opacity:.35}));c.position.y=26;g.add(c);g.visible=false;sc.add(g);return g});
+const _stIm=step;step=function(dt,draw){_stIm(dt,draw);const v=tutIfvOn();TIM.visible=!!v;if(v)TIM.position.set(v.x,H(v.x,v.z),v.z)};
+const tutRing=(x,p,q,r,dp,col,lab)=>{x.strokeStyle=col;x.lineWidth=(lab?3:2)*dp;x.beginPath();x.arc(p,q,r,0,6.283);x.stroke();if(lab){x.font='600 '+(12*dp)+'px IBM Plex Mono,monospace';x.fillStyle=col;x.fillText(lab,p+r+4*dp,q+4*dp)}};
+const _dmIf=drawMap;drawMap=function(){_dmIf();const v=tutIfvOn();if(!v||curTab!=='map'||!mc._dp)return;const g=toG(v.x,v.z),[p,q]=w2s(g.e,g.n);tutRing(mx,p,q,14*mc._dp,mc._dp,'#e5534b','ENEMY')};
+const _dmmTu=drawMini;drawMini=function(){_dmmTu();{const v=tutIfvOn(),m=$('mm');if(v&&m.clientWidth){const g=m.getContext('2d'),dp=Math.min(devicePixelRatio,2),k=m.width/(HALF*2);g.setTransform(1,0,0,1,0,0);tutRing(g,(v.x+HALF)*k,(v.z+HALF)*k,7*dp,dp,'#e5534b')}}const c=tutCacheOn(),m=$('mm');if(!c||!m.clientWidth)return;const g=m.getContext('2d'),dp=Math.min(devicePixelRatio,2),k=m.width/(HALF*2);
+ g.setTransform(1,0,0,1,0,0);g.strokeStyle='#e2b93b';g.lineWidth=2*dp;g.beginPath();g.arc((c.x+HALF)*k,(c.z+HALF)*k,7*dp,0,6.283);g.stroke()};
+/* Area control's card: its clock starts with the first round in the tutorial */
+const _ohTu=objHtml;objHtml=function(){const h=_ohTu.apply(this,arguments);return tutOn()&&RM.ts==null&&RUNS.cur&&RUNS.cur.mode==='AREA'?h.replace(/starts in \d+ s/,'starts with your first round'):h};
+/* dev: #tut starts it */
+if(/(^|[#&])tut\b/.test(location.hash))setTimeout(()=>{if(PROF)tutIntro()},0);
+if(PROF&&!PROF.tut&&RG.mode==='home'&&!ov.hidden)runUI('home'); /* r50 drew Home while loading */
+/* no trainer route hazards (reported mines / craters) in the tutorial */
+const _nlgTu=nextLeg;nextLeg=function(){const h=S.hz;if(tutOn())S.hz=false;try{return _nlgTu.apply(this,arguments)}finally{S.hz=h}};
 </script>

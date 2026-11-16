@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.23.0","c":"f9fb20b"};
+const BUILD={"v":"9.25.0","c":"50a5c1a"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -564,6 +564,7 @@ const AMS=['HE','SMK','ILL'],FZ={HE:['PD','VT','DLY'],SMK:['TIME'],ILL:['TIME']}
 /* ================= state ================= */
 let px=0,pz=0,psi=Math.PI/2,v=0,pit=0,rol=0,elev=TRAVEL_EL,camYaw=Math.PI/2,camW=0,camP=14,T=0,rl=0,ft=-1,shake=0,burst=0,lastShot=-99;
 const DMG=[],MARKS=[];let impT=-9,fouT=-9,touch=false; /* collision impacts & hull marks (24a-collision.js) */
+let layLive=()=>st==='ACTION'; /* the gun lays and fires (BGGB Fire on the move widens it to the sight in travel order) */
 let st='TRAVEL',stT=0,layOn=false,layB=0,layQ=0,sup=0,lased=null,sight=0,fine=0;
 let am=0,fz='PD',chSel=0,hiAng=false,aim=null,night=0,ammo={HE:36,SMK:6,ILL:6};
 let lastCorr=null,misfireNext=false,mfUntil=0,TUT=null,apB=0;
@@ -608,7 +609,7 @@ function setManual(b,q,c){layB=wm(b);layQ=cl(q,TRAVEL_EL*D*MIL,QMAX);if(c)chSel=
 const laid=()=>layOn&&st==='ACTION'&&Math.abs(dm_(gunBrg()-layB))<1.5&&Math.abs(gunQE()-layQ)<1.5;
 function toast(t){const b=$('banner');bnrTop();b.innerHTML='<span class="f">CREW</span> '+esc(t);b.className='';b.style.opacity=1;clearTimeout(b._t);b._t=setTimeout(()=>b.style.opacity=0,4000)}
 let flyK=()=>1; /* flight time factor of our rounds (BGGB Shell speed ammo): indirect timers, and direct fire sight rounds fly the same path faster (r16 h.tk, dfSol lead) */
-function fire(){aud();if(st!=='ACTION')return toast(st==='TRAVEL'?'Not in action. Halt, then ACTION':'Wait: '+st.toLowerCase()+' in progress');if(rl>0)return;
+function fire(){aud();if(!layLive())return toast(st==='TRAVEL'?'Not in action. Halt, then ACTION':'Wait: '+st.toLowerCase()+' in progress');if(rl>0)return;
  const a=AMS[am];if(ammo[a]<=0)return toast('No '+a+' remaining. Resupply from AS10');
  if(T<mfUntil)return toast('Hangfire wait: '+Math.ceil(mfUntil-T)+' s before re-attempting');
  if(misfireNext){misfireNext=false;mfUntil=T+10;sfx(4);if(TUT)TUT.f.mf=true;msg('BIG PRAWN','MISFIRE. Breech closed, waiting out the hangfire period',{cls:'cf',voice:false});return}
@@ -813,12 +814,12 @@ let ap=null,lastDrag=-9,CAM_LOCK=false,camLock=false; /* BGGB: an orbit (drag or
 const cv=rd.domElement;
 cv.addEventListener('pointerdown',e=>{aud();cv.setPointerCapture(e.pointerId);ap={id:e.pointerId,x:e.clientX,y:e.clientY}});
 cv.addEventListener('pointermove',e=>{if(!ap||e.pointerId!==ap.id)return;const dx=e.clientX-ap.x,dy=e.clientY-ap.y;ap.x=e.clientX;ap.y=e.clientY;lastDrag=T;
- if(sight&&st==='ACTION'){if(!layOn){layB=gunBrg();layQ=gunQE()}layOn=true;const k=.35*cam.fov/12,L=sightLead(),g=gunBrg(),q=gunQE();
+ if(sight&&layLive()){if(!layOn){layB=gunBrg();layQ=gunQE()}layOn=true;const k=.35*cam.fov/12,L=sightLead(),g=gunBrg(),q=gunQE();
   /* the order may lead the gun only ~50 ms of sight slew, so a fast drag turns no faster than held keys and stops on release */
   layB=wm(g+cl(dm_(layB+dx*k-g),-L[0],L[0]));layQ=cl(q+cl(layQ-dy*k-q,-L[1],L[1]),QDN,QMAX)}
  else{camYaw-=dx*.0045;camP=cl(camP+dy*.12,2,60);if(CAM_LOCK)camLock=true}});
 ['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,e=>{if(ap&&e.pointerId===ap.id)ap=null}));
-cv.addEventListener('wheel',e=>{if(sight&&!e.shiftKey)return sightZoom(zi-Math.sign(e.deltaY));if(sight&&st==='ACTION'){if(!layOn){layB=gunBrg();layQ=gunQE()}layOn=true;layQ=cl(layQ-Math.sign(e.deltaY)*2,QDN,QMAX)}},{passive:true});
+cv.addEventListener('wheel',e=>{if(sight&&!e.shiftKey)return sightZoom(zi-Math.sign(e.deltaY));if(sight&&layLive()){if(!layOn){layB=gunBrg();layQ=gunQE()}layOn=true;layQ=cl(layQ-Math.sign(e.deltaY)*2,QDN,QMAX)}},{passive:true});
 const K={};
 addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;aud();const k=e.key.toLowerCase();K[k]=1;if(k.startsWith('arrow'))e.preventDefault();
  if(e.key===' '){fire();e.preventDefault()}else if(k==='t')stBtn();else if(k==='g')doLay();else if(k==='y')reportReady();else if(k==='v')toggleSight();else if(k==='l')lase();else if(k==='k')lrfToFcs();else if(sight&&(e.key==='+'||e.key==='='))sightZoom(zi+1);else if(sight&&e.key==='-')sightZoom(zi-1);else if(sight&&k==='z')sightZoom(zi+(e.shiftKey?-1:1));
@@ -1199,7 +1200,7 @@ function hud(){const g=gunG(),R=M&&M.cur,pc={TRAVEL:'t',ACTION:'a',DEPLOY:'w',ST
  if(M&&M.cur&&M.cur.L&&st==='TRAVEL'&&!sm){const s=SITES[M.cur.L.fp],d=Math.hypot(s[0]-px,s[1]-pz);if(d>15){const b=wm(Math.atan2(s[0]-px,-(s[1]-pz))*MIL);h+='<br><span class="ac">'+SITEN[M.cur.L.fp]+' '+Math.round(d)+' m · bearing '+p4(b)+'</span>'}}
  $('hud').innerHTML=h;bnrTop();
  $('bSt').textContent=st==='TRAVEL'?'Action':st==='ACTION'?'March order':st==='DEPLOY'?'Deploying':'Stowing';$('bSt').disabled=st==='DEPLOY'||st==='STOW';
- $('bLay').disabled=!(st==='ACTION'||st==='DEPLOY')||DEG.fcs&&!dfOn();$('f').disabled=st!=='ACTION';
+ $('bLay').disabled=!(st==='ACTION'||st==='DEPLOY')||DEG.fcs&&!dfOn();$('f').disabled=!layLive();
  const trav=st==='TRAVEL';$('js').hidden=!trav;$('pad').hidden=st!=='ACTION'}
 /* resupply */
 let rsAcc=0;function resupply(dt){const as=SITES.RSP;if(Math.hypot(as[0]-px,as[1]-pz)<22&&Math.abs(v)<.3){rsAcc+=dt;if(rsAcc>2){rsAcc=0;const base=Object.assign({HE:36,SMK:6,ILL:6},M&&M.def.load||{});for(const k in base)if(ammo[k]<base[k]){ammo[k]++;break}}}else rsAcc=0}
@@ -1615,9 +1616,9 @@ function step(dt,draw){if(RUN())T+=dt;
  stTick(dt);
  /* turret & gun */
  const ty0=tur.rotation.y,el0=elev;
- if(st==='TRAVEL'){tur.rotation.y=0;elev=TRAVEL_EL}
- else if(st==='STOW'||st==='DEPLOY'){if(st==='STOW'){tur.rotation.y+=cl(-tur.rotation.y,-TRV*D*dt,TRV*D*dt);if(Math.abs(tur.rotation.y)<.03)elev+=cl(TRAVEL_EL-elev,-ELR*dt,ELR*dt);else elev+=cl(3-elev,-ELR*dt,ELR*dt)}}
- else{const HK={l:PD.l||K.q||sight&&K.arrowleft||K.a,r:PD.r||K.e||sight&&K.arrowright||K.d,u:PD.u||K.r||sight&&K.arrowup||K.w,d:PD.d||K.f||sight&&K.arrowdown||K.s};
+ if(st==='TRAVEL'&&!layLive()&&Math.abs(wr(tur.rotation.y))<.002&&Math.abs(elev-TRAVEL_EL)<.05){tur.rotation.y=0;elev=TRAVEL_EL}
+ else if(st==='STOW'||st==='DEPLOY'||st==='TRAVEL'&&!layLive()){if(st!=='DEPLOY'){if(st==='TRAVEL')tur.rotation.y=wr(tur.rotation.y); /* travel: a turret left off the lock by Fire on the move slews home like a march order */tur.rotation.y+=cl(-tur.rotation.y,-TRV*D*dt,TRV*D*dt);if(Math.abs(tur.rotation.y)<.03)elev+=cl(TRAVEL_EL-elev,-ELR*dt,ELR*dt);else elev+=cl(3-elev,-ELR*dt,ELR*dt)}}
+ else{const a_=st==='ACTION',HK={l:PD.l||K.q||sight&&K.arrowleft||a_&&K.a,r:PD.r||K.e||sight&&K.arrowright||a_&&K.d,u:PD.u||K.r||sight&&K.arrowup||a_&&K.w,d:PD.d||K.f||sight&&K.arrowdown||a_&&K.s}; /* W A S D drive in travel order */
   /* tap = one step; hold > LAY_HOLD s = continuous, accelerating. rates per LAY_SPD row for normal, sight, fine */
   const LS=LAY_SPD[(fine||K.shift)?2:sight?1:0];let db=0,dq=0;
   for(const k in HK){if(!HK[k]){pdT[k]=0;continue}const t0=pdT[k]||0;pdT[k]=t0+dt;
@@ -2883,12 +2884,12 @@ const _daF=destroyAt;destroyAt=function(p,rad){const r=_daF(p,rad),d=Math.hypot(
 const _stF=step;step=function(dt,draw){const v0=v,ty0=tur.rotation.y,el0=elev;_stF(dt,draw);if(!dt)return;
  if(fltHas('eng'))v=cl(v0+(v-v0)*.5,-8.3,8.3);if(fltHas('trk'))v=cl(v,-4.2,4.2);
  if(fltHas('trv')&&st==='ACTION'){tur.rotation.y=ty0+wr(tur.rotation.y-ty0)*.5;elev=el0+(elev-el0)*.5;gun.rotation.z=elev*D}
- const R=FLT.rep;if(R&&RUN()){if(Math.abs(v)>.3||K.w||K.s){if(!R.p){R.p=1;toast('Repair paused: halt to carry on')}}else{R.p=0;R.left-=dt*rUp('rep');if(R.left<=0){fltFix(R.k,'crew');toast('Crew: '+FK[R.k].n.toLowerCase()+' repaired');sfx(2,0,.2);renderSoon()}}}};
-const _fiF=fire;fire=function(){if(FLT.rep&&st==='ACTION'){toast('Crew busy on the '+FK[FLT.rep.k].n.toLowerCase()+' repair. Tap Repair to stop it');return}const n=shotN;_fiF.apply(this,arguments);if(shotN===n||!fltHas('sig'))return;
+ const R=FLT.rep;if(R&&RUN()){const mv=Math.abs(v)>.3||K.w||K.s,rn=FLT.run&&FLT.run();if(mv&&!rn){if(!R.p){R.p=1;toast('Repair paused: halt to carry on')}}else{R.p=0;R.left-=dt*rUp('rep')*(mv?.5:1); /* FLT.run (BGGB Running repairs): carries on while moving at half speed */if(R.left<=0){fltFix(R.k,'crew');toast('Crew: '+FK[R.k].n.toLowerCase()+' repaired');sfx(2,0,.2);renderSoon()}}}};
+const _fiF=fire;fire=function(){if(FLT.rep&&st==='ACTION'&&!(FLT.run&&FLT.run())){toast('Crew busy on the '+FK[FLT.rep.k].n.toLowerCase()+' repair. Tap Repair to stop it');return}const n=shotN;_fiF.apply(this,arguments);if(shotN===n||!fltHas('sig'))return;
  const f=FLY.find(x=>x.own&&x.n===shotN);if(!f||!f.from||!f.imp)return;const R=dst(f.from,f.imp),a=f.b/MIL,o=R*4/MIL;f.imp.e-=Math.cos(a)*o;f.imp.n+=Math.sin(a)*o};
 /* repair button above the Rearm button: starts (or stops) the drill on the first fault */
 $('act').insertAdjacentHTML('afterbegin','<button id="bFix" class="sm" hidden title="Crew repair drill" aria-label="Crew repair drill"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg><span>Repair</span></button>');
-$('bFix').onclick=()=>{aud();if(FLT.rep){toast('Repair stopped, '+Math.ceil(FLT.rep.left)+' s left');FLT.hold=FLT.rep;FLT.rep=null}else if(FLT.on.length){if(Math.abs(v)>.3)return toast('Halt first, then repair');const k=FLT.on[0];FLT.rep=FLT.hold&&FLT.hold.k===k?FLT.hold:{k,left:FK[k].t};FLT.hold=null;toast('Crew: starting '+FK[k].n.toLowerCase()+' repair, '+Math.ceil(FLT.rep.left)+' s')}renderSoon()};
+$('bFix').onclick=()=>{aud();if(FLT.rep){toast('Repair stopped, '+Math.ceil(FLT.rep.left)+' s left');FLT.hold=FLT.rep;FLT.rep=null}else if(FLT.on.length){if(Math.abs(v)>.3&&!(FLT.run&&FLT.run()))return toast('Halt first, then repair');const k=FLT.on[0];FLT.rep=FLT.hold&&FLT.hold.k===k?FLT.hold:{k,left:FK[k].t};FLT.hold=null;toast('Crew: starting '+FK[k].n.toLowerCase()+' repair, '+Math.ceil(FLT.rep.left)+' s')}renderSoon()};
 const _huF=hud;hud=function(){_huF();const b=$('bFix'),show=FLT.on.length>0&&!TUT;if(b.hidden===show)b.hidden=!show;if(!show)return;
  b.querySelector('span').textContent=FLT.rep?'Repairing '+Math.ceil(FLT.rep.left)+' s':'Repair';b.classList.toggle('on',!!FLT.rep);
  $('hud').insertAdjacentHTML('beforeend','<br><span class="wa">FAULT '+FLT.on.map(k=>FK[k].n.toLowerCase()+' ('+FK[k].fx+(FLT.rep&&FLT.rep.k===k?', fixing '+Math.ceil(FLT.rep.left)+' s'+(FLT.rep.p?' halt':''):'')+')').join(' · ')+'</span>')};
@@ -5618,20 +5619,29 @@ const _ntgI=netToggle;netToggle=function(){const m=RMOD.camo;if(RUNS&&runLive()&
 const _stI=step;step=function(dt,draw){_stI(dt,draw);const R=RUNS;if(!dt||!R||!runLive()||!RUN())return;
  if(itN('weld')&&Math.abs(v)>1&&(IT.wt+=dt)>=10){IT.wt=0;heal(itN('weld'))}
  if(itN('net')&&THR.net>=1&&THR.netT<=0)R.heat=Math.max(heatFloor(),R.heat-2*itN('net')*dt);
- if(IT.mine)for(const t of ntLive())if(NTK[t.nt].ac&&Math.hypot(t.x-px,t.z-pz)<=NTK[t.nt].stop+20){IT.mine=0;boom(new THREE.Vector3(t.x,H(t.x,t.z)+1,t.z),1);ntKill(t);break}};
+ if(IT.mine)for(const t of ntLive())if(NTK[t.nt].ac&&Math.hypot(t.x-px,t.z-pz)<=NTK[t.nt].stop+20){IT.mine=0;boom(new THREE.Vector3(t.x,H(t.x,t.z)+1,t.z),1);KBY='mine';try{ntKill(t)}finally{KBY=null}break}};
 const _cstI=cacheStart;cacheStart=function(e){if(itN('scav')&&!e.scav){e.scav=1;cacheAdd(rng(RUNS.seed^0x5ca7^RUNS.i),e,itN('scav'))}_cstI(e)};
 const _rmsI=runModeStart;runModeStart=function(e){Object.assign(IT,{decoy:0,dpend:0,safe:0,wide:0,mine:0,wt:0,sig:0});_rmsI(e)};
 /* ---------- shop stock: 3 items (rares less often, no passive you hold) and 1 upgrade of Improved or Elite rarity; the stock can be renewed once ---------- */
 const SHOP={n:3,roll:30,up:{Improved:90,Elite:140}};
+/* P6 S4: one item pick for every source (shop, trader, supply dump, Black market, escort, Protect reward, elite unique). Weight = the source's base weight x the item's
+   category factor: a stat tag (cat = an UPS key) leans by that stat's upgrades, x(1 + bonus) capped x3; Heat items by Heat items held, x(1 + .5 each) capped x3; Support x1.
+   One r() per pick, so a source's random stream is as long as before; with no upgrades and no Heat items every offer is what it was */
+const IT_CAP=3,itCatF=k=>{const c=ITEMS[k]&&ITEMS[k].cat;if(!c||c==='sup')return 1;if(c==='heat')return Math.min(IT_CAP,1+.5*(RUNS&&RUNS.inv?RUNS.inv.filter(x=>ITEMS[x.k]&&ITEMS[x.k].cat==='heat').length:0));return Math.min(IT_CAP,1+(RUNS&&RUNS.ups?RUNS.ups.reduce((a,u)=>a+(u.k===c?u.pct:0),0):0)/100)}; /* upgrades only (RMOD also holds item bonuses) */
+/* P6 S5 threshold items (th = an UPS key or 'heat'): offered only once the run holds 3 upgrades of that stat (Heat: 3 Heat items) */
+const itUnl=k=>{const t=ITEMS[k]&&ITEMS[k].th,R=RUNS;if(!t)return true;if(!R)return false;return(t==='heat'?(R.inv||[]).filter(x=>ITEMS[x.k]&&ITEMS[x.k].cat==='heat').length:(R.ups||[]).filter(u=>u.k===t).length)>=3};
+function itPick(r,pool,n,base){pool=pool.filter(itUnl);const o=[];while(o.length<n&&pool.length){const w=pool.map(k=>(base?base(k):1)*itCatF(k)),t=w.reduce((s,x)=>s+x,0);let q=r()*t,j=0;while(j<w.length-1&&q>=w[j])q-=w[j++];o.push(pool.splice(j,1)[0])}return o}
+/* the category as a small corner icon on offer cards (no text): the stat's upgrade icon, Heat = hot zone, Support = Supply */
+const itCatI=k=>{const c=ITEMS[k]&&ITEMS[k].cat;return c?'<svg class="icat"><use href="#ri-'+(c==='heat'?'m-hot':c==='sup'?'sp':c)+'"/></svg>':''};
 function shopStock(R,key,again){if(R.stock[key]&&!again)return R.stock[key];const[a,b]=key.split('.').map(Number),r=rng(R.seed^0x5409^(a*97+b*13)^(again?0x77:0));
- const pool=Object.keys(ITEMS).filter(k=>itRoom(k)&&!(R.maps>1&&ITEMS[k].p2)),it=[]; /* p2: no use on the 3-map orders map (rework later) */
- while(it.length<SHOP.n&&pool.length){const w=pool.map(k=>ITEMS[k].s===1&&ITEMS[k].rare?.15:ITEMS[k].rare?.4:1),t=w.reduce((s,x)=>s+x,0);let q=r()*t,j=0;while(q>w[j])q-=w[j++];it.push(pool.splice(Math.min(j,pool.length-1),1)[0])}
+ const pool=Object.keys(ITEMS).filter(k=>itRoom(k)&&!(R.maps>1&&ITEMS[k].p2)), /* p2: no use on the 3-map orders map (rework later) */
+  it=itPick(r,pool,SHOP.n,k=>ITEMS[k].s===1&&ITEMS[k].rare?.15:ITEMS[k].rare?.4:1);
  const ri=r()<.75?1:2,[rar,lo,hi]=RAR[ri],ks=Object.keys(UPS),k=ks[Math.floor(r()*ks.length)],up={k,rar,pct:Math.max(1,Math.round((lo+r()*(hi-lo))*UPS[k].s)),c:SHOP.up[rar]};
  return R.stock[key]={it,got:[],up,upGot:0,rolled:again?1:0}}
 const nodeKey=()=>RG.node.r+'.'+RG.node.n;
 const _ncI=nodeCard;nodeCard=function(){const R=RUNS,a=R.map.rows[RG.node.r].nodes[RG.node.n];if(a.t!=='S')return _ncI();const s=shopStock(R,nodeKey()),full=!!(R.swap&&R.swap.length),rc=shopC(SHOP.roll);
  let h='<div class="rcard"><div class="rlbl">Shop<button id="rStk" class="rcost" title="New stock"'+(s.rolled||R.sp<rc?' disabled':'')+'>↻ '+rIco('sp')+rc+'</button></div><div class="rshop">';
- h+=s.it.map((k,j)=>{const I=ITEMS[k],c=shopC(I.c),no=s.got.includes(j)||R.sp<c||full||!itRoom(k);return'<button data-buy="'+j+'" class="'+(I.rare?'rE':'')+'" data-tip="'+I.n+'|'+I.d+'"'+(no?' disabled':'')+'>'+itIco(k)+'<b>'+(s.got.includes(j)?'✓':I.n)+'</b><span>'+rIco('sp','i sm')+c+'</span></button>'}).join('');
+ h+=s.it.map((k,j)=>{const I=ITEMS[k],c=shopC(I.c),no=s.got.includes(j)||R.sp<c||full||!itRoom(k);return'<button data-buy="'+j+'" class="'+(I.rare?'rE':'')+'" data-tip="'+I.n+'|'+I.d+'"'+(no?' disabled':'')+'>'+itIco(k)+itCatI(k)+'<b>'+(s.got.includes(j)?'✓':I.n)+'</b><span>'+rIco('sp','i sm')+c+'</span></button>'}).join('');
  const u=s.up,uc=shopC(u.c);h+='</div><div class="rshop" style="grid-template-columns:1fr"><button data-sup="1" class="'+RCL[u.rar]+'" data-k="'+u.k+'" data-tip="'+UPS[u.k].n+' '+upAmt(u)+'|'+upX(u.k,u.pct)+'"'+(s.upGot||R.sp<uc?' disabled':'')+'>'+rIco(u.k)+'<b>'+(s.upGot?'✓':UPS[u.k].n+' '+upAmt(u))+'</b><span>'+rIco('sp','i sm')+uc+'</span></button></div>';
  return h+_ncI().replace(/^<div class="rcard"><div class="rlbl">Shop<\/div>/,'')};
 /* ---------- garage items card ---------- */
@@ -5658,7 +5668,7 @@ const _ruiI=runUI;runUI=function(mode,tab){_ruiI(mode,tab);const R=RUNS;if(!R||m
 const chip=(i,t,c)=>'<em class="evx'+(c?' '+c:'')+'">'+i+(t!==''?'<span>'+t+'</span>':'')+'</em>',sg=n=>(n>0?'+':'')+n;
 const CH={sp:n=>chip(rIco('sp','i sm'),sg(n),n<0?'bd':'ok'),hull:(n,p)=>chip(rIco('hull','i sm'),sg(n)+(p?' · '+p+'%':''),n<0?'bd':'ok'),heat:n=>chip(rIco('m-hot','i sm'),sg(n),'bd'),
  it:k=>chip(itIco(k),''),up:o=>chip(rIco(o?o.k:'ev-up','i sm'),o?upAmt(o):'',''),fault:(k,p)=>chip(rIco('rep','i sm'),(k?FK[k].n:'')+(p?' · '+p+'%':''),k?'bd':'ok'),map:t=>chip(rIco('t-map','i sm'),t,''),dud:p=>chip(rIco('r-kia','i sm'),p+'%','bd')};
-const evHurt=n=>{const R=RUNS;R.hp=Math.max(1,R.hp-n)},evItems=(r,n,f)=>{const p=Object.keys(ITEMS).filter(f||(()=>true)),o=[];while(o.length<n&&p.length)o.push(p.splice(Math.floor(r()*p.length),1)[0]);return o};
+const evHurt=n=>{const R=RUNS;R.hp=Math.max(1,R.hp-n)},evItems=(r,n,f)=>itPick(r,Object.keys(ITEMS).filter(f||(()=>true)),n);
 const EVENTS={
  dump:{n:'Supply dump',init:r=>({it:evItems(r,4,itRoom)}),
   ch:(R,d)=>[{id:'two',fx:[chip(rIco('ev-up','i sm'),'2 of 4','')],ok:(RG.evSel||[]).length===2},{id:'all',fx:d.it.map(CH.it).concat(CH.heat(30))}],
@@ -5684,9 +5694,9 @@ function evGet(R,key,row){if(R.ev[key])return R.ev[key];const r=rng(R.seed^0xe7e
 const _ncE=nodeCard;nodeCard=function(){const R=RUNS,row=R.map.rows[RG.node.r],a=row.nodes[RG.node.n];if(a.t!=='V')return _ncE();const e=evGet(R,evKey(),row),E=EVENTS[e.id];
  let h='<div class="rcard rev"><div class="rlbl">Event</div><h3>'+E.n+'</h3>';
  if(e.done)return h+'<div class="rout">'+(e.out||[]).join('')+'</div></div>';
- if(e.id==='dump')h+='<div class="rshop" style="grid-template-columns:repeat(4,1fr)">'+e.d.it.map((k,j)=>'<button data-pk="'+j+'" class="'+((RG.evSel||[]).includes(j)?'sel':'')+'" data-tip="'+ITEMS[k].n+'|'+ITEMS[k].d+'">'+itIco(k)+'</button>').join('')+'</div>';
+ if(e.id==='dump')h+='<div class="rshop" style="grid-template-columns:repeat(4,1fr)">'+e.d.it.map((k,j)=>'<button data-pk="'+j+'" class="'+((RG.evSel||[]).includes(j)?'sel':'')+'" data-tip="'+ITEMS[k].n+'|'+ITEMS[k].d+'">'+itIco(k)+itCatI(k)+'</button>').join('')+'</div>';
  /* Black market: the 3 rare items as full shop cards (icon, name, exact description, price, dud chance), no hover needed */
- if(e.id==='bm')return h+'<div class="rshop">'+E.ch(R,e.d).map((c,j)=>{const k=e.d.it[j],I=ITEMS[k];return'<button data-ev="'+c.id+'" class="rE"'+(c.ok===false?' disabled':'')+'>'+itIco(k)+'<b>'+I.n+'</b><i class="rdsc">'+I.d+'</i><span>'+rIco('sp','i sm')+e.d.c[j]+'</span>'+CH.dud(25)+'</button>'}).join('')+'</div></div>';
+ if(e.id==='bm')return h+'<div class="rshop">'+E.ch(R,e.d).map((c,j)=>{const k=e.d.it[j],I=ITEMS[k];return'<button data-ev="'+c.id+'" class="rE"'+(c.ok===false?' disabled':'')+'>'+itIco(k)+itCatI(k)+'<b>'+I.n+'</b><i class="rdsc">'+I.d+'</i><span>'+rIco('sp','i sm')+e.d.c[j]+'</span>'+CH.dud(25)+'</button>'}).join('')+'</div></div>';
  return h+'<div class="rshop" style="grid-template-columns:1fr">'+E.ch(R,e.d).map(c=>'<button data-ev="'+c.id+'"'+(c.ok===false?' disabled':'')+'><span class="revc">'+c.fx.join('')+'</span></button>').join('')+'</div></div>'};
 function evChoose(c){const R=RUNS,e=R.ev[evKey()],E=EVENTS[e.id];if(!e||e.done)return false;const ch=E.ch(R,e.d).find(x=>String(x.id)===String(c));if(!ch||ch.ok===false)return false;
  const o=E.go(R,e.d,ch.id,rng(R.seed^0xd1ce^(RG.node.r*97+RG.node.n*13)));if(o&&o.ms)return evGo(o.ms)&&false;e.out=o;e.done=1;RG.evSel=[];runSave();return true}
@@ -5708,7 +5718,7 @@ Object.assign(EVENTS,{
 const _cvCh=EVENTS.convoy.ch,_cvGo=EVENTS.convoy.go;EVENTS.convoy.can=()=>true;
 EVENTS.convoy.ch=R=>_cvCh(R).concat([{id:'esc',fx:[chip(rIco('m-escort','i sm'),'',''),chip(rIco('ev-up','i sm'),'rare','')]}]);
 EVENTS.convoy.go=(R,d,c,r)=>c==='esc'?{ms:'ESCORT'}:_cvGo(R,d,c,r);
-const EVR={ESCORT:(R,ok,r)=>{if(!ok)return[chip(rIco('m-escort','i sm'),'✕','bd')];const p=Object.keys(ITEMS).filter(k=>ITEMS[k].rare&&!itHas(k)),k=p[Math.floor(r()*p.length)];return k&&itAdd(k)?[CH.it(k)]:(R.sp+=100,[CH.sp(100)])},
+const EVR={ESCORT:(R,ok,r)=>{if(!ok)return[chip(rIco('m-escort','i sm'),'✕','bd')];const k=itPick(r,Object.keys(ITEMS).filter(k=>ITEMS[k].rare&&!itHas(k)),1)[0];return k&&itAdd(k)?[CH.it(k)]:(R.sp+=100,[CH.sp(100)])},
  AMBUSH:()=>[chip(rIco('cap','i sm'),'AS10','ok')],
  RANGE:(R,ok,r,m)=>{const k=m.hits;if(k>=EVM.range.bonus)spAdd(EVM.range.bsp);return[chip(rIco('h-hit','i sm'),k+'/'+EVM.range.n,'')].concat(R.sp-m.sp0?[CH.sp(R.sp-m.sp0)]:[])},
  DFP:(R,ok,r,m)=>{const x=[chip(rIco('h-hit','i sm'),m.hits+'/'+EVM.dfp.n,'')];if(m.best>=EVM.dfp.streak){const[rar,lo,hi]=RAR[1],o={k:'acc',rar,pct:Math.max(1,Math.round((lo+r()*(hi-lo))*UPS.acc.s))};upApply(o);x.push(CH.up(o))}if(R.sp-m.sp0)x.push(CH.sp(R.sp-m.sp0));return x}};
@@ -5819,7 +5829,7 @@ function prTick(dt){const R=RUNS;if(!PF.on)return;if(R.phase!=='mission'){sc.rem
  else if(PF.w>=PROT.waves.length&&!ntLive().some(t=>t.pr)){const R_=RUNS;if(R_.inv&&itAdd(prItem(R_)))renderSoon();runObjective(true)}}
 const prCol=()=>PF.hp>PROT.hp*.5?'#5fbf6a':PF.hp>PROT.hp*.25?'#e2b93b':'#e5534b';
 /* the reward: a common item you could use, drawn by seed */
-const prItem=R=>{const p=Object.keys(ITEMS).filter(k=>!ITEMS[k].rare&&(ITEMS[k].u||!itHas(k))),r=rng(R.seed^0x9a0^R.i);return p[Math.floor(r()*p.length)]};
+const prItem=R=>itPick(rng(R.seed^0x9a0^R.i),Object.keys(ITEMS).filter(k=>!ITEMS[k].rare&&(ITEMS[k].u||!itHas(k))),1)[0];
 /* ---------- hooks ---------- */
 const _rmsP=runModeStart;runModeStart=function(e){_rmsP(e);prStart(e);if(e.mode==='SALV')RC.list.forEach(c=>c.seen=true)};
 const _mtP=modeTick;modeTick=function(dt){const R=RUNS,e=R&&R.cur;if(R&&runLive()&&e){
@@ -5911,7 +5921,7 @@ const _scB=scoreMission;scoreMission=function(x){const s=_scB(x),R=RUNS;if(!R||x
 const _nrB=nodeRest;nodeRest=function(){_nrB();if(itN('med'))heal(15*itN('med'))};
 /* chase uniques: an elite mission met gives one you don't hold (60 Supply if you hold them all). P5h: in 3-map runs it is a unique or an ammo (r56), 50/50; ammo when every unique is held */
 const uniqLeft=()=>Object.keys(ITEMS).filter(k=>ITEMS[k].s===1&&!ITEMS[k].u&&!itN(k));
-const _arB=runArrive;runArrive=function(){const R=RUNS,e=R&&R.cur;if(e&&e.elite&&!R.evm&&R.phase==='exfil'&&R.ok){const p=uniqLeft(),r=rng(R.seed^0xe11^R.i);if(p.length&&!(amOn()&&r()<.5))itAdd(p[Math.floor(r()*p.length)]);else if(amOn()){R.elAm=amEvFx(r);amAdd(R.elAm)}else R.sp+=60}_arB()};
+const _arB=runArrive;runArrive=function(){const R=RUNS,e=R&&R.cur;if(e&&e.elite&&!R.evm&&R.phase==='exfil'&&R.ok){const p=uniqLeft(),r=rng(R.seed^0xe11^R.i);if(p.length&&!(amOn()&&r()<.5))itAdd(itPick(r,p,1)[0]);else if(amOn()){R.elAm=amEvFx(r);amAdd(R.elAm)}else R.sp+=60}_arB()};
 /* ================= RUN-ONLY: P2f impact warnings.
    Artillery (counter-battery salvo, walking fire): from the radar call every round's landing point is fixed. Each round shows a ring of its damage radius on the ground,
    the map, the mini map and the PPI, filling like a clock to its impact, with the type's icon, colour and sound.
@@ -6051,14 +6061,14 @@ const _ntT15=ntTick;ntTick=function(dt){_ntT15(dt);dmgTick()};
    No hidden hit roll: only the sight round counts. A round that strikes a threat's body does full damage to it plus Barrel splash;
    a ground impact does splash with the usual falloff. Fire control = dispersion: each round leaves the barrel DFD mils off (sigma),
    divided by Fire control and cut 20% per Gunner's sight. Rare uniques: Flat trajectory (no drop), Rapid sight fire (reload -50%).
-   Tactical shield (rare, stacks to 3): blocks 1 hit every 40 s, x0.75 interval per extra copy. */
+   Tactical shield (P6 S5: threshold item, 3 Hull upgrades, 1 copy): blocks 1 hit every 30 s. */
 QDN=-178;QMAX=1550; /* Brenton 2026-11-12: high angle never fired on the 2.4 km BGGB map (charge 1 high angle started at ~4.5 km); 1550 mils = high angle from ~0.8 km. Trainer keeps 1244 */ /* Brenton 2026-11-08: the sight and gun go down to -178 mils (10 deg) in action, so close direct fire is not cut off (was -44, the trainer keeps it) */
 const DFD=1.5,DFMIL=2*Math.PI/6400;
 const dfDisp=()=>DFD/rUp('acc')*Math.pow(.8,itN('gsu')); /* mils, 1 sigma */
 Object.assign(ITEMS,{
  flat:{n:'Flat trajectory',d:'Direct fire rounds do not drop',c:110,rare:1,s:1},
  rsf:{n:'Rapid sight fire',d:'Direct fire reload −50%',c:110,rare:1,s:1},
- tsh:{n:'Tactical shield',d:'Blocks 1 hit every 40 s (30 s with 2, 22.5 s with 3)',c:120,rare:1,s:3}});
+ tsh:{n:'Tactical shield',d:'Blocks 1 hit every 30 s',c:120,rare:1,s:1,th:'hull'}});
 ITEMS.gsu.d='Direct fire dispersion −20%';
 document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+[['flat','<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M2 10.5h14v3H2z" fill="currentColor" stroke="none"/><path d="M15 6.5l6.5 5.5-6.5 5.5z" fill="currentColor" stroke="none"/><path d="M2 19c5 0 10-1 14-4" fill="none" stroke="#e25a4a" stroke-width="1.6" stroke-dasharray="2 2" stroke-linecap="round"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>'],['rsf','<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M10 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16zM10 6.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 1 1 0-11z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M10 8v4l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 7l4 5-4 5" fill="none" stroke="#e25a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>'],['tsh','<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M12 2l8.5 3.2v6.3c0 5.2-3.8 8.8-8.5 10.5-4.7-1.7-8.5-5.3-8.5-10.5V5.2z" fill="currentColor" stroke="none"/><path d="M8 12l3 3 5.5-6" fill="none" stroke="#6aa0e0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#6aa0e0" stroke="none"/>']].map(([k,p])=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+p+'</symbol>').join('')+'</svg>'); /* v3 style: gold rare frame + category corner (firepower red, protection blue) */
 /* the round leaves with dispersion; Flat trajectory rounds ignore gravity; Rapid sight fire halves the reload after a sight round */
@@ -6074,15 +6084,24 @@ const _dsDF=dfSol;dfSol=function(t){const s=_dsDF(t);if(s&&dmgOn()&&itN('flat'))
 const _laDF=lase;lase=function(){const s0=sup,q0=layQ,o0=layOn,los=gunQE()-s0,b=gunBrg();veh.updateMatrixWorld(true);const so=new THREE.Vector3();sg_.getWorldPosition(so);_laDF.apply(this,arguments);if(!RUNS||!runLive())return;sup=s0;layQ=q0;layOn=o0;
  if(lased){const p=toL(lased.g.e,lased.g.n);lased.b=b;lased.p={x:p.x,z:p.z,y:so.y+lased.r*Math.sin(los/MIL)}}}; /* the lased point, its height from the sight line */
 const dfSe=r=>itN('flat')?0:.5*Math.asin(cl(GRV*r/320/320,-1,1))*MIL;
-const _dlDF=doLay;doLay=function(){const L=lased;if(RUNS&&runLive()&&st==='ACTION'&&L&&aim&&aim.id==='LRF'){const t=L.t;let s=null;
+/* the direct fire solution for an LRF aim sent to the FCS (null when none, or past 89 mils where the FCS indirect lay stands) */
+function lrfSol(){const L=lased;if(!(RUNS&&runLive()&&st==='ACTION'&&L&&aim&&aim.id==='LRF'))return null;const t=L.t;let s=null;
   if(t&&t.alive&&t.nt)s=dfSol(t);else if(!t&&L.p){veh.updateMatrixWorld(true);mz.getWorldPosition(V3);const r=Math.hypot(L.p.x-V3.x,L.p.z-V3.z);s={b:wm(Math.atan2(L.p.x-px,-(L.p.z-pz))*MIL),q:Math.atan2(L.p.y-V3.y,r)*MIL+dfSe(r),r}} /* from the muzzle */
-  if(s&&s.q<89){layB=s.b;layQ=cl(s.q,QDN,QMAX);sup=dfSe(s.r);layOn=true;beep(660);renderSoon();return}}return _dlDF()};
+  return s&&s.q<89?s:null}
+const _dlDF=doLay;doLay=function(){const s=lrfSol();if(s){layB=s.b;layQ=cl(s.q,QDN,QMAX);sup=dfSe(s.r);layOn=true;beep(660);renderSoon();return}return _dlDF()};
+/* FCS solution mark (Brenton 2026-11-17): after Send to FCS a gold diamond in the sight shows where the crosshair must sit for the solution
+   (above the target by the drop, ahead by the lead). Aim there by hand, or LAY: the sight then shifts by the drop and the mark meets the crosshair */
+document.body.insertAdjacentHTML('beforeend','<div id="fcsM" hidden style="position:fixed;left:0;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;pointer-events:none;z-index:6"><svg viewBox="-8 -8 16 16" width="16" height="16"><path d="M0-6.5L6.5 0 0 6.5-6.5 0z" fill="none" stroke="#e0b54a" stroke-width="1.6"/></svg></div>');
+const fcsM=$('fcsM');function fcsMark(){const s=sight?lrfSol():null;if(!s){fcsM.hidden=true;return}
+ const r=cv.getBoundingClientRect(),k=r.height/2/Math.tan(cam.fov*D/2)/MIL,x=r.left+r.width/2+dm_(s.b-gunBrg())*k,y=r.top+r.height/2-(s.q-sup-(gunQE()-sup))*k;
+ fcsM.hidden=false;fcsM.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)'}
+const _stFM=step;step=function(dt,draw){_stFM.apply(this,arguments);if(draw)fcsMark()};
 $('bLay').onclick=()=>doLay(); /* the button held the first doLay */
 /* called from the sight-round loop (25-v4) when a run round lands: on a body = direct hit, else ground splash */
 function dfLand(h,hitT){const dl=Math.hypot(h.p.x-px,h.p.z-pz),k=pbfK(dl),r=DFS*rUp('dmg');
  if(hitT&&hitT.nt)return dmgDirect(hitT,dl);const s=shRoll()/SHD;for(const t of ntLive())ntDmg(t,h.p.x,h.p.z,r,k*s)}
 /* Tactical shield */
-const shOn=()=>itN('tsh')>0,shGap=()=>40*Math.pow(.75,itN('tsh')-1);
+const shOn=()=>itN('tsh')>0,shGap=()=>30; /* P6 S5: threshold item (3 Hull), 1 copy (Brenton 2026-11-16) */
 const _rhDF=runHit;runHit=function(dmg,why,ty){const R=RUNS;if(R&&!R.dead&&runLive()&&shOn()&&T>=(IT.tsh||0)){IT.tsh=T+shGap();IT.tshT=T;return}return _rhDF.apply(this,arguments)};
 const _rmsDF=runModeStart;runModeStart=function(e){_rmsDF(e);IT.tsh=0};
 /* P3g.3a: enemy artillery impacts flash on the mini map as a red circle like the big map's (P6): full for 1 s, gone by 3 s */
@@ -6832,12 +6851,12 @@ function trSpawn(e){const R=RUNS;if(TR){sc.remove(TR.g);TR=null}if(!R||R.maps<2|
  let dx=b[0]-a[0],dz=b[1]-a[1],d=Math.hypot(dx,dz),x,z;if(d<100){dx=Math.cos(t0);dz=Math.sin(t0);d=1}
  for(const s of[s0,-s0]){x=cl(a[0]+dx*m-dz/d*o*s,-1100,1100);z=cl(a[1]+dz*m+dx/d*o*s,-1100,1100);for(let k=0;k<8&&H(x,z)<WL+.5;k++){x*=.9;z*=.9}if(Math.hypot(x-a[0],z-a[1])>=TRD.off[0]*.8)break}
  const g=noRng(()=>TRM.clone());g.position.set(x,H(x,z),z);g.rotation.y=r()*6.28;sc.add(g);
- const pool=Object.keys(ITEMS).filter(k=>itRoom(k)&&!ITEMS[k].p2),it=[];while(it.length<TRD.n&&pool.length)it.push(pool.splice(Math.floor(r()*pool.length),1)[0]);
+ const it=itPick(r,Object.keys(ITEMS).filter(k=>itRoom(k)&&!ITEMS[k].p2),TRD.n);
  const am=r()<.3?amRollFx(r,(p=>p[Math.floor(r()*p.length)])(AFX_BASE.filter(k=>AFX[k].r<3))):amRoll(r);TR={g,x,z,it,got:[],am,amC:AMO.c[RAR.findIndex(q=>q[0]===am.rar)],amGot:0,open:0}}
 function trPanel(on){let p=$('trP'),q=$('trB');if(!p){document.body.insertAdjacentHTML('beforeend','<div id="trP" hidden></div><button id="trB" hidden>Trader <kbd>B</kbd></button>');p=$('trP');q=$('trB');q.onclick=()=>trShow(1)}
  if(!on||!TR){p.hidden=q.hidden=true;return}if(TR.hid){p.hidden=true;q.hidden=false;return}q.hidden=true;const R=RUNS;
  const c=shopC(TR.amC),row=(i,n,cost,no,cls,tip)=>'<button data-tr="'+i+'" class="'+(cls||'')+'"'+tip+(no?' disabled':'')+'><b>'+n+'</b><span>'+rIco('sp','i sm')+cost+'</span></button>';
- p.innerHTML='<div><b>Trader</b><button data-trx title="Hide (B)">✕</button></div>'+row('a',TR.amGot?'✓ '+amName(TR.am):amName(TR.am),c,TR.amGot||R.sp<c,RCL[TR.am.rar],amTip(TR.am))+TR.it.map((k,j)=>{const I=ITEMS[k],ic=shopC(I.c),g=TR.got.includes(j);return row(j,(g?'✓ ':'')+I.n,ic,g||R.sp<ic||!itRoom(k),I.rare?'rE':'',' data-tip="'+I.n+'|'+I.d+'"')}).join('');
+ p.innerHTML='<div><b>Trader</b><button data-trx title="Hide (B)">✕</button></div>'+row('a',TR.amGot?'✓ '+amName(TR.am):amName(TR.am),c,TR.amGot||R.sp<c,RCL[TR.am.rar],amTip(TR.am))+TR.it.map((k,j)=>{const I=ITEMS[k],ic=shopC(I.c),g=TR.got.includes(j);return row(j,(g?'✓ ':'')+itCatI(k)+I.n,ic,g||R.sp<ic||!itRoom(k),I.rare?'rE':'',' data-tip="'+I.n+'|'+I.d+'"')}).join('');
  p.hidden=false;p.querySelector('[data-trx]').onclick=()=>trShow(0);p.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>{const k=b.dataset.tr;if(k==='a'){if(TR.amGot||R.sp<c)return;R.sp-=c;spLog('trader',-c);amAdd(TR.am);TR.amGot=1}
   else{const j=+k,ik=TR.it[j],ic=shopC(ITEMS[ik].c);if(TR.got.includes(j)||R.sp<ic||!itAdd(ik))return;R.sp-=ic;spLog('trader',-ic);TR.got.push(j)}aud();trPanel(1)})} /* no save here: nothing saves mid-mission, the rally point's save keeps the purchase */
 function trShow(on){if(!TR||!TR.open)return;TR.hid=!on;trPanel(1)}
@@ -7059,21 +7078,21 @@ const amBrief=a=>a&&{rar:a.rar,fx:a.fx||null,s:Object.keys(a.s||{}),evo:a.evo?1:
 /* ---------- the open order (lives only in the mission; saves happen between orders) ---------- */
 const _rsR=runStart;runStart=function(j){const R=RUNS;if(R&&!R.rec)R.rec=recNew(R);const opt=R&&R.opts&&R.opts[R.i];_rsR.apply(this,arguments);if(!R||R.phase!=='mission')return;
  if(opt)recLog('ord',{offer:opt.map(e=>e.mode+(e.elite?'*':'')),pick:R.pick[R.i]||0});
- R.recO={mode:R.cur.mode,elite:!!R.cur.elite,boss:!!R.cur.boss,map:R.mi+1,step:R.res.length,heat0:Math.round(R.heat),hull0:Math.round(R.hp),dmg:{},kills:{},flt:{},spl0:{...(R.spl||{})}};R.recHit=null};
+ R.recO={mode:R.cur.mode,elite:!!R.cur.elite,boss:!!R.cur.boss,map:R.mi+1,step:R.res.length,heat0:Math.round(R.heat),hull0:Math.round(R.hp),dmg:{},kills:{},kby:{},m:0,flt:{},spl0:{...(R.spl||{})}};R.recHit=null};
 /* close every order R.res has and the record has not (mission end, death or abandon) */
 function recSync(){const R=RUNS;if(!R||!R.rec)return;const rec=R.rec;while(rec.ord.length<R.res.length){const x=R.res[rec.ord.length],o=R.recO;
   const bn=o&&o.boss&&typeof BS!=='undefined'&&BS.k&&BOSS[BS.k]?BOSS[BS.k].n:null;
   const p=R.recHit;if(o&&x.dead&&p&&!p.done&&R.hp<p.h0){p.done=1;p.dd=Math.round(p.h0-R.hp);o.dmg[p.k]=+((o.dmg[p.k]||0)+p.h0-R.hp).toFixed(1)}
   const sp={};if(o)for(const k in R.spl||{}){const d=(R.spl[k]||0)-(o.spl0[k]||0);if(d)sp[k]=d}
   rec.ord.push({mode:x.mode,elite:!!x.elite||!!(o&&o.elite),boss:!!(o&&o.boss),map:(x.mi||0)+1,t:x.t||0,heat:o?[o.heat0,Math.round(x.heatMax!=null?x.heatMax:R.heatMax||0),Math.round(R.heat||0)]:null,
-   hull:o?[o.hull0,Math.round(R.hp)]:null,dmg:o?o.dmg:{},shots:x.shots||0,kills:o?o.kills:{},sp,caches:sp.cache||0,flt:o?o.flt:{},ok:!!x.ok,dead:!!x.dead,ab:!!x.abandoned,score:x.sc?x.sc.total:0,bn});
+   hull:o?[o.hull0,Math.round(R.hp)]:null,dmg:o?o.dmg:{},shots:x.shots||0,kills:o?o.kills:{},sp,caches:sp.cache||0,km:o?+(o.m/1000).toFixed(2):0,kby:o?o.kby:{},flt:o?o.flt:{},ok:!!x.ok,dead:!!x.dead,ab:!!x.abandoned,score:x.sc?x.sc.total:0,bn});
   R.recO=null}}
 const _raR=runArrive;runArrive=function(){const r=_raR.apply(this,arguments);recSync();return r};
 /* damage: measured after every other hook (shields and reactive armour may stop it), by fixed source */
 const _rhR=runHit;runHit=function(dmg,why,ty){const R=RUNS;if(!R||!R.recO)return _rhR.apply(this,arguments);
  const p={k:dSrc(why),why,heat:Math.round(R.heat||0),x:Math.round(px),z:Math.round(pz),h0:R.hp};R.recHit=p;const r=_rhR.apply(this,arguments); /* a killing hit closes the order inside this call: recSync adds it */
  if(R.recO&&!p.done&&R.hp<p.h0){p.done=1;p.dd=Math.round(p.h0-R.hp);R.recO.dmg[p.k]=+((R.recO.dmg[p.k]||0)+p.h0-R.hp).toFixed(1)}return r};
-const _nkR=ntKill;ntKill=function(t){const R=RUNS,was=t&&t.alive;const r=_nkR.apply(this,arguments);if(R&&R.recO&&was&&!t.alive)R.recO.kills[t.nt]=(R.recO.kills[t.nt]||0)+1;return r};
+const _nkR=ntKill;ntKill=function(t){const R=RUNS,was=t&&t.alive;const r=_nkR.apply(this,arguments);if(R&&R.recO&&was&&!t.alive){R.recO.kills[t.nt]=(R.recO.kills[t.nt]||0)+1;const b=KBY||'he';R.recO.kby[b]=(R.recO.kby[b]||0)+1}return r};
 const _faR=fltAdd;fltAdd=function(k){const R=RUNS;const n=FLT.on.length;const r=_faR.apply(this,arguments);if(R&&R.recO&&FLT.on.length>n)R.recO.flt[k]=(R.recO.flt[k]||0)+1;return r};
 /* choices outside missions */
 const recVia=()=>{const R=RUNS;if(!R)return'';if(R.phase==='mission'||R.phase==='exfil')return typeof TR!=='undefined'&&TR&&TR.open?'trader':'mission';if(RG.node){const row=R.map.rows[RG.node.r],a=row&&row.nodes[RG.node.n];return{S:'shop',R:'rest',V:'event',D:'depot'}[row&&row.t==='D'?'D':a&&a.t]||'node'}return R.offers?'pick':'other'};
@@ -7104,7 +7123,7 @@ const recGet=rid=>recList().find(x=>x.id===rid)||null;
 /* run end (won, dead, abandoned): the history row links to its record */
 const _haR=runHistAdd;runHistAdd=function(R,res){const fresh=!R.logged;_haR.apply(this,arguments);if(!fresh||!R.rec)return;
  const rec=recFill(R,res);recStore(rec);recQueue(rec);
- try{const h=runHist();if(h[0]&&h[0].seed===R.rseed&&!h[0].rid){h[0].rid=rec.id;h[0].rt=rec.runT;h[0].inv=rec.inv;const lo=rec.ord[rec.ord.length-1];h[0].where={m:rec.reach[0],o:rec.reach[1],boss:!!(lo&&lo.boss&&(lo.dead||lo.ab))};localStorage.setItem(HIST_KEY,JSON.stringify(h))}}catch(e){}};
+ try{const h=runHist();if(h[0]&&h[0].seed===R.rseed&&!h[0].rid){h[0].rid=rec.id;h[0].rt=rec.runT;h[0].inv=rec.inv;h[0].doc=rec.doc||null;const lo=rec.ord[rec.ord.length-1];h[0].where={m:rec.reach[0],o:rec.reach[1],boss:!!(lo&&lo.boss&&(lo.dead||lo.ab))};localStorage.setItem(HIST_KEY,JSON.stringify(h))}}catch(e){}};
 /* map end: queue a live copy */
 const _nmR=runNextMap;runNextMap=function(){const R=RUNS;if(R&&R.rec){recQueue(JSON.parse(JSON.stringify(recFill(R,'live'))))}return _nmR.apply(this,arguments)};
 /* save and resume carry the record */
@@ -7165,7 +7184,7 @@ function fcHist(){const H_=runHist(),rc=runRecords(H_),wins=H_.filter(r=>r.res==
   '<div class="tot"><div><span class="lbl">Runs</span><b class="num">'+H_.length+'</b></div><div><span class="lbl">Wins</span><b class="num">'+wins+'</b></div><div><span class="lbl">Best score</span><b class="num">'+(rc.best?fmtN(rc.best.score):'—')+'</b></div>'+
   '<div><span class="lbl">Furthest</span><b>'+(typeof far==='string'?far:far?far.t:'—')+'</b></div><div><span class="lbl">Most bought</span><b>'+esc(fcMostBought())+'</b></div></div>';
  h+='<div class="tw"><table><thead><tr><th>Date</th><th>Result</th><th class="r">Score</th><th class="r">Time</th><th>Build</th></tr></thead><tbody>'+
-  H_.map(r=>'<tr'+(r.rid&&recGet(r.rid)?' class="click" tabindex="0" data-rid="'+r.rid+'"':'')+'><td>'+fcDate(r.d)+'</td><td>'+fcTag(r)+'</td><td class="r num">'+(r.res==='abandoned'?'—':fmtN(r.score))+'</td><td class="r num">'+(r.rt?fcT(r.rt):'—')+'</td><td>'+fcBuild(r.ups,r.inv)+'</td></tr>').join('')+
+  H_.map(r=>'<tr'+(r.rid&&recGet(r.rid)?' class="click" tabindex="0" data-rid="'+r.rid+'"':'')+'><td>'+fcDate(r.d)+'</td><td>'+fcTag(r)+'</td><td class="r num">'+(r.res==='abandoned'?'—':fmtN(r.score))+'</td><td class="r num">'+(r.rt?fcT(r.rt):'—')+'</td><td>'+docTag(r.doc)+fcBuild(r.ups,r.inv)+'</td></tr>').join('')+
   '</tbody></table></div>';
  fcPage(h);$('fcBack').onclick=()=>runHome();
  ov.querySelectorAll('tr[data-rid]').forEach(t=>{t.onclick=()=>fcRun(t.dataset.rid);t.onkeydown=e=>{if(e.key==='Enter')fcRun(t.dataset.rid)}})}
@@ -7375,7 +7394,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['First-run tutorial','Save files with your callsign','Online leaderboard','Run history and an after-action report']};
+const NOTES={get v(){return BUILD.v},items:['Threshold items: take 3 upgrades of a stat to unlock its rare item','Every run earns a doctrine name from your build and play style','Item offers lean toward the stats you upgrade','Online leaderboard']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -7997,4 +8016,172 @@ enDots=()=>{const R=RUNS;if(!R||!runLive())return[];const amb=R.phase==='mission
  const out=[];for(const t of L){if(amb&&!t.rv)continue;if(scnAct(t))out.push(t);else{const q=SCN.p.get(t);if(q)out.push({x:q.x,z:q.z,nt:t.nt})}}return out};
 const _rmsScn=runModeStart;runModeStart=function(e){_rmsScn(e);SCN.t=-1e9;SCN.p=new Map()};
 const _nkScn=ntKill;ntKill=function(t){const was=t.alive;_nkScn(t);const R=RUNS;if(was&&!t.alive&&t.nt==='ifv'&&runLive()&&R.maps>1&&(R.mi||0)>=2)ntSpawn('inf',t.x+6,t.z+6)};
+/* ================= RUN-ONLY: P6 S4 (Brenton 2026-11-16). Item categories, run trackers and the run's doctrine label.
+   Every item has a category (cat): an upgrade stat key (UPS), 'heat' or 'sup' (Support). r10's itPick leans offers by it; offer cards show it as a corner icon.
+   Trackers: km driven per order (o.m) and how each kill was made (o.kby: he / df / ram / mine), both in the run record.
+   Doctrine = [play-style trait] + [build]: e.g. "Untouchable Ghost". Build from upgrade % and items taken (15 points a copy); trait from per-order run stats,
+   the one furthest past its threshold. Thresholds are estimates (5 runs in D1 on 2026-11-16): recalibrate DOC_T from play-test records. ================= */
+const IT_CAT={spd:'tur wtp frd boost mom plough',lay:'rls',acc:'gsu flat sig',rld:'oca rsf',act:'spades',dmg:'dpf pbf',rep:'tool patch reme weld med',cap:'scr fwd',
+ armour:'appl slat spall rxt trip',hull:'tsh ins',camo:'tbl slr gcr dem net smoke decoy damp',heat:'merc adr bld red',sup:'scav bounty qm loot war a10k a10c recon mine wire drone dozer'};
+for(const c in IT_CAT)for(const k of IT_CAT[c].split(' '))if(ITEMS[k])ITEMS[k].cat=c;
+/* ---------- trackers ---------- */
+let KBY=null; /* the weapon of the kill being dealt now; null = indirect HE (and ammunition effects) */
+const kbyW=(f,k)=>function(){const p=KBY;KBY=k;try{return f.apply(this,arguments)}finally{KBY=p}};
+dmgDirect=kbyW(dmgDirect,'df');dfLand=kbyW(dfLand,'df');ramHit=kbyW(ramHit,'ram');ramCrush=kbyW(ramCrush,'ram');
+const _htD=heatTick;heatTick=function(dt){const R=RUNS,x=RH.lx,z=RH.lz;_htD.apply(this,arguments);if(R&&R.recO&&runLive()){const m=Math.hypot(px-x,pz-z);if(m<30)R.recO.m=(R.recO.m||0)+m}}; /* the same metres that cool heat */
+/* ---------- doctrine ---------- */
+const DOC_B=[['scoot','Shoot and scoot',['spd','act'],'spd'],['dug','Dug in',['armour','hull'],'armour'],['ghost','Ghost',['camo'],'camo'],['red','Red line',['heat'],'m-hot'],
+ ['hunt','Gun hunter',['acc','lay'],'acc'],['rain','Steel rain',['rld','cap'],'rld'],['bru','Bruiser',['dmg'],'dmg'],['shop','Field workshop',['rep'],'rep'],['prof','Profiteer',['sup'],'sp']];
+const DOC_ALL=['all','All-rounder',[],'t-garage'],DOC_MIN=.3,DOC_IT=15,DOC_N=3;
+/* traits: [adjective, stat, hi (past = above) or lo (past = below), threshold, why text]. A stat of null skips the trait */
+const DOC_MODE={FIRE:'Barrage',PROT:'Guardian',EVAC:'Rescue',ESCORT:'Convoy',SALV:'Salvager',AMBUSH:'Raider',AREA:'Zone-holding',HOT:'Hot-zone'};
+const DOC_T=[['Untouchable','hl','lo',4,v=>'Hull lost '+v.toFixed(1)+' per order'],['Battered','hl','hi',30,v=>'Hull lost '+v.toFixed(1)+' per order'],
+ ['Ruthless','kl','hi',5,v=>v.toFixed(1)+' kills per order'],['Patient','kl','lo',.5,v=>v.toFixed(1)+' kills per order'],
+ ['Sharpshooting','spk','lo',2,v=>v.toFixed(1)+' rounds per kill'],['Trigger-happy','sho','hi',14,v=>v.toFixed(1)+' rounds per order'],
+ ['Red-hot','heat','hi',110,v=>'Peak heat '+Math.round(v)+' per order'],['Cool-headed','heat','lo',50,v=>'Peak heat '+Math.round(v)+' per order'],
+ ['Swift','t','lo',150,v=>fcT(v)+' per order'],['Methodical','t','hi',420,v=>fcT(v)+' per order'],
+ ['Scavenging','cache','hi',45,v=>Math.round(v)+' cache Supply per order'],['Big-spending','spent','hi',90,v=>Math.round(v)+' Supply spent per order'],
+ ['Thrifty','bank','hi',300,v=>Math.round(v)+' Supply banked'],['Elite-hunting','eli','hi',.35,v=>Math.round(v*100)+'% elite orders'],
+ ['Gadgeteer','use','hi',1.2,v=>v.toFixed(1)+' items used per order'],['Hard-luck','fail','hi',.4,v=>Math.round(v*100)+'% orders failed'],
+ ['Roaming','km','hi',3,v=>v.toFixed(1)+' km driven per order'],['Rooted','km','lo',.6,v=>v.toFixed(1)+' km driven per order'],
+ ['Close-range','df','hi',.5,v=>Math.round(v*100)+'% kills by direct fire'],['Road-raging','ram','hi',.25,v=>Math.round(v*100)+'% kills by ramming'],
+ ['mode','mode','hi',.4,(v,s)=>Math.round(v*100)+'% '+(RUN_MODES[s.modeK]?RUN_MODES[s.modeK].n:s.modeK)+' orders']];
+/* the run's per-order stats from its record (+ the Supply it ends on) */
+function docStats(rec,sp){const O=rec.ord||[],n=O.length,L=rec.log||[],sum=f=>O.reduce((a,o)=>a+(f(o)||0),0),vs=o=>Object.values(o||{}).reduce((a,b)=>a+b,0);
+ const kills=sum(o=>vs(o.kills)),shots=sum(o=>o.shots),kb=k=>sum(o=>o.kby&&o.kby[k]),hasKm=O.some(o=>o.km!=null),hasKb=O.some(o=>o.kby),modes={},plain=O.filter(o=>!o.boss);
+ for(const o of plain)modes[o.mode]=(modes[o.mode]||0)+1;const modeK=Object.keys(modes).filter(k=>DOC_MODE[k]).sort((a,b)=>modes[b]-modes[a])[0];
+ const spent=0-L.filter(e=>e[1]==='sp'&&e[2].n<0).reduce((a,e)=>a+e[2].n,0),hs=O.filter(o=>o.heat);
+ return{n,hl:sum(o=>vs(o.dmg))/n,kl:kills/n,spk:kills>=5?shots/kills:null,sho:shots/n,heat:hs.length?hs.reduce((a,o)=>a+o.heat[1],0)/hs.length:null,t:sum(o=>o.t)/n,
+  cache:sum(o=>o.caches)/n,spent:spent/n,bank:spent/n<=30?sp:null,eli:plain.length>=DOC_N?plain.filter(o=>o.elite).length/plain.length:null,use:L.filter(e=>e[1]==='use').length/n,
+  fail:O.filter(o=>!o.ok).length/n,km:hasKm?sum(o=>o.km)/n:null,df:hasKb&&kills>=5?kb('df')/kills:null,ram:hasKb&&kills>=4?kb('ram')/kills:null,
+  mode:modeK&&plain.length>=4?modes[modeK]/plain.length:null,modeK}}
+/* build points: upgrade % (armour: points) to its stat, 15 per item taken to its category */
+function docBuild(ups,its){const p={};let up=0;for(const u of ups||[]){if(!UPS[u.k])continue;p[u.k]=(p[u.k]||0)+u.pct;up+=u.pct}
+ for(const k of its||[]){const c=ITEMS[k]&&ITEMS[k].cat;if(c)p[c]=(p[c]||0)+DOC_IT}
+ const tot=Object.values(p).reduce((a,b)=>a+b,0),g=DOC_B.map((b,i)=>({b,i,v:b[2].reduce((a,c)=>a+(p[c]||0),0),u:(ups||[]).filter(x=>b[2].includes(x.k)).reduce((a,x)=>a+x.pct,0)}));
+ g.sort((a,b)=>b.v-a.v||b.u-a.u||a.i-b.i);const top=g[0];return tot&&top.v/tot>=DOC_MIN?{b:top.b,share:top.v/tot}:{b:DOC_ALL,share:0}}
+/* the label: a special run, else trait + build (trait only when one stat is past its threshold, from 3 orders) */
+function docOf(rec,R){const s=docStats(rec,R.sp||0),O=rec.ord||[],L=rec.log||[],last=O[O.length-1],its=L.filter(e=>e[1]==='it').map(e=>e[2].k);
+ const B=docBuild(R.ups,its.length?its:(R.inv||[]).map(x=>x.k)),bw=B.b===DOC_ALL?'No build over '+DOC_MIN*100+'%':B.b[1]+': '+Math.round(B.share*100)+'% of the build';
+ const res=rec.res,won=res==='won',bought=L.some(e=>e[1]==='it'&&(e[2].via==='shop'||e[2].via==='trader'));
+ const sp_=won&&s.n&&!O.some(o=>!o.ok)&&s.hl<=3?['Flawless','No order failed · Hull lost '+s.hl.toFixed(1)+' per order']:res==='dead'&&last&&last.boss&&last.map===3?['Last stand','Fell on the final boss']:won&&!bought?['Lone wolf','Won without buying an item']:null;
+ if(sp_)return{n:sp_[0],t:null,b:B.b[0],i:B.b[3],why:[sp_[1],bw]};
+ let best=null;if(s.n>=DOC_N)for(const[a,k,d,th,w]of DOC_T){const v=s[k];if(v==null)continue;const x=d==='hi'?v/th:v>0?th/v:3;if(x>1&&(!best||x>best.x))best={a:a==='mode'?DOC_MODE[s.modeK]:a,x,w:w(v,s)}}
+ return{n:(best?best.a+' ':'')+B.b[1],t:best?best.a:null,b:B.b[0],i:B.b[3],why:[best?best.w:'No stat stood out',bw]}}
+const _rfD=recFill;recFill=function(R,res){const rec=_rfD.apply(this,arguments);try{rec.doc=docOf(rec,R)}catch(e){rec.doc=null}return rec};
+/* ---------- display: AAR line under the score, Run history Build cell, Run detail title ---------- */
+const docTag=d=>d?'<span class="fcDoc" data-tip="'+esc(d.n)+'|'+esc(d.why.join(' · '))+'">'+rIco(d.i)+esc(d.n)+'</span>':'';
+document.head.insertAdjacentHTML('beforeend','<style>.fcDoc{display:inline-flex;align-items:center;gap:5px;font:600 13px var(--fd);color:var(--fg);white-space:nowrap}.fcDoc svg.i{width:16px;height:16px}'+
+ '.aarl .fcDoc{font-size:17px;margin:6px 0 2px}.aarl .fcDoc svg.i{width:22px;height:22px}td .fcDoc{margin-right:8px}h2 .fcDoc{font-size:inherit;margin-left:8px}h2 .fcDoc svg.i{width:20px;height:20px}'+
+ '.rst{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 14px;margin-top:6px}.rst b{display:block;font:700 18px var(--fd)}.rst .lbl{font-size:10px}.rshop button,.roffer button{position:relative}svg.icat{position:absolute;top:6px;left:6px;width:15px;height:15px;opacity:.8}#trP svg.icat{position:static;width:13px;height:13px;vertical-align:-2px;margin-right:4px}</style>');
+/* run stats on the AAR, shown by default (Brenton 2026-11-16): totals for the run, the same record the doctrine reads */
+function aarStats(rec){const O=rec.ord||[],L=rec.log||[],n=O.length;if(!n)return'';const sum=f=>O.reduce((a,o)=>a+(f(o)||0),0),vs=o=>Object.values(o||{}).reduce((a,b)=>a+b,0),hs=O.filter(o=>o.heat),km=O.some(o=>o.km!=null);
+ const st=[['Rounds fired',fmtN(sum(o=>o.shots))],['Kills',fmtN(sum(o=>vs(o.kills)))],['Hull lost',fmtN(Math.round(sum(o=>vs(o.dmg))))],['Km driven',km?sum(o=>o.km).toFixed(1):'—'],
+  ['Supply spent',fmtN(Math.max(0,-L.filter(e=>e[1]==='sp'&&e[2].n<0).reduce((a,e)=>a+e[2].n,0)))],['Cache Supply',fmtN(sum(o=>o.caches))],['Avg peak heat',hs.length?Math.round(hs.reduce((a,o)=>a+o.heat[1],0)/hs.length):'—'],
+  ['Orders failed',O.filter(o=>!o.ok).length+' / '+n],['Items used',L.filter(e=>e[1]==='use').length]];
+ return'<div class="panel"><span class="lbl">Run stats</span><div class="rst">'+st.map(([k,v])=>'<div><span class="lbl">'+k+'</span><b class="num">'+v+'</b></div>').join('')+'</div></div>'}
+const _aarD=fcAAR;fcAAR=function(){const r=_aarD.apply(this,arguments),R=RUNS,rec=R&&R.rec&&R.rec.res!=='live'?R.rec:null,el=ov.querySelector('.aarl .score');if(rec&&rec.doc&&el)el.insertAdjacentHTML('afterend',docTag(rec.doc));
+ if(rec){const b=[...ov.querySelectorAll('.aarl .panel')].find(p=>/Your build/i.test(p.querySelector('.lbl')?p.querySelector('.lbl').textContent:'')),at=b||ov.querySelector('.aarl .next');if(at)at.insertAdjacentHTML('beforebegin',aarStats(rec))}return r};
+const _frD=fcRun;fcRun=function(rid){const r=_frD.apply(this,arguments),rec=recGet(rid),h=ov.querySelector('.top h2');if(rec&&rec.doc&&h)h.insertAdjacentHTML('beforeend',docTag(rec.doc));return r};
+/* ================= RUN-ONLY: P6 S4b (Brenton 2026-11-16): nine items so every upgrade stat has at least 3 to lean toward (r61 categories).
+   Turret drive: Fine-lay handwheels, Slew motor. Hydraulics: Hydraulic accumulator, Pre-charged pumps. Autoloader: Twin hoist. Barrel: Shaped fill.
+   Ammo capacity: Bustle rack. Hull: Spare track links, Hull bracing. Stat items feed RMOD through IMODS (r13) or the moment-based tweaks below,
+   which run after r13's itSync each step. No random draws. Icons: plans/p6/s4b/icons-s4b.py (v3 style) ================= */
+Object.assign(ITEMS,{
+ fls:{n:'Fine-lay handwheels',d:'Laying rate in the sight +30%',c:55,s:2,cat:'lay'},
+ slw:{n:'Slew motor',d:'Laying to a map aim point (outside the sight) at 2× rate',c:70,s:1,cat:'lay'},
+ hacc:{n:'Hydraulic accumulator',d:'First into action each mission is instant',c:80,rare:1,s:1,cat:'act'},
+ pcp:{n:'Pre-charged pumps',d:'March order time −40%',c:55,s:2,cat:'act'},
+ thst:{n:'Twin hoist',d:'Reload time −15%',c:60,s:2,cat:'rld'},
+ shf:{n:'Shaped fill',d:'Damage to vehicles and bosses +20%',c:70,s:2,cat:'dmg'},
+ bus:{n:'Bustle rack',d:'+8 HE carried',c:50,s:3,cat:'cap'},
+ stl:{n:'Spare track links',d:'+15 max hull',c:55,s:3,cat:'hull'},
+ hbr:{n:'Hull bracing',d:'A single hit over 25 damage is cut to 25',c:110,rare:1,s:1,cat:'hull'}});
+Object.assign(IMODS,{thst:{rld:1/.85-1},bus:{cap:8/36}});
+RICO.it.fls='<path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 5.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 1 1 0-13z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M11.2 5h1.6v14h-1.6zM5 11.2h14v1.6H5z" fill="currentColor" stroke="none"/><path d="M10 12a2 2 0 1 0 4 0 2 2 0 1 0-4 0z" fill="currentColor" stroke="none"/><path d="M19 17l3 3-1.5 1.5-3-3z" fill="currentColor" stroke="none" opacity=".45"/><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.slw='<path d="M7 10h10v7H7z" fill="currentColor" stroke="none"/><path d="M12 12.5h10v2H12z" fill="currentColor" stroke="none"/><path d="M4 18h16v3H4z" fill="currentColor" stroke="none" opacity=".45"/><path d="M3 8a10 10 0 0 1 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 1l.5 4-3.5-1.5z" fill="currentColor" stroke="none"/><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.hacc='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M7 3h10v18H7zM9 5v14h6V5z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M9.5 5.5h5v13h-5z" fill="#e8963c" stroke="none"/><path d="M13 7l-3 5h2l-1 5 3-6h-2z" fill="currentColor" stroke="none"/><path d="M10 1h4v2h-4z" fill="currentColor" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e8963c" stroke="none"/>';
+RICO.it.pcp='<path d="M3 6h9v12H3zM5 8v8h5V8z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M12 10h4v4h-4z" fill="currentColor" stroke="none"/><path d="M5.5 8.5h4v7h-4z" fill="currentColor" stroke="none" opacity=".45"/><path d="M17 6h2.5v8H22l-3.5 5-3.5-5H17z" fill="currentColor" stroke="none"/><path d="M17.5 0H24v6.5z" fill="#e8963c" stroke="none"/>';
+RICO.it.thst='<path d="M3 10V5.5l2-3 2 3V10zM3 11h4v10H3z" fill="currentColor" stroke="none"/><path d="M10 10V5.5l2-3 2 3V10zM10 11h4v10h-4z" fill="currentColor" stroke="none"/><path d="M17 9h4v12h-4z" fill="currentColor" stroke="none" opacity=".45"/><path d="M19 2l3 4h-2v2h-2V6h-2z" fill="currentColor" stroke="none"/><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.shf='<path d="M2 9h9v6H2z" fill="currentColor" stroke="none"/><path d="M11 7.5l5 4.5-5 4.5z" fill="currentColor" stroke="none"/><path d="M17 11.2h6v1.6h-6zM16.5 7l5-2.5.7 1.4-5 2.5zM16.5 17l5 2.5.7-1.4-5-2.5z" fill="currentColor" stroke="none" opacity=".45"/><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.bus='<path d="M2 8h20v12H2zM4 10v8h16v-8z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M5.5 11h2v6h-2zM9 11h2v6H9zM12.5 11h2v6h-2zM16 11h2v6h-2z" fill="currentColor" stroke="none"/><path d="M4 4h16v3H4z" fill="currentColor" stroke="none" opacity=".45"/><path d="M17.5 0H24v6.5z" fill="#e0cf4a" stroke="none"/>';
+RICO.it.stl='<path d="M2 8h6v8H2zM3.5 9.5v5h3v-5z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M9 8h6v8H9zM10.5 9.5v5h3v-5z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M16 8h6v8h-6zM17.5 9.5v5h3v-5z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M8 11h1v2H8zM15 11h1v2h-1z" fill="currentColor" stroke="none" opacity=".45"/><path d="M11 2h2v3h3v2H8V5h3z" fill="currentColor" stroke="none"/><path d="M17.5 0H24v6.5z" fill="#6aa0e0" stroke="none"/>';
+RICO.it.hbr='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M12 2l9 3.5v6.5c0 5.5-4 9-9 10.5-5-1.5-9-5-9-10.5V5.5zM12 5l-6 2.3V12c0 3.8 2.6 6.4 6 7.7 3.4-1.3 6-3.9 6-7.7V7.3z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M7 8l10 9-1.2 1.3-10-9zM17 8L7 17l1.2 1.3 10-9z" fill="#6aa0e0" stroke="none"/><path d="M10.5 11h3v2h-3z" fill="currentColor" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#6aa0e0" stroke="none"/>';
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+['fls','slw','hacc','pcp','thst','shf','bus','stl','hbr'].map(k=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+RICO.it[k]+'</symbol>').join('')+'</svg>');
+/* moment-based stats: sight laying x1.3 a copy, auto-lay to a map point x2, march order time x0.6 a copy. Spare track links: +15 max hull a copy held, as a delta
+   (R.stl = the bonus applied), so anything else that sets max hull keeps working; a Hull upgrade (upApply sets max hull outright) keeps it */
+const _isS4b=itSync;itSync=function(){_isS4b.apply(this,arguments);const R=RUNS;if(!R)return;const x=(k,f)=>{RMOD[k]=(1+(RMOD[k]||0))*f-1};
+ if(sight&&itN('fls'))x('lay',Math.pow(1.3,itN('fls')));if(!sight&&layOn&&itN('slw'))x('lay',2);if(st==='STOW'&&itN('pcp'))x('act',1/Math.pow(.6,itN('pcp')));
+ const w=15*itN('stl'),d=w-(R.stl||0);if(d){R.stl=w;R.hpMax+=d;R.hp=d>0?R.hp+d:Math.min(R.hp,R.hpMax)}};
+const _uaS4b=upApply;upApply=function(o){const R=RUNS,s=R&&R.stl||0;if(R)R.hpMax-=s;try{return _uaS4b.apply(this,arguments)}finally{if(R)R.hpMax+=s}};
+const _ldS4b=runLoad;runLoad=function(){const ok=_ldS4b.apply(this,arguments);if(ok&&RUNS)RUNS.stl=15*itN('stl');return ok}; /* the saved max hull already holds it */
+/* the accumulator: the first into action of a mission completes at once */
+const _stHa=stTick;stTick=function(dt){const R=RUNS;if(R&&st==='DEPLOY'&&itN('hacc')&&!R.hacc&&runLive()){R.hacc=1;stT=1e9}return _stHa.apply(this,arguments)};
+const _rmsHa=runModeStart;runModeStart=function(e){if(RUNS)RUNS.hacc=0;return _rmsHa.apply(this,arguments)};
+/* Shaped fill: shells (not rams) on anything but infantry */
+const _ndShf=ntDmg;ntDmg=function(t,x,z,r,k){if(t&&t.nt!=='inf'&&RUNS&&itN('shf'))k*=1+.2*itN('shf');return _ndShf.call(this,t,x,z,r,k)};
+/* Hull bracing: a hit's damage over 25 is dropped before armour */
+const _rhHbr=runHit;runHit=function(dmg,why,ty){if(RUNS&&itN('hbr')&&dmg>25)dmg=25;return _rhHbr.call(this,dmg,why,ty)};
+/* ================= RUN-ONLY: P6 S5 threshold items (Brenton 2026-11-15/16). Rare uniques with no drawback; each joins the offers (r10 itUnl) once the run holds
+   3 upgrades of its stat (th), Danger pay once it holds 3 Heat items. They add behaviour and never make their own stat pointless.
+   Tactical shield (r16) is one of them: 1 copy, a hit blocked every 30 s. Running repairs works through FLT.run (45-damage), Fire on the move through layLive (10-state).
+   No random draws. ================= */
+Object.assign(ITEMS,{
+ fom:{n:'Fire on the move',d:'Fire from the sight in travel order, at any speed, laid by hand. LRF, FCS lay and indirect fire still need ACTION',c:130,rare:1,s:1,th:'lay',cat:'lay'},
+ qgn:{n:'Quiet gun',d:'Heat per round −50%',c:120,rare:1,s:1,th:'camo',cat:'camo'},
+ hdn:{n:'Hull-down',d:'After 20 s stationary in action: damage taken −40% until you move',c:120,rare:1,s:1,th:'armour',cat:'armour'},
+ dpy:{n:'Danger pay',d:'Kills at over 75 heat: +10 Supply and +1 HE each',c:120,rare:1,s:1,th:'heat',cat:'heat'},
+ evd:{n:'Evasive driver',d:'Over 30 km/h: enemy direct fire hit chance −25%, counter-battery spread +25%',c:120,rare:1,s:1,th:'spd',cat:'spd'},
+ hvc:{n:'Heavy charge',d:'Every 4th round (indirect and direct): ×2 damage, +50% damage radius',c:130,rare:1,s:1,th:'dmg',cat:'dmg'},
+ brl:{n:'Burst loader',d:'The first 3 rounds after each into action reload instantly',c:120,rare:1,s:1,th:'rld',cat:'rld'},
+ bcp:{n:'Ballistic computer',d:'The first round at each new aim point (over 50 m from the last) has no dispersion',c:120,rare:1,s:1,th:'acc',cat:'acc'},
+ cro:{n:'Crash out',d:'March order fires a smoke screen: breaks the enemy fix, heat −15',c:110,rare:1,s:1,th:'act',cat:'act'},
+ rrp:{n:'Running repairs',d:'Crew repairs carry on while driving at half speed, and you can fire during a repair',c:110,rare:1,s:1,th:'rep',cat:'rep'},
+ est:{n:'Emergency stowage',d:'Once each mission, at 0 HE: the crew breaks out 25% of your HE capacity',c:110,rare:1,s:1,th:'cap',cat:'cap'}});
+const THR_={fast:30/3.6,hd:20,qg:.5,ev:.75,evS:1.25,hvN:4,bc:50};
+/* Fire on the move: in travel order with the sight up, the gun lays by hand (arrows, Q E R F, mouse) and fires direct (QE under 89) while W A S D drive. No LRF or FCS lay on the move */
+layLive=()=>st==='ACTION'||st==='TRAVEL'&&!!sight&&!!RUNS&&runLive()&&itN('fom')>0;
+const _tsS5=toggleSight;toggleSight=function(){_tsS5.apply(this,arguments);if(!sight&&st==='TRAVEL'){layOn=false;sup=0}};
+/* Running repairs */
+FLT.run=()=>!!RUNS&&runLive()&&itN('rrp')>0;
+/* per-step state: hull-down timer, burst loader on each into action */
+const _stS5=step;step=function(dt,draw){const s0=st;_stS5.apply(this,arguments);const R=RUNS;if(!R||!dt||!runLive())return;
+ R.hdT=st==='ACTION'&&Math.abs(v)<.3?(R.hdT||0)+dt:0;
+ if(s0!=='ACTION'&&st==='ACTION'&&itN('brl'))R.brl=3};
+/* Crash out: the march order order itself (T) */
+const _sbS5=stBtn;stBtn=function(){const s0=st,r=_sbS5.apply(this,arguments),R=RUNS;if(R&&runLive()&&s0==='ACTION'&&st==='STOW'&&itN('cro')){RH.fix=null;R.heat=Math.max(heatFloor(),R.heat-15);for(let i=0;i<8;i++)puff(px+Math.cos(i*.8)*7,H(px,pz)+2,pz+Math.sin(i*.8)*7,0xc8c8c0,9,3,2,.8,.4)}return r};
+const _rmsS5=runModeStart;runModeStart=function(e){if(RUNS){RUNS.est=0;RUNS.brl=0;RUNS.hdT=0;RUNS.hvN=0;RUNS.bcP=null}return _rmsS5.apply(this,arguments)};
+/* firing: indirect refused in travel; Ballistic computer zeroes dispersion for the first round at a new point; then Quiet gun, Heavy charge, Burst loader, Emergency stowage */
+const bcPt5=()=>{if(st==='TRAVEL')return null; /* on the move there is no LRF data (Brenton 2026-11-17) */if(gunQE()<89){const L=lased;return L?(L.t&&L.t.alive?{x:L.t.x,z:L.t.z}:L.p||null):null}return aim?toL(aim.e,aim.n):null};
+const _fiS5=fire;fire=function(){const R=RUNS;if(!R||!runLive())return _fiS5.apply(this,arguments);
+ if(st==='TRAVEL'&&layLive()&&gunQE()>=89){aud();return toast('Indirect fire needs ACTION')}
+ const n=shotN,h0=R.heat;let zero=0,p=null;if(itN('bcp')){p=bcPt5();zero=!!p&&(!R.bcP||Math.hypot(p.x-R.bcP.x,p.z-R.bcP.z)>THR_.bc)}
+ const a0=RMOD.acc;if(zero)RMOD.acc=1e9;try{_fiS5.apply(this,arguments)}finally{if(zero){if(a0==null)delete RMOD.acc;else RMOD.acc=a0}}
+ if(shotN===n)return;if(zero)R.bcP=p;
+ if(itN('qgn')&&R.heat>h0)R.heat=Math.max(heatFloor(),R.heat-(R.heat-h0)*THR_.qg);
+ if(itN('hvc')&&++R.hvN%THR_.hvN===0){const d=shells.find(s=>s.n===shotN&&s.df),f=FLY.find(x=>x.own&&x.n===shotN);if(d)d.hvc=1;if(f)f.hvc=1}
+ if(itN('brl')&&R.brl>0){R.brl--;rl=0}
+ if(itN('est')&&!R.est&&ammo.HE<=0){R.est=1;ammo.HE=Math.round(rsBase().HE*.25)}};
+/* Heavy charge lands: x2 damage (ntDmg) and +50% radius (Barrel) for that round only */
+let HVC5=0;const hvcW5=f=>function(h){if(!h||!h.hvc)return f.apply(this,arguments);const d0=RMOD.dmg;HVC5=1;RMOD.dmg=(1+(d0||0))*1.5-1;try{return f.apply(this,arguments)}finally{HVC5=0;if(d0==null)delete RMOD.dmg;else RMOD.dmg=d0}};
+impactI=hvcW5(impactI);dfLand=hvcW5(dfLand);
+const _ndS5=ntDmg;ntDmg=function(t,x,z,r,k){return _ndS5.call(this,t,x,z,r,HVC5?k*2:k)};
+/* hits: Evasive driver cuts enemy direct fire as it is fired; Hull-down cuts damage after 20 s still in action */
+const _npS5=NTS.push;NTS.push=function(s){if(s&&RUNS&&itN('evd')&&Math.abs(v)>THR_.fast)s.p*=THR_.ev;return _npS5.apply(this,arguments)};
+const _cbS5=cbParams;cbParams=function(h){const p=_cbS5.apply(this,arguments);if(RUNS&&itN('evd')&&Math.abs(v)>THR_.fast)p.spread*=THR_.evS;return p};
+const _rhS5=runHit;runHit=function(dmg,why,ty){const R=RUNS;if(R&&itN('hdn')&&(R.hdT||0)>=THR_.hd)dmg*=.6;return _rhS5.call(this,dmg,why,ty)};
+/* kills: Danger pay */
+const _nkS5=ntKill;ntKill=function(t){const a=t&&t.alive;const r=_nkS5.apply(this,arguments);const R=RUNS;if(a&&!t.alive&&R&&runLive()&&itN('dpy')&&R.heat>75){R.sp=(R.sp||0)+10;spLog('danger',10);ammo.HE=Math.min(rsBase().HE,ammo.HE+1)}return r};
+RICO.it.fom='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M2 14h14l2 3H2z" fill="currentColor" stroke="none"/><path d="M6 10h7v4H6z" fill="currentColor" stroke="none"/><path d="M13 11h9v1.6h-9z" fill="currentColor" stroke="none"/><path d="M3 18h15v2H3z" fill="#e25a4a" stroke="none"/><path d="M1 7h5M2 4h4" fill="none" stroke="#e25a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.qgn='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M1 10h11v4H1z" fill="currentColor" stroke="none"/><path d="M12 8.5h4v7h-4z" fill="currentColor" stroke="none"/><path d="M16 10h3v4h-3z" fill="#5fbf6a" stroke="none"/><path d="M20 8l2 2M20 16l2-2" fill="none" stroke="#5fbf6a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#5fbf6a" stroke="none"/>';
+RICO.it.hdn='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M1 16c4-5 7-6 11-6s7 1 11 6z" fill="#6aa0e0" stroke="none"/><path d="M7 9h10v4H7z" fill="currentColor" stroke="none"/><path d="M12 10h9v1.5h-9z" fill="currentColor" stroke="none"/><path d="M1 16h22v3H1z" fill="currentColor" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#6aa0e0" stroke="none"/>';
+RICO.it.dpy='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 5.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 1 1 0-13z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M11 7h2v10h-2zM9 9h5v1.5H9zM10 13.5h5V15h-5z" fill="currentColor" stroke="none"/><path d="M18 1l1.5 3 3 .5-2.2 2 .6 3L18 8l-2.9 1.5.6-3-2.2-2 3-.5z" fill="#e0cf4a" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e0cf4a" stroke="none"/>';
+RICO.it.evd='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M3 12h12l3 3v3H3z" fill="currentColor" stroke="none"/><path d="M5 18.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0zM12 18.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0z" fill="currentColor" stroke="none"/><path d="M1 8c4 2 8-2 12 0s6 2 10 0" fill="none" stroke="#e8963c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 6l4 4-4 1z" fill="#e8963c" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e8963c" stroke="none"/>';
+RICO.it.hvc='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M6 21V9l3-6 3 6v12z" fill="currentColor" stroke="none"/><path d="M13 21V9l3-6 3 6v12z" fill="currentColor" stroke="none"/><path d="M5 15h15v2H5z" fill="#e25a4a" stroke="none"/><path d="M1 21h22v1.5H1z" fill="currentColor" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.brl='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M2 8h4v8H2zM7 8h4v8H7zM12 8h4v8h-4z" fill="currentColor" stroke="none"/><path d="M17 10h5v4h-5z" fill="currentColor" stroke="none"/><path d="M2 4h14l-2 2H4z" fill="#e25a4a" stroke="none"/><path d="M3 19h13" fill="none" stroke="#e25a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.bcp='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M3 4h18v16H3zM5 6v12h14V6z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M11 8h2v8h-2zM8 11h8v2H8z" fill="currentColor" stroke="none"/><path d="M7 7.5h3v1.5H7zM14 15h3v1.5h-3z" fill="#e25a4a" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e25a4a" stroke="none"/>';
+RICO.it.cro='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M4 10a5 5 0 0 1 9-3 4 4 0 0 1 7 3 3.5 3.5 0 0 1-1 7H5a3.5 3.5 0 0 1-1-7z" fill="#5fbf6a" stroke="none"/><path d="M3 19h18v2H3z" fill="currentColor" stroke="none"/><path d="M10 12l2-3 2 3h-1.2v4h-1.6v-4z" fill="currentColor" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#5fbf6a" stroke="none"/>';
+RICO.it.rrp='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M15 2a6 6 0 0 0-5.6 8.1L2.6 16.9a2.6 2.6 0 0 0 3.7 3.7l6.8-6.8A6 6 0 0 0 21.6 8.4l-3.4 3.4-3.6-.8-.8-3.6L17.2 4A6 6 0 0 0 15 2z" fill="currentColor" stroke="none"/><path d="M14 19h8M16 22h6" fill="none" stroke="#b07ce0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#b07ce0" stroke="none"/>';
+RICO.it.est='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M3 6h18v15H3zM5 8v11h14V8z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M7 10h2v7H7zM11 10h2v7h-2zM15 10h2v7h-2z" fill="currentColor" stroke="none"/><path d="M3 2h18v3H3z" fill="#e0cf4a" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e0cf4a" stroke="none"/>';
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+['fom','qgn','hdn','dpy','evd','hvc','brl','bcp','cro','rrp','est'].map(k=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+RICO.it[k]+'</symbol>').join('')+'</svg>');
 </script>

@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.22.0","c":"cfc7fe3"};
+const BUILD={"v":"9.22.2","c":"7f8499d"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -3046,7 +3046,7 @@ const pRT=(w,h,t)=>new THREE.WebGLRenderTarget(Math.max(1,w),Math.max(1,h),{minF
 const pV2=new THREE.Vector2();
 function pstSize(){rd.getDrawingBufferSize(pV2);const k=Math.min(1,Math.sqrt(4.2e6/(pV2.x*pV2.y))),w=Math.round(pV2.x*k),h=Math.round(pV2.y*k);if(w===PST.w&&h===PST.h)return;PST.w=w;PST.h=h;noRng(()=>{
  [PST.sc,PST.a1,PST.a2,...(PST.bl||[]),...(PST.bu||[])].forEach(t=>t&&t.dispose());
- PST.sc=new THREE.WebGLMultisampleRenderTarget(w,h,{minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,format:THREE.RGBAFormat,type:THREE.HalfFloatType,stencilBuffer:false});PST.sc.samples=4;PST.sc.depthTexture=new THREE.DepthTexture(w,h,THREE.UnsignedIntType);
+ PST.sc=new THREE.WebGLMultisampleRenderTarget(w,h,{minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,format:THREE.RGBAFormat,type:THREE.HalfFloatType,stencilBuffer:false});PST.sc.samples=PST.ms||4;PST.sc.depthTexture=new THREE.DepthTexture(w,h,THREE.UnsignedIntType);
  PST.a1=pRT(w>>1,h>>1,THREE.UnsignedByteType);PST.a2=pRT(w>>1,h>>1,THREE.UnsignedByteType);PST.bl=[1,2,3,4,5].map(i=>pRT(w>>i,h>>i));PST.bu=[1,2,3,4].map(i=>pRT(w>>i,h>>i))})}
 /* ---------- the frame ---------- */
 function pstFrame(c){pstSize();const W=PST.w,Hh=PST.h,D_=PST.sc.depthTexture;
@@ -3118,12 +3118,14 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
  const nearG=[...Array(NV)].map((_,v)=>lodG(v,false)),farG=[...Array(NV)].map((_,v)=>lodG(v,true));
  /* ---------- crown cluster: seven clumps of crossed cards in a flat dome; normals point out from below the centre so the mass shades like a crown ---------- */
  const cb=B(),cc=new V(0,-.8,0);
- const card=(c,yaw,pitch,w,h)=>{const r=new V(Math.cos(yaw),0,Math.sin(yaw)),up=new V(0,1,0).applyAxisAngle(r,pitch),base=cb.P.length/3,fl=Math.random()<.5;
-  [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy])=>{const p=c.clone().addScaledVector(r,sx*w/2).addScaledVector(up,sy*h/2),n=p.clone().sub(cc).normalize();cb.P.push(p.x,p.y,p.z);cb.N.push(n.x,n.y,n.z);cb.U.push(fl?(1-sx)/2:(sx+1)/2,(sy+1)/2);cb.C.push(1,1,1)});
-  cb.I.push(base,base+1,base+2,base,base+2,base+3)};
+ const quad=(b,c,yaw,pitch,w,h,fl)=>{const r=new V(Math.cos(yaw),0,Math.sin(yaw)),up=new V(0,1,0).applyAxisAngle(r,pitch),base=b.P.length/3;
+  [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy])=>{const p=c.clone().addScaledVector(r,sx*w/2).addScaledVector(up,sy*h/2),n=p.clone().sub(cc).normalize();b.P.push(p.x,p.y,p.z);b.N.push(n.x,n.y,n.z);b.U.push(fl?(1-sx)/2:(sx+1)/2,(sy+1)/2);b.C.push(1,1,1)});
+  b.I.push(base,base+1,base+2,base,base+2,base+3)};
+ /* each card is recorded (clump, angle, size, flip) so 72-lod can build the far crown from the same clumps without new random draws */
+ const CR=[],card=(c,yaw,pitch,w,h)=>{const fl=Math.random()<.5;CR.push({c,yaw,pitch,w,h,fl});quad(cb,c,yaw,pitch,w,h,fl)};
  [[0,.9,0],[1.3,.2,.3],[-.7,.3,1.2],[-.8,.1,-1.1],[.6,-.3,-1.1],[.2,-.5,.95],[-1.3,-.4,0]].forEach(([x,y,z],i)=>{const c=new V(x,y,z),a=Math.random()*3.14;for(let k=0;k<3;k++)card(c,a+k*1.047,rnd(-.18,.18),rnd(2,2.5),rnd(1.8,2.2));card(c,a+.5,rnd(1.1,1.35),2.2,2.2)});
  const crownG=toGeo(cb,false);
- return{bark,leaf,trunkG,crownG,tips,NV,nearG,farG}});
+ return{bark,leaf,trunkG,crownG,tips,NV,nearG,farG,CR,quad:(b,...a)=>quad(b,...a),B,toGeo}});
 /* ---------- materials: variant pick (vertices of the other trunk variants collapse to nothing), wind, unflipped crown normals, fading alpha kept solid at distance ---------- */
 const varHook=sh=>{sh.vertexShader='attribute float gVar;attribute float aVar;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nif(abs(gVar-aVar)>.5)transformed=vec3(0.);')};
 const trMat=new THREE.MeshStandardMaterial({map:FLR.bark,vertexColors:true,roughness:.88,metalness:0});trMat.onBeforeCompile=varHook;trMat.customProgramCacheKey=()=>'as9trunk';
@@ -4382,19 +4384,25 @@ window.__pf=PFM;
    the LRF, crest heights and footage read them); they are hidden and copied into the drawn meshes when they change,
    when the camera moves or turns in the sight, and every 0.25 s. Load is bracketed by gfxRng; runtime makes no random draws. */
 gfxRng(0x72d0c1);
-const LOD={R:250,Rg:160,vt:-1,vg:-1,x:1e9,z:1e9,s:-1,t:0,q:new THREE.Quaternion(),fr:new THREE.Frustum(),pm:new THREE.Matrix4(),sp:new THREE.Sphere(new THREE.Vector3(),9),on:true};
+const LOD={R:250,vc:-1,Rg:160,vt:-1,vg:-1,x:1e9,z:1e9,s:-1,t:0,q:new THREE.Quaternion(),fr:new THREE.Frustum(),pm:new THREE.Matrix4(),sp:new THREE.Sphere(new THREE.Vector3(),9),on:true};
 {const mk=(g,v)=>{g.setAttribute('aVar',new THREE.InstancedBufferAttribute(new Float32Array(NTX).fill(v),1));const m=new THREE.InstancedMesh(g,trI.material,NTX);
   m.customDepthMaterial=trI.customDepthMaterial;m.castShadow=trI.castShadow;m.receiveShadow=trI.receiveShadow;m.frustumCulled=false;m.count=0;m.raycast=()=>{};sc.add(m);return m};
  LOD.tn=FLR.nearG.map(mk);LOD.tf=FLR.farG.map(mk);
  LOD.gr=new THREE.InstancedMesh(grI.geometry,grI.material,grI.instanceMatrix.count);Object.assign(LOD.gr,{castShadow:grI.castShadow,receiveShadow:grI.receiveShadow,frustumCulled:false,count:0,raycast:()=>{}});
- if(grI.instanceColor)LOD.gr.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(grI.instanceColor.array.length),3);sc.add(LOD.gr)}
+ if(grI.instanceColor)LOD.gr.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(grI.instanceColor.array.length),3);sc.add(LOD.gr)
+ /* crowns: near keep the full 28 cards; far crowns use the full crown too unless 77-pq picks LOD.cfG(n): the same seven clumps with two crossed cards (the widest of the three, square on), plus the flat top card when n>2 */
+ LOD.cfG=n=>{const b=FLR.B(),C=FLR.CR;for(let i=0;i<C.length;i+=4){const v=C.slice(i,i+3),t=C[i+3],w=Math.max(...v.map(c=>c.w))*1.1,h=(v[0].h+v[1].h+v[2].h)/3;
+   for(let k=0;k<2;k++)FLR.quad(b,v[0].c,v[0].yaw+k*1.571,v[k].pitch,w,h,v[k].fl);if(n>2)FLR.quad(b,t.c,t.yaw,t.pitch,t.w,t.h,t.fl)}return FLR.toGeo(b,false)};
+ const mc=g=>{const m=new THREE.InstancedMesh(g,foI.material,foI.instanceMatrix.count);Object.assign(m,{customDepthMaterial:foI.customDepthMaterial,castShadow:foI.castShadow,receiveShadow:foI.receiveShadow,frustumCulled:false,count:0,raycast:()=>{}});
+  if(foI.instanceColor)m.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(foI.instanceColor.array.length),3);sc.add(m);return m};
+ LOD.cn=mc(foI.geometry);LOD.cf=mc(foI.geometry)}
 gfxRng();
-function lodApply(on){LOD.on=on;trI.visible=grI.visible=!on;[...LOD.tn,...LOD.tf,LOD.gr].forEach(m=>m.visible=on);LOD.vt=LOD.vg=-1}
+function lodApply(on){LOD.on=on;trI.visible=grI.visible=foI.visible=!on;[...LOD.tn,...LOD.tf,LOD.gr,LOD.cn,LOD.cf].forEach(m=>m.visible=on);LOD.vt=LOD.vg=LOD.vc=-1}
 function lodTick(dt,force){
  if(!LOD.on)return;const cx=cam.position.x,cz=cam.position.z,sg=sight?1:0;LOD.t+=dt;
  const moved=(cx-LOD.x)**2+(cz-LOD.z)**2>64,turned=sg&&(1-Math.abs(LOD.q.dot(cam.quaternion))>1e-5);
- if(!force&&trI.instanceMatrix.version===LOD.vt&&grI.instanceMatrix.version===LOD.vg&&!moved&&!turned&&sg===LOD.s&&LOD.t<.25)return;
- LOD.vt=trI.instanceMatrix.version;LOD.vg=grI.instanceMatrix.version;LOD.x=cx;LOD.z=cz;LOD.s=sg;LOD.t=0;LOD.q.copy(cam.quaternion);
+ if(!force&&trI.instanceMatrix.version===LOD.vt&&grI.instanceMatrix.version===LOD.vg&&foI.instanceMatrix.version===LOD.vc&&!moved&&!turned&&sg===LOD.s&&LOD.t<.25)return;
+ LOD.vt=trI.instanceMatrix.version;LOD.vg=grI.instanceMatrix.version;LOD.vc=foI.instanceMatrix.version;LOD.x=cx;LOD.z=cz;LOD.s=sg;LOD.t=0;LOD.q.copy(cam.quaternion);
  if(sg){cam.updateMatrixWorld();LOD.pm.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);LOD.fr.setFromProjectionMatrix(LOD.pm)}
  const inSight=(x,y,z,r)=>{LOD.sp.center.set(x,y,z);LOD.sp.radius=r;return LOD.fr.intersectsSphere(LOD.sp)};
  /* trees */
@@ -4402,6 +4410,11 @@ function lodTick(dt,force){
  for(let i=0;i<trI.count;i++){const o=i*16,x=A[o+12],y=A[o+13],z=A[o+14],v=av[i],near=(x-cx)**2+(z-cz)**2<R2||sg&&inSight(x,y,z,9),m=near?LOD.tn[v]:LOD.tf[v],k=near?nN[v]++:nF[v]++;
   m.instanceMatrix.array.set(A.subarray(o,o+16),k*16)}
  LOD.tn.forEach((m,v)=>{m.count=nN[v];m.instanceMatrix.needsUpdate=true});LOD.tf.forEach((m,v)=>{m.count=nF[v];m.instanceMatrix.needsUpdate=true});
+ /* crowns */
+ {const F=foI.instanceMatrix.array,fc=foI.instanceColor&&foI.instanceColor.array,cn=LOD.cn,cf=LOD.cf;let a=0,b=0;
+  for(let i=0;i<foI.count;i++){const o=i*16,x=F[o+12],y=F[o+13],z=F[o+14],near=(x-cx)**2+(z-cz)**2<R2||sg&&inSight(x,y,z,6),m=near?cn:cf,k=near?a++:b++;
+   m.instanceMatrix.array.set(F.subarray(o,o+16),k*16);if(fc)m.instanceColor.array.set(fc.subarray(i*3,i*3+3),k*3)}
+  cn.count=a;cf.count=b;for(const m of[cn,cf]){m.instanceMatrix.needsUpdate=true;if(m.instanceColor)m.instanceColor.needsUpdate=true}}
  /* old grass tufts */
  const G=grI.instanceMatrix.array,gc=grI.instanceColor&&grI.instanceColor.array,D=LOD.gr.instanceMatrix.array,Dc=LOD.gr.instanceColor&&LOD.gr.instanceColor.array,Rg2=LOD.Rg*LOD.Rg;let n=0;
  for(let i=0;i<grI.count;i++){const o=i*16,x=G[o+12],y=G[o+13],z=G[o+14];if((x-cx)**2+(z-cz)**2<Rg2||sg&&inSight(x,y,z,2)){D.set(G.subarray(o,o+16),n*16);if(Dc)Dc.set(gc.subarray(i*3,i*3+3),n*3);n++}}
@@ -4761,6 +4774,46 @@ if(!MOB){document.body.insertAdjacentHTML('beforeend','<div id="wasd" hidden>'+[
  addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&document.body.classList.contains('kbd'))mode(false)},true);
  wd.querySelectorAll('[data-dk]').forEach(b=>{const k=b.dataset.dk,up=()=>{K[k]=0;lit()};b.addEventListener('pointerdown',e=>{e.preventDefault();aud();K[k]=1;lit()});b.addEventListener('pointerup',up);b.addEventListener('pointerleave',up);b.addEventListener('pointercancel',up)});
  const st2=document.createElement('style');st2.textContent='#wasd{position:fixed;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,44px);gap:4px}#wasd[hidden]{display:none}#wasd button{font-size:15px;padding:0}';document.head.appendChild(st2)}
+/* ================= P6 S1 performance, chosen from the #bench runs on Brenton's laptop (2026-11-15): Intel UHD at 1440p is held back by pixels, not triangles.
+   Far shadow cascade (sunF, 640 m round the camera, 4096 map) is drawn again only when its centre has moved 30 m, the sun has turned, or every 0.1 s
+   (moving units and felled trees far off catch up within a tenth of a second); between those frames it stays where it was drawn, so its map and
+   matrices agree (the cloud shadows read the same matrices). The near cascade round the gun still draws every frame. No random draws ================= */
+const PQ={shc:true,ms:100,t:-1e9,c:new THREE.Vector3(1e9,0,1e9),L:new THREE.Vector3(),pend:false};
+sunF.shadow.autoUpdate=!PQ.shc;
+const _csPq=csPlace;csPlace=function(lt,x,z,half,d){
+ if(lt!==sunF||!PQ.shc){if(lt===sunF)sunF.shadow.autoUpdate=true;return _csPq(lt,x,z,half,d)}
+ sunF.shadow.autoUpdate=false;const now=performance.now();
+ if((x-PQ.c.x)**2+(z-PQ.c.z)**2<900&&PQ.L.dot(csL)>.99996&&now-PQ.t<PQ.ms&&!PQ.pend)return;
+ _csPq(lt,x,z,half,d);PQ.c.set(x,0,z);PQ.L.copy(csL);PQ.t=now;PQ.pend=false;sunF.shadow.needsUpdate=true};
+/* a light set change (shadows on/off, tier) or a new world redraws it at once */
+const _gaPq=gfxApply;gfxApply=function(){PQ.pend=true;_gaPq()};
+WHOOK.push(()=>{PQ.pend=true});
+/* ---------- P6 S2: terrain shading on slow GPUs (Intel bench: on Standard with shadows off the ground is half the frame).
+   The ground's stone layer (three-way blocks, streaks: 7 of its 14 texture reads) is only read where there is stone (rk > 0.001);
+   elsewhere its weight is zero, so the picture is the same. Mip levels come from gradients taken outside the branch (textureGrad), so the stone edge does not sparkle; WebGL2 only. pqT.x 1 = skip on (0 = always read, the old path, for the bench) ---------- */
+const PQT={value:new THREE.Vector4(1,0,0,0)};
+{const prev=ter.material.onBeforeCompile;ter.material.onBeforeCompile=(sh,r)=>{prev(sh,r);sh.uniforms.pqT=PQT;
+ const a='vec4 rt=texture2D(gdR,qx)*an.x+texture2D(gdR,qz)*an.z+texture2D(gdR,qy)*an.y;float stk=texture2D(gdT,vec2((vWp3.x+vWp3.z)*.09,vWp3.y*.004)).b;',
+  b='vec3 nx=texture2D(gdRN,qx).xyz-.5,nz=texture2D(gdRN,qz).xyz-.5,ny=texture2D(gdRN,qy).xyz-.5;';
+ if(r.capabilities.isWebGL2&&sh.fragmentShader.includes(a)&&sh.fragmentShader.includes(b))sh.fragmentShader='uniform vec4 pqT;\n'+sh.fragmentShader
+  .replace(a,'vec4 rt=vec4(.5,0.,0.,.5);float stk=.5;vec2 sq=vec2((vWp3.x+vWp3.z)*.09,vWp3.y*.004),dqx=dFdx(qx),eqx=dFdy(qx),dqz=dFdx(qz),eqz=dFdy(qz),dqy=dFdx(qy),eqy=dFdy(qy),dsq=dFdx(sq),esq=dFdy(sq);'+
+  'if(pqT.x<.5||rk>.001){rt=textureGrad(gdR,qx,dqx,eqx)*an.x+textureGrad(gdR,qz,dqz,eqz)*an.z+textureGrad(gdR,qy,dqy,eqy)*an.y;stk=textureGrad(gdT,sq,dsq,esq).b;}')
+  .replace(b,'vec3 nx=vec3(0.),nz=vec3(0.),ny=vec3(0.);if(pqT.x<.5||rk>.001){nx=textureGrad(gdRN,qx,dqx,eqx).xyz-.5;nz=textureGrad(gdRN,qz,dqz,eqz).xyz-.5;ny=textureGrad(gdRN,qy,dqy,eqy).xyz-.5;}')};
+ ter.material.customProgramCacheKey=()=>'as9groundwetpq';ter.material.needsUpdate=true}
+/* anisotropic filtering of the ground detail textures (render targets: set on the GL texture directly); 8 = as built */
+function pqAniso(n){const gl=rd.getContext(),x=gl.getExtension('EXT_texture_filter_anisotropic');if(!x)return;
+ for(const t of[GDT.c,GDT.n,GDT.r,GDT.rn]){const p=rd.properties.get(t);if(!p.__webglTexture)continue;gl.bindTexture(gl.TEXTURE_2D,p.__webglTexture);
+  gl.texParameterf(gl.TEXTURE_2D,x.TEXTURE_MAX_ANISOTROPY_EXT,Math.min(n,rd.capabilities.getMaxAnisotropy()))}gl.bindTexture(gl.TEXTURE_2D,null)}
+/* ---------- P6 S2c Standard lite (Intel bench 2026-11-15/16; Brenton OK'd the bundle for Standard only). On Standard:
+   ground detail anisotropy 4 (High keeps 8); far crowns (beyond LOD.R and not in the sight) drawn with two crossed cards per clump instead of four;
+   sunF hidden (on Standard it casts no shadow and its intensity is 0, so it only cost a light per pixel). High is unchanged. PQ.lite=false = the old Standard (bench) ---------- */
+PQ.lite=true;PQ.an=0;gfxRng(0x77a11e);PQ.g2=LOD.cfG(2);gfxRng();
+function pqLite(){const on=PQ.lite&&S.gfx==='std';PQ.an=on?4:8;PQ.anD=false;LOD.cf.geometry=on?PQ.g2:foI.geometry;if(!MOB)sunF.visible=!on||sunF.castShadow}
+const _gaLite=gfxApply;gfxApply=function(){_gaLite();pqLite()};
+WHOOK.push(()=>{PQ.anD=false});
+/* anisotropy is set on the GL textures, which exist only after the ground detail is first drawn */
+const _stLite=step;step=function(dt,draw){_stLite(dt,draw);if(draw&&!PQ.anD){pqAniso(PQ.an);PQ.anD=true}};
+pqLite();
 /* ================= RUN-ONLY: roguelike build entry. Files named r*.js are included only by src/run.html; the trainer build never contains them (tests check for the RUN-ONLY marker) ================= */
 const RUNB=true;
 /* run state lives here from P1 on; rmod bonuses (01-util.js RMOD) are set from the run's upgrades */
@@ -7856,4 +7909,77 @@ btRoad=function(){for(const c of btTraffic)c.g.visible=false};
 /* 7. camera lock and 8. engine */
 CAM_LOCK=true;addEventListener('keydown',e=>{if(e.key.toLowerCase()==='w'&&!e.repeat&&st==='TRAVEL'&&e.target.tagName!=='INPUT')camLock=false});
 Object.assign(ENG,{type:'triangle',lp:180,g:.55,tg:.6});
+/* ================= RUN-ONLY: P6 S1 performance bench. Local builds only, never the play-test site: open as9-run.html#bench.
+   Builds a FIRE mission in Forest and Plain (dev run: no history, records or uploads), freezes the world and draws fixed views
+   (chase ahead, chase behind, high overview, gun sight), on High and Standard. On High each view is drawn again with one group
+   switched off (ablation), so the drop in frame time is what that group costs on this GPU. Per case: 15 warm-up frames, 40 timed.
+   Frame ms = CPU + GPU time of one drawn frame (a 1-pixel read waits for the GPU); GPU ms from EXT_disjoint_timer_query_webgl2 where
+   the browser offers it. Results: table on screen + Copy (JSON) for the thread ================= */
+const BEN={W:10,N:25,ok:DEV.ok,on:false,el:null,q:[],res:[],ext:null,gpu:'',pend:[],cur:null,f:0,a:[],g:[]};
+BEN.views=[['ahead',()=>{camYaw=psi;camP=14}],['overview',()=>{camYaw=psi+.8;camP=55}],['sight',()=>{sight=1;elev=1.5;tur.rotation.y=0}]];
+/* each group: [name, off(), on()]; meshes found once per world */
+const benMeshes=f=>{const L=[],skip=new Set([veh,AS10,BG.G2,BG.G3]);sc.traverse(o=>{if(skip.has(o)){o.traverse(c=>c!==o&&skip.add(c));return}if(!skip.has(o)&&f(o))L.push(o)});return L};
+const benHide=L=>{const was=L.map(o=>o.visible);return{off:()=>L.forEach(o=>o.visible=false),on:()=>L.forEach((o,i)=>o.visible=was[i])}};
+function benGroups(){const G=[['all',()=>{},()=>{}]];
+ const add=(n,L)=>{const h=benHide(L);G.push([n,h.off,h.on])};
+ add('crowns',[LOD.cn,LOD.cf]);add('trunks',[...LOD.tn,...LOD.tf]);add('shrubs',[shI,...shV]);add('grass',[GF.mesh,GF.far,LOD.gr].filter(Boolean));add('terrain',[ter,farMesh]);
+ const known=new Set([foI,LOD.cn,LOD.cf,trI,grI,shI,...shV,...LOD.tn,...LOD.tf,LOD.gr,GF.mesh,GF.far,ter,farMesh,wt,sky]);
+ add('props',benMeshes(o=>o.isMesh&&!o.isInstancedMesh&&!known.has(o)&&o.visible));
+ G.push(['shadows',()=>{BEN.sh=[sun.castShadow,sunF.castShadow];sun.castShadow=sunF.castShadow=false},()=>{[sun.castShadow,sunF.castShadow]=BEN.sh}]);
+ G.push(['post',()=>{BEN.po=PST.on;PST.on=false},()=>{PST.on=BEN.po}]);
+ G.push(['halfres',()=>rd.setPixelRatio(PFM.base*.5),()=>rd.setPixelRatio(PFM.base)]);
+ /* S1 candidates: old shadow path (no far-cascade cache), far cascade off, fewer MSAA samples, plain PCF shadows, 0.72 render scale */
+ G.push(['nolite',()=>{PQ.lite=false;pqLite()},()=>{PQ.lite=true;pqLite()}]);
+ G.push(['nocache',()=>{PQ.shc=false},()=>{PQ.shc=true;PQ.pend=true}]);
+ G.push(['farshadow',()=>{BEN.fs=sunF.castShadow;sunF.castShadow=false},()=>{sunF.castShadow=BEN.fs}]);
+ const ms=n=>()=>{PST.ms=n;PST.w=0};G.push(['msaa2',ms(2),ms(4)]);G.push(['msaa0',ms(0),ms(4)]);
+ const sh=t=>()=>{rd.shadowMap.type=t;sc.traverse(o=>{if(o.material)[].concat(o.material).forEach(m=>m.needsUpdate=true)})};G.push(['pcf',sh(THREE.PCFShadowMap),sh(THREE.PCFSoftShadowMap)]);
+ /* S2 terrain candidates: stone layer always read (old path), detail anisotropy 4 and 1, idle night/flare lights and the far-shadow light hidden */
+ G.push(['norock',()=>{PQT.value.x=0},()=>{PQT.value.x=1}]);
+ G.push(['aniso4',()=>pqAniso(4),()=>pqAniso(PQ.an)]);G.push(['aniso1',()=>pqAniso(1),()=>pqAniso(PQ.an)]);
+ {const L=[NL.sp,...NL.pt,sunF];G.push(['nolights',()=>{BEN.lv=L.map(l=>l.visible);L.forEach(l=>l.visible=false)},()=>L.forEach((l,i)=>l.visible=BEN.lv[i])])}
+ G.push(['scale72',()=>rd.setPixelRatio(PFM.base*.72),()=>rd.setPixelRatio(PFM.base)]);
+ return G}
+/* High: the parts that cost most there; Standard runs with shadows off, as a slow GPU plays it (automatic Standard turns shadows off) */
+BEN.HI=[];BEN.ST=['all','nolite'];
+function benPlan(){const P=[];for(const bio of['forest','plain'])for(const tier of['high','std'])BEN.views.forEach(([vn],vi)=>{
+  const gs=tier==='high'?BEN.HI:BEN.ST;gs.forEach(gn=>P.push({bio,tier,view:vn,vi,grp:gn}))});return P}
+function benWorld(bio){devStart(Object.assign(devDef(),{k:'m:FIRE',mi:0,bio,o:1,hp:100}),true);closeOv();$('rep').hidden=true;BEN.G=benGroups()}
+function benStart(){if(BEN.on)return;BEN.on=true;BEN.res=[];BEN.t0=performance.now();PFM.auto=false;pfSet(0);BEN.s0=S.gfx;BEN.d0=S.shd;
+ const gl=rd.getContext();BEN.ext=gl.getExtension('EXT_disjoint_timer_query_webgl2');
+ try{const x=gl.getExtension('WEBGL_debug_renderer_info');BEN.gpu=gl.getParameter(x?x.UNMASKED_RENDERER_WEBGL:gl.RENDERER)}catch(e){BEN.gpu='?'}
+ benWorld('forest');BEN.plan=benPlan();BEN.k=0;BEN.bio='forest';benCase()}
+function benCase(){const c=BEN.plan[BEN.k];if(!c)return benDone();
+ if(c.bio!==BEN.bio){BEN.bio=c.bio;benWorld(c.bio)}
+ S.gfx=c.tier;S.shd=c.tier==='std'?false:BEN.d0;gfxApply();sight=0;BEN.views[c.vi][1]();const g=BEN.G.find(x=>x[0]===c.grp);g[1]();BEN.cur={c,g,f:0,ms:[],gpu:[],tris:0,calls:0};benUI()}
+/* the frame: the world stands still (dt 0.0001), the camera is the view's; time from before the step to a finished 1-pixel read */
+const _stBn=step;step=function(dt,draw){
+ if(!BEN.on||!BEN.cur||!draw)return _stBn(dt,draw);
+ const b=BEN.cur,gl=rd.getContext(),x=BEN.ext;BEN.views[b.c.vi][1]();if(!ov.hidden)closeOv();$('rep').hidden=true;
+ let q=null;if(x&&!BEN.qOpen){q=gl.createQuery();gl.beginQuery(x.TIME_ELAPSED_EXT,q);BEN.qOpen=1}
+ rd.info.autoReset=false;rd.info.reset();const t0=performance.now();_stBn(1e-4,true);
+ if(q){gl.endQuery(x.TIME_ELAPSED_EXT);BEN.qOpen=0;BEN.pend.push([q,b,b.f])}
+ gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,BEN.px||(BEN.px=new Uint8Array(4)));const ms=performance.now()-t0;rd.info.autoReset=true;
+ /* timer results arrive a few frames later */
+ if(x)BEN.pend=BEN.pend.filter(([qq,bb,ff])=>{if(!gl.getQueryParameter(qq,gl.QUERY_RESULT_AVAILABLE))return true;const dis=gl.getParameter(x.GPU_DISJOINT_EXT),ns=gl.getQueryParameter(qq,gl.QUERY_RESULT);gl.deleteQuery(qq);if(!dis&&ff>=BEN.W)bb.gpu.push(ns/1e6);return false});
+ b.f++;if(b.f>BEN.W){b.ms.push(ms);b.tris=rd.info.render.triangles;b.calls=rd.info.render.calls}
+ if(b.f>=BEN.W+BEN.N){b.g[2]();const m=a=>{if(!a.length)return null;const s=a.slice().sort((p,q)=>p-q);return+s[Math.floor(s.length/2)].toFixed(2)},p95=a=>{const s=a.slice().sort((p,q)=>p-q);return+s[Math.floor(s.length*.95)].toFixed(2)};
+  BEN.res.push({bio:b.c.bio,tier:b.c.tier,view:b.c.view,off:b.c.grp,ms:m(b.ms),p95:p95(b.ms),gpu:m(b.gpu),tris:b.tris,calls:b.calls});BEN.cur=null;sight=0;BEN.k++;setTimeout(benCase,0)}};
+function benDone(){BEN.on=false;S.gfx=BEN.s0;S.shd=BEN.d0;gfxApply();PFM.auto=!navigator.webdriver||!!window.__pfTest;
+ BEN.out={v:typeof VER!=='undefined'?VER:'',gpu:BEN.gpu,timer:!!BEN.ext,w:innerWidth,h:innerHeight,dpr:devicePixelRatio,secs:Math.round((performance.now()-BEN.t0)/1000),res:BEN.res};benUI(true)}
+/* ---------- panel ---------- */
+function benUI(done){if(!BEN.el){const el=document.createElement('aside');el.id='benP';el.innerHTML='<style>#benP{position:fixed;z-index:10001;right:12px;top:12px;max-height:calc(100vh - 24px);overflow:auto;width:560px;max-width:calc(100vw - 24px);background:#141b1f;color:#e8e4d8;border:1px solid #2c3940;border-radius:12px;padding:10px 12px;font:12px/1.35 system-ui,sans-serif}'+
+  '#benP button{border-radius:8px;border:1px solid #6a8a3a;background:#3a4d2a;color:#e8e4d8;font:600 13px system-ui;padding:6px 12px;cursor:pointer;margin-right:6px}#benP table{border-collapse:collapse;width:100%;margin-top:8px;font-variant-numeric:tabular-nums}#benP td,#benP th{padding:2px 5px;border-bottom:1px solid #22303a;text-align:right}#benP td:first-child,#benP th:first-child{text-align:left}#benP .d{color:#e0b54a}</style><div id="benB"></div>';document.body.appendChild(el);BEN.el=el;
+  el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='bnGo')benStart();if(b.id==='bnCp'){const t=JSON.stringify(BEN.out);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>b.textContent='Copied',()=>{const a=document.createElement('textarea');a.value=t;el.appendChild(a);a.select();document.execCommand('copy');a.remove();b.textContent='Copied'})}
+   if(b.id==='bnDl'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(BEN.out,null,1)],{type:'application/json'}));a.download='bggb-bench.json';a.click()}})}
+ const B=$('benB'),n=BEN.plan?BEN.plan.length:0;
+ if(!BEN.plan){B.innerHTML='<b>BGGB perf bench</b><p>Runs about 3 minutes. Leave the window in front and do not touch it.<br>GPU: '+esc(BEN.gpu||'(read at start)')+'</p><button id="bnGo">Start</button>';return}
+ if(!done){B.innerHTML='<b>Bench running</b> '+BEN.k+' / '+n+' · '+esc(BEN.cur?BEN.cur.c.bio+' '+BEN.cur.c.tier+' '+BEN.cur.c.view+' (off: '+BEN.cur.c.grp+')':'');return}
+ const base={};BEN.res.forEach(r=>{if(r.off==='all')base[r.bio+r.tier+r.view]=r});
+ const row=r=>{const b=base[r.bio+r.tier+r.view],d=r.off!=='all'&&b?(b.ms-r.ms).toFixed(1):'';return'<tr><td>'+r.bio+' '+r.tier+' '+r.view+'</td><td>'+r.off+'</td><td>'+r.ms+'</td><td>'+r.p95+'</td><td>'+(r.gpu==null?'–':r.gpu)+'</td><td class="d">'+d+'</td><td>'+(r.tris/1e6).toFixed(2)+'M</td><td>'+r.calls+'</td></tr>'};
+ B.innerHTML='<b>Bench done</b> · '+esc(BEN.gpu)+' · '+BEN.out.secs+' s · GPU timer '+(BEN.out.timer?'yes':'no')+'<p><button id="bnCp">Copy results</button><button id="bnDl">Download</button></p>'+
+  '<table><tr><th>case</th><th>off</th><th>ms</th><th>p95</th><th>gpu</th><th>saved</th><th>tris</th><th>calls</th></tr>'+BEN.res.map(row).join('')+'</table>'}
+function benOpen(){if(!BEN.ok||location.hash!=='#bench'||BEN.el)return;benUI()}
+addEventListener('hashchange',benOpen);setTimeout(benOpen,0);
+window.__bench=BEN;
 </script>

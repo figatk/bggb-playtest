@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.26.2","c":"a6471f6"};
+const BUILD={"v":"9.28.0","c":"8c4f58f"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -827,11 +827,11 @@ addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;aud();const 
  else if('123'.includes(e.key)){am=+e.key-1;fz=FZ[AMS[am]][0];renderSoon()}});
 addEventListener('keyup',e=>K[e.key.toLowerCase()]=0);
 $('f').addEventListener('pointerdown',e=>{e.preventDefault();fire()});
-$('bSt').onclick=stBtn;$('bLay').onclick=doLay;$('bRdy').onclick=reportReady;
+$('bSt').onclick=()=>stBtn();$('bLay').onclick=()=>doLay();$('bRdy').onclick=()=>reportReady();
 const PD={u:0,d:0,l:0,r:0},pdT={};
 [['pU','u'],['pD','d'],['pL','l'],['pR','r']].forEach(([id,k])=>{const b=$(id);b.addEventListener('pointerdown',e=>{e.preventDefault();aud();PD[k]=1;pdT[k]=0;if(!layOn){layB=gunBrg();layQ=gunQE()}layOn=true});['pointerup','pointercancel','pointerleave'].forEach(t=>b.addEventListener(t,()=>PD[k]=0))});
 $('pFn').onclick=()=>{fine^=1;$('pFn').classList.toggle('on',!!fine)};
-$('bSight').onclick=toggleSight;$('bLrf').onclick=()=>lase();$('bZoom').onclick=()=>sightZoom((zi+1)%ZM.length);$('bLfc').onclick=lrfToFcs;
+$('bSight').onclick=()=>toggleSight();$('bLrf').onclick=()=>lase();$('bZoom').onclick=()=>sightZoom((zi+1)%ZM.length);$('bLfc').onclick=()=>lrfToFcs();
 /* sight magnification: opens at x2 (24 degrees); Z / Shift+Z, wheel, +/- or the zoom button step through x4, x8, x16 and x32 (Brenton 2026-11-12) */
 const ZM=[2,4,8,16,32];let zi=0;
 function sightZoom(i){zi=cl(i,0,ZM.length-1);$('bZoom').textContent='\u00d7'+ZM[zi];if(sight){cam.fov=48/ZM[zi];cam.updateProjectionMatrix()}}
@@ -949,7 +949,7 @@ function openPanel(t){curTab=t;$('panel').hidden=false;document.body.classList.a
 function closePanel(){curTab=null;$('panel').hidden=true;document.body.classList.remove('po')}
 function togglePanel(t){curTab===t?closePanel():openPanel(t)}
 document.querySelectorAll('#panel header button[data-t]').forEach(b=>b.onclick=()=>openPanel(b.dataset.t));$('pX').onclick=closePanel;
-$('bMap').onclick=()=>togglePanel('map');$('bFcs').onclick=()=>togglePanel('fcs');$('bNet').onclick=()=>togglePanel('net');$('bLog').onclick=()=>togglePanel('log');$('bMenu').onclick=showMenu;
+$('bMap').onclick=()=>togglePanel('map');$('bFcs').onclick=()=>togglePanel('fcs');$('bNet').onclick=()=>togglePanel('net');$('bLog').onclick=()=>togglePanel('log');$('bMenu').onclick=()=>showMenu(); /* late-bound: BGGB replaces showMenu with its pause menu */
 function renderTab(){if(curTab==='fcs')renderFcs();else if(curTab==='net')renderNet();else if(curTab==='log')renderLog()}
 let rsq=0;function renderSoon(){rsq=1}
 function renderAll(){renderTab();renderSoon()}
@@ -988,7 +988,7 @@ function renderFcs(){const el=$('p-fcs');if(fcsPress||el.contains(document.activ
  el.querySelectorAll('[data-am]').forEach(b=>b.onclick=()=>{am=+b.dataset.am;fz=FZ[AMS[am]][0];renderFcs()});
  el.querySelectorAll('[data-fz]').forEach(b=>b.onclick=()=>{fz=b.dataset.fz;renderFcs()});
  el.querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>{const R=M.cur,p=R.L.tgt.pts[+b.dataset.ap];R.aimPt=p;R.aim={...p};aim={e:p.e,n:p.n,id:R.L.tgt.id};renderFcs()});
- $('fLay').onclick=doLay;$('fRdy').onclick=reportReady;$('fFt').onclick=()=>{const t=$('ftab');t.innerHTML?t.innerHTML='':t.innerHTML=ftable(chSel||(s&&!s.none?s.c:4))};
+ $('fLay').onclick=()=>doLay();$('fRdy').onclick=()=>reportReady();$('fFt').onclick=()=>{const t=$('ftab');t.innerHTML?t.innerHTML='':t.innerHTML=ftable(chSel||(s&&!s.none?s.c:4))};
  const ca=$('cAp');if(ca)ca.onclick=()=>{if(!aim)return toast('Set an aim point first');const ob=TH.obs.K31,b=brg(ob,aim)/MIL,ue=Math.sin(b),un=Math.cos(b),re=Math.cos(b),rn=-Math.sin(b);
   const lr=/^([LR])\s*(\d+)$/i.exec($('cLR').value.trim()),ad=/^([AD])\s*(\d+)$/i.exec($('cAD').value.trim());if(!lr&&!ad)return toast('Enter e.g. L40 and/or D120');
   let x=0,y=0;if(lr)x=(lr[1].toUpperCase()==='R'?1:-1)*+lr[2];if(ad)y=(ad[1].toUpperCase()==='A'?1:-1)*+ad[2];aim={...aim,e:aim.e+y*ue+x*re,n:aim.n+y*un+x*rn};lastCorr=null;if(TUT)TUT.f.corr=(TUT.f.corr||0)+1;beep(660);toast('Correction applied to aim point. Lay the gun again');renderFcs()};
@@ -999,7 +999,7 @@ function ftable(c){let h='<div class="card"><h3>Firing table · charge '+c+'</h3
 /* NET */
 function renderNet(){const el=$('p-net');let h='<div class="row"><button id="nRdy">Ready</button><button id="nRc">Rounds complete</button><button id="nVo" class="'+(S.voice?'on':'')+'">Voice '+(S.voice?'on':'off')+'</button><span class="mu">Mode: '+(DEG.comms?'VOICE ONLY (link down)':{both:'DATA + VOICE',data:'DATA',voice:'VOICE'}[S.comms])+'</span></div>';
  h+=MSG.map(m=>'<div class="msg '+m.cls+'"><div class="h">'+m.clk+' · '+esc(m.from)+(m.vmf?' · DATA':' · VOICE')+'</div>'+esc(m.body)+(m.vmf?'<pre>'+esc(m.vmf)+'</pre>':'')+'</div>').join('')||'<div class="mu">No traffic yet.</div>';
- el.innerHTML=h;$('nRdy').onclick=reportReady;$('nRc').onclick=()=>msg('BIG PRAWN','Rounds complete, over',{cls:'me',voice:false});$('nVo').onclick=()=>{S.voice=!S.voice;sv('as9s',S);renderNet()}}
+ el.innerHTML=h;$('nRdy').onclick=()=>reportReady();$('nRc').onclick=()=>msg('BIG PRAWN','Rounds complete, over',{cls:'me',voice:false});$('nVo').onclick=()=>{S.voice=!S.voice;sv('as9s',S);renderNet()}}
 /* LOG */
 function renderLog(){const el=$('p-log');let h='<div class="row"><b class="ac">SHOT LOG</b><span class="mu">'+LOG.length+' rounds</span><button id="lCp">Copy CSV</button></div><div class="tw"><table><tr><th>#</th><th>Time</th><th>Tgt</th><th>Ammo</th><th>Ch</th><th>AZ</th><th>QE</th><th>TOF</th><th>Impact</th><th>Miss m</th><th>Note</th></tr>';
  h+=LOG.slice().reverse().map(r=>'<tr><td>'+r.n+'</td><td>'+r.clk+'</td><td>'+esc(r.msn)+'</td><td>'+r.am+'/'+r.fz+'</td><td>'+r.ch+'</td><td>'+p4(r.az)+'</td><td>'+p4(Math.max(0,r.qe))+'</td><td>'+r.tof+'</td><td>'+r.imp+'</td><td>'+r.miss+'</td><td style="text-align:left">'+esc(r.note)+'</td></tr>').join('')+'</table></div><textarea id="lTx" hidden style="width:100%;height:120px;margin-top:8px;background:#0a0d0a;color:var(--fg)"></textarea>';
@@ -5149,13 +5149,15 @@ function ntWave(){const R=RUNS,e=R.cur,h=R.heat,sp=e.spawns;if(!sp.length||ntLiv
  if(R.maps>1&&!window.__runK&&h<50){if(h<25)add(RT.rr()<.5?'scout':'inf');else{add('scout');add('inf')}}
  else if(h>=25&&RT.rr()<.6)add('scout');const nIfv=()=>ntLive().filter(t=>NTK[t.nt].ac).length,veh=()=>nIfv()<2?'ifv':'inf';if(h>=50)add(RT.rr()<.5?'inf':veh());if(h>=75){add('inf');add(veh());if(runMk()>=3)add('inf')}
  if(h>=50)thSay('Enemy movement reported towards your position, over',{voice:false})}
+/* one move step of s metres toward (gx,gz); S5c (r65) routes it through a ford when the creek is in the way */
+let ntStep=(t,gx,gz,s)=>{const dx=gx-t.x,dz=gz-t.z,d=Math.hypot(dx,dz)||1;s=Math.min(s,d);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-dz,dx)};
 function ntTick(dt){const R=RUNS;if(!runLive())return;if(T>=RT.next){RT.next=T+rr_(RT.rr,35,50);ntWave()}
  const spd=Math.abs(v);
  for(const t of ntLive()){if(t.pr||t.ml||t.stun>T)continue; /* stunned (P4 Shock): no move, no fire */const K=NTK[t.nt],dx=px-t.x,dz=pz-t.z,d=Math.hypot(dx,dz);
   if(!(t.lt>T)){t.lt=T+.25;t.los=K.rel?ntLos(t.x,t.z,px,pz):1} /* a shooter without line of sight keeps closing (to 150 m) and holds fire; it takes aim afresh once it sees the gun */
   if(K.rel&&t.los<1&&t.fireT<T+1.5)t.fireT=T+1.5;
   if(K.rel)t.lk=t.los>=1&&d<=K.stop+80?(t.lk||0)+dt:0; /* time on the laser: aim settles the longer they hold line of sight */
-  if(!t.hold&&(d>K.stop||K.rel&&t.los<1&&d>150)){const s=Math.min(K.spd*dt,d>K.stop?d-K.stop:d-150);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-dz,dx)}
+  if(!t.hold&&(d>K.stop||K.rel&&t.los<1&&d>150)){const s=Math.min(K.spd*dt,d>K.stop?d-K.stop:d-150);ntStep(t,px,pz,s)}
   else if(t.hold&&d<900)t.hold=false;
   if(t.nt==='scout'&&d<=K.stop+50){t.seen+=dt;if(t.seen>20&&!t.rep){t.rep=1;R.heat+=5;heatFix('scout has reported your position')}}
   if(K.rel&&t.los>=1&&d<=K.stop+80&&T>=t.fireT){t.fireT=T+K.rel*rr_(RT.rr,.8,1.2);const p=cl(K.hit+Math.min(R.heat,100)/400+NTA.lk*Math.min(1,(t.lk||0)/NTA.t)-spd*(R.maps>1?NTA.mv/2:NTA.mv), /* P3g.3b: half the speed penalty in 3-map runs */.1,NTA.max)*cl(1.5-d/(K.stop+80),.4,1); /* worse at the edge of their range; moving helps, but less the longer they track you */
@@ -5320,7 +5322,7 @@ const _huRun=hud;hud=function(){_huRun();const R=RUNS,el=$('hud');if(!R||!(runLi
  const pc={TRAVEL:'t',ACTION:'a',DEPLOY:'w',STOW:'w'}[st],s=Math.round(THR.sig),n=Math.round(s/20);
  let h='<span class="pill '+pc+'">'+({TRAVEL:'TRAVEL',DEPLOY:'INTO ACTION',ACTION:'IN ACTION',STOW:'MARCH ORDER'}[st])+'</span>'+(M&&M.checkFire?'<span class="pill r">CHECK FIRING</span>':'');
  h+=heatLine()+hullLine();
- h+=(Math.abs(v)*3.6).toFixed(0)+' km/h · HE '+ammo.HE+' · '+(rl>0?'<span class="wa">LOADING</span>':'<span class="ok">LOADED</span>')+(laid()?' · <b class="ok">LAID</b>':'');
+ h+=(Math.abs(v)*3.6).toFixed(0)+' km/h · HE <b class="'+heCls()+'">'+ammo.HE+'</b> · '+(rl>0?'<span class="wa">LOADING</span>':'<span class="ok">LOADED</span>')+(laid()?' · <b class="ok">LAID</b>':'');
  h+='<br>SIG <span class="'+(s>60?'bd':s>35?'wa':'ok')+'">'+'▮'.repeat(n)+'▯'.repeat(5-n)+'</span>'+(THR.uav?' · <span class="bd">UAV OVERHEAD</span>':'');
  if(FLT.on.length)h+='<br><span class="wa">FAULT '+FLT.on.map(k=>FK[k].n.toLowerCase()+(FLT.rep&&FLT.rep.k===k?' (fixing '+Math.ceil(FLT.rep.left)+' s)':'')).join(' · ')+'</span>';
  if(HZ.imm>T)h+='<br><span class="bd">IMMOBILISED '+Math.ceil(HZ.imm-T)+' s</span>';
@@ -5719,7 +5721,7 @@ const _haI=heatAim;heatAim=function(ax,az,w,dt){if(!IT.wide)return _haI(ax,az,w,
 const _ntI=ntTick;ntTick=function(dt){const s=NTK.inf.spd;if(itN('wire'))NTK.inf.spd=s*Math.pow(.5,itN('wire'));try{_ntI(dt)}finally{NTK.inf.spd=s}};
 const _ntgI=netToggle;netToggle=function(){const m=RMOD.camo;if(RUNS&&runLive()&&itHas('net')&&THR.netT<=0)RMOD.camo=2*(1+(m||0))-1;try{_ntgI()}finally{if(m==null)delete RMOD.camo;else RMOD.camo=m}};
 const _stI=step;step=function(dt,draw){_stI(dt,draw);const R=RUNS;if(!dt||!R||!runLive()||!RUN())return;
- if(itN('weld')&&Math.abs(v)>1&&(IT.wt+=dt)>=10){IT.wt=0;heal(itN('weld'))}
+ if(itN('weld')&&Math.abs(v)>1&&weldOk()&&(IT.wt+=dt)>=10){IT.wt=0;const n=itN('weld');heal(n);R.weldH=(R.weldH||0)+n}
  if(itN('net')&&THR.net>=1&&THR.netT<=0)R.heat=Math.max(heatFloor(),R.heat-2*itN('net')*dt);
  if(IT.mine)for(const t of ntLive())if(NTK[t.nt].ac&&Math.hypot(t.x-px,t.z-pz)<=NTK[t.nt].stop+20){IT.mine=0;boom(new THREE.Vector3(t.x,H(t.x,t.z)+1,t.z),1);KBY='mine';try{ntKill(t)}finally{KBY=null}break}};
 const _cstI=cacheStart;cacheStart=function(e){if(itN('scav')&&!e.scav){e.scav=1;cacheAdd(rng(RUNS.seed^0x5ca7^RUNS.i),e,itN('scav'))}_cstI(e)};
@@ -5922,7 +5924,7 @@ function prShots(){for(let i=PRS.length-1;i>=0;i--){const q=PRS[i],k=cl((T-q.t0)
 function prTick(dt){const R=RUNS;if(!PF.on)return;if(R.phase!=='mission'){sc.remove(PFB.s);PRS.forEach(q=>sc.remove(q.g));PRS.length=0;return}prBar();const el=T-RM.t0;while(PF.w<PROT.waves.length&&el>=PROT.waves[PF.w])prWave(PF.w++);
  /* attackers close in: full speed until they can see the post within range, then half speed while firing, holding at PROT.stop */
  for(const t of ntLive())if(t.pr){const K=NTK[t.nt],dx=PF.x-t.x,dz=PF.z-t.z,d=Math.hypot(dx,dz),inR=d<=PROT.range[t.nt]&&ntLos(t.x,t.z,PF.x,PF.z)>=1,stop=PROT.stop[t.nt];
-  if(d>stop){const s=Math.min(K.spd*dt*(inR?.5:1)*(t.nt==='inf'?Math.pow(.5,itN('wire')):1),d-stop);t.x+=dx/d*s;t.z+=dz/d*s;t.g.position.set(t.x,H(t.x,t.z),t.z);t.g.rotation.y=Math.atan2(-dz,dx)}
+  if(d>stop){const s=Math.min(K.spd*dt*(inR?.5:1)*(t.nt==='inf'?Math.pow(.5,itN('wire')):1),d-stop);ntStep(t,PF.x,PF.z,s)}
   if(inR&&T>=t.fireT){const w=K.rel*rr_(RT.rr,.8,1.2);t.fireT=T+w;prFire(t,PROT.dps*w,d)}}
  prShots();
  /* damage shows on the post: smoke below 50%, fire below 25% */
@@ -6176,7 +6178,7 @@ document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="p
 /* the round leaves with dispersion; Flat trajectory rounds ignore gravity; Rapid sight fire halves the reload after a sight round */
 const _fiDF=fire;fire=function(){const n=shotN;_fiDF.apply(this,arguments);if(shotN===n||!dmgOn())return;const h=shells.find(s=>s.n===shotN&&s.df);if(!h)return;
  const sg=dfDisp()*DFMIL,ax=new THREE.Vector3(0,1,0),sp=h.v.length(),side=new THREE.Vector3().crossVectors(h.v,ax).normalize();
- h.v.applyAxisAngle(ax,gauss()*sg);h.v.applyAxisAngle(side,gauss()*sg);h.v.setLength(sp);h.tk=1/flyK();if(itN('flat'))h.flat=1;if(itN('rsf'))rl*=.5};
+ h.v.applyAxisAngle(ax,gauss()*sg);h.v.applyAxisAngle(side,gauss()*sg);h.v.setLength(sp);h.tk=1/flyK();if(itN('flat'))h.flat=1;if(itN('rsf'))rl*=.75}; /* S5c: -25% (was -50%) */
 /* the lay solution drops the gravity term with Flat trajectory */
 const _dsDF=dfSol;dfSol=function(t){const s=_dsDF(t);if(s&&dmgOn()&&itN('flat'))s.q-=.5*Math.asin(cl(GRV*s.r/320/320,-1,1))*MIL;return s};
 /* LAY on a lased live threat lays for direct fire (range, superelevation, lead) while that QE is under 89 mils, the direct fire limit; past it the FCS solution stands */
@@ -6187,8 +6189,10 @@ const _laDF=lase;lase=function(){const s0=sup,q0=layQ,o0=layOn,los=gunQE()-s0,b=
  if(lased){const p=toL(lased.g.e,lased.g.n);lased.b=b;lased.p={x:p.x,z:p.z,y:so.y+lased.r*Math.sin(los/MIL)}}}; /* the lased point, its height from the sight line */
 const dfSe=r=>itN('flat')?0:.5*Math.asin(cl(GRV*r/320/320,-1,1))*MIL;
 /* the direct fire solution for an LRF aim sent to the FCS (null when none, or past 89 mils where the FCS indirect lay stands) */
-function lrfSol(){const L=lased;if(!(RUNS&&runLive()&&st==='ACTION'&&L&&aim&&aim.id==='LRF'))return null;const t=L.t;let s=null;
-  if(t&&t.alive&&t.nt)s=dfSol(t);else if(!t&&L.p){veh.updateMatrixWorld(true);mz.getWorldPosition(V3);const r=Math.hypot(L.p.x-V3.x,L.p.z-V3.z);s={b:wm(Math.atan2(L.p.x-px,-(L.p.z-pz))*MIL),q:Math.atan2(L.p.y-V3.y,r)*MIL+dfSe(r),r}} /* from the muzzle */
+function lrfSol(){const L=lased;if(!(RUNS&&runLive()&&st==='ACTION'&&L&&aim&&aim.id==='LRF'))return null;let s=null;
+  /* S5c (Brenton 2026-11-19): the LRF gives a fixed point measured at lasing; it does not follow a moving target (no lead) */
+  if(!L.p&&L.g){const q=toL(L.g.e,L.g.n);L.p={x:q.x,z:q.z,y:H(q.x,q.z)+1.5}} /* lased without a sight line (scripted): the ground point, at a vehicle's middle */
+  if(L.p){veh.updateMatrixWorld(true);mz.getWorldPosition(V3);const r=Math.hypot(L.p.x-V3.x,L.p.z-V3.z);s={b:wm(Math.atan2(L.p.x-px,-(L.p.z-pz))*MIL),q:Math.atan2(L.p.y-V3.y,r)*MIL+dfSe(r),r}} /* from the muzzle */
   return s&&s.q<89?s:null}
 const _dlDF=doLay;doLay=function(){const s=lrfSol();if(s){layB=s.b;layQ=cl(s.q,QDN,QMAX);sup=dfSe(s.r);layOn=true;beep(660);renderSoon();return}return _dlDF()};
 /* FCS solution mark (Brenton 2026-11-17): after Send to FCS a gold diamond in the sight shows where the crosshair must sit for the solution
@@ -6211,6 +6215,14 @@ const MMI={on:1,fade:2};
 const _dmiDF=drawMini;drawMini=function(){_dmiDF();const c=$('mm');if(!RUNS||!runLive()||!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);
  g.strokeStyle='#ff3b30';g.lineWidth=2*dp;for(let i=IMP.length-1;i>=0;i--){const m=IMP[i],age=T-m.t;if(age>MMI.on+MMI.fade)break;if(m.a!=='CB'||age<0)continue;const l=toL(m.e,m.n),x=(l.x+HALF)*s,y=(l.z+HALF)*s,r=4*dp;
   g.globalAlpha=age<MMI.on?1:1-(age-MMI.on)/MMI.fade;g.beginPath();g.arc(x,y,r,0,7);g.stroke()}g.globalAlpha=1};
+
+/* S5c: Send to FCS sends the point lased (not where the target is now), and the LRF aim is temporary: closing the sight puts the
+   order's own aim (a fire mission target) back, so LAY goes to it again */
+let aimKeep=null;
+const _lfS5c=lrfToFcs;lrfToFcs=function(){const run=RUNS&&runLive(),a0=aim,t=lased&&lased.t;if(run&&lased)lased.t=null;try{_lfS5c.apply(this,arguments)}finally{if(run&&lased)lased.t=t}
+ if(run&&aim&&aim.id==='LRF'&&a0!==aim&&a0&&a0.id!=='LRF')aimKeep=a0};
+const _tsS5c=toggleSight;toggleSight=function(){_tsS5c.apply(this,arguments);if(!sight&&aimKeep&&aim&&aim.id==='LRF'){aim=aimKeep;aimKeep=null;renderSoon()}};
+const _rmsAk=runModeStart;runModeStart=function(e){aimKeep=null;return _rmsAk.apply(this,arguments)};
 /* ---------- P3g.3b ambush: unmarked barricades and traps on the route (3-map runs) ----------
    Barricades: a line of solid blocks across the route at 45% (and 70% from map 2), so the route arrows lead into them and the crew must go round off-road.
    Traps: hidden mines a little off the route centre, 2 + map index of them; driving within 4 m sets one off: 15 damage and a track fault.
@@ -6582,8 +6594,9 @@ const RDN=Math.round(HALF*2/RDK.g)+1,rdI=(x,z)=>{const i=Math.round((x+HALF)/RDK
 WHOOK.push(W=>{RDW.on=!!(W&&W.lay);RDW.lay=RDW.on?W.lay:null;RDW.f={};RDW.pc={};RDW.c=null;if(!RDW.on)return;const C=new Float32Array(RDN*RDN),g=RDK.g;
  for(let c=0;c<C.length;c++){const[x,z]=rdXZ(c),h=H(x,z),s=Math.max(Math.abs(H(x+g/2,z)-H(x-g/2,z)),Math.abs(H(x,z+g/2)-H(x,z-g/2)))/g,on=trackNear(x,z).d<RDK.trk;
   C[c]=on?1:WL-h>FORD?-1:RDK.offC*(1+3*s)*(s>RDK.slope?4:1)}
- /* every place can be left and reached: its own ground within 40 m is passable however steep */
- for(const k of[...FPS,...RUN_EXTRA]){const s=SITES[k];if(!s)continue;for(let dx=-40;dx<=40;dx+=g)for(let dz=-40;dz<=40;dz+=g){const c=rdI(s[0]+dx,s[1]+dz);if(c>=0&&C[c]<0)C[c]=RDK.offC*3}}RDW.c=C});
+ /* every place can be left and reached: its own grid cell is passable. (S5c: was every cell within 40 m, which let a rally point beside the creek
+    route straight across deep water) */
+ for(const k of[...FPS,...RUN_EXTRA]){const s=SITES[k];if(!s)continue;const c=rdI(s[0],s[1]);if(c>=0&&C[c]<0)C[c]=RDK.offC*3}RDW.c=C});
 function rdField(site){const fk=site+(fordAny()?'~f':'');if(RDW.f[fk])return RDW.f[fk];const C0=RDW.c,dw=fordAny()?RDK.offC*2:Infinity,C={length:C0.length},Cq=c=>C0[c]<0?dw:C0[c],N=C.length,d=new Float32Array(N).fill(Infinity),nx=new Int32Array(N).fill(-1),s=SITES[site],c0=rdI(s[0],s[1]);
  const hp=[],push=(c,v)=>{hp.push([v,c]);let i=hp.length-1;while(i){const p=(i-1)>>1;if(hp[p][0]<=hp[i][0])break;[hp[p],hp[i]]=[hp[i],hp[p]];i=p}},
   pop=()=>{const t=hp[0],l=hp.pop();if(hp.length){hp[0]=l;let i=0;for(;;){const a=2*i+1,b=a+1;let m=i;if(a<hp.length&&hp[a][0]<hp[m][0])m=a;if(b<hp.length&&hp[b][0]<hp[m][0])m=b;if(m===i)break;[hp[m],hp[i]]=[hp[i],hp[m]];i=m}}return t};
@@ -7499,7 +7512,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['Controller support: PS5, Xbox and Steam Deck','Threshold items: take 3 upgrades of a stat to unlock its rare item','Every run earns a doctrine name from your build and play style','Item offers lean toward the stats you upgrade']};
+const NOTES={get v(){return BUILD.v},items:['Remote weapon station: an automatic gun on your turret roof','New order: Search and destroy','Controller support: PS5, Xbox and Steam Deck','Threshold items: take 3 upgrades of a stat to unlock its rare item']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -8115,7 +8128,7 @@ RICO.it.drone='<path d="M2 5h7v1.6H2zM15 5h7v1.6h-7z" fill="currentColor" stroke
 document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ri-it-drone" viewBox="0 0 24 24">'+RICO.it.drone+'</symbol></svg>');
 const SCN={t:-1e9,p:new Map(),per:()=>itN('drone')?5:10};
 const scnAct=t=>(t.lk||0)>0||NTS.some(s=>s.s===t&&T-s.t0<3);
-enDots=()=>{const R=RUNS;if(!R||!runLive())return[];const amb=R.phase==='mission'&&R.cur&&R.cur.mode==='AMBUSH',L=ntLive().filter(t=>!t.hid);
+enDots=()=>{const R=RUNS;if(!R||!runLive())return[];const amb=(R.phase==='mission'||R.phase==='exfil')&&R.cur&&R.cur.mode==='AMBUSH' /* Ambush runs in its exfil phase (S5c fix) */,L=ntLive().filter(t=>!t.hid);
  for(const t of L)if(scnAct(t))t.rv=1;
  if(T-SCN.t>=SCN.per()||T<SCN.t){SCN.t=T;SCN.p=new Map(L.map(t=>[t,{x:t.x,z:t.z}]))}
  const out=[];for(const t of L){if(amb&&!t.rv)continue;if(scnAct(t))out.push(t);else{const q=SCN.p.get(t);if(q)out.push({x:q.x,z:q.z,nt:t.nt})}}return out};
@@ -8257,7 +8270,7 @@ const _stS5=step;step=function(dt,draw){const s0=st;_stS5.apply(this,arguments);
 const _sbS5=stBtn;stBtn=function(){const s0=st,r=_sbS5.apply(this,arguments),R=RUNS;if(R&&runLive()&&s0==='ACTION'&&st==='STOW'&&itN('cro')){RH.fix=null;R.heat=Math.max(heatFloor(),R.heat-15);for(let i=0;i<8;i++)puff(px+Math.cos(i*.8)*7,H(px,pz)+2,pz+Math.sin(i*.8)*7,0xc8c8c0,9,3,2,.8,.4)}return r};
 const _rmsS5=runModeStart;runModeStart=function(e){if(RUNS){RUNS.est=0;RUNS.brl=0;RUNS.hdT=0;RUNS.hvN=0;RUNS.bcP=null}return _rmsS5.apply(this,arguments)};
 /* firing: indirect refused in travel; Ballistic computer zeroes dispersion for the first round at a new point; then Quiet gun, Heavy charge, Burst loader, Emergency stowage */
-const bcPt5=()=>{if(st==='TRAVEL')return null; /* on the move there is no LRF data (Brenton 2026-11-17) */if(gunQE()<89){const L=lased;return L?(L.t&&L.t.alive?{x:L.t.x,z:L.t.z}:L.p||null):null}return aim?toL(aim.e,aim.n):null};
+const bcPt5=()=>{if(st==='TRAVEL')return null; /* on the move there is no LRF data (Brenton 2026-11-17) */if(gunQE()<89){const L=lased;return L?L.p||null:null}return aim?toL(aim.e,aim.n):null};
 const _fiS5=fire;fire=function(){const R=RUNS;if(!R||!runLive())return _fiS5.apply(this,arguments);
  if(st==='TRAVEL'&&layLive()&&gunQE()>=89){aud();return toast('Indirect fire needs ACTION')}
  const n=shotN,h0=R.heat;let zero=0,p=null;if(itN('bcp')){p=bcPt5();zero=!!p&&(!R.bcP||Math.hypot(p.x-R.bcP.x,p.z-R.bcP.z)>THR_.bc)}
@@ -8289,4 +8302,162 @@ RICO.it.cro='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none"
 RICO.it.rrp='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M15 2a6 6 0 0 0-5.6 8.1L2.6 16.9a2.6 2.6 0 0 0 3.7 3.7l6.8-6.8A6 6 0 0 0 21.6 8.4l-3.4 3.4-3.6-.8-.8-3.6L17.2 4A6 6 0 0 0 15 2z" fill="currentColor" stroke="none"/><path d="M14 19h8M16 22h6" fill="none" stroke="#b07ce0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M17.5 0H24v6.5z" fill="#b07ce0" stroke="none"/>';
 RICO.it.est='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M3 6h18v15H3zM5 8v11h14V8z" fill="currentColor" stroke="none" fill-rule="evenodd"/><path d="M7 10h2v7H7zM11 10h2v7h-2zM15 10h2v7h-2z" fill="currentColor" stroke="none"/><path d="M3 2h18v3H3z" fill="#e0cf4a" stroke="none"/></g><path d="M17.5 0H24v6.5z" fill="#e0cf4a" stroke="none"/>';
 document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+['fom','qgn','hdn','dpy','evd','hvc','brl','bcp','cro','rrp','est'].map(k=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+RICO.it[k]+'</symbol>').join('')+'</svg>');
+/* ================= P6 S5c (BGGB): play-test fixes (Brenton 2026-11-19). Mine warning, low HE colour, lighter impact smoke,
+   Rapid sight fire -25%, Field welder limits. (Menu/Sight/LRF button binding: 16-input, 17-panels; LRF fixed point and aim restore: r16;
+   Ambush map: r60; fords: r65.) ================= */
+const S5C={mw:15,smL:.5,smO:.7,weldCap:30};
+/* mines: inside 15 m a mine clicks and its red light blinks, so a slow driver can stop or steer off; it still goes off inside its 4 m trip */
+const MWM=noRng(()=>({g:new THREE.SphereGeometry(.22,8,6),m:new THREE.MeshBasicMaterial({color:0xff2a1a})}));
+const mwOff=m=>{if(m.wl){sc.remove(m.wl);m.wl=null}};
+const _acS5c=ambClear;ambClear=function(){AMB.mines.forEach(mwOff);return _acS5c.apply(this,arguments)};
+const _ntS5c=ntTick;ntTick=function(dt){_ntS5c(dt);if(!AMB.mines.length)return;const on=runLive();
+ for(const m of AMB.mines){if(!m.on||!on){mwOff(m);continue}const d=Math.hypot(m.x-px,m.z-pz);
+  if(d<S5C.mw){if(!m.wl){m.wl=noRng(()=>new THREE.Mesh(MWM.g,MWM.m));m.wl.position.set(m.x,H(m.x,m.z)+.35,m.z);sc.add(m.wl);beep(2400,.05);setTimeout(()=>beep(2400,.05),120)}
+   m.wl.visible=(T*4%1)<.5}else mwOff(m)}};
+/* HE count: amber at 25% of capacity, red at 10%; one beep when it first drops to 25% */
+const heCls=()=>{const c=Math.max(1,rsBase().HE),f=ammo.HE/c;return f<=.1?'bd':f<=.25?'wa':''};
+let heLow=0;const _huS5c=hud;hud=function(){_huS5c.apply(this,arguments);if(!RUNS||!runLive())return;const w=heCls();if(w&&!heLow)beep(500,.12);heLow=w?1:0};
+/* impact smoke and dust in a run clear 2x faster and are 30% more see-through (fire and debris unchanged; our smoke rounds unchanged) */
+const _fbS5c=fxBoom;fxBoom=function(p,big){const L=FX.L,n0=L.length;_fbS5c.apply(this,arguments);if(!RUNS||!runLive())return;
+ for(let i=L.length-1,k=0;i>=0&&k<49;i--,k++){const o=L[i];if(o.t===0&&o.life>=3){o.life*=S5C.smL;o.op*=S5C.smO}}};
+/* Field welder: only until the order's objective is done (Ambush runs its whole mission after it), at most 30 hull per copy each mission */
+const weldOk=()=>{const R=RUNS;return!!R&&(R.phase==='mission'||R.phase==='exfil'&&R.cur&&R.cur.mode==='AMBUSH')&&(R.weldH||0)<S5C.weldCap*itN('weld')};
+const _rmsS5c=runModeStart;runModeStart=function(e){if(RUNS)RUNS.weldH=0;heLow=0;return _rmsS5c.apply(this,arguments)};
+ITEMS.weld.d='+1 hull every 10 s while moving, until the objective is done (max 30 per mission)';
+ITEMS.rsf.d='Direct fire reload −25%';
+/* ================= P6 S5c (BGGB): enemies cross the creek only at crossings (Brenton 2026-11-19). Crossings = where a track meets the
+   water (the creek is graded shallow there). When the straight line to an enemy's goal meets water deeper than
+   that, it drives to the crossing that makes the trip shortest, through it, then on. Checked every 1.5 s per enemy; no random draws. ================= */
+const FRD={L:[],step:10,re:1.5,out:40};
+WHOOK.push(W=>{FRD.L=[];if(!W)return;const g=20,pts=[];for(let x=-HALF;x<=HALF;x+=g)for(let z=-HALF;z<=HALF;z+=g){const d=depthAt(x,z);if(d>.2&&trackNear(x,z).d<12)pts.push([x,z])}
+ for(const p of pts){const f=FRD.L.find(c=>Math.hypot(c.sx/c.n-p[0],c.sz/c.n-p[1])<60);if(f){f.sx+=p[0];f.sz+=p[1];f.n++}else FRD.L.push({sx:p[0],sz:p[1],n:1})}
+ FRD.L=FRD.L.map(c=>({x:c.sx/c.n,z:c.sz/c.n}))});
+/* does the straight line cross water deeper than the ford depth? */
+const frdWet=(x0,z0,x1,z1)=>{const d=Math.hypot(x1-x0,z1-z0),n=Math.ceil(d/FRD.step);for(let i=1;i<n;i++){const k=i/n;if(depthAt(x0+(x1-x0)*k,z0+(z1-z0)*k)>FORD)return true}return false};
+const _nsFrd=ntStep;ntStep=function(t,gx,gz,s){if(!FRD.L.length||t.boss)return _nsFrd(t,gx,gz,s);
+ if(!(t.fwT>T)){t.fwT=T+FRD.re;
+  if(t.fx&&Math.hypot(t.fx.x-t.x,t.fx.z-t.z)>8){/* still heading through a crossing: keep going */}
+  else{t.fx=null;if(frdWet(t.x,t.z,gx,gz)){let b=null,bd=1e9;for(const f of FRD.L){if(frdWet(t.x,t.z,f.x,f.z))continue;const c=Math.hypot(f.x-t.x,f.z-t.z)+Math.hypot(gx-f.x,gz-f.z);if(c<bd){bd=c;b=f}}
+   if(b){const ax=b.x-t.x,az=b.z-t.z,a=Math.hypot(ax,az)||1;t.fw=b;t.fx={x:b.x+ax/a*FRD.out,z:b.z+az/a*FRD.out}}else t.fw=null}else t.fw=null}}
+ if(t.fw){if(Math.hypot(t.fw.x-t.x,t.fw.z-t.z)<8)t.fw=null;else return _nsFrd(t,t.fw.x,t.fw.z,s)}
+ if(t.fx){if(Math.hypot(t.fx.x-t.x,t.fx.z-t.z)<8)t.fx=null;else return _nsFrd(t,t.fx.x,t.fx.z,s)}
+ return _nsFrd(t,gx,gz,s)};
+/* ================= P6 S6 (BGGB): Remote weapon station (Brenton 2026-11-19). The one automatic weapon (auto-aim exception): no controls, no heat.
+   Every 3 s it fires a burst at an enemy within 400 m that the gun can see: the nearest infantry first, else the nearest vehicle or boss part.
+   A hit kills 1 man, or does 10 damage to a vehicle. Hit chance per burst: 95% to 100 m, then straight down to 40% at 400 m; a target moving over
+   10 km/h x(1 - 0.4 x range/400). Extra copies: interval x0.75 each, +100 m range (the hit curve stretches to the new range). Works in any state,
+   on the move too. Hidden Ambush enemies (not yet revealed) are not engaged. Own random stream, so the run's threat stream is unchanged. ================= */
+Object.assign(ITEMS,{rws:{n:'Remote weapon station',d:'Fires by itself at enemies in sight within 400 m: a burst every 3 s kills 1 man or does 10 damage to a vehicle. Hits 95% to 100 m, 40% at 400 m, less on moving targets. Each extra copy: 25% faster, +100 m',c:140,rare:1,s:3,cat:'sup'}});
+const RWS={per:3,rng:400,dmg:10,p0:.95,p1:.4,near:100,mv:10/3.6,t:0,r:null,m:null,trc:null,trT:0};
+const rwsN=()=>itN('rws'),rwsPer=n=>RWS.per*Math.pow(.75,n-1),rwsRng=n=>RWS.rng+100*(n-1);
+/* hit chance for a target at d metres (stretched to the station's range), moving or not */
+const rwsP=(d,n,mov)=>{const s=d*RWS.rng/rwsRng(n),p=s<=RWS.near?RWS.p0:RWS.p0-(RWS.p0-RWS.p1)*Math.min(1,(s-RWS.near)/(RWS.rng-RWS.near));return p*(mov?1-.4*Math.min(1,s/RWS.rng):1)};
+const rwsSeen=t=>{const R=RUNS;if(t.hid)return false;if(R&&R.cur&&R.cur.mode==='AMBUSH'&&!t.rv)return false;return true};
+function rwsPick(n){const L=ntLive().filter(t=>t.alive&&rwsSeen(t)).map(t=>({t,d:Math.hypot(t.x-px,t.z-pz)})).filter(o=>o.d<=rwsRng(n)).sort((a,b)=>a.d-b.d);
+ for(const inf of[true,false])for(const o of L)if((o.t.nt==='inf')===inf&&ntLos(px,pz,o.t.x,o.t.z)>=1)return o;return null}
+/* the station on the turret roof (S7 adds per-copy growth and art) */
+function rwsMesh(){if(RWS.m)return RWS.m;noRng(()=>{const g=new THREE.Group(),M=new THREE.MeshStandardMaterial({color:0x4b5240,roughness:.8}),B=new THREE.MeshStandardMaterial({color:0x222222,roughness:.6});
+ const b=new THREE.Mesh(new THREE.BoxGeometry(.7,.45,.55),M);b.position.y=.25;g.add(b);const s=new THREE.Mesh(new THREE.BoxGeometry(.3,.25,.3),B);s.position.set(.1,.32,.33);g.add(s);
+ const br=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,1,8),B);br.rotation.z=Math.PI/2;br.position.set(.75,.3,0);g.add(br);
+ tur.updateMatrixWorld(true);const bx=new THREE.Box3().setFromObject(tur),top=tur.worldToLocal(new THREE.Vector3(0,bx.max.y,0)).y;g.position.set(-.6,top-.05,.8);tur.add(g);RWS.m=g;
+ const tg=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(),new THREE.Vector3(1,0,0)]);RWS.trc=new THREE.Line(tg,new THREE.LineBasicMaterial({color:0xffd27a}));RWS.trc.visible=false;sc.add(RWS.trc)});return RWS.m}
+function rwsFire(o,n){const t=o.t,R=RUNS;if(!RWS.r)RWS.r=rng((R.seed||1)^0x5a5a);const mov=Math.hypot(t.x-(t.rwx??t.x),t.z-(t.rwz??t.z))/Math.max(.05,T-(t.rwt??T))>RWS.mv,hit=RWS.r()<rwsP(o.d,n,mov);
+ const m=rwsMesh();m.visible=true;veh.updateMatrixWorld(true);const mp=m.localToWorld(new THREE.Vector3(.95,.3,0));
+ /* aim: the station turns to the target */m.rotation.y=wr(Math.atan2(-(t.z-pz),t.x-px)-(veh.rotation.y+tur.rotation.y));
+ const ex=hit?t.x:t.x+(RWS.r()-.5)*8,ez=hit?t.z:t.z+(RWS.r()-.5)*8,ey=H(ex,ez)+(hit?1.2:.2),P=RWS.trc.geometry.attributes.position;P.setXYZ(0,mp.x,mp.y,mp.z);P.setXYZ(1,ex,ey,ez);P.needsUpdate=true;RWS.trc.visible=true;RWS.trT=T+.15;
+ noRng(()=>{puff(mp.x,mp.y,mp.z,0xffe0a0,.12,.3,.6,1,0);puff(ex,H(ex,ez)+.3,ez,0x9a8466,1,.6,1.5,.6,.4)});for(let i=0;i<4;i++)setTimeout(()=>beep(120+i*10,.03),i*70);
+ if(!hit)return 0;KBY='rws';try{if(t.nt==='inf'){if(!t.men)ntDmg0(t,t.x+1e4,t.z,1,0); /* sets up the men */const u=(t.men||[]).find(q=>q.hp>0);if(u){u.hp=0;u.m.visible=false}if(!t.men||t.men.every(q=>q.hp<=0))ntKill(t);else dmgFx(t,t.men.filter(q=>q.hp>0).length/t.men.length)}
+ else{if(t.hp==null)t.hp=t.hp0=EHP[t.nt]*hpMul();t.hp-=RWS.dmg;if(t.hp<=0)ntKill(t);else dmgFx(t,t.hp/t.hp0)}}finally{KBY=null}return 1}
+const _stRws=step;step=function(dt,draw){_stRws(dt,draw);const R=RUNS;if(RWS.trc&&RWS.trc.visible&&T>RWS.trT)RWS.trc.visible=false;
+ const n=R&&runLive()?rwsN():0;if(n&&!RWS.m)rwsMesh();if(RWS.m)RWS.m.visible=!!(R&&rwsN());if(!n||!dt||!RUN())return;
+ for(const t of ntLive())if(!(t.rwt>T-.5)){t.rwx=t.x;t.rwz=t.z;t.rwt=T} /* last positions, for the moving check */
+ if((RWS.t+=dt)<rwsPer(n))return;const o=rwsPick(n);if(!o)return;RWS.t=0;rwsFire(o,n)};
+const _rmsRws=runModeStart;runModeStart=function(e){RWS.t=0;RWS.r=null;return _rmsRws.apply(this,arguments)};
+RICO.it.rws='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)"><path d="M4 11h9v6H4zM6 8h5v3H6z" fill="currentColor" stroke="none"/><path d="M13 13h8v1.8h-8z" fill="currentColor" stroke="none"/><path d="M2 19h14v1.6H2z" fill="currentColor" stroke="none" opacity=".45"/><circle cx="22" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="9" r=".8" fill="currentColor" stroke="none" opacity=".6"/></g>';
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ri-it-rws" viewBox="0 0 24 24">'+RICO.it.rws+'</symbol></svg>');
+/* ================= P6 S7-S8 (BGGB). S7: RWS grows per copy (2nd: ammo box, 3rd: twin barrel); rearm bonuses. S8 (I2): Deployable armour, Turtle, Lumberjack.
+   Rearm bonuses (Field repair crew, Hot rounds) fire when an AS10 rearm that set out from the RSP completes: one bonus per round trip, so calling the
+   AS10 again while it drives back gives ammunition only (the "rearm downtime"). Numbers proposed in the S7/S8 report (Brenton 2026-11-19: build, then report). ================= */
+Object.assign(ITEMS,{
+ frc:{n:'Field repair crew',d:'An AS10 rearm (from the RSP) also repairs 25% of max hull and clears 1 fault',c:110,rare:1,s:1,cat:'rep'},
+ hot:{n:'Hot rounds',d:'After an AS10 rearm (from the RSP): +30% damage for 30 s (+30 s per extra copy)',c:70,s:2,cat:'dmg'},
+ dpa:{n:'Deployable armour',d:'In action: −30% damage from IFVs, RPGs, missiles and enemy guns (artillery and mines unaffected)',c:80,s:1,cat:'armour'},
+ ttl:{n:'Turtle',d:'+1 hull every 10 s while halted, until the objective is done (max 30 per mission)',c:100,rare:1,s:3,cat:'hull'},
+ lmb:{n:'Lumberjack',d:'+2 Supply per tree you knock down in a mission (max 20 per mission)',c:50,s:1,cat:'sup'}});
+const I78={frcK:.25,hotK:.3,hotT:30,dpaK:.7,ttlCap:30,lmb:2,lmbCap:20,LOCAL:['IFV cannon fire','an RPG','an anti-tank missile','enemy gun']};
+/* RWS per copy */
+const _rmRws=rwsMesh;rwsMesh=function(){const first=!RWS.m,g=_rmRws.apply(this,arguments);if(first&&g)noRng(()=>{const M=new THREE.MeshStandardMaterial({color:0x56603f,roughness:.8}),B=new THREE.MeshStandardMaterial({color:0x222222,roughness:.6});
+ const a=new THREE.Mesh(new THREE.BoxGeometry(.35,.3,.3),M);a.position.set(-.1,.2,-.42);a.name='rws2';g.add(a);
+ const b=new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,1,8),B);b.rotation.z=Math.PI/2;b.position.set(.75,.3,.12);b.name='rws3';g.add(b)});return g};
+const _stI78=step;step=function(dt,draw){_stI78(dt,draw);if(RWS.m){const n=RUNS?itN('rws'):0;for(const c of RWS.m.children){if(c.name==='rws2')c.visible=n>=2;if(c.name==='rws3')c.visible=n>=3}}
+ const R=RUNS;if(!dt||!R||!runLive()||!RUN())return;
+ /* Turtle: halted (any state), same limits as Field welder */
+ if(itN('ttl')&&Math.abs(v)<.3&&(R.phase==='mission'||R.phase==='exfil'&&R.cur&&R.cur.mode==='AMBUSH')&&(R.ttlH||0)<I78.ttlCap*itN('ttl')&&(R.ttlT=(R.ttlT||0)+dt)>=10){R.ttlT=0;const n=itN('ttl');heal(n);R.ttlH=(R.ttlH||0)+n}
+ if(DPA.g)DPA.g.visible=!!itN('dpa')&&(st==='ACTION'||st==='DEPLOY')};
+const _rmsI78=runModeStart;runModeStart=function(e){const R=RUNS;if(R){R.ttlH=0;R.ttlT=0;R.lmbS=0;R.hotT=0}return _rmsI78.apply(this,arguments)};
+/* rearm bonuses */
+const _arI78=askResupply;askResupply=function(){const h=RS.st==='home';_arI78.apply(this,arguments);if(RS.req!=null&&RUNS&&runLive())RS.fromHome=h};
+const _rsI78=resupply;resupply=function(dt){const s0=RS.st;_rsI78.apply(this,arguments);if(s0==='xfer'&&RS.st==='back'&&RS.fromHome&&RUNS&&runLive()){RS.fromHome=false;rearmBonus()}};
+function rearmBonus(){const R=RUNS;let any=0;
+ if(itN('frc')){heal(R.hpMax*I78.frcK);if(FLT.on.length)fltFix(FLT.on[0],'Field repair crew');any=1}
+ if(itN('hot')){R.hotT=T+I78.hotT*itN('hot');any=1}
+ if(any){beep(990,.1);renderSoon()}}
+const hotOn=()=>!!RUNS&&runLive()&&(RUNS.hotT||0)>T;
+const _ntdI78=ntDmg;ntDmg=function(t,x,z,r,k){return _ntdI78(t,x,z,r,hotOn()?k*(1+I78.hotK):k)};
+/* Deployable armour: panels on the hull sides raise in action */
+const DPA={g:null};
+const _rhI78=runHit;runHit=function(dmg,why,ty){if(itN('dpa')&&(st==='ACTION'||st==='DEPLOY')&&I78.LOCAL.includes(why))dmg*=I78.dpaK;return _rhI78.call(this,dmg,why,ty)};
+const _isI78=itSync;itSync=function(){const r=_isI78.apply(this,arguments);if(itN('dpa')&&!DPA.g&&typeof veh!=='undefined')noRng(()=>{const g=new THREE.Group(),M=new THREE.MeshStandardMaterial({color:0x5b6347,roughness:.85});
+ for(const s of[-1,1]){const p=new THREE.Mesh(new THREE.BoxGeometry(4.2,.9,.08),M);p.position.set(0,1.9,s*(HULL.w+.12));p.rotation.x=s*.25;g.add(p)}g.visible=false;veh.add(g);DPA.g=g});return r};
+/* Lumberjack */
+const _fellI78=fell;fell=function(o,dx,dz,blast){const r=_fellI78.apply(this,arguments);const R=RUNS;if(R&&runLive()&&R.phase!=='between'&&itN('lmb')&&(R.lmbS||0)<I78.lmbCap){const a=Math.min(I78.lmb,I78.lmbCap-(R.lmbS||0));R.lmbS=(R.lmbS||0)+a;R.sp=(R.sp||0)+a;spLog('lumber',a)}return r};
+/* icons: simple line style, category corner taken from an item of the same category */
+const gold=x=>'<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)">'+x+'</g>';
+const corner=k=>((RICO.it[k]||'').match(/<path d="M17\.5 0H24v6\.5z"[^>]*>/)||[''])[0];
+RICO.it.frc=gold('<path d="M3 12h12v6H3zM15 14h5l2 2v2h-7z" fill="currentColor" stroke="none"/><circle cx="7" cy="19" r="1.6" fill="currentColor"/><circle cx="18" cy="19" r="1.6" fill="currentColor"/><path d="M8 5h2v2.5h2.5v2H10V12H8V9.5H5.5v-2H8z" fill="currentColor" stroke="none" opacity=".6"/>')+corner('tool');
+RICO.it.hot='<path d="M9 3h6v4l-1 1v12h-4V8L9 7z" fill="currentColor" stroke="none"/><path d="M17 8c2 2 3 4 2 7-1-1-2-1-2-3zM6 9c-2 2-2 5 0 7 0-2 1-3 1-4z" fill="currentColor" stroke="none" opacity=".55"/>'+corner('shf');
+RICO.it.dpa='<path d="M2 14h20v4H2z" fill="currentColor" stroke="none" opacity=".45"/><path d="M3 6l6 2v6H3zM21 6l-6 2v6h6z" fill="currentColor" stroke="none"/>'+corner('appl');
+RICO.it.ttl=gold('<path d="M4 15a8 6 0 0 1 16 0z" fill="currentColor" stroke="none"/><path d="M3 15h18v2H3zM20 12h3v2h-3z" fill="currentColor" stroke="none" opacity=".6"/><path d="M11 3h2v2h2v2h-2v2h-2V7H9V5h2z" fill="currentColor" stroke="none" opacity=".6"/>')+corner('stl');
+RICO.it.lmb='<path d="M11 13h2v8h-2z" fill="currentColor" stroke="none"/><path d="M12 2l6 9H6z" fill="currentColor" stroke="none" opacity=".55"/><path d="M14 15l7-4 1 2-7 4z" fill="currentColor" stroke="none"/>'+corner('scav');
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+['frc','hot','dpa','ttl','lmb'].map(k=>'<symbol id="ri-it-'+k+'" viewBox="0 0 24 24">'+RICO.it[k]+'</symbol>').join('')+'</svg>');
+RICO.it.rws+=corner('scav');document.getElementById('ri-it-rws').innerHTML=RICO.it.rws;
+/* ================= P6 S8 (BGGB). I3 Search and destroy: destroy N enemies of one type anywhere (N by map 5/8/12; IFV-only orders N/2), then the
+   rally point. The type and count show as icons on the order card and the objective card; kills of other types do not count. Offered from order 2 at
+   half weight, like Salvage and Protect. The targets spawn around the order's FP (infantry 300-700 m, IFVs 600-1100 m) and close on you as usual.
+   I4 Elite ammo trade (event, map 2+): hand over your weakest ammo for one of three, one of them Elite-grade. Own random streams. ================= */
+RUN_MODES.SND={n:'Search and destroy',d:'Destroy the number of enemies shown, of the type shown, anywhere. Then get out.',from:1};
+Object.assign(ORD.w,{SND:.5});Object.assign(ORD.from,{SND:1});MICO.SND='m-snd';PAR.SND=220;DOC_MODE.SND='Hunter-killer';
+const SND={N:[5,8,12],ty:['inf','ifv','mix'],inf:[300,700],ifv:[600,1100]};
+document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+[
+ ['m-snd','<circle cx="12" cy="12" r="7"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/><circle cx="12" cy="12" r="1.5"/>'],
+ ['e-inf','<circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11h8M12 15l-3 6M12 15l3 6"/>'],
+ ['e-ifv','<path d="M3 15h18l-2 4H5zM6 15v-4h9l3 4M10 11V8h4v3M14 9.5h7"/>']
+].map(([k,p])=>'<symbol id="ri-'+k+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+'</symbol>').join('')+'</svg>');
+const sndIco=s=>s.ty==='mix'?rIco('e-inf','i sm')+rIco('e-ifv','i sm'):rIco('e-'+s.ty,'i sm');
+const sndMatch=(s,t)=>s.ty==='mix'?t.nt==='inf'||t.nt==='ifv':t.nt===s.ty;
+/* the mission: a Protect-shaped order (an FP, a rally point) with its own type and count */
+const _rmSnd=runMission;runMission=function(r,O,Z,W,m,k,start,exfil){if(m!=='SND')return _rmSnd.apply(this,arguments);const e=_rmSnd.call(this,r,O,Z,W,'PROT',k,start,exfil);if(!e)return null;
+ const q=rng((O.seed|0)^0x5d0^(k*131)),mi=RUNS&&RUNS.mi||0,ty=SND.ty[Math.floor(q()*3)],n0=SND.N[Math.min(2,mi)];
+ e.mode='SND';e.name=RUN_MODES.SND.n;e.def.name=RUN_MODES.SND.n;e.def.brief=RUN_MODES.SND.d;e.def.id=e.def.id.replace(/PROT$/,'SND');e.snd={ty,n:ty==='ifv'?Math.ceil(n0/2):n0};return e};
+const _rmsSnd=runModeStart;runModeStart=function(e){_rmsSnd.apply(this,arguments);const R=RUNS;R.sndK=0;if(e.mode!=='SND'||!e.snd)return;const s=e.snd,f=SITES[e.fp]||[px,pz],q=rng((R.seed|0)^0x5d1^(R.i*977));
+ for(let i=0;i<s.n;i++){const k=s.ty==='mix'?(i%2?'ifv':'inf'):s.ty,[a0,a1]=SND[k];for(let t=0;t<30;t++){const a=q()*6.283,d=a0+q()*(a1-a0),x=f[0]+Math.cos(a)*d,z=f[1]+Math.sin(a)*d;
+  if(Math.abs(x)<HALF-100&&Math.abs(z)<HALF-100&&depthAt(x,z)<.1&&isFinite(H(x,z))){ntSpawn(k,x,z).snd=1;break}}}
+ msg('HAMMER 0','Search and destroy: '+s.n+' '+(s.ty==='inf'?'infantry sections':s.ty==='ifv'?'IFVs':'enemy, infantry and IFVs,')+' reported in your area. Destroy them, over',{cls:'cp',voice:false})};
+const _nkSnd=ntKill;ntKill=function(t){const a=t&&t.alive,r=_nkSnd.apply(this,arguments),R=RUNS,e=R&&R.cur;
+ if(a&&!t.alive&&e&&e.mode==='SND'&&e.snd&&R.phase==='mission'&&runLive()&&sndMatch(e.snd,t)){R.sndK=(R.sndK||0)+1;if(R.sndK>=e.snd.n)runObjective(true)}return r};
+const _ohSnd=objHtml;objHtml=function(){const R=RUNS,e=R&&R.cur;if(!runLive()||TUT||!e||e.mode!=='SND'||R.phase!=='mission'||!e.snd)return _ohSnd();const s=e.snd,k=Math.min(s.n,R.sndK||0);
+ return'<div class="oh"><b>Search and destroy</b><span>'+sndIco(s)+' '+k+'/'+s.n+'</span></div><div class="oq">Destroy '+(s.n-k)+' more</div>'};
+/* order card: the type and count under the description */
+const _opSnd=ordPeek;ordPeek=function(i){_opSnd.apply(this,arguments);const R=RUNS,a=R&&R.map.rows[R.i]&&R.map.rows[R.i].nodes[i],e=a&&oNodeE(R,R.i,a),p=$('rPeek');
+ if(e&&e.mode==='SND'&&e.snd&&p&&!p.hidden&&!p.querySelector('.sndc'))p.insertAdjacentHTML('beforeend','<div class="sndc">'+sndIco(e.snd)+' ×'+e.snd.n+'</div>')};
+document.head.insertAdjacentHTML('beforeend','<style>.sndc{display:flex;align-items:center;gap:4px;font:700 14px var(--fd);margin-top:4px}.oh .i.sm{width:14px;height:14px;vertical-align:-2px}</style>');
+/* ---------- I4 Elite ammo trade ---------- */
+const amWeak=R=>{const L=amList();if(!L.length)return-1;const v=a=>['Standard','Improved','Elite'].indexOf(a.rar)*100+Object.values(a.s).reduce((x,y)=>x+y,0)+(a.fx?50:0);let b=0;L.forEach((a,i)=>{if(v(a)<v(L[b]))b=i});return b};
+Object.assign(EVENTS,{amtrd:{n:'Ammo trader',can:R=>R.maps>1&&(R.mi||0)>=1&&amList().length>0,
+ init:r=>{const imp=AFX_BASE.filter(k=>AFX[k].r===2),fx=imp.length?imp[Math.floor(r()*imp.length)]:null;return{am:[amEvRoll(r),amEvRoll(r),amRoll(r,{ri:2,fx})]}},
+ ch:(R,d)=>{const w=amList()[amWeak(R)];return d.am.map((a,j)=>({id:j,fx:(w?[CH.am(w,'bd')]:[]).concat(CH.am(a))}))},
+ go:(R,d,c)=>{const i=amWeak(R),w=i>=0?R.am[i]:null,a=d.am[c];if(i>=0)R.am.splice(i,1);amAdd(a);amSync();return(w?[CH.am(w,'bd')]:[]).concat(CH.am(a,'ok'))}}});
+EVT.amtrd=['A trader swaps ammunition. Hand over your weakest ammo for one of these. One is Elite grade.',{_:'Trade'}];
+const _ncTrd=nodeCard;nodeCard=function(){const h=_ncTrd(),R=RUNS,a=R&&RG.node&&R.map.rows[RG.node.r].nodes[RG.node.n];if(!a||a.t!=='V')return h;const e=R.ev[evKey()];if(!e||e.done||e.id!=='amtrd')return h;
+ const w=amList()[amWeak(R)];return h.replace(/<div class="rshop"[\s\S]*$/,(w?'<div class="amev one">'+amBig(w)+'<b>⇄</b></div>':'')+'<div class="rshop">'+e.d.am.map((x,j)=>'<button data-ev="'+j+'" class="rE amev">'+amBig(x)+'</button>').join('')+'</div></div>')};
 </script>

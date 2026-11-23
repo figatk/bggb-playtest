@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.32.0","c":"11baa91"};
+const BUILD={"v":"9.33.0","c":"5174129"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -7544,7 +7544,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['Boss reward: pick 1 of 3 ammo','Voiced HQ for every mission','Battery fire at the Firing Point','Map story leading to each boss']};
+const NOTES={get v(){return BUILD.v},items:['Explosive utes and new enemy models','Boss reward: pick 1 of 3 ammo','Voiced HQ for every mission','Battery fire at the Firing Point']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -8805,4 +8805,135 @@ const _aHEr=applyHE;applyHE=function(p,fuze){const k=_aHEr(p,fuze);if(!RUNS||!RU
 const _dmRng=drawMap;drawMap=function(){_dmRng();if(curTab!=='map'||!mc._dp||!RUNS||!RUNS.evm||RUNS.evm.ms!=='RANGE')return;const x=mx,dp=mc._dp;
  for(const t of TGT){if(t.owner!=='range')continue;const[a,b]=w2s(t.e,t.n),w=22*dp,h=4*dp,y=b+10*dp;x.fillStyle='rgba(16,16,16,.8)';x.fillRect(a-w/2,y,w,h);
   if(t.hp>0){x.fillStyle='#e0432f';x.fillRect(a-w/2,y,w*t.hp/t.hp0,h)}else{x.fillStyle='#8a8a8a';x.fillText('destroyed',a+9*dp,b+4*dp)}}};
+/* ================= P6 S10 E5 (BGGB): enemy models (Brenton 2026-11-23). Built with the 62-enemy kit (merged meshes, wreck variant via EK.wk), +x forward.
+   - Redback boss IFV (rbifv): own Redback-like model (long hull, high flat sides, rubber-band tracks under skirts, angular two-man turret, 30 mm cannon,
+     missile pod on the turret side), x1.3 the regular IFV; solid radius 2.6 -> 3.4 m. Stats unchanged.
+   - Staging depots (stg): H-ACE look from public photos (white halls, low grey roofs, full-height orange panels, orange end block), no logos. Same footprint (r 6.5).
+   - Scout car (scout): own low armoured 4x4 with a roof MG (was the cargo truck). Stats unchanged.
+   - Ute (kz, r78): single-cab work ute (Hilux-style, no badges) with a steel tray of drums and crates wired to the cab.
+   Materials are made under noRng (three.js draws Math.random per uuid) so the load stream is unchanged. ================= */
+noRng(()=>{const m=(c,r,mt,w)=>{const x=new THREE.MeshStandardMaterial({color:LIN(c),roughness:r,metalness:mt});x.customProgramCacheKey=()=>'as9md'+(w||'');return x};
+ EMT.org=m(0xd8641e,.6,.1);EMT.flag=m(0x8a1f1f,.9,0,'f');EMT.ute=m(0xd9d8cf,.45,.25);EMT.tray=m(0x8d9093,.5,.6);EMT.roof=m(0xa7abad,.6,.4,'r');EMT.roofd=m(0x55595b,.7,.3,'r')});
+['org','ute','tray','roof','roofd'].forEach(k=>wetHook(EMT[k],.45,.18));wetHook(EMT.flag,.3,.25);
+EK.N=null; /* ekName's material map is rebuilt with the new ones */
+Object.assign(WK.K,{org:'m',ute:'m',tray:'m',roof:'m',roofd:'m',flag:'c'});
+['ute','scout4','rb'].forEach(k=>WK.VEH.add(k));Object.assign(WK.SINK,{ute:.2,scout4:.25,rb:.04});
+Object.assign(WK.FIRE,{ute:[[.1,1.3,0,.5],[-1.7,1.2,0,.7]],scout4:[[.3,1.9,0,.6],[-1.6,1.9,0,.8]],rb:[[-.2,2.6,0,.6],[-2.2,2.1,0,1.1]]});
+/* every new builder tags its meshes for the wreck rebuild (63-wreck tags only the builders that existed when it loaded) */
+/* sc: scale baked into the merged geometry (a scaled child group would lose its scale and its burnt look in the wreck rebuild) */
+const mdTag=(k,f,sc)=>{TPT[k]=p=>{const n=p.children.length;f(p);for(let i=n;i<p.children.length;i++){const o=p.children[i];o.userData.tk=k;if(sc&&o.geometry){o.geometry.scale(sc,sc,sc);o.geometry.computeBoundingSphere()}}}};
+/* ---------- ute: single cab, bonnet, bull bar, steel tray with drop sides and a headboard rack; drums and crates wired up in the tray ---------- */
+mdTag('ute',p=>ekBuild(p,k=>{const W=1.76;
+ k.put(k.B(4.9,.16,.8),EMT.dark,-.1,.55,0);
+ k.put(k.P([[.9,0],[2.62,0],[2.66,.38],[2.52,.54],[.9,.6]],W,.05),EMT.ute,0,.62,0); /* bonnet, square front */
+ k.put(k.P([[-.78,0],[.9,0],[.9,.6],[.4,1.16],[-.78,1.18]],W,.05),EMT.ute,0,.62,0); /* cab */
+ k.put(k.B(.03,.7,1.5),EMT.glass,.7,1.53,0,0,0,.73); /* windscreen, just proud of the sloped cab face */k.put(k.B(.03,.42,1.46),EMT.glass,-.795,1.52,0);
+ [-1,1].forEach(s=>{k.put(k.B(.95,.42,.02),EMT.glass,-.15,1.52,s*(W/2+.005));k.put(k.B(.05,.12,.16),EMT.dark,.8,1.3,s*.95);
+  k.put(k.B(.03,.15,.34),EMT.glass,2.675,1.04,s*.62)}); /* mirrors, headlamps flush in the front */
+ k.put(k.B(.03,.22,.78),EMT.dark,2.675,1.03,0); /* grille between the lamps */
+ k.put(k.B(.14,.16,1.8),EMT.tray,2.69,.72,0); /* bumper */
+ /* bull bar: two uprights and a hoop, close to the front */
+ [-1,1].forEach(s=>k.put(k.B(.07,.5,.07),EMT.dark,2.84,1.02,s*.42));k.put(k.B(.07,.07,.92),EMT.dark,2.84,1.27,0);
+ /* steel tray: deck, drop sides, tailgate, headboard rack */
+ const tx=-1.74,tl=1.84,tw=1.86;k.put(k.B(tl,.08,tw),EMT.tray,tx,.96,0);[-1,1].forEach(s=>k.put(k.B(tl,.3,.04),EMT.tray,tx,1.15,s*(tw/2-.02)));k.put(k.B(.04,.3,tw),EMT.tray,tx-tl/2,1.15,0);
+ [-1,1].forEach(s=>k.put(k.B(.05,.95,.05),EMT.tray,-.83,1.47,s*.86));k.put(k.B(.05,.05,1.77),EMT.tray,-.83,1.93,0);for(let i=0;i<4;i++)k.put(k.B(.02,.9,.02),EMT.tray,-.83,1.47,-.6+i*.4);
+ /* the load: three drums and two crates, det cord to the cab */
+ [[-2.25,-.45],[-2.25,.4],[-1.65,-.5]].forEach(([x,z])=>{k.put(k.C(.28,.28,.84,12),EMT.tnt,x,1.42,z);k.put(k.C(.29,.29,.04,12),EMT.dark,x,1.3,z)});
+ k.put(k.B(.62,.42,.52),EMT.wood,-1.4,1.21,.35);k.put(k.B(.5,.34,.44),EMT.wood,-1.15,1.17,-.35);
+ if(!EK.wk){k.rod([-2.25,1.86,-.45],[-1.65,1.86,-.5],.012,.012,EMT.org);k.rod([-1.65,1.86,-.5],[-.85,1.6,-.3],.012,.012,EMT.org);k.rod([-2.25,1.86,.4],[-1.4,1.44,.35],.012,.012,EMT.org)}
+ [1.55,-1.55].forEach(x=>[-1,1].forEach(s=>ekWheel(k,x,s*.78,.38,.26)))}));
+/* ---------- scout car: armoured 4x4, angled hull, slit windows, roof ring with a machine gun, spare wheel on the back ---------- */
+mdTag('scout4',p=>ekBuild(p,k=>{const W=2.3;
+ k.put(k.P([[-2.7,0],[2.2,0],[2.8,.5],[2.4,.95],[.9,1.4],[-2.5,1.4],[-2.75,.95]],W,.04),EMT.paint,0,.75,0);
+ k.put(k.B(.04,.22,1.4),EMT.glass,1.66,1.92,0,0,0,.73);[-1,1].forEach(s=>{k.put(k.B(.7,.2,.02),EMT.glass,.4,1.85,s*(W/2+.005));k.put(k.B(.85,.85,.03),EMT.dark,-.35,1.45,s*(W/2+.01));
+  k.put(k.B(1.1,.12,.2),EMT.dark,1.7,1.42,s*1.12);k.put(k.B(1.1,.12,.2),EMT.dark,-1.7,1.42,s*1.12)});
+ k.put(k.C(.5,.5,.12,14),EMT.dark,-.6,2.21,0);k.put(k.B(.05,.42,.7),EMT.dark,-.25,2.45,0);k.put(k.B(.5,.14,.12),EMT.gun,-.45,2.42,0);k.rod([-.2,2.42,0],[.75,2.42,0],.025,.025,EMT.gun);
+ k.put(k.C(.5,.5,.24,14),EMT.tyre,-2.86,1.45,0,0,0,1.5708);k.rod([-1.8,2.15,.8],[-1.8,4.6,.8],.02,.012,EMT.gun);
+ [1.7,-1.7].forEach(x=>[-1,1].forEach(s=>ekWheel(k,x,s*1.05,.55,.42)))}));
+/* ---------- Redback-like IFV: built at the regular IFV's size, baked x1.3 ---------- */
+mdTag('rb',p=>ekBuild(p,k=>{
+ ekTracks(k,6.8,3.1,6,.36,true);
+ k.put(k.P([[-3.4,.5],[2.3,.5],[3.45,1.2],[2.75,1.95],[-3.4,2.0]],2.95,.05),EMT.paint,0,0,0);
+ [-1,1].forEach(s=>{for(let i=0;i<3;i++)k.put(k.B(1.45,.62,.08),EMT.paint,-2.2+i*1.52,1.62,s*1.51);k.put(k.B(.12,.1,.2),EMT.wht,3.0,1.6,s*1.2)});
+ k.put(k.B(.08,1.15,1.7),EMT.dark,-3.43,1.25,0);k.put(k.B(.9,.06,2.6),EMT.dark,1.9,1.99,0);
+ k.T(ekTur(-.3,2.0,1));
+ k.put(k.P([[-1.55,0],[1.1,0],[1.55,.32],[1.25,.78],[-1.45,.82]],2.3,.05),EMT.paint,-.3,2.0,0);
+ k.put(k.B(.45,.45,.55),EMT.dark,1.35,2.42,0);k.put(k.C(.075,.075,2.6,8),EMT.gun,2.75,2.44,0,0,0,1.5708);k.put(k.C(.11,.11,.5,8),EMT.gun,1.75,2.44,0,0,0,1.5708);
+ k.put(k.B(1.25,.5,.36),EMT.paint,-.5,2.62,1.36);for(const z of[1.28,1.44])k.put(k.C(.09,.09,.04,8),EMT.dark,.14,2.62,z,0,0,1.5708);
+ k.put(k.B(.42,.4,.42),EMT.dark,.35,3.02,-.6);k.put(k.C(.15,.15,.12,10),EMT.glass,.57,3.04,-.6,0,0,1.5708);k.put(k.B(.3,.3,.3),EMT.dark,-.9,2.97,.3);
+ [-1,1].forEach(s=>{for(let i=0;i<3;i++)k.rod([.6,2.5+i*.12,s*1.15],[.9,2.62+i*.12,s*1.3],.05,.05,EMT.dark)});
+ k.T(null)}),1.3);
+const STG_K=1.5; /* Brenton 2026-11-23: depots 1.5x bigger; solid radius 6.5 -> 9.75 */
+/* ---------- staging depot (H-ACE look, no logos): a long white hall with a low grey roof, full-height orange panels in a rhythm and an orange end block,
+   a lower white annex with orange panels, roller doors; a few containers and the flag mast. Built in the old footprint (r 6.5), then scaled by STG_K ---------- */
+mdTag('stg',p=>ekBuild(p,k=>{
+ const hall=(x,z,L,D,Hh,ry,pan)=>{const c=Math.cos(ry),sn=Math.sin(ry),at=(dx,dz)=>[x+dx*c+dz*sn,z-dx*sn+dz*c],put=(g,m,dx,y,dz)=>{const[q,w]=at(dx,dz);k.put(g,m,q,y,w,0,ry,0)};
+  put(k.B(L,Hh,D),EMT.wht,0,Hh/2,0);
+  k.put(k.P([[-D/2-.1,0],[D/2+.1,0],[0,.45]],L+.2),EMT.roof,x,Hh,z,0,ry+1.5708,0); /* low gable roof, ridge along the hall */
+  put(k.B(L+.02,.25,D+.02),EMT.roofd,0,.12,0); /* plinth */
+  for(const s of[-1,1]){for(const [px_,w] of pan)put(k.B(w,Hh-.25,.06),EMT.org,px_,(Hh+.25)/2,s*(D/2+.02));}
+  put(k.B(1.6,Hh-.25,D+.06),EMT.org,L/2-.8,(Hh+.25)/2,0); /* orange end block */
+  put(k.B(.06,Hh*.7,D*.45),EMT.roofd,-L/2-.02,Hh*.35,0); /* roller door */
+  put(k.B(L*.6,.05,.08),EMT.roofd,-L*.1,Hh-.4,-(D/2+.04))}; /* gutter line */
+ hall(-.6,-1.6,10,4.6,3.4,0,[[-3.8,.7],[-2.6,.7],[-1.4,.7],[.6,1.2],[2.0,.5]]);
+ hall(2.2,3.0,5,3,2.3,0,[[-1.6,.6],[-.4,.6]]);
+ for(let i=0;i<3;i++){k.put(k.B(2.2,1.1,1.1),i%2?EMT.org:EMT.wht,-4.8+i*2.4,.55,3.6);k.put(k.B(2.22,.05,1.12),EMT.dark,-4.8+i*2.4,1.1,3.6)}
+ k.rod([6,0,-3],[6,7,-3],.08,.06,EMT.gun);if(!EK.wk)k.put(k.B(1.6,1,.05),EMT.flag,6.8,6.4,-3)}),STG_K);
+NTK.scout.m='scout4';NTK.stg.r=6.5*STG_K;Object.assign(NTK.rbifv,{m:'rb',r:3.4});
+/* ================= P6 S10 E4 (BGGB): Kamikaze ute, named Explosive ute in game (Brenton 2026-11-23). Map 2+ only.
+   - Drives straight at the AS9 at 14 m/s (fords as usual, no flank or cover AI), never fires.
+   - Detonates within 8 m of the AS9 or when rammed: 20 hull (Armour and Spall liner cut it) + one random fault (the one-fault-at-a-time rule still applies).
+   - 30 health, not scaled by map: one DF hit or one HE round within ~15 m kills it. Killed early it blows up: within 15 m infantry die, vehicles take 30,
+     the AS9 takes 10 (no fault). Supply 10 per kill; a ute that reaches you pays nothing and is not a kill.
+   - Spawns: waves at 50+ heat, 30% chance one unit of the wave is swapped for a ute 900-1200 m out (at most 1 alive on map 2, 2 on map 3);
+     Ambush orders on map 2+ hide one beside the route at 60%, 300-400 m off; it moves (and shows) once you come within 900 m.
+   - Tells, no text: rising petrol-engine whine, dust plume, a live map dot with a pulsing ring; HQ says one line per order when the first one moves;
+     the RWS shoots it before infantry.
+   Own random stream: the wave, hit and AI streams are unchanged. ================= */
+const KZ={dmg:20,boom:8,blast:15,vdmg:30,near:10,hp:30,p:.3,cap:[0,1,2],far:[900,1200],amb:[300,400],ambAt:.6,dust:.12,rr:rng(77),au:null};
+NTK.kz={n:'Explosive ute',m:'ute',spd:14,stop:0,rel:0,dmg:0,veh:1,r:2.2};EHP.kz=KZ.hp;SPK.kz=10;
+const kzLive=()=>ntLive().filter(t=>t.nt==='kz');
+const kzMap=()=>RUNS&&RUNS.maps>1?Math.min(2,RUNS.mi||0):0;
+const kzOk=(x,z)=>Math.abs(x)<HALF-60&&Math.abs(z)<HALF-60&&depthAt(x,z)<.1;
+function kzSpawn(x,z,o){const t=ntSpawn('kz',x,z,o);t.noAi=1;t.hp=t.hp0=KZ.hp;t.kd={x,z,t:0};return t}
+/* the AS9 or the blast: removes the ute without a kill, Supply or "destroyed" line */
+function kzGone(t){const R=RUNS,k=R.kills||0,sa=spAdd,ms=msg;t.self=1;spAdd=()=>{};msg=()=>{};try{ntKill(t)}finally{spAdd=sa;msg=ms}R.kills=k}
+function kzFx(t){const y=H(t.x,t.z)+1;noRng(()=>boom(new THREE.Vector3(t.x,y,t.z),1));crater(t.x,t.z,5,1.5);sfx(0,0,1);sfx(1,.05,.8)}
+/* blast on the enemies around it */
+function kzBlast(t){for(const o of ntLive()){if(o===t||o.boss||Math.hypot(o.x-t.x,o.z-t.z)>=KZ.blast)continue;if(o.nt==='inf')ntDmg0(o,t.x,t.z,KZ.blast,1e3);else ntDmg0(o,o.x,o.z,1,KZ.vdmg/SHD)}}
+/* it reaches the AS9 */
+function kzBoom(t){if(!t.alive)return;kzFx(t);shake=1.6;runHit(KZ.dmg,'an explosive ute','frag');const ks=['trk','eng','trv','sig'].filter(k=>!fltHas(k));if(ks.length)fltAdd(ks[Math.floor(KZ.rr()*ks.length)],'explosive ute');
+ kzGone(t);kzBlast(t)}
+/* killed before it got there */
+const _nkKZ=ntKill;ntKill=function(t){const a=t.alive;_nkKZ(t);if(!a||t.alive||t.nt!=='kz'||t.self||!runLive())return;kzFx(t);kzBlast(t);if(Math.hypot(t.x-px,t.z-pz)<KZ.blast)runHit(KZ.near,'an explosive ute blast','frag')};
+/* rammed: it goes off */
+const _rhKZ=ramHit;ramHit=function(t,h){if(t.nt==='kz'&&t.alive)return kzBoom(t);return _rhKZ(t,h)};
+/* waves: swap one unit of a fresh wave for a ute */
+const _nwKZ=ntWave;ntWave=function(){const n0=dft.length;_nwKZ();const R=RUNS,mi=kzMap();if(!mi||TUT||R.heat<50||R.cur&&R.cur.ev)return;
+ const nw=dft.slice(n0).filter(t=>t.alive&&t.nt&&t.nt!=='kz');if(!nw.length||kzLive().length>=KZ.cap[mi]||KZ.rr()>=KZ.p)return;
+ const u=nw.find(t=>t.nt==='scout')||nw.find(t=>t.nt==='inf')||nw[0];u.alive=false;sc.remove(u.g);dft.splice(dft.indexOf(u),1);
+ const a=Math.atan2(u.z-pz,u.x-px);let x=u.x,z=u.z;for(let i=0;i<6;i++){const d=rr_(KZ.rr,KZ.far[0],KZ.far[1]),b=a+(i?(KZ.rr()-.5)*.6:0),qx=px+Math.cos(b)*d,qz=pz+Math.sin(b)*d;if(kzOk(qx,qz)){x=qx;z=qz;break}}
+ kzSpawn(x,z)};
+/* Ambush (map 2+): one waits beside the route */
+const _rmsKZ=runModeStart;runModeStart=function(e){_rmsKZ(e);const R=RUNS;if(!R||!kzMap()||TUT||!e||e.ev||e.mode!=='AMBUSH')return;
+ const P=runPathPts(e.start,e.exfil);if(!P||P.length<3)return;const i=Math.min(P.length-2,Math.floor(P.length*KZ.ambAt)),p=P[i],q=P[i+1],a=Math.atan2(q[1]-p[1],q[0]-p[0])+Math.PI/2;
+ for(let k=0;k<6;k++){const s=(KZ.rr()<.5?-1:1)*rr_(KZ.rr,KZ.amb[0],KZ.amb[1]),x=p[0]+Math.cos(a)*s,z=p[1]+Math.sin(a)*s;if(kzOk(x,z)){kzSpawn(x,z,{hold:true});return}}};
+/* per tick: detonation, dust, HQ line */
+const _ntKZ=ntTick;ntTick=function(dt){_ntKZ(dt);if(!runLive())return;
+ for(const t of kzLive()){if(t.hold)continue;if(!t.said){t.said=1;hqOnce('kz','Explosive ute inbound. Stop it before it reaches you.')}
+  if(Math.hypot(t.x-px,t.z-pz)<KZ.boom){kzBoom(t);continue}
+  const k=t.kd;k.t+=dt;if(k.t>=KZ.dust){const mv=Math.hypot(t.x-k.x,t.z-k.z);if(mv>.3){const ux=(t.x-k.x)/mv,uz=(t.z-k.z)/mv,bx=t.x-ux*2.8,bz=t.z-uz*2.8;noRng(()=>puff(bx,H(bx,bz)+.8,bz,0xb59d77,3.5,2,8,.75,1))}k.x=t.x;k.z=t.z;k.t=0}}};
+const _rwKZ=resetWorld;resetWorld=function(def){_rwKZ(def);KZ.rr=rng(0x7a2e^((window.__tvSeed||Date.now())%7717))};
+/* engine whine: one shared voice, louder and higher as the nearest moving ute closes */
+function kzAudio(){if(!AC)return;let d=1e9;if(runLive())for(const t of kzLive())if(!t.hold)d=Math.min(d,Math.hypot(t.x-px,t.z-pz));
+ if(!KZ.au){if(d>1e8)return;const o=AC.createOscillator(),f=AC.createBiquadFilter(),g=AC.createGain();o.type='sawtooth';f.type='lowpass';f.frequency.value=1100;g.gain.value=0;o.connect(f);f.connect(g);g.connect(mg);o.start();KZ.au={o,g}}
+ const c=AC.currentTime,k=d>1500?0:1-d/1500;KZ.au.g.gain.setTargetAtTime(k?.03+.09*k:0,c,.2);KZ.au.o.frequency.setTargetAtTime(150+170*k+12*Math.sin(T*9),c,.1)}
+const _stKZ=step;step=function(dt,draw){_stKZ(dt,draw);kzAudio()};
+/* map: a moving ute is always live (never a stale scan copy) */
+const _edKZ=enDots;enDots=()=>{const L=_edKZ();if(!RUNS||!runLive())return L;const o=L.filter(q=>q.nt!=='kz'||q.alive);for(const t of kzLive())if(!t.hold&&!t.hid&&!o.includes(t))o.push(t);return o};
+const kzRing=(g,a,b,r)=>{g.strokeStyle='#e5534b';g.lineWidth=Math.max(1,r/4);g.beginPath();g.arc(a,b,r*(1.6+.5*Math.sin(T*6)),0,7);g.stroke()};
+const _dmKZ=drawMap;drawMap=function(){_dmKZ();if(curTab!=='map'||!mc._dp)return;const dp=mc._dp;for(const t of enDots())if(t.nt==='kz'){const g=toG(t.x,t.z),[a,b]=w2s(g.e,g.n);kzRing(mx,a,b,3*dp)}};
+const _dmmKZ=drawMini;drawMini=function(){_dmmKZ();const L=enDots().filter(t=>t.nt==='kz');if(!L.length)return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2);g.setTransform(1,0,0,1,0,0);for(const t of L)kzRing(g,(t.x+HALF)*s,(t.z+HALF)*s,2*dp)};
+/* the RWS takes a ute first */
+const _rpKZ=rwsPick;rwsPick=function(n){for(const t of kzLive()){if(!rwsSeen(t)||t.hold)continue;const d=Math.hypot(t.x-px,t.z-pz);if(d<=rwsRng(n)&&ntLos(px,pz,t.x,t.z)>=1)return{t,d}}return _rpKZ(n)};
 </script>

@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.41.1","c":"dc7c643"};
+const BUILD={"v":"9.42.1","c":"fe986ae"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -349,9 +349,9 @@ const scatter=(n,cb,clr=7)=>{let c=0,g=0;while(c<n&&g++<n*40){const x=(Math.rand
 /* eucalypts: pale trunk + three grey-green crowns */
 const NT=MOB?1000:2000,NTX=Math.round(NT*3.2),trI=new THREE.InstancedMesh(new THREE.CylinderGeometry(.16,.3,7.5,6),M_(0xbdb3a2,.9,0),NTX),foI=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1.9,1),new THREE.MeshStandardMaterial({roughness:.95,flatShading:true}),NTX*3);let ti=0;
 const fCol=[0x6f7a55,0x5d6b4a,0x7e8660,0x66704c].map(LIN);
-let TREEH=1,TREEC=0; /* tree height factor and stand clustering (BGGB Forest: r85): with TREEC>0 trees only grow where a smooth hash noise is above it */
+let TREEH=1,TREEC=0,TREEOK=null; /* TREEOK(x,z): optional placement rule (BGGB species r88) that replaces the TREEC test */ /* tree height factor and stand clustering (BGGB Forest: r85): with TREEC>0 trees only grow where a smooth hash noise is above it */
 const tcl=(x,z)=>{const f=(a,b)=>{const v=Math.sin(a*127.1+b*311.7)*43758.5453;return v-Math.floor(v)},X=x/220,Z=z/220,i=Math.floor(X),j=Math.floor(Z),u=X-i,w=Z-j,s_=t=>t*t*(3-2*t),a=f(i,j),b=f(i+1,j),c=f(i,j+1),d=f(i+1,j+1);return a+(b-a)*s_(u)+(c-a)*s_(w)+(a-b-c+d)*s_(u)*s_(w)};
-function scTrees(n){ti=0;scatter(Math.min(n,NTX),(x,z)=>{if(TREEC&&tcl(x,z)<TREEC)return false;const h=H(x,z);if(Math.abs(H(x+3,z)-h)>2.2)return false;const s=.75+Math.random()*.7,sh=s*TREEH;dm.rotation.set(rnd(-.05,.05),Math.random()*6,rnd(-.05,.05));dm.scale.set(s,sh,s);
+function scTrees(n){ti=0;scatter(Math.min(n,NTX),(x,z)=>{if(TREEOK?!TREEOK(x,z):TREEC&&tcl(x,z)<TREEC)return false;const h=H(x,z);if(Math.abs(H(x+3,z)-h)>2.2)return false;const s=.75+Math.random()*.7,sh=s*TREEH;dm.rotation.set(rnd(-.05,.05),Math.random()*6,rnd(-.05,.05));dm.scale.set(s,sh,s);
  dm.position.set(x,h+3.6*sh,z);dm.updateMatrix();trI.setMatrixAt(ti,dm.matrix);const fi=[];
  for(let k=0;k<3;k++){const a=Math.random()*6.28,r=k?1.6*s:0;dm.rotation.set(Math.random(),Math.random()*6,Math.random());const sc_=s*(k?.9+Math.random()*.4:1.25);dm.scale.set(sc_*1.2,sc_*.8,sc_*1.2);dm.position.set(x+Math.cos(a)*r,h+(6.6+k*.9+Math.random())*sh,z+Math.sin(a)*r);dm.updateMatrix();foI.setMatrixAt(ti*3+k,dm.matrix);foI.setColorAt(ti*3+k,fCol[Math.floor(Math.random()*4)]);fi.push(ti*3+k)}
  obs.push({x,z,r:.7*s,k:'t',i:ti,fi});ti++;return true});
@@ -558,7 +558,7 @@ function crestHit(g,b,q,c){const R=rngQ(q,c),ue=Math.sin(b/MIL),un=Math.cos(b/MI
 let mqC={k:''};
 function minQE(b){const k=Math.round(b/5)+'|'+Math.round(px)+'|'+Math.round(pz);if(mqC.k===k)return mqC;const m=veh.position.y+2.3,ue=Math.sin(b/MIL),un=Math.cos(b/MIL);let mx=-99,at=null;
  for(let d=20;d<=560;d+=8){const x=px+ue*d,z=pz-un*d;if(Math.abs(x)>HALF-5||Math.abs(z)>HALF-5)break;let h=H(x,z);
-  for(const o of obs){if(Math.abs(o.x-x)<o.r+3&&Math.abs(o.z-z)<o.r+3)h=Math.max(h,H(o.x,o.z)+(o.k==='t'?10*o.r/.7:o.k==='b'?6:o.r*1.2))}
+  for(const o of obs){if(Math.abs(o.x-x)<o.r+3&&Math.abs(o.z-z)<o.r+3)h=Math.max(h,H(o.x,o.z)+(o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?6:o.r*1.2))}
   const a=Math.atan2(h-m,d)*MIL;if(a>mx){mx=a;at={x,z,d}}}
  mqC={k,q:Math.max(0,Math.ceil(mx+5)),at};return mqC}
 const LR={soft:{PD:35,VT:45,DLY:22},light:{PD:30,VT:22,DLY:26},hard:{PD:10,VT:6,DLY:12},point:{PD:1,VT:1,DLY:1}};
@@ -1574,7 +1574,7 @@ function dfLay(){if(st!=='ACTION')return toast('Go into action first');const t=l
 /* ================= vehicle collision & impacts ================= */
 /* hull = box in vehicle frame (x forward, z right); barrel = segment from the trunnion along turret yaw and elevation */
 const HULL={f:3.75,b:-3.9,w:1.82},TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25,BRL=7.1,BRL_R=.2,SKIN=.08,BRS={l:1,r:1}; /* contact within SKIN counts as touching; BRS scales the barrel's length and radius (a run's Barrel upgrade grows it) */
-const obsTop=o=>o.k==='t'?10*o.r/.7:o.k==='b'?6:o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
+const obsTop=o=>o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?6:o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
 /* everything solid near (x,z): scenery, the other battery AS9s (3 circles along the hull), RSP, live DF armour */
 function solids(x,z){const out=[],near=o=>Math.abs(o.x-x)<o.r+10&&Math.abs(o.z-z)<o.r+10;
  for(const o of obs)if(near(o))out.push(o);
@@ -1771,7 +1771,7 @@ function step(dt,draw){if(RUN())T+=dt;
  if(AC){eo.frequency.value=34+Math.abs(v)*2.6+Math.abs(iy)*8;eg.gain.value=(st==='TRAVEL'?.05+.07*Math.abs(iy):.03)*ENG.g;tgn.gain.value=Math.min(.25,Math.abs(v)*.016+Math.abs(w)*.1)*ENG.tg}
  uiAcc+=dt;if(uiAcc>.12){uiAcc=0;hud();drawMap();objTick();cueTick();if(draw){drawMini();drawPPI()}if(rsq||curTab==='fcs'){rsq=0;if(curTab==='fcs')renderFcs();else if(curTab==='log')renderLog()}}
  if(draw){if(sight&&T-lastShot>.35)cam.layers.disable(1);else cam.layers.enable(1);const hv=sight&&veh.userData.sightHide&&veh.visible;if(hv)veh.visible=false;rd.render(sc,cam);if(hv)veh.visible=true;drawOvl()}
- for(const t of dft)if(t.burn&&Math.random()<dt*3)puff(t.x+rnd(-1,1),H(t.x,t.z)+3,t.z+rnd(-1,1),0x2b2620,rnd(5,8),1,6,.55,1.6)}
+ for(const t of dft)if(t.burn&&Math.random()<dt*3){const s=t.soft;puff(t.x+rnd(-1,1),H(t.x,t.z)+(s?.6:3),t.z+rnd(-1,1),s?0xb5a58a:0x2b2620,s?rnd(.8,1.2):rnd(5,8),s?.6:1,s?1.5:6,s?(T-t.kT<2?.45:0):.55,s?.5:1.6)}} /* t.soft (BGGB soldiers, r88): a 2 s dust puff, then nothing visible; same draws so the random stream is unchanged */
 function sim(sec){for(let t=0;t<sec;t+=.05)step(.05,false)}
 showMenu();loop(last);
 /* ================= gun direction PPI: vehicle-up plan view (barrel, ordered AZ, deflection to the aiming point, targets, crests) + elevation quadrant (QE, ordered QE, min QE) ================= */
@@ -2905,7 +2905,7 @@ const shV=SHV.map((g,k)=>{const m=new THREE.InstancedMesh(g,new THREE.MeshStanda
 sway(shV[0].material,.04,1);sway(shV[1].material,.09,.4);sway(shV[2].material,.06,.2);
 Math.random=_mrD;
 /* biome mix of shrub types [saltbush, spinifex, woody] */
-const SHMIX={Plain:[.35,.4,.25],Hills:[.3,.2,.5],Flats:[.45,.15,.4],Scrub:[.3,.5,.2],Timber:[.25,.1,.65]};
+const SHMIX={Plain:[.35,.4,.25],Hills:[.3,.2,.5],Flats:[.45,.15,.4],Scrub:[.3,.5,.2],Forest:[.25,.1,.65]};
 function shVar(W){const mix=SHMIX[W&&W.b&&W.b.n]||[.4,.3,.3],r=rng(W?W.seed^0x9e3779b9:4242),m4=new THREE.Matrix4(),c=new THREE.Color(),n=[0,0,0];
  for(let i=0;i<shI.count;i++){const u=r(),k=u<mix[0]?0:u<mix[0]+mix[1]?1:2,M=shV[k];shI.getMatrixAt(i,m4);if(k===1){const e=m4.elements;for(let j=0;j<3;j++)e[j]*=.85,e[8+j]*=.85;e[4]*=1.15;e[5]*=1.15;e[6]*=1.15}if(k===2){const e=m4.elements;for(let j=0;j<3;j++)e[j]*=.75,e[8+j]*=.75,e[4+j]*=1.9}M.setMatrixAt(n[k],m4);
   if(shI.instanceColor){c.fromArray(shI.instanceColor.array,i*3);if(k===0)c.lerp(new THREE.Color(.45,.5,.47),.2);if(k===1)c.lerp(new THREE.Color(.75,.66,.36),.4);M.setColorAt(n[k],c)}n[k]++}
@@ -3226,7 +3226,7 @@ const FLR=withRng(0x45c1a7,()=>{const V=THREE.Vector3;
  const CR=[],card=(c,yaw,pitch,w,h)=>{const fl=Math.random()<.5;CR.push({c,yaw,pitch,w,h,fl});quad(cb,c,yaw,pitch,w,h,fl)};
  [[0,.9,0],[1.3,.2,.3],[-.7,.3,1.2],[-.8,.1,-1.1],[.6,-.3,-1.1],[.2,-.5,.95],[-1.3,-.4,0]].forEach(([x,y,z],i)=>{const c=new V(x,y,z),a=Math.random()*3.14;for(let k=0;k<3;k++)card(c,a+k*1.047,rnd(-.18,.18),rnd(2,2.5),rnd(1.8,2.2));card(c,a+.5,rnd(1.1,1.35),2.2,2.2)});
  const crownG=toGeo(cb,false);
- return{bark,leaf,trunkG,crownG,tips,NV,nearG,farG,CR,quad:(b,...a)=>quad(b,...a),B,toGeo}});
+ return{bark,leaf,trunkG,crownG,tips,NV,nearG,farG,CR,quad:(b,...a)=>quad(b,...a),B,toGeo,tube,limb,tb,lodG}});
 /* ---------- materials: variant pick (vertices of the other trunk variants collapse to nothing), wind, unflipped crown normals, fading alpha kept solid at distance ---------- */
 const varHook=sh=>{sh.vertexShader='attribute float gVar;attribute float aVar;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nif(abs(gVar-aVar)>.5)transformed=vec3(0.);')};
 const trMat=new THREE.MeshStandardMaterial({map:FLR.bark,vertexColors:true,roughness:.88,metalness:0});trMat.onBeforeCompile=varHook;trMat.customProgramCacheKey=()=>'as9trunk';
@@ -5865,19 +5865,24 @@ const _ncT=nodeCard;nodeCard=function(){let h=_ncT();const R=RUNS,a=R&&RG.node&&
 document.head.insertAdjacentHTML('beforeend','<style>.rg .rflv{margin:-4px 0 10px;color:var(--mu);font-size:13px;line-height:1.35}.rg .rlab{display:block;font:600 13px var(--fd);margin-bottom:4px;text-align:left}</style>');
 const _arE=runArrive;runArrive=function(){const R=RUNS;if(R&&R.evm&&R.phase==='exfil')return evEnd(R.ok!==false);return _arE()};
 /* challenge targets: Range day puts 8 still targets 2-5 km out for 60 s; practice raises 5 scouts at 1-2 km in front, one at a time, 25 s each */
-function evTgt(kind,d0,d1,a0,a1){for(let t=0;t<30;t++){const a=a0+Math.random()*(a1-a0),d=d0+Math.random()*(d1-d0),x=px+Math.cos(a)*d,z=pz-Math.sin(a)*d;if(depthAt(x,z)<.1&&isFinite(H(x,z))){const q=ntSpawn(kind,x,z,{hold:true});q.ev=1;q.rep=1;return q}}return null}
+const evIn=(x,z)=>Math.abs(x)<HALF-60&&Math.abs(z)<HALF-60; /* on the map: past the edge H() is clamped flat and the backdrop hills hide the target */
+function evTgt(kind,d0,d1,a0,a1){for(let t=0;t<30;t++){const a=a0+Math.random()*(a1-a0),d=d0+Math.random()*(d1-d0),x=px+Math.cos(a)*d,z=pz-Math.sin(a)*d;if(evIn(x,z)&&depthAt(x,z)<.1&&isFinite(H(x,z))){const q=ntSpawn(kind,x,z,{hold:true});q.ev=1;q.rep=1;return q}}return null}
 /* Direct fire practice: starts where the gun stands at the event marker; targets come up in its most open arc; every target is in line of sight from it.
    Range grows through the run: 400-900 m on the first order, 1200-2000 m on the last */
 const DFP_ARC=.7,dfpRange=R=>{const f=cl((R.m0+R.i)/Math.max(1,R.n*(R.maps||1)-1),0,1);return[400+800*f,900+1100*f]};
 function dfpView(x,z,d0,d1){let best={n:-1,a:0};for(let i=0;i<16;i++){const a=i/16*6.283;let n=0;for(const da of[-.5,0,.5])for(const d of[d0,(d0+d1)/2,d1]){const q=x+Math.cos(a+da)*d,w=z-Math.sin(a+da)*d;if(Math.abs(q)<HALF-50&&Math.abs(w)<HALF-50&&depthAt(q,w)<.1&&ntLos(x,z,q,w)>=1)n++}if(n>best.n)best={n,a}}return best}
 /* starts in place at the event marker (no teleport): the targets come up in the most open arc seen from where the gun stands */
-function dfpPlace(R,e){const[d0,d1]=dfpRange(R);e.dfp={a:dfpView(px,pz,d0,d1).a,d0,d1,x:px,z:pz}}
+/* a gun in a hollow sees nothing: it moves to the nearest spot within 300 m that looks over an open arc (2026-11-26: no targets without line of sight) */
+function dfpPlace(R,e){const[d0,d1]=dfpRange(R);let b=dfpView(px,pz,d0,d1);
+ if(b.n<4)out:for(let r=50;r<=300;r+=50){let w=null;for(let i=0;i<24;i++){const a=i/24*6.283,x=px+Math.cos(a)*r,z=pz-Math.sin(a)*r;if(!evIn(x,z)||depthAt(x,z)>=.1)continue;const q=dfpView(x,z,d0,d1);if(q.n>=4&&(!w||q.n>w.q.n))w={x,z,q}}if(w){px=w.x;pz=w.z;b=w.q;break out}}
+ e.dfp={a:b.a,d0,d1,x:px,z:pz}}
 /* a real sight line from the gun's sight to the target's body, against the ground, trees, rocks and buildings (the LRF's test) */
 const DFR=new THREE.Raycaster(),DFO=new THREE.Vector3(),DFP_=new THREE.Vector3();
 function dfpSeen(x,z){veh.position.set(px,veh.position.y,pz);veh.updateMatrixWorld(true);sg_.getWorldPosition(DFO);DFP_.set(x,H(x,z)+1.2,z).sub(DFO);const L=DFP_.length();DFR.set(DFO,DFP_.normalize());DFR.far=L;
  return!DFR.intersectObjects([ter,trI,foI,rkI,...obs.filter(o=>o.k==='b').map(o=>o.g)],true).some(h=>h.distance<L-6)}
 function dfpTgt(m){const R=RUNS,D=R.cur&&R.cur.dfp,s=D&&[D.x,D.z];if(!D||!s)return evTgt('scout',1000,2000,psi-.5,psi+.5);
- for(let t=0;t<60;t++){const a=D.a+(Math.random()*2-1)*DFP_ARC,d=D.d0+Math.random()*(D.d1-D.d0),x=s[0]+Math.cos(a)*d,z=s[1]-Math.sin(a)*d;if(depthAt(x,z)<.1&&isFinite(H(x,z))&&ntLos(s[0],s[1],x,z)>=1&&dfpSeen(x,z)){const q=ntSpawn('scout',x,z,{hold:true});q.ev=1;q.rep=1;return q}}
+ /* in the open arc first, then anywhere round the gun; every target is on the map and in sight (Brenton 2026-11-26: targets sat behind hills past the map edge) */
+ for(let t=0;t<180;t++){const a=t<60?D.a+(Math.random()*2-1)*DFP_ARC:Math.random()*6.283,d=D.d0+Math.random()*(D.d1-D.d0),x=s[0]+Math.cos(a)*d,z=s[1]-Math.sin(a)*d;if(evIn(x,z)&&depthAt(x,z)<.1&&isFinite(H(x,z))&&ntLos(s[0],s[1],x,z)>=1&&dfpSeen(x,z)){const q=ntSpawn('scout',x,z,{hold:true});q.ev=1;q.rep=1;return q}}
  return evTgt('scout',D.d0,D.d1,D.a-DFP_ARC,D.a+DFP_ARC)}
 /* Range day: indirect. Starts where the gun stands, in action; 6 range targets on the map (select, set aim, lay, fire). Destroyed = half its elements down.
    Range grows through the run: 3-6 km on the first order, 6-10 km on the last */
@@ -6802,8 +6807,8 @@ const BOSS={lim:480,otHeat:150,otRise:10,cine:7.5,cineG:2.5,kinds:['rb','rg','gd
  rb:{n:'Redback assault',o:'Destroy the staging areas',sp:3,edge:250,gap:700,every:45,cap:6,dis:650,p2:{cap:9,spd:1.5}},
  rg:{n:'Rail gun',o:'Destroy the rail gun',fps:4,gap:450,edge:250,spd:12,chg:10,hold:8,wait:2,
   clus:{rad:55,n:9,dmg:14,br:12},nap:{n:3,spread:35,rad:24,dps:4,life:12},shock:{n:4,step:.7,rad:15,dmg:9,slow:4,vmax:3},slug:{w:9,len:2600,dmg:34},p2:{chg:6,hold:4,wait:1,rad:1.5}},
- gd:{n:'Gun Duel',o:'Destroy the enemy guns',guns:3,lead:7,hide:[18,26],pair:8,move:[200,400],spd:8,flee:300,err:[200,40],los:.25,col:25,stale:60,loc:[1,2,3],locP:.5,
-  smk:{life:20,r:45},clus:{rad:70,n:8,br:12,dmg:12},spot:{wait:10,move:50,heat:25},p2:{hide:[10,14],fire:10}}};
+ gd:{n:'Gun Duel',o:'Destroy the enemy guns',guns:3,lead:7,hide:[30,40],pair:8,move:[200,400],spd:4,flee:300,err:[120,30],los:.25,col:25,stale:60,loc:[1,2,3],locP:.5,
+  smk:{life:20,r:45},clus:{rad:70,n:8,br:12,dmg:12},spot:{wait:10,move:50,heat:25},p2:{hide:[18,24],fire:10}}};
 /* S13: phase 2 (total boss HP <= 50%) swaps in each boss's p2 numbers through these */
 const rgB=()=>BS.ph2&&BS.rgP2||BOSS.rg,gdHide=()=>BS.ph2?BOSS.gd.p2.hide:BOSS.gd.hide;
 NTK.stg={n:'Staging area',m:'stg',spd:0,stop:0,rel:0,dmg:0,r:6.5}; /* r: solid radius covering the tents and crates (was the 2.6 m default: off-centre rams drove through) */NTK.rail={n:'Rail gun',m:'rail',spd:0,stop:0,rel:0,dmg:0};NTK.egun={n:'Enemy gun',m:'egun',spd:0,stop:0,rel:0,dmg:0};
@@ -6907,7 +6912,7 @@ function railTick(t,dt){const B=rgB(),S=BS.st,g=t.g.getObjectByName('glow');
 const GDK=['he','smk','clus','spot'];
 function duelMark(g){const B=BOSS.gd,e=B.err[Math.min(g.shots,B.err.length-1)],a=RT.rr()*6.283,d=Math.sqrt(RT.rr())*e*.8;g.mk={x:g.x+Math.cos(a)*d,z:g.z+Math.sin(a)*d,r:e,t:T,live:1}}
 function duelMove(g,away){const B=BOSS.gd;for(let k=0;k<20;k++){let a=RT.rr()*6.283;if(away)a=Math.atan2(g.z-pz,g.x-px)+(RT.rr()-.5)*(1.2+k*.25); /* a cornered gun widens its escape angle */const d=away?B.flee*.8:rr_(RT.rr,B.move[0],B.move[1]),x=g.x+Math.cos(a)*d,z=g.z+Math.sin(a)*d;
-  if(Math.abs(x)<HALF-80&&Math.abs(z)<HALF-80&&depthAt(x,z)<.1&&Math.hypot(x-px,z-pz)>(away?B.flee:900)){g.to=[x,z];g.gs='move';if(g.mk)g.mk.live=0;puff(g.x,H(g.x,g.z)+2,g.z,0xb8ad98,2,3,8,.6,.5);return}}g.gs='hide';g.next=T+5}
+  if(Math.abs(x)<HALF-80&&Math.abs(z)<HALF-80&&depthAt(x,z)<.1&&Math.hypot(x-px,z-pz)>(away?B.flee:900)){g.to=[x,z];g.gs='move';if(g.mk)g.mk.live=0; /* moved: its map point greys out where it was (Brenton 2026-11-26) */puff(g.x,H(g.x,g.z)+2,g.z,0xb8ad98,2,3,8,.6,.5);return}}g.gs='hide';g.next=T+5}
 function duelFire(g){const B=BOSS.gd,k=GDK[g.cyc%GDK.length];g.cyc++;g.shots=(g.shots||0);duelMark(g);g.shots++;duelBlast(g);
  if(k==='he'){const a=heatAim(px,pz,false);bossRing(a.ax,a.az,a.sg+25,B.lead+a.pts.length*.45);sched(B.lead,()=>{if(bossOn()||RUNS&&RUNS.bossOT)heatSalvo(a.ax,a.az,false,a)})}
  if(k==='smk'){const x=px+gauss()*15,z=pz+gauss()*15;bossRing(x,z,B.smk.r,B.lead,0xdcdcdc);sched(B.lead,()=>{if(!BS.on)return;noRng(()=>smoke3(new THREE.Vector3(x,H(x,z),z)));BS.smk={x,z,end:T+B.smk.life}})}
@@ -7566,7 +7571,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['New biome looks: Plain, Flats, Hills, Scrub and Forest now each have their own colours and plant density; Forest has dense stands of tall trees around clearings','Night tools: illum rounds are unlimited and light up enemies near the flare (they show on the map and aim slower). New night items: Thermal sight, Flash hider, Night owl, Ghost crew','Day and night: each run starts at a random hour and the clock runs with play time. At night enemies spot you closer and aim slower, but your muzzle flash gives you away','New boss: the Megatank. It runs you down, flattens everything in its path and shoots back; hit its turret or tracks to knock them out, its engine deck for double damage','Bosses change at half health: faster Redbacks, an overcharged rail gun, guns that shoot on the move','Boss section: a sealed enemy line at the top of each map, opened for the boss']};
+const NOTES={get v(){return BUILD.v},items:['New trees and biome looks: each biome has its own colours and trees; tall timber in Forest, river red gums along the Flats creeks, mallee in Scrub','Nights darken slowly: twilight, about 3 hours of full dark, then dawn. Markers are dimmer and enemies show faintly in the sight','Night tools: illum rounds are unlimited and light up enemies near the flare (they show on the map and aim slower). New night items: Thermal sight, Flash hider, Night owl, Ghost crew','Gun Duel: the enemy guns stay put longer, move slower and their aim circles are tighter','New boss: the Megatank. It runs you down, flattens everything in its path and shoots back; hit its turret or tracks to knock them out, its engine deck for double damage']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -8479,7 +8484,7 @@ RICO.it.rws+=corner('scav');document.getElementById('ri-it-rws').innerHTML=RICO.
    rally point. The type and count show as icons on the order card and the objective card; kills of other types do not count. Offered from order 2 at
    half weight, like Salvage and Protect. The targets spawn around the order's FP (infantry 300-700 m, IFVs 600-1100 m) and close on you as usual.
    I4 Elite ammo trade (event, map 2+): hand over your weakest ammo for one of three, one of them Elite-grade. Own random streams. ================= */
-RUN_MODES.SND={n:'Search and destroy',d:'Destroy the number of enemies shown, of the type shown, anywhere. Then get out.',from:1};
+RUN_MODES.SND={n:'Search and destroy',d:'Destroy the enemies HQ names when the order starts, anywhere. Then get out.',from:1};
 Object.assign(ORD.w,{SND:.5});Object.assign(ORD.from,{SND:1});MICO.SND='m-snd';PAR.SND=220;DOC_MODE.SND='Hunter-killer';
 const SND={N:[5,8,12],ty:['inf','ifv','mix'],inf:[300,700],ifv:[600,1100]};
 document.body.insertAdjacentHTML('beforeend','<svg width="0" height="0" style="position:absolute" aria-hidden="true">'+[
@@ -8501,9 +8506,9 @@ const _nkSnd=ntKill;ntKill=function(t){const a=t&&t.alive,r=_nkSnd.apply(this,ar
  if(a&&!t.alive&&e&&e.mode==='SND'&&e.snd&&R.phase==='mission'&&runLive()&&sndMatch(e.snd,t)){R.sndK=(R.sndK||0)+1;if(R.sndK>=e.snd.n)runObjective(true)}return r};
 const _ohSnd=objHtml;objHtml=function(){const R=RUNS,e=R&&R.cur;if(!runLive()||TUT||!e||e.mode!=='SND'||R.phase!=='mission'||!e.snd)return _ohSnd();const s=e.snd,k=Math.min(s.n,R.sndK||0);
  return'<div class="oh"><b>Search and destroy</b><span>'+sndIco(s)+' '+k+'/'+s.n+'</span></div><div class="oq">Destroy '+(s.n-k)+' more</div>'};
-/* order card: the type and count under the description */
+/* order card: the targets are a surprise (Brenton 2026-11-26): '? ×?' on the orders map; the objective card names type and count once the order starts */
 const _opSnd=ordPeek;ordPeek=function(i){_opSnd.apply(this,arguments);const R=RUNS,a=R&&R.map.rows[R.i]&&R.map.rows[R.i].nodes[i],e=a&&oNodeE(R,R.i,a),p=$('rPeek');
- if(e&&e.mode==='SND'&&e.snd&&p&&!p.hidden&&!p.querySelector('.sndc'))p.insertAdjacentHTML('beforeend','<div class="sndc">'+sndIco(e.snd)+' ×'+e.snd.n+'</div>')};
+ if(e&&e.mode==='SND'&&e.snd&&p&&!p.hidden&&!p.querySelector('.sndc'))p.insertAdjacentHTML('beforeend','<div class="sndc">? ×?</div>')};
 document.head.insertAdjacentHTML('beforeend','<style>.sndc{display:flex;align-items:center;gap:4px;font:700 14px var(--fd);margin-top:4px}.oh .i.sm{width:14px;height:14px;vertical-align:-2px}</style>');
 /* ---------- I4 Elite ammo trade ---------- */
 const amWeak=R=>{const L=amList();if(!L.length)return-1;const v=a=>['Standard','Improved','Elite'].indexOf(a.rar)*100+Object.values(a.s).reduce((x,y)=>x+y,0)+(a.fx?50:0);let b=0;L.forEach((a,i)=>{if(v(a)<v(L[b]))b=i});return b};
@@ -8552,7 +8557,7 @@ const _dmmS9=drawMini;drawMini=function(){_dmmS9();if(!escLive())return;const cv
  const t=escNext();if(t){const k=(T*1.5)%1;c.strokeStyle='rgba(255,143,135,'+(1-k)+')';c.lineWidth=1.5*dp;c.beginPath();c.arc((t.x+HALF)*s,(t.z+HALF)*s,(5+6*k)*dp,0,6.283);c.stroke()}};
 
 /* gun duel */
-Object.assign(BOSS.gd,{move:[100,200],mt:10,wait:20}); /* the gun stays 20 s after its second salvo so return fire (lay ~6 s + 7-8 s flight at 1.5-2 km) can land; relocates at BOSS.gd.spd 8 m/s (play-test 2026-11-24; was 8 s at 20 m/s) */
+Object.assign(BOSS.gd,{move:[100,200],mt:10,wait:35}); /* 2026-11-26 Brenton: 35 s (was 20), hide 30-40 s, 4 m/s, aim circle 120 then 30 m, map point gone once it moves. The gun stays after its second salvo so return fire (lay ~6 s + 7-8 s flight at 1.5-2 km) can land; relocates at BOSS.gd.spd 8 m/s (play-test 2026-11-24; was 8 s at 20 m/s) */
 const _dtS9=duelTick;duelTick=function(g,dt){const s0=g.gs;_dtS9(g,dt);if(s0==='hide'&&g.gs==='wait')g.next=T+BOSS.gd.wait};
 
 /* salvage */
@@ -9167,7 +9172,7 @@ const _dtSx12=duelTick;duelTick=function(g,dt){if(g.gs!=='out')return _dtSx12(g,
  const s=Math.min(sp*dt,d);g.x+=dx/d*s;g.z+=dz/d*s;g.g.position.set(g.x,H(g.x,g.z),g.z);g.g.rotation.y=Math.atan2(-dz,dx)};
 /* the north gun keeps to the section */
 duelMove=function(g,away){const B=BOSS.gd;for(let k=0;k<20;k++){let a=RT.rr()*6.283;if(away)a=Math.atan2(g.z-pz,g.x-px)+(RT.rr()-.5)*(1.2+k*.25);const d=away?B.flee*.8:rr_(RT.rr,B.move[0],B.move[1]),x=g.x+Math.cos(a)*d,z=g.z+Math.sin(a)*d;
-  if(Math.abs(x)<HALF-80&&Math.abs(z)<HALF-80&&depthAt(x,z)<.1&&Math.hypot(x-px,z-pz)>(away?B.flee:900)&&(!g.nth||z<BSEC.line-40)){g.to=[x,z];g.gs='move';if(g.mk)g.mk.live=0;puff(g.x,H(g.x,g.z)+2,g.z,0xb8ad98,2,3,8,.6,.5);return}}g.gs='hide';g.next=T+5};
+  if(Math.abs(x)<HALF-80&&Math.abs(z)<HALF-80&&depthAt(x,z)<.1&&Math.hypot(x-px,z-pz)>(away?B.flee:900)&&(!g.nth||z<BSEC.line-40)){g.to=[x,z];g.gs='move';if(g.mk)g.mk.live=0; /* moved: its map point greys out where it was (Brenton 2026-11-26) */puff(g.x,H(g.x,g.z)+2,g.z,0xb8ad98,2,3,8,.6,.5);return}}g.gs='hide';g.next=T+5};
 /* Rail gun: a figure-8 railway (lemniscate of Gerono, 1200 x 340 m) in the section; 4 firing points, one on each lobe's north and south side */
 const RAIL8={a:600,b:340,n:600};
 railRoute=function(){const A=RAIL8,L=BSEC.line,cz=(-HALF+L)/2,r=rng((RUNS&&RUNS.seed|0)^0x5ec7),u0=Math.PI/4;let best=null;
@@ -9350,7 +9355,10 @@ sunDir=function(s,o){const H=(s/86400-.5)*2*Math.PI,la=-35/57.3,d=NGT.dec,cd=Mat
 /* the world clock follows the run clock in a 3-map run */
 const _rwNg=resetWorld;resetWorld=function(def){_rwNg(def);const R=RUNS;if(R&&R.maps>1&&R.og&&R.clk!=null){TOD.lapse=CLK.rate;TOD.t0=R.clk-T*CLK.rate}};
 function clkSync(R){if(TOD.lapse===CLK.rate&&R.clk!=null)R.clk=Math.max(R.clk,todNow())}
-const ngDark=()=>RUNS&&RUNS.maps>1&&runLive()?1-(TOD.dayF==null?1:TOD.dayF):0;
+/* darkness curve (Brenton 2026-11-26): early and late night are lighter; full dark only while the sun is more than 27.5 deg down (about 22:30-01:30).
+   ngEarly: 1 at last light (sun -9 deg), 0 in full dark; darkness k = (1 - day) x (1 - lift x early). r89 lifts the look by the same curve */
+NGT.lift=.4;const ngEarly=()=>TOD.e==null?0:sst(-27.5,-9,TOD.e);
+const ngDark=()=>RUNS&&RUNS.maps>1&&runLive()?(1-(TOD.dayF==null?1:TOD.dayF))*(1-NGT.lift*ngEarly()):0;
 const ngLit=()=>{if(T>=lastShot&&T-lastShot<NGT.flash)return true;const w=new THREE.Vector3();
  for(const c of ILL){const a=T-c.t0;if(a<0||a>c.life)continue;nlFlare(c,w);if(Math.hypot(w.x-px,w.z-pz)<NGT.flare)return true}return false};
 const ngK=()=>{const k=ngDark();return k>.01&&!ngLit()?k:0};
@@ -9442,4 +9450,114 @@ const BIO18={
  scrub:{pal:{straw:0xc98552,olv:0x8a6838,dirt:0xa85232,rock:0x9c5e42,wet:0x593828,trk:0xe0a878},fc:[0x6e7544,0x5e663b,0x7c824e,0x545c35],gc:[0xc48250,0xb57444,0xa6683c,0xd1915e],rk:0x94583e,trees:0.35,grass:0.8,shrub:2.8,map:0x261813},
  forest:{pal:{straw:0x786c4e,olv:0x354626,dirt:0x5c4b38,rock:0x63635c,wet:0x304030,trk:0xae9f75},fc:[0x283d1f,0x1f3119,0x334a28,0x1b2b15],gc:[0x63593c,0x564e34,0x4a442d,0x6f6545],rk:0x5c5c56,trees:3.1,grass:0.45,shrub:1.85,map:0x141c14,th:1.3,tc:.6}};
 for(const k in BIO18){const n=BIO18[k],B=BIOME[k];if(!B)continue;Object.assign(B.pal,n.pal);Object.assign(B,{fc:n.fc,gc:n.gc,rk:n.rk,trees:n.trees,grass:n.grass,shrub:n.shrub,map:n.map});if(n.th)B.th=n.th;if(n.tc)B.tc=n.tc}
+/* ================= P6 S19 (H2, BGGB): tree species per biome (plans/p6/s19-design.md, Brenton 2026-11-26).
+   New trunk variants in the 48-flora geometry (gVar 3..8), so each tree is still 1 trunk + 3 crowns: felling, blasting, obstacles and the LRF are unchanged.
+   gum 0-2 (as before) | tall timber 3-4 (straight trunk, crowns stacked as a spire) | river red gum 5-6 (short thick bole, low wide limbs, flat crowns) | mallee 7-8 (stems from the ground, small crowns).
+   Species = hash of the tree's position (no random draws). Flats (when the world has creeks; genCreeks can give none): every spot 16-35 m from a creek, 45% at 35-90 m, 10% beyond, so red gums line the water. Forest: every indirect FP sits in a clearing walled by timber 45-110 m out.
+   Crest heights (minQE) use each tree's real height (o.h); the LRF ignores the trunk proxy above a mallee's crowns. ================= */
+const SPC=withRng(0x5319a1,()=>{const V=THREE.Vector3,{tube,limb,tb,tips}=FLR,crs=[];
+ const tip=p=>p.clone().add(new V(0,.5,0)),tint=(i0,c)=>{for(let i=i0;i<tb.C.length;i+=3){tb.C[i]*=c[0];tb.C[i+1]*=c[1];tb.C[i+2]*=c[2]}};
+ /* tall timber: one straight bole to ~ +6.5, short limbs at 55% and 78% height and the leader on top; crowns narrow, top smallest */
+ for(let v=3;v<5;v++){const c0=tb.C.length,base=new V(0,-3.6,0),lean=new V(rnd(-.04,.04),1,rnd(-.04,.04)).normalize(),T=limb(base,lean,rnd(9.6,10.6),10,0,.02),m=T.length-1;
+  tube(tb,T,T.map((p,i)=>.34-.22*i/m+.14*Math.max(0,1-i*1.2)),9,v,p=>.55+.45*sst(-3.3,-1.2,p.y));const vt=[],a0=Math.random()*6.283;
+  [.55,.78].forEach((f,k)=>{const p=T[Math.round(f*m)],az=a0+k*2.4,d=new V(Math.cos(az),rnd(.5,.8),Math.sin(az)),L=limb(p,d,k?1.4:2.3,3,.25,.08);tube(tb,L,L.map((_,i)=>.1*(1-.6*i/(L.length-1))),6,v,()=>.95);vt.push(tip(L[L.length-1]))});
+  for(let j=0;j<3;j++){const p=T[Math.round(rnd(.25,.45)*m)],az=Math.random()*6.283,L=limb(p,new V(Math.cos(az),.2,Math.sin(az)),rnd(.5,.9),2,0,.1);tube(tb,L,L.map(()=>.05),5,v,()=>.85)}
+  vt.push(T[m].clone().add(new V(0,.9,0)));tips[v]=vt;crs[v]=[[1.35,.9],[1.05,.9],[.7,1]];tint(c0,[.8,.8,.8])}
+ /* river red gum (round 2, Gemini: read as acacia): bole ~3.3 m (~30% of the tree), 3 heavy limbs rising steeply at uneven lengths, lopsided crown clusters, grey-brown/ochre bark */
+ for(let v=5;v<7;v++){const c0=tb.C.length,base=new V(0,-3.6,0),lean=new V(rnd(-.12,.12),1,rnd(-.12,.12)).normalize(),T=limb(base,lean,rnd(3.1,3.6),5,0,.05),m=T.length-1,top=T[m];
+  tube(tb,T,T.map((p,i)=>.55-.12*i/m+.18*Math.max(0,1-i*1.5)),10,v,p=>.5+.4*sst(-3.4,-2,p.y));const vt=[],a0=Math.random()*6.283;
+  for(let k=0;k<3;k++){const az=a0+k*2.094+rnd(-.5,.5),el=[rnd(.75,.95),rnd(.5,.7),rnd(.4,.55)][k],d=new V(Math.cos(az)*Math.cos(el),Math.sin(el),Math.sin(az)*Math.cos(el)),L=limb(top.clone().addScaledVector(d,-.3),d,[rnd(4.4,5),rnd(3.6,4.4),rnd(2.8,3.4)][k],6,rnd(.35,.55),.14);
+   tube(tb,L,L.map((_,i)=>.3*(1-.65*i/(L.length-1))),8,v,()=>.9);vt.push(tip(L[L.length-1]));
+   for(let j=0;j<2;j++){const p=L[3+j],sd=new V(Math.cos(az+(j?1:-1)*rnd(.7,1.2)),rnd(.3,.7),Math.sin(az+(j?1:-1)*rnd(.7,1.2))),S2=limb(p,sd,rnd(1.4,2.2),3,.4,.15);tube(tb,S2,S2.map((_,i)=>.09*(1-.7*i/(S2.length-1))),5,v,()=>.9)}}
+  tips[v]=vt;crs[v]=[[1.3,.95,1.05],[1.05,.85,1.25],[.85,1,.75]];tint(c0,[.92,.8,.68])}
+ /* mallee: 5 thin stems from the ground fanning out to ~ +1.2; crowns on three of them */
+ for(let v=7;v<9;v++){const vt=[],a0=Math.random()*6.283;
+  for(let k=0;k<5;k++){const az=a0+k*1.257+rnd(-.25,.25),el=rnd(1.08,1.32),d=new V(Math.cos(az)*Math.cos(el),Math.sin(el),Math.sin(az)*Math.cos(el)),b0=new V(Math.cos(az)*.14,-3.6,Math.sin(az)*.14),L=limb(b0,d,rnd(4.2,5.2),5,.15,.1);
+   tube(tb,L,L.map((_,i)=>.14*(1-.6*i/(L.length-1))),6,v,p=>.6+.35*sst(-3.5,-2.5,p.y));if(k%2===0&&vt.length<3)vt.push(tip(L[L.length-1]))}
+  tips[v]=vt;crs[v]=[[.5,.82],[.46,.78],[.48,.8]]}
+ /* height of each variant from its base (unit scale): highest crown tip + crown half height */
+ const top=tips.map((t,v)=>Math.max(...t.map(p=>p.y))+3.6+1.3*((crs[v]||[[1,1]])[0][1]));
+ return{crs,top}});
+FLR.NV=9;FLR.trunkG=FLR.toGeo(FLR.tb,true);for(let v=3;v<9;v++){FLR.nearG[v]=FLR.lodG(v,false);FLR.farG[v]=FLR.lodG(v,true)}
+{const av=trI.geometry.attributes.aVar;FLR.trunkG.setAttribute('aVar',av);trI.geometry=FLR.trunkG;
+ for(let v=3;v<9;v++)for(const [L,G] of [[LOD.tn,FLR.nearG],[LOD.tf,FLR.farG]]){const g=G[v];g.setAttribute('aVar',new THREE.InstancedBufferAttribute(new Float32Array(NTX).fill(v),1));
+  const m=new THREE.InstancedMesh(g,trI.material,NTX);Object.assign(m,{customDepthMaterial:trI.customDepthMaterial,castShadow:trI.castShadow,receiveShadow:trI.receiveShadow,frustumCulled:false,count:0,raycast:()=>{},visible:LOD.on});sc.add(m);L[v]=m}}
+/* species mix per biome: [gum, timber, red gum, mallee] */
+const SPMIX={plain:[1,0,0,0],hills:[.7,.3,0,0],river:[.25,0,.75,0],scrub:[.15,0,0,.85],forest:[.2,.8,0,0]};
+const spH=(x,z,k)=>{const v=Math.sin(x*12.9898+z*78.233+k*37.719)*43758.5453;return v-Math.floor(v)};
+const SP={W:null,top:new Float32Array(NTX)};
+function spPick(bk,x,z){const u=spH(x,z,1),d=creekD(x,z);let m=SPMIX[bk]||SPMIX.plain;
+ if(bk==='plain'&&d<70&&u<.6)return 5;
+ if(bk==='river'&&SP.ck)m=d<90?[.1,0,.9,0]:[.6,0,.4,0];
+ const k=u<m[0]?0:u<m[0]+m[1]?1:u<m[0]+m[1]+m[2]?2:3,w=spH(x,z,2);return k?1+2*k+(w<.5?0:1):Math.floor(w*3)}
+/* placement rules per biome (replace the S18 stand test while a seeded world builds) */
+function spRule(W){const b=W&&W.b;if(!b)return null;const bk=W.bk;
+ if(bk==='forest'){const fp=FPS.map(k=>SITES[k]);return(x,z)=>{let d=1e9;for(const s of fp)d=Math.min(d,Math.hypot(x-s[0],z-s[1]));if(d<45)return false;return d<=110||tcl(x,z)>=TREEC}}
+ if(bk==='river'&&SP.ck)return(x,z)=>{const d=creekD(x,z);return d<=35||(d<=90?spH(x,z,3)>=.55:spH(x,z,3)>=.9)};
+ return TREEC?(x,z)=>tcl(x,z)>=TREEC:null}
+const _wbSp=worldBuild;worldBuild=function(W){SP.W=W;return _wbSp.apply(this,arguments)};
+const _scSp=scTrees;scTrees=function(n){const W=SP.W;SP.ck=creekD(0,0)<5e4;TREEOK=spRule(W);try{_scSp(n)}finally{TREEOK=null}
+ const av=trI.geometry.attributes.aVar.array,m4=new THREE.Matrix4(),p=new THREE.Vector3(),q=new THREE.Quaternion(),s=new THREE.Vector3();SP.top.fill(0);
+ for(const o of obs){if(o.k!=='t')continue;const v=W&&W.b?spPick(W.bk,o.x,o.z):(o.i*7+((o.i*13)>>2))%3;av[o.i]=v;trI.getMatrixAt(o.i,m4);m4.decompose(p,q,s);
+  if(W&&W.bk==='plain'){const b=p.y-3.6*s.y;s.multiplyScalar(.85);p.y=b+3.6*s.y;m4.compose(p,q,s);trI.setMatrixAt(o.i,m4);o.r*=.85}
+  o.h=SPC.top[v]*s.y;if(v>=7)SP.top[o.i]=p.y-3.6*s.y+o.h}
+ if(W&&W.bk==='plain'){const Z=new THREE.Matrix4().makeScale(0,0,0);for(let i=obs.length-1;i>=0;i--){const o=obs[i];if(o.k!=='t'||spH(o.x,o.z,4)>=.2)continue;trI.setMatrixAt(o.i,Z);(o.fi||[]).forEach(j=>foI.setMatrixAt(j,Z));obs.splice(i,1)}foI.instanceMatrix.needsUpdate=true}
+ trI.geometry.attributes.aVar.needsUpdate=true;trI.instanceMatrix.needsUpdate=true};
+/* crowns: per-species size; timber crowns narrower and stacked */
+const _tfSp=treeFix;treeFix=function(){_tfSp();const m4=new THREE.Matrix4(),f4=new THREE.Matrix4(),p=new THREE.Vector3(),q=new THREE.Quaternion(),s=new THREE.Vector3(),av=trI.geometry.attributes.aVar.array;
+ for(const o of obs){if(o.k!=='t'||!o.fi)continue;const c=SPC.crs[av[o.i]];if(!c)continue;
+  o.fi.forEach((j,k)=>{foI.getMatrixAt(j,f4);f4.decompose(p,q,s);s.x*=c[k][0];s.z*=c[k][2]||c[k][0];s.y*=c[k][1];f4.compose(p,q,s);foI.setMatrixAt(j,f4)})}
+ foI.instanceMatrix.needsUpdate=true};
+WHOOK[WHOOK.indexOf(_tfSp)]=treeFix;
+/* LRF/ray tests: the trunk proxy (7.5 m) stands above a mallee's crowns; drop hits there */
+{const rc=trI.raycast;trI.raycast=function(r,hits){const n=hits.length;rc.call(this,r,hits);for(let i=hits.length-1;i>=n;i--){const h=hits[i],t=SP.top[h.instanceId];if(t&&h.point.y>t)hits.splice(i,1)}}}
+/* ground cover: Scrub = spinifex and saltbush */
+SHMIX.Scrub=[.4,.55,.05];
+/* Forest: stands only where the noise > .7 (S18 .6), so the same 6,200 trees stand closer and more of them wall the FP clearings */
+BIOME.forest.tc=.7;
+/* round 2 (Gemini S19 review, Brenton 2026-11-26): Forest foliage 12% less saturated (olive/sage); Flats ~20% fewer trees (they line the creeks); Plain ~20% fewer gums (placed then removed by hash, so the world's later random draws (rocks, grass, buildings) stay where they were), 15% smaller */
+{const c=new THREE.Color(),h={};BIOME.forest.fc=BIOME.forest.fc.map(x=>{c.setHex(x).getHSL(h);c.setHSL(h.h,h.s*.88,h.l);return c.getHex()});
+ BIOME.river.trees=+(BIOME.river.trees*.8).toFixed(2)}
+/* ================= RUN-ONLY: wrecks for the BGGB-only models and lighter soldier deaths (Brenton 2026-11-26, Gemini enemy review).
+   The Jammer, enemy gun (Gun Duel), rail gun and Megatank were built after 63-wreck tagged its builders and from shared materials with no wreck name,
+   so a kill left them looking live. They now char in place (the same burnt metal, embers and flames as the other vehicles), settle and tilt.
+   In place, not rebuilt: boss code keeps its references to their parts. Soldiers (infantry, AT teams) leave a short dust puff, not a burning-vehicle plume ================= */
+const WKN=new Map([[TMT.veh,'paint'],[TMT.drk,'dark'],[TMT.gun,'gun'],[TMT.wht,'wht'],[TMT.cnv,'cnv'],[TMT.tnt,'tnt'],[TMT.bag,'bag'],[TMT.soil,'soil'],[MTM.arm,'paint'],[MTM.hull,'paint']]);
+['jam','egun','rail','mtk'].forEach(k=>{const f=TPT[k];TPT[k]=p=>{const n=p.children.length;f(p);for(let i=n;i<p.children.length;i++){const u=p.children[i].userData;u.tk=k;if(!u.mk)u.wkIn=1}}}); /* a kit-built (ekBuild) model has wreck names (mk): it takes the standard 63-wreck rebuild */
+['jam','egun','rail','mtk'].forEach(k=>WK.VEH.add(k));Object.assign(WK.SINK,{jam:.27,egun:.04,rail:.04,mtk:.04});
+Object.assign(WK.FIRE,{jam:[[2.5,2.9,0,.7],[-1.1,3.5,0,1.4]],egun:[[0,2,0,1.2],[-.5,3.3,0,.8]],rail:[[-2,4,0,2.5],[3,2.8,0,2]],mtk:[[0,4,0,2.5],[-4,3,0,2.5]]});
+const _wkAIn=wkApply;wkApply=function(c,r,get){const o0=c.children.find(o=>o.userData.tk&&o.userData.wkIn);if(!o0)return _wkAIn(c,r,get);const tk=o0.userData.tk,sk=WK.SINK[tk]||0;
+ c.traverse(o=>{if(!o.isMesh)return;const n=WKN.get(o.material);o.material=n?get(n):o.material.isMeshBasicMaterial?get('dark'):get('paint')}); /* glowing vents and lamps go dark */
+ c.children.forEach(o=>{if(o.userData.tk)o.position.y-=sk});c.rotation.x=(r()-.5)*.06;c.rotation.z=(r()-.5)*.06;c.userData.wk=tk;return tk};
+/* soldiers: the dead-vehicle smoke (25-v4 puffs for t.burn) becomes a 2 s dust puff (t.soft, t.kT); the puffs keep their random draws */
+const _ntKW=ntKill;ntKill=function(t){const a=t.alive;_ntKW.apply(this,arguments);if(a&&!t.alive&&(t.nt==='inf'||t.nt==='at')){t.soft=1;t.kT=T}};
+/* tyres burn away: the scout car and ute sit down on their rims, body near the ground (they read as floating at .25/.2; 2026-11-27) */
+Object.assign(WK.SINK,{scout4:.5,ute:.4});
+/* ================= RUN-ONLY: night look (Brenton 2026-11-26). In 3-map runs:
+   - the sky and light follow r83's curve: early and late night are lighter (sky 25% toward day, more fill and moonlight), full dark about 22:30-01:30;
+   - unlit markers (artillery warning discs, Firing Point rings and columns) drop to 15% (linear, about 40% as seen) in full dark (x0.6 more in the NV sight); fences and hazard tape (unlit) darken with the light;
+   - through the gun sight at night, enemies within 1500 m show a faint warm glow (the Thermal sight item keeps its bright glow, 1000 m in the main view and the map).
+   No random draws ================= */
+const NLK={sky:.25,hemi:.18,moon:.25,mk:.85,nv:.6,th:1500};
+const nkRun=()=>!!(RUNS&&RUNS.maps>1&&!TUT);
+const nkDay=()=>TOD.dayF==null?1:TOD.dayF; /* 1 day .. 0 night */
+const _taNl=todApply;todApply=function(){_taNl.apply(this,arguments);if(!nkRun())return;const L=ngEarly()*(1-nkDay());if(L<=0)return;
+ for(const f of['top','hor','gnd'])skyU[f].value.lerp(C_(SKY.night[f],SKY.day[f],NLK.sky),L);sc.fog.color.copy(LIN(skyU.hor.value.getHex()));
+ hemi.intensity+=NLK.hemi*L;if(TOD.e<-2)sun.intensity+=NLK.moon*L};
+/* light level for unlit things: 1 by day, down to 0 in full dark */
+const nkLight=()=>nkRun()?1-ngDark():1;
+const nkBase=m=>m.userData.c0||(m.userData.c0=m.color.clone());
+function nkDim(m,k){const c=nkBase(m);m.color.copy(c).multiplyScalar(k)}
+const nkMk=()=>{const l=nkLight();return(1-NLK.mk*(1-l))*(sight&&l<.5?NLK.nv:1)}; /* the NV sight brightens the image x2.6, so markers drop further there */
+const _wtNl=warnTick;warnTick=function(){_wtNl.apply(this,arguments);const k=nkMk();for(const G of W3.values())G.children.forEach(o=>{if(o.isMesh)nkDim(o.material,k)})};
+NLK.t=0;const _stNl=step;step=function(dt,draw){_stNl(dt,draw);if(!draw||Math.abs(T-NLK.t)<.2)return;NLK.t=T;const l=nkLight(),k=nkMk();
+ for(const g of Object.values(fpM))g.children.forEach(o=>{if(o.material)nkDim(o.material,k)});
+ const f=.12+.88*l;if(typeof fenceL!=='undefined'&&fenceL)nkDim(fenceL.material,f);nkDim(HZMAT.tape,f)}; /* hazard tape (the white 'wires' along roads) is unlit too */
+/* faint glow in the sight at night */
+const ILMF=noRng(()=>{const m=ILMM.clone();m.opacity=.22;m.color=new THREE.Color(1.1,.9,.7);return m});
+ilmGlow=function(){const faint=!!(sight&&ilmNight());for(const t of ntLive()){const on=ILM.seen.has(t),f=!on&&faint&&!t.hid&&Math.hypot(t.x-px,t.z-pz)<NLK.th;
+ if(!t.ilm){if(!on&&!f)continue;t.ilm=new THREE.Sprite(ILMM);t.ilm.position.y=1.6;t.ilm.renderOrder=6;t.g.add(t.ilm)}
+ t.ilm.visible=on||f;if(on||f){t.ilm.material=on?ILMM:ILMF;const s=(NTK[t.nt]&&NTK[t.nt].veh?6:2.6)*(on?1:.8);t.ilm.scale.set(s,s,1)}}};
+/* flares light the scene without shadows: the flare's spot shadow redrew the whole scene every frame (+63% draw calls on High at night); Brenton 2026-11-26 */
+const _gfNs=gfxApply;gfxApply=function(){_gfNs();NL.sp.castShadow=false};NL.sp.castShadow=false;
 </script>

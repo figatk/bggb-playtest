@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.44.1","c":"4d4a40e"};
+const BUILD={"v":"9.46.0","c":"a9e9584"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -5148,7 +5148,7 @@ const _rwRH=resetWorld;resetWorld=function(def){_rwRH(def);RH.fix=RH.wk=null;RH.
 const NTK={scout:{n:'Scout car',m:'truck',spd:9,stop:1800,rel:0,dmg:0},inf:{n:'Infantry section',m:'man',spd:1.1,stop:300,rel:12,dmg:7,hit:.2},ifv:{n:'IFV',m:'ifv',spd:8,stop:1400,rel:8,dmg:3,hit:.15,ac:1,veh:1}}; /* ac: fires an autocannon (every other shooter fires rockets); veh: a vehicle. Code tests these, never the type name, so a new type behaves by its row */
 NTK.scout.veh=1;
 const RT={next:0,rr:rng(99)};
-function ntSpawn(kind,x,z,o){const g=new THREE.Group();noRng(()=>{if(kind==='inf')for(let i=0;i<3;i++){const m=new THREE.Group();TPT.man(m);m.position.set(i*1.6-1.6,0,(i%2)*1.2);g.add(m)}else TPT[NTK[kind].m](g)});
+function ntSpawn(kind,x,z,o){const g=new THREE.Group();noRng(()=>{if(kind==='inf')for(let i=0;i<3;i++){const m=new THREE.Group();TPT.man(m);m.position.set(i*2.8-2.8,0,(i%2)*1.8);g.add(m)}else TPT[NTK[kind].m](g)});
  g.position.set(x,H(x,z),z);sc.add(g);const t={g,x,z,alive:true,vx:0,vz:0,nt:kind,fireT:T+rr_(RT.rr,3,8),hold:!!(o&&o.hold),seen:0};dft.push(t);return t}
 const ntLive=()=>dft.filter(t=>t.alive&&t.nt);
 /* waves: every 35-50 s the heat band decides what comes, from the mission's spawn ring */
@@ -6099,18 +6099,18 @@ const nlMat=noRng(()=>({dim:new THREE.LineBasicMaterial({color:0xff2a2a,transpar
  beamG:new THREE.CylinderGeometry(1,1,1,6,1,true).translate(0,.5,0),beam:new THREE.MeshBasicMaterial({color:0xff2a2a,transparent:true,opacity:.35,depthWrite:false,fog:false,toneMapped:false}),
  beamHot:new THREE.MeshBasicMaterial({color:0xff3b3b,transparent:true,opacity:.85,depthWrite:false,fog:false,toneMapped:false}),dot:wDot(),
  rkt:new THREE.MeshBasicMaterial({color:0x2e3226}),fl:new THREE.MeshBasicMaterial({color:0xffd27a,fog:false,toneMapped:false}),trc:new THREE.LineBasicMaterial({color:0xffb347,fog:false,toneMapped:false})}));
-/* a soft red glow (constant screen size) for the shooter's end of the laser */
-function wDot(){const c=document.createElement('canvas');c.width=c.height=32;const g=c.getContext('2d'),r=g.createRadialGradient(16,16,0,16,16,16);r.addColorStop(0,'rgba(255,90,80,1)');r.addColorStop(.35,'rgba(255,40,40,.8)');r.addColorStop(1,'rgba(255,0,0,0)');g.fillStyle=r;g.fillRect(0,0,32,32);
+/* a soft red glow (constant screen size) for the shooter's end of the laser (enemy-vis V2: 45% smaller, tighter fall-off) */
+function wDot(){const c=document.createElement('canvas');c.width=c.height=32;const g=c.getContext('2d'),r=g.createRadialGradient(16,16,0,16,16,16);r.addColorStop(0,'rgba(255,90,80,1)');r.addColorStop(.25,'rgba(255,40,40,.75)');r.addColorStop(.6,'rgba(255,0,0,0)');g.fillStyle=r;g.fillRect(0,0,32,32);
  return new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,sizeAttenuation:false,transparent:true,fog:false,toneMapped:false})}
 /* the laser stops where its line of sight to the gun is cut */
 const nlEnd=t=>{const k=t.los==null?1:t.los,x=t.x+(px-t.x)*k,z=t.z+(pz-t.z)*k,A=new THREE.Vector3(t.x,H(t.x,t.z)+1.8,t.z),B=new THREE.Vector3(px,H(px,pz)+2,pz);return[A,A.clone().lerp(B,k)]};
 function nearTick(dt){const on=new Set();if(RUNS&&runLive())for(const t of ntLive()){const K=NTK[t.nt];if(t.pr||!K.rel||Math.hypot(px-t.x,pz-t.z)>K.stop+80)continue;on.add(t);
   let L=NLZ.get(t);if(!L){L=noRng(()=>{const G=new THREE.Group(),l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(nlEnd(t)),nlMat.dim),b=new THREE.Mesh(nlMat.beamG,nlMat.beam),d=new THREE.Sprite(nlMat.dot);
-    d.scale.set(.018,.018,1);d.renderOrder=9;G.add(l,b,d);G.userData={l,b,d};return G});sc.add(L);NLZ.set(t,L)}
+    d.scale.set(.01,.01,1);d.renderOrder=9;G.add(l,b,d);G.userData={l,b,d};return G});sc.add(L);NLZ.set(t,L)}
   /* a thin line the whole way, a beam that stays a few pixels wide near the camera, and a red glow at the shooter so it can be found at range */
   const[A,B]=nlEnd(t),u=L.userData,hot=t.los>=1&&T>=t.fireT-NLAIM,blink=!hot||Math.floor(T*8)%2===0||T>=t.fireT-.5;u.l.geometry.setFromPoints([A,B]);u.l.material=hot?nlMat.hot:nlMat.dim;
   const len=A.distanceTo(B),r=Math.max(.04,cam.position.distanceTo(B)*.0018)*(hot?1.6:1);u.b.position.copy(A);u.b.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),B.clone().sub(A).normalize());u.b.scale.set(r,len,r);
-  u.b.material=hot?nlMat.beamHot:nlMat.beam;u.d.position.copy(A);u.d.scale.setScalar(hot?.03:.018);L.visible=blink}
+  u.b.material=hot?nlMat.beamHot:nlMat.beam;u.d.position.copy(A);u.d.scale.setScalar(hot?.017:.01);L.visible=blink}
  for(const[t,L]of NLZ)if(!on.has(t)){sc.remove(L);L.userData.l.geometry.dispose();NLZ.delete(t)}
  /* shots in flight: an RPG with a smoke trail, or a 3-round tracer burst; the flash and sound when they leave */
  const live=new Set(NTS);for(const s of NTS){let G=NPZ.get(s);if(!G){G=noRng(()=>{const G=new THREE.Group();if(s.ty==='rpg'||s.ty==='atgm'){const m=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.9,6),nlMat.rkt);m.rotation.z=Math.PI/2;G.add(m,new THREE.Mesh(new THREE.SphereGeometry(.18,6,4),nlMat.fl))}
@@ -7575,7 +7575,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['Easier first map: map 1 boss fights have no other enemies and heat rises more slowly; map 2 boss fights bring half the usual waves','New biome: Desert, long red sand dunes with spinifex and claypan swales. Any biome can now come up on any map','Ground detail: cracked red claypan in Scrub and Desert, leaf litter under the Forest timber, mud along the Flats creeks','New trees and biome looks: each biome has its own colours and trees; tall timber in Forest, river red gums along the Flats creeks, mallee in Scrub','Nights darken slowly: twilight, about 3 hours of full dark, then dawn. Markers are dimmer and enemies show faintly in the sight','Night tools: illum rounds are unlimited and light up enemies near the flare (they show on the map and aim slower). New night items: Thermal sight, Flash hider, Night owl, Ghost crew']};
+const NOTES={get v(){return BUILD.v},items:['Easier first map: map 1 boss fights have no other enemies and heat rises more slowly; map 2 boss fights bring half the usual waves','New biome: Desert, long red sand dunes with spinifex and claypan swales. Any biome can now come up on any map','Ground detail: cracked red claypan in Scrub and Desert, leaf litter under the Forest timber, mud along the Flats creeks','Enemies are easier to spot: grey, sand and brown camo (never green like the AS9), a shadow underneath and dust when they drive. A red chevron marks enemies attacking friendlies','New enemy models: a bigger Redback in its own camo, a kneeling AT team with a tripod launcher, an armoured Jammer, a mine-laying truck, and the Gun Duel guns are now self-propelled howitzers','New trees and biome looks: each biome has its own colours and trees; tall timber in Forest, river red gums along the Flats creeks, mallee in Scrub','Nights darken slowly: twilight, about 3 hours of full dark, then dawn. Markers are dimmer and enemies show faintly in the sight','Night tools: illum rounds are unlimited and light up enemies near the flare (they show on the map and aim slower). New night items: Thermal sight, Flash hider, Night owl, Ghost crew']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -8642,7 +8642,7 @@ const aiBehind=o=>{const dx=o.x-px,dz=o.z-pz,d=Math.hypot(dx,dz)||1,k=aiCr(o)+2;
 const aiFace=t=>{t.g.rotation.y=Math.atan2(-(pz-t.z),px-t.x)};
 /* move by our own rules (the flank waypoint and the move lock below leave these alone) */
 const aiMove=(t,x,z,s)=>{t.aiMv=1;try{ntStep(t,x,z,s)}finally{t.aiMv=0}return Math.hypot(x-t.x,z-t.z)<1};
-const AIC=[[-1.6,0,0],[0,0,1.2],[1.6,0,0]]; /* walking column (as spawned) */
+const AIC=[[-2.8,0,0],[0,0,1.8],[2.8,0,0]]; /* walking column (as spawned; enemy-vis V3: men 2.8 m apart) */
 /* flank waypoint + the move lock: a unit we move ourselves (cover, hiding, IFV side step, slow close) is not walked on by the old tick */
 const _nsAI=ntStep;ntStep=function(t,gx,gz,s){if(t.aiMv||!aiOn(t))return _nsAI(t,gx,gz,s);if(t.aiL)return;
  if(!t.fl0){t.fl0=1;const dx=t.x-gx,dz=t.z-gz,d=Math.hypot(dx,dz);if(aiMap()>=1&&t.nt!=='scout'&&d>NTK[t.nt].stop+200){
@@ -9572,6 +9572,214 @@ const bmReg=t=>!t.boss&&t.nt!=='rbifv';
 const bmWave=()=>{const R=RUNS;if(!(R&&R.cur&&R.cur.boss&&R.maps>1))return true;if(!R.mi)return false;return R.mi!==1||(BS.wv=(BS.wv||0)+1)%2===1}; /* may this wave come? */
 const _nwBm=ntWave;ntWave=function(){if(!bmWave())return;return _nwBm.apply(this,arguments)};
 const _bsBm=bossStart;bossStart=function(e){_bsBm(e);BS.wv=0;const R=RUNS;if(R&&R.maps>1&&!R.mi)for(const t of ntLive())if(bmReg(t)){t.alive=false;sc.remove(t.g)}};
+/* ================= Enemy visibility V1 (BGGB, game-wide; Brenton OK 2026-11-26, design plans/p6/enemy-vis-design.md): paint.
+   Gemini spotting + model reviews: enemies read as dark olive blobs. All enemy paint is lifted 18% in value, painted vehicles and soldiers get
+   3-tone OPFOR blotches (grey/sand/brown) (object space, so it moves with the unit), lower hulls get pale dust (strongest under .6 m), and upper works (turrets)
+   are 15% lighter than hulls. Materials are edited in place (no new materials, no Math.random draws). Trainer untouched (r* files are BGGB only). ================= */
+/* Brenton 2026-11-27: enemies must never look friendly (the AS9 is Australian green): OPFOR grey / sand / dark brown, no green, no marks */
+const EV={lift:1.18,camo:[0x7c7867,0x5f5e57,0x3b3128]};
+/* sRGB value lift of a linear colour */
+const evLift=(c,k=EV.lift)=>{c.convertLinearToSRGB().multiplyScalar(k);c.r=Math.min(c.r,1);c.g=Math.min(c.g,1);c.b=Math.min(c.b,1);c.convertSRGBToLinear()};
+const evV3=h=>{const c=LIN(h);evLift(c);return'vec3('+c.r.toFixed(4)+','+c.g.toFixed(4)+','+c.b.toFixed(4)+')'};
+const EV_DEF='varying vec3 vOp;\nfloat emH(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}'+
+ 'float emN(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(emH(i),emH(i+vec3(1,0,0)),f.x),mix(emH(i+vec3(0,1,0)),emH(i+vec3(1,1,0)),f.x),f.y),mix(mix(emH(i+vec3(0,0,1)),emH(i+vec3(1,0,1)),f.x),mix(emH(i+vec3(0,1,1)),emH(i+vec3(1,1,1)),f.x),f.y),f.z);}\n';
+/* 3-tone blotches: s = blotch frequency per metre, top = turret lift on (vehicles), n = the existing fine mottle */
+const evCamo=(s,top)=>'{float c1=emN(vOp*'+s.toFixed(2)+'+vec3(3.1,0.,7.7)),c2=emN(vOp*'+(s*1.7).toFixed(2)+'+vec3(11.,5.,2.));'+
+ 'vec3 t=mix('+evV3(EV.camo[0])+','+evV3(EV.camo[1])+',smoothstep(.56,.59,c1));t=mix(t,'+evV3(EV.camo[2])+',smoothstep(.67,.7,c2));'+
+ 'diffuseColor.rgb=t*(.9+.2*n)'+(top?'*mix(1.,1.15,smoothstep(1.9,2.4,vOp.y))':'')+';}';
+/* EMT (62-enemy kit): swap the mottle for camo, and the brown low dust for pale dust that is strongest under .6 m */
+const evHookE=(m,s,top)=>{const prev=m.onBeforeCompile;m.onBeforeCompile=(sh,r)=>{prev(sh,r);let f=sh.fragmentShader;
+  if(s)f=f.replace('diffuseColor.rgb*=.84+.32*n;','float n_=n;'+evCamo(s,top).replace('*(.9+.2*n)','*(.9+.2*n_)'));
+  sh.fragmentShader=f.replace(/vec3\(\.42,\.35,\.25\),smoothstep\(1\.4,\.1,vOp\.y\)\*\(\.35\+\.45\*n\)\*([\d.]+)/,(a,d)=>'vec3(.552,.423,.231),smoothstep(1.1,.05,vOp.y)*(.45+.4*n)*'+Math.min(1,+d*1.25).toFixed(2))};
+ const ck=m.customProgramCacheKey;m.customProgramCacheKey=()=>ck.call(m)+'ev'+(s||0);m.needsUpdate=true};
+/* TMT/MTM (older box-built parts: boss parts, minelayer, jammer, megatank): camo in each part's own space (no dust: part space has no ground) */
+const evHookT=(m,s)=>{const prev=m.onBeforeCompile;m.onBeforeCompile=(sh,r)=>{if(prev&&prev!==THREE.Material.prototype.onBeforeCompile)prev(sh,r);
+  if(sh.vertexShader.indexOf('vOp=')<0)sh.vertexShader='varying vec3 vOp;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvOp=position;');
+  if(sh.fragmentShader.indexOf('emN(')<0)sh.fragmentShader=EV_DEF+sh.fragmentShader;
+  sh.fragmentShader=sh.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n{float n=emN(vOp*6.);'+evCamo(s,0)+'}')};
+ const ck=m.customProgramCacheKey;m.customProgramCacheKey=()=>(ck?ck.call(m):'')+'evt';m.needsUpdate=true};
+/* lift: every enemy paint, cloth and canvas material (not glass, metal, tyres, skin, bags or soil) */
+/* base colours of the plain (un-camouflaged) enemy materials, moved off olive to neutral grey-brown */
+[[EMT,{dark:0x2e2c29,cnv:0x7c7462,tnt:0x6e675a,kit:0x3d3a33}],[TMT,{drk:0x2e2c29,cnv:0x7c7462,tnt:0x6e675a,sol:0x4a4740}],[MTM,{arm:0x6a665b}],[TMT,{gun:0x4a4c47}]].forEach(([M,c])=>Object.keys(c).forEach(k=>M[k].color.copy(LIN(c[k]))));
+['paint','dark','cnv','tnt','sol','kit'].forEach(k=>evLift(EMT[k].color));
+['veh','drk','cnv','tnt','sol'].forEach(k=>evLift(TMT[k].color));['arm','hull'].forEach(k=>evLift(MTM[k].color));
+evHookE(EMT.paint,.75,1);evHookE(EMT.sol,7,0);['dark','cnv','tnt'].forEach(k=>evHookE(EMT[k],0,0));
+evHookT(TMT.veh,.75);evHookT(MTM.hull,.4);
+
+/* ================= Enemy visibility V2 (BGGB, game-wide): spotting aids. Day only for the rim (night/thermal look is not changed here).
+   - rim: a thin sky-coloured fresnel edge on enemy paint, so hull edges read against dark ground and canopy (x TOD.dayF: none at night)
+   - contact shadow: a soft dark ellipse under every live enemy (1.15x its footprint, 1.2x wheeled, 80% at the centre; Gemini 2026-11-27), lying on the terrain; gone when it dies
+   - dust: moving enemy vehicles raise a plume from the rear, bigger and denser with speed (6 nearest emitters; none in water)
+   - laser orb: shooter-end glow 45% smaller with a tighter fall-off (r14-warn) ================= */
+const EVU={day:{value:1}};
+const evRim=m=>{const prev=m.onBeforeCompile;m.onBeforeCompile=(sh,r)=>{if(prev&&prev!==THREE.Material.prototype.onBeforeCompile)prev(sh,r);sh.uniforms.uEvDay=EVU.day;
+  sh.fragmentShader='uniform float uEvDay;\n'+sh.fragmentShader.replace('gl_FragColor = vec4( outgoingLight, diffuseColor.a );',
+   'outgoingLight+=vec3(.55,.6,.66)*pow(1.-abs(dot(normalize(normal),normalize(vViewPosition))),3.)*.22*uEvDay;\ngl_FragColor = vec4( outgoingLight, diffuseColor.a );')};
+ const ck=m.customProgramCacheKey;m.customProgramCacheKey=()=>(ck?ck.call(m):'')+'rim';m.needsUpdate=true};
+['paint','dark','cnv','tnt','sol','kit','ute','tray','roof','roofd','org'].forEach(k=>EMT[k]&&evRim(EMT[k]));['veh','drk','cnv','tnt','sol'].forEach(k=>evRim(TMT[k]));['arm','hull'].forEach(k=>evRim(MTM[k]));
+/* contact shadow: one shared soft-ellipse texture and material; each live enemy gets a mesh in the scene (not in its group, so wreck rebuilds never see it) */
+const EVS=noRng(()=>{const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d'),r=g.createRadialGradient(32,32,0,32,32,32);
+ r.addColorStop(0,'rgba(0,0,0,1)');r.addColorStop(.35,'rgba(0,0,0,.9)');r.addColorStop(.75,'rgba(0,0,0,.25)');r.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=r;g.fillRect(0,0,64,64);
+ return{g:new THREE.PlaneGeometry(1,1).rotateX(-Math.PI/2),m:new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,opacity:.8,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2,toneMapped:false}),
+  map:new Map(),N:new THREE.Vector3(),Y:new THREE.Vector3(0,1,0),Q:new THREE.Quaternion(),Q2:new THREE.Quaternion(),B:new THREE.Box3(),acc:0}});
+const EV_WHEEL=new Set(['scout','kz','ml','jam']); /* Gemini: wheeled footprints 1.2x */
+const evFoot=t=>{const g=t.g,ry=g.rotation.y,sy=g.scale.y;g.rotation.y=0;g.scale.y=1;g.updateMatrixWorld(true);EVS.B.setFromObject(g);g.rotation.y=ry;g.scale.y=sy;g.updateMatrixWorld(true);
+ const s=EVS.B.getSize(EVS.N),c=EVS.B.getCenter(new THREE.Vector3());const k=EV_WHEEL.has(t.nt)?1.2:1.15;return{w:Math.max(1.2,s.x*k),d:Math.max(1.2,s.z*k),cx:c.x-g.position.x,cz:c.z-g.position.z,len:s.x,h:s.y}};
+const EV_NODUST=new Set(['inf','at','stg','rail','egun','kz']); /* kz: the ute already raises its own dust (r78) */
+function evTick(dt){EVU.day.value=TOD.dayF;EVS.acc+=dt;const dust=EVS.acc>=.18;if(dust)EVS.acc=0;const seen=new Set(),L=ntLive();
+ /* the nearest moving vehicles get dust */
+ const em=dust?L.filter(t=>!EV_NODUST.has(t.nt)&&t.evP).map(t=>[t,Math.hypot(t.x-t.evP[0],t.z-t.evP[1])/Math.max(.001,t.evP[2]),Math.hypot(t.x-px,t.z-pz)]).filter(a=>a[1]>1.5&&a[2]<2500).sort((a,b)=>a[2]-b[2]).slice(0,6):[];
+ for(const t of L){seen.add(t);let s=EVS.map.get(t);if(!s){s=noRng(()=>new THREE.Mesh(EVS.g,EVS.m));s.userData.f=evFoot(t);s.renderOrder=1;sc.add(s);EVS.map.set(t,s)}
+  const f=s.userData.f,ry=t.g.rotation.y,c=Math.cos(ry),sn=Math.sin(ry),x=t.x+f.cx*c+f.cz*sn,z=t.z-f.cx*sn+f.cz*c,e=1.2,
+   hx=(H(x+e,z)-H(x-e,z))/(2*e),hz=(H(x,z+e)-H(x,z-e))/(2*e);
+  s.position.set(x,H(x,z)+.06,z);EVS.N.set(-hx,1,-hz).normalize();EVS.Q.setFromUnitVectors(EVS.Y,EVS.N);EVS.Q2.setFromAxisAngle(EVS.Y,ry);s.quaternion.copy(EVS.Q).multiply(EVS.Q2);s.scale.set(f.w,1,f.d);s.visible=t.g.visible!==false;
+  if(dust)t.evP=[t.x,t.z,.18]}
+ for(const[t,s]of EVS.map)if(!seen.has(t)){sc.remove(s);EVS.map.delete(t)}
+ for(const[t,v]of em){const f=EVS.map.get(t).userData.f,ry=t.g.rotation.y,bx=t.x-Math.cos(ry)*f.len*.5,bz=t.z+Math.sin(ry)*f.len*.5;if(depthAt(bx,bz)>.05)continue;
+  const k=Math.min(1,v/12),sx=Math.sin(ry)*f.d*.3,sz=Math.cos(ry)*f.d*.3;
+  for(const sd of[-1,1])noRng(()=>puff(bx+sx*sd,H(bx,bz)+.4,bz+sz*sd,night?0x2a2620:0xd2bf98,2+2*k,.6+.6*k,2+3*k,.12+.11*k,.5))}}
+/* attack marker (Brenton 2026-11-27, option B): a small red chevron over every enemy that is attacking a friendly (Protect friendlies attackers; Escort enemies within
+   900 m of a moving truck). Same size on screen at any range, unlit (reads at night), drawn over terrain; it goes when the unit dies or stops attacking. */
+const EVC=noRng(()=>{const c=document.createElement('canvas');c.width=c.height=64;const q=c.getContext('2d');q.strokeStyle='#ff3b2f';q.lineWidth=11;q.lineJoin='miter';
+ q.beginPath();q.moveTo(10,18);q.lineTo(32,44);q.lineTo(54,18);q.stroke();
+ return{m:new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,depthWrite:false,transparent:true,sizeAttenuation:false,fog:false,toneMapped:false}),map:new Map()}});
+const evAtk=t=>!!(t.pr||(t.esc&&RM.cv&&cvAlive().some(c=>!c.done&&c.x!=null&&Math.hypot(c.x-t.x,c.z-t.z)<900)));
+function evMark(){const on=new Set();for(const t of ntLive())if(evAtk(t)){on.add(t);let s=EVC.map.get(t);if(!s){s=noRng(()=>new THREE.Sprite(EVC.m));s.scale.set(.017,.017,1);s.renderOrder=9;sc.add(s);EVC.map.set(t,s)}
+  const f=EVS.map.get(t),h=f?f.userData.f.h:3;s.position.set(t.x,H(t.x,t.z)+h+2.5,t.z);s.visible=t.g.visible!==false}
+ for(const[t,s]of EVC.map)if(!on.has(t)){sc.remove(s);EVC.map.delete(t)}}
+{const _s=step;step=function(dt,draw){_s(dt,draw);if(RUNS){evTick(dt);evMark()}}}
+
+/* ================= Enemy visibility V3 (BGGB, game-wide): silhouettes that no longer collide (Gemini model review 2026-11-26).
+   - Redback boss: own ochre/tan/charcoal camo, +15% height and +20% width over its hull, twin ATGM pod on the left turret cheek, ERA blocks on the
+     side skirts, turret bustle; solid radius 3.4 -> 4.0 m. Stats unchanged.
+   - AT team: 2 kneeling crew (gunner behind the sight, loader with a spare round) and a tripod launcher with a long tube and a shield (was 2 standing riflemen).
+   - Infantry: same size, 2.8 m apart (r3 ntSpawn + r71 AIC).
+   - Jammer: kit-built armoured 8x8 (sloped armoured cab, wheels in wells on axles, equipment box, same 8 m mast); the wreck rebuild snaps the mast.
+   - Minelayer: truck with a rear mine chute, side mine racks and hazard chevrons on the tail.
+   All builders tag their meshes (tk) so 63-wreck rebuilds them; new materials are made under noRng. ================= */
+/* a kit paint with its own 3-tone camo, low dust, rim and rain (same shader path as EMT.paint after evHookE) */
+const evPaint=(base,pal,s)=>{const m=noRng(()=>new THREE.MeshStandardMaterial({color:LIN(base),roughness:.72,metalness:.18}));
+ m.onBeforeCompile=sh=>{sh.vertexShader='varying vec3 vOp;\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvOp=position;');
+  const C=EV.camo;EV.camo=pal;const cm=evCamo(s,1);EV.camo=C;
+  sh.fragmentShader=EV_DEF+sh.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n{float n=emN(vOp*1.5)*.6+emN(vOp*6.)*.4;'+cm+
+   'diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.552,.423,.231),smoothstep(1.1,.05,vOp.y)*(.45+.4*n)*.75);}')};
+ m.customProgramCacheKey=()=>'evpaint'+pal.join('_');wetHook(m,.45,.18);evRim(m);return m};
+EMT.rbp=evPaint(0xb5946b,[0xb5946b,0x8c4a32,0x2e2b29],.5);EK.N=null;WK.K.rbp='m';
+/* ---------- Redback ---------- */
+EMT.lens=noRng(()=>new THREE.MeshStandardMaterial({color:LIN(0x7a2e22),roughness:.3,metalness:.4}));EMT.lens.customProgramCacheKey=()=>'evlens';EK.N=null;WK.K.lens='g';
+{const _rb=TPT.rb;TPT.rb=p=>{const n=p.children.length,_t=ekTur;ekTur=(x,y)=>_t(x,y,false);try{_rb(p)}finally{ekTur=_t}
+ for(let i=n;i<p.children.length;i++){const o=p.children[i];if(o.geometry){o.geometry.scale(1,1.15,1.2);o.geometry.computeBoundingSphere()}if(o.material===EMT.paint){o.material=EMT.rbp;o.userData.mk='rbp'}}
+ const m=p.children.length;ekBuild(p,k=>{const P=EMT.rbp,D=EMT.dark;
+  /* twin ATGM pod, left turret cheek (the 30 mm's coax pod stays on the right) */
+  if(EK.wk)return; /* pod, bustle and sight are blown off in the wreck (the turret skews on its ring) */
+  k.put(k.B(1.6,.8,.8),P,-.35,3.75,-2.33);for(const y of[3.55,3.95])for(const z of[-2.15,-2.5])k.put(k.C(.13,.13,.06,10),EMT.lens,.46,y,z,0,0,1.5708);k.put(k.B(.5,.2,.3),D,-.4,3.3,-2.0);
+  /* raised commander's sight (CITV): 0.45 m mast, 0.35 m head */
+  k.put(k.C(.1,.12,.45,10),D,-.9,4.37,.75);k.put(k.B(.4,.35,.45),P,-.9,4.77,.75);k.put(k.B(.03,.18,.32),EMT.glass,-.69,4.8,.75);
+  /* side skirts with ERA blocks */
+  for(const s of[-1,1])for(let i=0;i<9;i++)k.put(k.B(.74,.5,.12),P,-3.75+i*.86,1.62+(i%2)*.04,s*2.45);
+  /* turret bustle and a stowage basket */
+  k.put(k.B(1.3,.75,3.1),P,-2.55,3.62,0);for(const s of[-1,1])k.rod([-3.25,3.95,s*1.5],[-3.25,4.35,s*1.5],.03,.03,D);k.put(k.B(.05,.05,3.0),D,-3.25,4.35,0);
+});
+ for(let i=m;i<p.children.length;i++)p.children[i].userData.tk='rb'}}
+NTK.rbifv.r=4.0;
+/* ---------- AT team: kneeling crew + tripod launcher ---------- */
+const ekKneel=(k,load)=>{const S=EMT.sol,K_=EMT.kit;
+ k.rod([0,.58,-.11],[.42,.55,-.12],.085,.075,S);k.rod([.42,.55,-.12],[.44,.08,-.12],.075,.065,S);k.put(k.B(.28,.12,.13),K_,.52,.06,-.12);
+ k.rod([0,.58,.11],[.06,.1,.12],.085,.075,S);k.rod([.06,.1,.12],[-.42,.08,.12],.075,.065,S);k.put(k.B(.13,.12,.24),K_,-.48,.07,.12,0,0,1.3);
+ k.put(k.B(.24,.22,.37),S,0,.62,0);k.put(k.B(.27,.56,.41),S,.06,.92,0,0,0,-.2);k.put(k.B(.3,.3,.43),K_,.09,.96,0,0,0,-.2);k.put(k.B(.2,.42,.33),K_,-.18,.94,0,0,0,-.2);
+ ekHead(k,.2,1.32,0);
+ for(const s of[-1,1]){const sx=.14,sy=1.13,hx=load?.42:.5,hy=load?.85:.8;k.rod([sx,sy,s*.23],[sx+.18,sy-.22,s*.25],.055,.05,S);k.rod([sx+.18,sy-.22,s*.25],[hx,hy,s*.08],.05,.045,S)}
+ if(load){const a=-.96,c=.819,d=.574;k.put(k.C(.08,.08,1.0,10),EMT.paint,.46,.88,0,0,0,a);k.put(k.C(0,.08,.2,10),EMT.dark,.46+c*.6,.88+d*.6,0,0,0,a)}};
+TPT.kneel=p=>{ekBuild(p,k=>EK.wk?ekFallen(k):ekKneel(k,0));p.scale.setScalar(1.8)};
+TPT.kneelL=p=>{ekBuild(p,k=>EK.wk?ekFallen(k):ekKneel(k,1));p.scale.setScalar(1.8)};
+TPT.atl=p=>{ekBuild(p,k=>{const G=EMT.gun,D=EMT.dark,P=EMT.paint,y=EK.wk?.3:.82,tl=EK.wk?.9:0;
+  if(!EK.wk)for(let i=0;i<3;i++){const a=i*2.094+.5;k.rod([0,.78,0],[Math.cos(a)*.55,0,Math.sin(a)*.55],.025,.02,G)}
+  k.put(k.C(.06,.06,.25,8),G,0,.72,0);k.put(k.C(.085,.085,1.15,12),P,.05,y,0,tl,0,1.5708);k.put(k.C(.1,.1,.12,12),D,.63,y,0,tl,0,1.5708);k.put(k.C(.1,.1,.1,12),D,-.53,y,0,tl,0,1.5708);
+  k.put(k.B(.18,.16,.12),D,-.05,y+.06,.16);k.put(k.C(.04,.04,.18,8),EMT.glass,.05,y+.08,.16,0,0,1.5708);
+  k.put(k.B(.04,.42,.62),P,.32,y+.05,0,EK.wk?1.2:0,0,0)});p.scale.setScalar(1.8)};
+['kneel','kneelL','atl'].forEach(k=>{const f=TPT[k];TPT[k]=p=>{const n=p.children.length;f(p);for(let i=n;i<p.children.length;i++)p.children[i].userData.tk=k}});
+['kneel','kneelL'].forEach(k=>WK.SOFT.add(k));
+TPT.at=p=>{[['kneel',-.5,.62],['kneelL',-.7,-1.7],['atl',.8,0]].forEach(([k,x,z])=>{const m=new THREE.Group();TPT[k](m);m.position.set(x,0,z);p.add(m)})};
+/* ---------- Jammer: armoured 8x8 ---------- */
+mdTag('jam',p=>ekBuild(p,k=>{const P=EMT.paint,D=EMT.dark,G=EMT.gun;
+ k.put(k.B(7.2,.3,1.8),D,0,.95,0);for(const x of[2.5,1.2,-1.5,-2.8]){ekWheel(k,x,1.0,.6,.42);ekWheel(k,x,-1.0,.6,.42);k.put(k.C(.08,.08,2.0,6),D,x,.6,0,1.5708)}
+ k.put(k.P([[-3.7,0],[2.4,0],[3.75,.55],[3.6,1.2],[2.3,1.5],[-3.7,1.55]],2.6,.06),P,0,1.0,0);
+ for(const s of[-1,1]){for(const x of[2.5,1.2,-1.5,-2.8])k.put(k.B(1.4,.12,.3),D,x,1.08,s*1.2);k.put(k.B(.9,.22,.03),EMT.glass,2.4,2.2,s*1.31);k.put(k.B(.12,.1,.2),EMT.wht,3.55,1.75,s*1.0)}
+ k.put(k.B(.04,.24,2.0),EMT.glass,3.0,2.3,0,0,0,-.88);
+ k.put(k.P([[-1.9,0],[1.9,0],[1.9,1.15],[-1.9,1.15]],2.3,.05),P,-1.65,2.55,0);for(let i=0;i<4;i++)k.put(k.B(.03,.6,.5),D,-2.4+i*.5,3.1,1.16);
+ k.put(k.C(.3,.35,.4,10),D,-2.6,3.9,0);
+ if(EK.wk){k.rod([-2.6,3.9,0],[-2.6,6.1,0],.16,.14,G);k.rod([-2.6,6.1,0],[1.46,2.62,0],.14,.12,G)}
+ else{k.rod([-2.6,3.9,0],[-2.6,11.4,0],.16,.12,G);k.put(k.B(.12,.12,2.4),G,-2.6,11.2,0);for(const s of[-1,0,1])k.put(k.C(.03,.03,1.8,6),G,-2.6,12.2,s*1.1);k.put(k.B(.9,.9,.12),EMT.wht,-2.6,9.6,.2);
+  /* 1.2 x 0.8 m slatted antenna panel at 6.5 m */
+  for(const z of[-.4,.4])k.put(k.B(.06,1.2,.06),D,-2.35,6.5,z);for(let i=0;i<5;i++)k.put(k.B(.05,.07,.8),G,-2.35,5.98+i*.26,0);k.put(k.B(.2,.08,.08),D,-2.48,6.5,0)}}));
+WK.VEH.add('jam');WK.SINK.jam=.25;WK.FIRE.jam=[[2.4,2.3,0,.6],[-1.6,2.9,0,1.0]];
+/* ---------- Minelayer: truck + rear chute, side racks, chevrons ---------- */
+EMT.haz=noRng(()=>{const m=new THREE.MeshStandardMaterial({color:LIN(0xd9b23a),roughness:.7,metalness:.1});m.customProgramCacheKey=()=>'evhaz';return m});EK.N=null;WK.K.haz='m';
+mdTag('ml',p=>ekBuild(p,k=>{const P=EMT.paint,D=EMT.dark,G=EMT.gun;ekTruck(k);ekBed(k);
+ /* mine hopper in the bed, a 1 m chute angled down off the tail */
+ k.put(k.P([[-1.6,0],[1.6,0],[1.3,1.0],[-1.3,1.0]],2.0,.04),P,-1.4,1.26,0);for(let i=0;i<3;i++)k.put(k.C(.16,.16,.1,10),G,-2.3+i*.9,2.3,0);
+ k.put(k.B(1.25,.12,.6),D,-4.0,1.05,0,0,0,.55);for(const s of[-1,1])k.put(k.B(1.25,.28,.05),D,-4.0,1.15,s*.3,0,0,.55);k.put(k.B(.3,.3,.7),D,-3.45,1.55,0);
+ /* side mine racks */
+ for(const s of[-1,1])for(let i=0;i<4;i++){k.put(k.C(.17,.17,.09,10),G,-2.5+i*.45,1.6,s*1.27,1.5708);k.put(k.B(1.9,.05,.08),D,-1.85,1.36,s*1.27)}
+ /* hazard chevrons on the tail board */
+ for(let i=0;i<4;i++)k.put(k.B(.04,.12,.5),i%2?D:EMT.haz,-3.47,1.5,-.75+i*.5,.7*(i%2?-1:1))}));
+WK.VEH.add('ml');WK.SINK.ml=.27;WK.FIRE.ml=[[1.6,2.3,0,.6],[-1.3,1.9,0,1.1]];
+
+/* ================= Enemy visibility V4 (BGGB, game-wide): role details (Gemini model review 2026-11-26).
+   - IFV: angular faceted turret (+35% volume), bustle, commander's cupola, 30 mm barrel 1.5x thicker and ~2.8 m (hull unchanged).
+   - Scout car: roof remote weapon station (.50 + optic box) on the existing ring, jerrycans on the flanks.
+   - Explosive ute: its three drums rust-red, slat armour over the windscreen (white paint kept).
+   - Rail gun: wider, longer deck (x1.8 / x1.5) with 4 outrigger legs, rear capacitor block with copper busbars; tan body, gunmetal coils. ================= */
+const EVX=noRng(()=>{const m=(c,r,mt,k)=>{const x=new THREE.MeshStandardMaterial({color:LIN(c),roughness:r,metalness:mt});x.customProgramCacheKey=()=>'evm'+k;return x};
+ return{rust:m(0x8a3a24,.75,.3,'r'),tan:m(0xb89f72,.75,.2,'t'),coil:m(0x2e3236,.4,.7,'c'),cu:m(0x9e6b3b,.35,.8,'u')}});
+EMT.rust=EVX.rust;EK.N=null;WK.K.rust='m';wetHook(EVX.rust,.45,.18);evRim(EVX.rust);evLift(EVX.tan.color);evHookT(EVX.tan,.4);evRim(EVX.tan);
+/* ---------- IFV ---------- */
+{const f=p=>ekBuild(p,k=>{const P=EMT.paint,D=EMT.dark,G=EMT.gun;ekTracks(k,6.6,3.1,6,.34,true);k.put(k.P([[-3.3,.45],[2.1,.45],[3.4,1.0],[2.5,1.95],[-3.3,1.95]],2.9,.05),P,0,0,0);
+  for(let i=0;i<4;i++)k.put(k.B(.06,.04,2.7),D,2.65+i*.2,1.75-i*.22,0,0,0,-.85);k.put(k.B(.06,.9,1.1),D,-3.32,1.25,0);[-1,1].forEach(s=>k.put(k.C(.25,.25,.08,10),D,-2.3,2.0,s*.8));
+  k.T(ekTur(.3,1.95,0));
+  k.put(k.P([[-1.25,0],[1.0,0],[1.5,.32],[1.15,.8],[-1.15,.84]],2.3,.05),P,.3,1.95,0);k.put(k.B(1.0,.6,2.0),P,-1.3,2.33,0);
+  k.put(k.B(.55,.55,.75),D,1.7,2.42,0);k.put(k.C(.09,.09,2.8,10),G,3.35,2.45,0,0,0,1.5708);k.put(k.C(.13,.13,.25,10),G,4.7,2.45,0,0,0,1.5708);
+  k.put(k.C(.28,.32,.3,10),D,-.45,2.93,.5);k.put(k.B(.3,.25,.3),D,.5,2.95,-.55);k.put(k.C(.1,.1,.12,8),EMT.glass,.67,2.97,-.55,0,0,1.5708);
+  [-1,1].forEach(s=>{for(let i=0;i<3;i++)k.put(k.C(.06,.06,.3,6),D,.9,2.3+i*.12,s*1.2,0,0,1.2)});
+  k.T(null)});
+ TPT.ifv=p=>{const n=p.children.length;f(p);for(let i=n;i<p.children.length;i++)p.children[i].userData.tk='ifv'}}
+/* ---------- scout car extras ---------- */
+{const _s=TPT.scout4;TPT.scout4=p=>{_s(p);const n=p.children.length;ekBuild(p,k=>{const D=EMT.dark,G=EMT.gun;
+  k.put(k.B(.55,.38,.45),D,-.6,2.48,0);k.rod([-.3,2.55,0],[.95,2.55,0],.045,.04,G);k.put(k.B(.3,.26,.26),D,-.55,2.82,.32);k.put(k.B(.03,.16,.16),EMT.glass,-.39,2.83,.32);
+  [-1,1].forEach(s=>{for(let i=0;i<2;i++)k.put(k.B(.32,.42,.12),EMT.paint,-1.6+i*.36,1.55,s*1.13)})});for(let i=n;i<p.children.length;i++)p.children[i].userData.tk='scout4'}}
+/* ---------- ute extras: rust drums, a crate, windscreen slats ---------- */
+{const _u=TPT.ute;TPT.ute=p=>{const n0=p.children.length;_u(p);for(let i=n0;i<p.children.length;i++){const o=p.children[i];if(o.material===EMT.tnt){o.material=EVX.rust;o.userData.mk='rust'}}
+  const n=p.children.length;if(!EK.wk)ekBuild(p,k=>{for(let i=0;i<5;i++)k.put(k.B(.04,.06,1.55),EMT.dark,.62+i*.07,1.33+i*.09,0)});for(let i=n;i<p.children.length;i++)p.children[i].userData.tk='ute'}}
+/* ---------- rail gun ---------- */
+{const _r=TPT.rail;TPT.rail=p=>{const n=p.children.length;_r(p);
+  for(let i=n;i<p.children.length;i++){const o=p.children[i];if(!o.isMesh||!o.userData.top)continue;
+   if(o.material===TMT.drk)o.material=o.geometry.type==='CylinderGeometry'?EVX.coil:EVX.tan;else if(o.material===TMT.veh)o.material=EVX.tan}
+  const top=p.children.find(o=>o.name==='brl'),ty=top?top.position.y:6.7,add=(m,top_)=>{if(top_)m.userData.top=1;return m};
+  /* wider, longer deck and outrigger legs (base) */
+  tBx(24,.35,7.9,TMT.gun,p,0,1.45,0);for(const sx of[-1,1])for(const sz of[-1,1]){const l=tBx(.35,2.42,.35,TMT.gun,p,sx*10.5,.7,sz*4.62);l.rotation.x=sz*.45;tBx(1.1,.45,1.1,TMT.gun,p,sx*10.5,.12,sz*5.15)}
+  /* rear capacitor block and busbars (top: turns with the gun) */
+  add(tBx(4.2,2.4,5.2,EVX.coil,p,-9.2,ty-1.1,0),1);for(const s of[-1,1]){add(tBx(18,.18,.18,EVX.cu,p,1.5,ty+.95,s*1.0),1);add(tBx(.2,1.6,.2,EVX.cu,p,-7.2,ty-.2,s*1.6),1)}}}
+
+/* ================= Enemy visibility V5 (BGGB, game-wide): the other Gemini model notes.
+   - Enemy gun (Duel boss): a tracked self-propelled howitzer (kit SP gun x1.15; they shoot and scoot), not a dug-in gun.
+   - Megatank: second cupola, ERA blocks on the glacis, engine grilles, exhaust stacks 1 m lower in armoured shrouds, skirt panels 0.4 m deeper.
+   - Staging depot: original orange kept (Brenton 2026-11-27), drawn in front of the walls (no more striping), zinc roofs #7D8285, a 1 m HESCO wall and fuel drums. ================= */
+/* ---------- enemy gun: the Duel guns shoot and scoot, so they are self-propelled howitzers (Brenton 2026-11-27): the kit SP gun, x1.15 ---------- */
+TPT.egun=p=>{const n=p.children.length;TPT.sp(p);for(let i=n;i<p.children.length;i++){const o=p.children[i];o.userData.tk='egun';if(o.geometry){o.geometry.scale(1.15,1.15,1.15);o.geometry.computeBoundingSphere()}}};
+WK.VEH.add('egun');WK.SINK.egun=WK.SINK.sp*1.15;WK.FIRE.egun=WK.FIRE.sp.map(([x,y,z,r])=>[x*1.15,y*1.15,z,r*1.15]);
+/* ---------- megatank ---------- */
+{const _m=TPT.mtk;TPT.mtk=p=>{const n=p.children.length;_m(p);const A=MTM.arm,G=TMT.gun,tur=p.getObjectByName('tur');
+  for(let i=n;i<p.children.length;i++){const o=p.children[i],q=o.geometry&&o.geometry.parameters;if(!q)continue;
+   if(Math.abs(o.position.x+9.2)<.01&&o.geometry.type==='CylinderGeometry')o.position.y-=1.0; /* exhaust stacks + caps */
+   if(o.material===A&&q.width===3.9&&q.height===2.2){o.scale.y=2.6/2.2;o.position.y-=.2}} /* skirt panels */
+  for(const s of[-1,1]){tBx(1.7,1.7,1.7,A,p,-9.2,6.1,s*3.6);for(let i=0;i<4;i++)tBx(2.4,.1,.12,G,p,-5.5,5.2+i*.25,s*4.92)} /* exhaust shrouds, side grilles */
+  if(tur)tCy(.9,1,1.2,A,tur,-2,9.3,-2);
+  const gl=new THREE.Group();gl.position.set(10.2,4,0);gl.rotation.z=-.55;p.add(gl);for(let i=0;i<3;i++)for(let j=0;j<6;j++)tBx(1.3,.35,1.35,A,gl,-1.6+i*1.6,.5,-4.0+j*1.6)}}
+/* ---------- staging depot ---------- */
+Object.assign(EMT.org,{polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1});EMT.roof.color.copy(LIN(0x7d8285));
+{const _g=TPT.stg;TPT.stg=p=>{_g(p);const n=p.children.length;ekBuild(p,k=>{
+  for(let i=0;i<30;i++){const a=i/30*6.283;if(Math.cos(a)>.9)continue;k.put(k.B(1.05,1.0,1.05),EMT.bag,Math.cos(a)*14.5,.5,-Math.sin(a)*14.5,0,a,0);k.put(k.B(1.07,.04,1.07),EMT.dark,Math.cos(a)*14.5,1.0,-Math.sin(a)*14.5,0,a,0)}
+  for(let i=0;i<6;i++)k.put(k.C(.29,.29,.88,10),EVX.rust,11.5+(i%3)*.65,.44,-3+Math.floor(i/3)*.65)});for(let i=n;i<p.children.length;i++)p.children[i].userData.tk='stg'}}
 /* ================= P6 S20 (H3, BGGB): ground detail per biome (plans/p6/s20-design.md, Brenton 2026-11-27; visual only, no driving effect).
    One more tileable texture baked at load (R claypan cracks, G leaf litter flecks, B sand ripples, A broad patch noise) mixed into the ground by a per-biome
    weight gdB = (cracks, litter, mud, sand). Same shader in every biome (game-wide), amounts per biome. Per vertex aGx: x litter (near trees; Forest floor .7 everywhere), y low wet ground by water (mud),

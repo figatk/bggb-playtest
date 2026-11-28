@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.49.0","c":"3019ad3"};
+const BUILD={"v":"9.50.0","c":"093d2b7"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -558,7 +558,7 @@ function crestHit(g,b,q,c){const R=rngQ(q,c),ue=Math.sin(b/MIL),un=Math.cos(b/MI
 let mqC={k:''};
 function minQE(b){const k=Math.round(b/5)+'|'+Math.round(px)+'|'+Math.round(pz);if(mqC.k===k)return mqC;const m=veh.position.y+2.3,ue=Math.sin(b/MIL),un=Math.cos(b/MIL);let mx=-99,at=null;
  for(let d=20;d<=560;d+=8){const x=px+ue*d,z=pz-un*d;if(Math.abs(x)>HALF-5||Math.abs(z)>HALF-5)break;let h=H(x,z);
-  for(const o of obs){if(Math.abs(o.x-x)<o.r+3&&Math.abs(o.z-z)<o.r+3)h=Math.max(h,H(o.x,o.z)+(o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?6:o.r*1.2))}
+  for(const o of obs){if(Math.abs(o.x-x)<o.r+3&&Math.abs(o.z-z)<o.r+3)h=Math.max(h,H(o.x,o.z)+(o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?(o.h||6):o.r*1.2))}
   const a=Math.atan2(h-m,d)*MIL;if(a>mx){mx=a;at={x,z,d}}}
  mqC={k,q:Math.max(0,Math.ceil(mx+5)),at};return mqC}
 const LR={soft:{PD:35,VT:45,DLY:22},light:{PD:30,VT:22,DLY:26},hard:{PD:10,VT:6,DLY:12},point:{PD:1,VT:1,DLY:1}};
@@ -1042,7 +1042,7 @@ function drawMap(){if(curTab!=='map'||!mc._dp)return;const W=mc.width,Hh=mc.heig
  /* range ring */
  const g=gunG(),[gx,gy]=w2s(g.e,g.n);const ch=chSel||(curSol()&&curSol().c)||6;x.strokeStyle='rgba(226,185,59,.5)';x.setLineDash([4*dp,4*dp]);x.lineWidth=1*dp;x.beginPath();x.arc(gx,gy,CHG[ch]/mapV.s*dp,0,7);x.stroke();x.setLineDash([]);x.fillStyle='rgba(226,185,59,.8)';x.fillText('CH'+ch+' max '+CHG[ch]/1000+' km',gx+CHG[ch]/mapV.s*dp*.7,gy-CHG[ch]/mapV.s*dp*.7);
  /* local area & FPs */
- if(mapV.s<6){const[l,t_]=w2s(ORG.e-HALF,ORG.n+HALF),[r_,b_]=w2s(ORG.e+HALF,ORG.n-HALF);x.strokeStyle='rgba(255,255,255,.3)';x.strokeRect(l,t_,r_-l,b_-t_);
+ if(mapV.s<6){typeof trkMap==='function'&&trkMap(x,dp);const[l,t_]=w2s(ORG.e-HALF,ORG.n+HALF),[r_,b_]=w2s(ORG.e+HALF,ORG.n-HALF);x.strokeStyle='rgba(255,255,255,.3)';x.strokeRect(l,t_,r_-l,b_-t_);
   Object.keys(SITEN).forEach(k=>{const p=GSITE(k),[a,b]=w2s(p.e,p.n);x.strokeStyle=k==='RSP'?'#79c97a':'#e2b93b';x.lineWidth=1.5*dp;x.beginPath();x.arc(a,b,6*dp,0,7);x.stroke();x.fillStyle=x.strokeStyle;x.fillText(SITEN[k],a+8*dp,b+4*dp)})}
  const unit=(p,c,lab,shape)=>{const[a,b]=w2s(p.e,p.n),r=6*dp;x.fillStyle=c;x.strokeStyle='#0d110e';x.lineWidth=1.5*dp;x.beginPath();if(shape==='tri'){x.moveTo(a,b-r);x.lineTo(a+r,b+r*.8);x.lineTo(a-r,b+r*.8)}else if(shape==='dia'){x.moveTo(a,b-r);x.lineTo(a+r,b);x.lineTo(a,b+r);x.lineTo(a-r,b)}else if(shape==='eye'){x.arc(a,b,r*.8,0,7)}else x.rect(a-r,b-r*.6,r*2,r*1.2);x.closePath();x.fill();x.stroke();if(lab){x.fillStyle='#f0f2e8';x.fillText(lab,a+r+3,b+3*dp)}};
  TH.fr.concat(M&&M.def.friendly||[]).forEach(f=>unit(f,'#6bb0e8',f.d,'rect'));
@@ -1581,7 +1581,7 @@ function dfLay(){if(st!=='ACTION')return toast('Go into action first');const t=l
 /* ================= vehicle collision & impacts ================= */
 /* hull = box in vehicle frame (x forward, z right); barrel = segment from the trunnion along turret yaw and elevation */
 const HULL={f:3.75,b:-3.9,w:1.82},TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25,BRL=7.1,BRL_R=.2,SKIN=.08,BRS={l:1,r:1}; /* contact within SKIN counts as touching; BRS scales the barrel's length and radius (a run's Barrel upgrade grows it) */
-const obsTop=o=>o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?6:o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
+const obsTop=o=>o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?(o.h||6):o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
 /* everything solid near (x,z): scenery, the other battery AS9s (3 circles along the hull), RSP, live DF armour */
 function solids(x,z){const out=[],near=o=>Math.abs(o.x-x)<o.r+10&&Math.abs(o.z-z)<o.r+10;
  for(const o of obs)if(near(o))out.push(o);
@@ -2553,9 +2553,9 @@ function worldBuild(W){const t0=performance.now(),r0=Math.random;Math.random=rng
 /* modules that placed world objects at load */
 WHOOK.push(()=>{for(const k in fpM){const s=SITES[k];fpM[k].position.set(s[0],H(s[0],s[1]),s[1])}
  for(const k in TADJ)delete TADJ[k];TRK.forEach((t,i)=>{let l=0;for(let k=1;k<t.pts.length;k++)l+=Math.hypot(t.pts[k][0]-t.pts[k-1][0],t.pts[k][1]-t.pts[k-1][1]);t.len=l;(TADJ[t.a]=TADJ[t.a]||[]).push({to:t.b,t:i,l});(TADJ[t.b]=TADJ[t.b]||[]).push({to:t.a,t:i,l})});
- ROAD.length=0;[['W1','H'],['H','J1'],['J1','G'],['G','J2'],['J2','I'],['I','E1']].forEach(([a,b])=>{const t=TRK.find(r=>r.a===a&&r.b===b);if(t)ROAD.push(...(ROAD.length?t.pts.slice(1):t.pts))});
+ ROAD.length=0;[['W1','H'],['H','J1'],['J1','G'],['G','J2'],['J2','I'],['I','E1']].forEach(([a,b])=>{const t=trkFind(a,b);if(t)ROAD.push(...(ROAD.length?t.pts.slice(1):t.pts))});
  btTraffic.forEach((c,i)=>{c.s=Math.min(c.s,ROAD.length-1.01)});
- DB.list.forEach((e,j)=>{const d=DEB_DEF.find(q=>q[0]===e.a&&q[1]===e.b),t=TRK.find(t=>t.a===e.a&&t.b===e.b);if(!d||!t)return;const i=Math.round(d[2]*(t.pts.length-1)),p=t.pts[i],q=t.pts[Math.min(t.pts.length-1,i+1)],o=t.pts[Math.max(0,i-1)];
+ DB.list.forEach((e,j)=>{const d=DEB_DEF.find(q=>q[0]===e.a&&q[1]===e.b),t=trkFind(e.a,e.b);if(!d||!t)return;const i=Math.round(d[2]*(t.pts.length-1)),p=t.pts[i],q=t.pts[Math.min(t.pts.length-1,i+1)],o=t.pts[Math.max(0,i-1)];
   e.ang=Math.atan2(-(q[1]-o[1]),q[0]-o[0]);e.x=p[0];e.z=p[1];e.g.position.set(e.x,H(e.x,e.z),e.z);e.g.rotation.y=e.ang+Math.PI/2+(e.kind==='wreck'?.5:0)});
  bgReset();Object.entries(BG).forEach(([k,c])=>{c.position.set(SITES[k][0],H(SITES[k][0],SITES[k][1]),SITES[k][1])});
  AS10.position.set(SITES.RSP[0],H(SITES.RSP[0],SITES.RSP[1]),SITES.RSP[1]);mmBuild()});
@@ -2933,7 +2933,7 @@ function vegTrack(){if(st!=='TRAVEL'||Math.abs(v)<.3)return;const c=Math.cos(psi
 /* ---------- falling trees, crushed buildings ---------- */
 const FALL=[],dQ=new THREE.Quaternion(),dV=new THREE.Vector3(),dfx=fn=>withRng(dSd=dSd*16807%2147483647,fn);
 const unObs=o=>{const i=obs.indexOf(o);if(i>=0)obs.splice(i,1)};
-const crushable=o=>o.k==='t'||(o.k==='b'&&o.g&&STR.includes(o.g)&&o.r<=3);
+const crushable=o=>o.k==='t'||(o.k==='b'&&!o.B&&o.g&&STR.includes(o.g)&&o.r<=3); /* farm buildings (o.B, 79-farms) take ram damage instead */
 /* tree falls away along (dx,dz): trunk and crowns rotate about the base; shatter leaves a stump */
 function fell(o,dx,dz,blast){unObs(o);const h=H(o.x,o.z),l=Math.hypot(dx,dz)||1,ax=new THREE.Vector3(dz/l,0,-dx/l),m4=new THREE.Matrix4(),ms=[[trI,o.i],...(o.fi||[]).map(j=>[foI,j])].map(([M,j])=>{M.getMatrixAt(j,m4);return[M,j,m4.clone()]});
  FALL.push({k:'t',o,b:new THREE.Vector3(o.x,h,o.z),ax,ms,t:0,dur:blast?.9:dr(1.4,1.9),ang:dr(1.38,1.5)})}
@@ -2941,7 +2941,7 @@ function shatter(o){unObs(o);const m4=new THREE.Matrix4();trI.getMatrixAt(o.i,m4
  m4.identity().makeTranslation(0,-500,0);for(const j of o.fi||[])foI.setMatrixAt(j,m4.clone().scale(dV.set(.001,.001,.001)));foI.instanceMatrix.needsUpdate=true;
  dfx(()=>{for(let i=0;i<5;i++)puff(o.x+dr(-2,2),h+dr(1,5),o.z+dr(-2,2),0x4a4230,dr(1.5,2.5),.8,2.5,.45,.8)})}
 /* small building: tall ones (windmill) topple, the rest collapse into a heap */
-function crushB(o,dx,dz){unObs(o);const g=o.g,l=Math.hypot(dx,dz)||1;FALL.push({k:'b',g,q0:g.quaternion.clone(),ax:new THREE.Vector3(dz/l,0,-dx/l),top:o.r<1.5,t:0,dur:o.r<1.5?1.5:.6,ang:dr(1.3,1.5),tilt:dr(-.12,.12)});
+function crushB(o,dx,dz){if(o.B)return farmKill(o.B,dx,dz);unObs(o);const g=o.g,l=Math.hypot(dx,dz)||1;FALL.push({k:'b',g,q0:g.quaternion.clone(),ax:new THREE.Vector3(dz/l,0,-dx/l),top:o.r<1.5,t:0,dur:o.r<1.5?1.5:.6,ang:dr(1.3,1.5),tilt:dr(-.12,.12)});
  const h=H(o.x,o.z);dfx(()=>{for(let i=0;i<8;i++)puff(o.x+dr(-o.r,o.r),h+dr(.5,2),o.z+dr(-o.r,o.r),night?0x2a2620:0xa08c6c,dr(1.5,3),1,3,.5,.5)})}
 function fallTick(dt){for(let n=FALL.length-1;n>=0;n--){const f=FALL[n];f.t+=dt;const u=Math.min(1,f.t/f.dur);
  if(f.k==='t'){const a=f.ang*u*u;dQ.setFromAxisAngle(f.ax,a);const R=new THREE.Matrix4().makeRotationFromQuaternion(dQ),T1=new THREE.Matrix4().makeTranslation(f.b.x,f.b.y,f.b.z),T0=new THREE.Matrix4().makeTranslation(-f.b.x,-f.b.y,-f.b.z),W=T1.multiply(R).multiply(T0);
@@ -2960,7 +2960,7 @@ const _coX=collide;collide=function(dt){if(Math.abs(v)>1){const parts=st==='TRAV
  _coX(dt)};
 /* ---------- HE: trees near the burst shatter, further out they fall away; buildings collapse; grass and shrubs flattened or stripped ---------- */
 destroyAt=function(p,rad){let n=0;
- for(let i=obs.length-1;i>=0;i--){const o=obs[i];if(!o||Math.hypot(o.x-p.x,o.z-p.z)>=rad+(o.k==='b'?o.r*.6:0))continue;n++;const dx=o.x-p.x,dz=o.z-p.z,d=Math.hypot(dx,dz);
+ for(let i=obs.length-1;i>=0;i--){const o=obs[i];if(!o||o.B||Math.hypot(o.x-p.x,o.z-p.z)>=rad+(o.k==='b'?o.r*.6:0))continue; /* farm buildings: 79-farms health */n++;const dx=o.x-p.x,dz=o.z-p.z,d=Math.hypot(dx,dz);
   if(o.k==='t'){if(d<rad*.45)shatter(o);else fell(o,dx,dz,true)}
   else if(o.k==='b'&&o.g&&STR.includes(o.g))crushB(o,dx||1,dz);
   else{if(o.k==='r'){dm.position.set(0,-500,0);dm.rotation.set(0,0,0);dm.scale.setScalar(.001);dm.updateMatrix();rkI.setMatrixAt(o.i,dm.matrix);rkI.instanceMatrix.needsUpdate=true}else if(o.g)sc.remove(o.g);obs.splice(i,1)}}
@@ -4957,6 +4957,186 @@ function fcsMark(){const m=sight?aimMark():null;if(!m){if(LRFO.d){lrfO.style.dis
  const a=13,c=5;B.setAttribute('d',[[-1,-1],[1,-1],[1,1],[-1,1]].map(([u,w])=>'M'+f(tx+u*a)+' '+f(ty+w*(a-c))+'v'+f(-w*c)+'h'+f(-u*c)).join(''));
  const l=Math.hypot(dx-tx,dy-ty),e=l>8?(l-8)/l:0;L.setAttribute('x1',f(tx));L.setAttribute('y1',f(ty));L.setAttribute('x2',f(tx+(dx-tx)*e));L.setAttribute('y2',f(ty+(dy-ty)*e))}
 const _stLA=step;step=function(dt,draw){_stLA.apply(this,arguments);if(draw)fcsMark()};
+/* ================= P6 S21: farm stations replace the random scatter of 04-structures (Brenton 2026-11-27, plans/p6/s21-design.md).
+   Homesteads (house, woolshed, sheds, tanks, windmill, box stack, stockyard) sit off a track; bores (windmill, tank and trough, yard), lone huts/sheds with hay,
+   and post-and-wire fence lines along tracks. Counts x biome str. Each building is one merged mesh per damage stage (shared geometry, one vertex-colour material).
+   Buildings have health: a direct hit (impact on the footprint) does 1.5x shell damage, a near miss the usual falloff (full inside 25% of the radius) x0.5;
+   rams do 100 x km/h / 30 once per 1.5 s (Dozer blade +50%). Houses and woolsheds stop the gun unless the blade is fitted. Stages: roof torn (<66%), walls
+   holed and smoking (<33%), rubble (no longer blocks sight or fire). Own PRNGs; a dry run of the old scatter keeps the world's random stream ================= */
+const FARM={seed:12345,L:[],F:null,G:{},mat:noRng(()=>new THREE.MeshStandardMaterial({vertexColors:true,roughness:.85,metalness:.1})),st:0,
+ dk:()=>100,rk:()=>1,blade:()=>false,onHit:null,onKill:null,onRam:null};
+const FTY={house:{hp:300,hw:7.2,hd:5.2,h:6,c:[[-2.4,5.2],[2.4,5.2]],big:1,lt:'house'},wool:{hp:450,hw:13.2,hd:6.2,h:8,c:[[-7.5,6.2],[0,6.2],[7.5,6.2]],big:1,lt:'wool'},
+ shed:{hp:150,hw:6,hd:4,h:5,c:[[-2,4],[2,4]],lt:'shed'},hut:{hp:150,hw:3.1,hd:2.3,h:4.2,c:[[0,3]],lt:'shed'},
+ tank:{hp:60,hw:2.3,hd:2.3,h:3.2,c:[[0,2.3]]},mill:{hp:60,hw:1.3,hd:1.3,h:11,c:[[0,1.1]],top:1},hay:{hp:30,hw:2.4,hd:2.4,h:1.8,c:[[0,2.4]]},box:{hp:60,hw:2.6,hd:1.4,h:2.5,c:[[0,2.8]]}};
+const FRAM={min:5,cd:1.5,k:100/30,blade:1.5};
+const fC=h=>{const c=LIN(h);return[c.r,c.g,c.b]},FCO={wb:fC(0xcdc3a8),gal:fC(0x939ca6),gal2:fC(0xa8afb5),ridge:fC(0x5b626a),ch1:fC(0x2e2926),ch2:fC(0x4a3e36),und:fC(0x36302c),glass:fC(0x1f2d36),frL:fC(0xcfc9be),frD:fC(0x4a3525),hoop:fC(0x4a5056),ramp:fC(0x543b28),brace:fC(0x5c6268),rdeck:fC(0x6e5038),rust:fC(0x7a4a30),red:fC(0x7e3a2a),wood:fC(0x5e4c38),dark:fC(0x26231f),brick:fC(0x8a4a38),conc:fC(0x9a968c),wire:fC(0x9a9a96),hay:fC(0xb59a4a)};
+const FUB=noRng(()=>new THREE.BoxGeometry(1,1,1));
+/* ---------- parts: {w,h,d,x,y,z,c,t:'b' base|'w' wall|'r' roof, gi: drop group, rx ry rz, g custom geometry, m full matrix} ---------- */
+function fP(P,w,h,d,x,y,z,c,t,o={}){P.push({w,h,d,x,y,z,c,t,rx:o.rx||0,ry:o.ry||0,rz:o.rz||0,gi:o.gi!=null?o.gi:P.gi++,g:o.g,m:o.m,rf:o.rf})}
+const fNew=()=>{const P=[];P.gi=0;return P};
+/* a wall split into n panels (each a drop group with its window: dark glass in a raised frame, light frame on light walls) */
+function fWall(P,ax,a0,a1,o,y0,h,c,n,win){const L=(a1-a0)/n;for(let i=0;i<n;i++){const a=a0+L*(i+.5),gi=P.gi++,cc=typeof c==='function'?c(i):c,fr=cc[0]+cc[1]+cc[2]>.6?FCO.frL:FCO.frD,w_=win&&win(i);
+ if(ax==='x'){fP(P,L+.02,h,.15,a,y0+h/2,o,cc,'w',{gi});if(w_){fP(P,L*.46,h*.42,.24,a,y0+h*.58,o,fr,'w',{gi});fP(P,L*.38,h*.34,.29,a,y0+h*.58,o,FCO.glass,'w',{gi})}}
+ else{fP(P,.15,h,L+.02,o,y0+h/2,a,cc,'w',{gi});if(w_){fP(P,.24,h*.42,L*.46,o,y0+h*.58,a,fr,'w',{gi});fP(P,.29,h*.34,L*.38,o,y0+h*.58,a,FCO.glass,'w',{gi})}}}}
+/* gable roof along x: n sheets a side, eaves overhang */
+function fRoof(P,L,hw,y0,rise,n,c,ov=.45){const W=hw+ov,sl=Math.hypot(W,rise),ang=Math.atan2(rise,W);for(const s of[1,-1]){for(let i=0;i<n;i++)fP(P,L/n+.03,.08,sl,-L/2+L/n*(i+.5),y0+rise/2,s*W/2,c,'r',{rx:s*ang,rf:{s,W,y0,sl}});fP(P,L+.1,.1,.12,0,y0,s*W,FCO.ridge,'r')}fP(P,L+.1,.14,.5,0,y0+rise+.03,0,FCO.ridge,'r')}
+const fTri=(hw,rise,ov=.45)=>fShape([[-hw,0],[hw,0],[hw,rise*ov/(hw+ov)],[0,rise],[-hw,rise*ov/(hw+ov)]]);
+/* a flat wall piece in the zy plane (points [-z,y]), .15 thick along x */
+const fShape=pts=>{const s=new THREE.Shape();s.moveTo(pts[0][0],pts[0][1]);for(const q of pts.slice(1))s.lineTo(q[0],q[1]);s.lineTo(pts[0][0],pts[0][1]);const g=new THREE.ExtrudeGeometry(s,{depth:.15,bevelEnabled:false});g.translate(0,0,-.075);g.rotateY(Math.PI/2);return g};
+const FB={
+ house:v=>{const P=fNew(),wc=v?FCO.gal2:FCO.wb,rc=v?FCO.red:FCO.gal;fP(P,14.4,2.1,10.4,0,-.45,0,FCO.wood,'b');
+  fWall(P,'x',-7,7,5,.6,3,wc,4,i=>i!==1);fWall(P,'x',-7,7,-5,.6,3,wc,4,i=>i%2===0);fWall(P,'z',-5,5,7,.6,3,wc,3,i=>i===1);fWall(P,'z',-5,5,-7,.6,3,wc,3,i=>i===1);
+  fP(P,1.1,2.1,.2,-1.75,1.65,5.02,FCO.wood,'w',{gi:1});fRoof(P,14,5,3.6,2.2,4,rc);for(const s of[1,-1])fP(P,1,1,1,s*7,3.6,0,wc,'w',{g:fTri(5,2.2)});
+  for(const x of[-6.9,-2.3,2.3,6.9])fP(P,.15,2.7,.15,x,1.95,7.3,FCO.wood,'b');fP(P,14.2,2.1,2.4,0,-.45,6.3,FCO.wood,'b');for(let i=0;i<3;i++)fP(P,14.4/3+.02,.07,2.7,-4.8+4.8*i,3.4,6.3,rc,'r',{rx:.12});
+  fP(P,.8,1.9,.8,4,5.1,-1.6,FCO.brick,'r');return P},
+ wool:v=>{const P=fNew(),ic=i=>(i*7+v*3)%5<2?FCO.rust:FCO.gal,rc=v?FCO.rust:FCO.gal;
+  for(let x=-12;x<=12;x+=4)for(const z of[-5.6,0,5.6])fP(P,.25,2.75,.25,x,-.12,z,FCO.wood,'b');fP(P,26.4,.3,12.4,0,1.4,0,FCO.wood,'b');
+  fWall(P,'x',-13,13,6,1.55,3.2,ic,8,i=>i%3===1);fWall(P,'x',-13,13,-6,1.55,3.2,ic,8,i=>i%3===2);fWall(P,'z',-6,6,13,1.55,3.2,ic,3);fWall(P,'z',-6,6,-13,1.55,3.2,ic,3,i=>i===1);
+  fRoof(P,26,6,4.75,3.3,8,rc);for(const s of[1,-1])fP(P,1,1,1,s*13,4.75,0,ic(s>0?1:2),'w',{g:fTri(6,3.3)});
+  for(let i=0;i<4;i++)fP(P,6.6,.07,4.3,-9.75+6.5*i,3.6,-8.1,rc,'r',{rx:.22});for(const x of[-12.8,-6.4,0,6.4,12.8])fP(P,.15,3,.15,x,1.5,-10,FCO.wood,'b');
+  {const a=Math.atan2(1.55,3.8),L=Math.hypot(3.8,1.55);fP(P,L,.4,1.6,15.1,.68,2,FCO.rdeck,'b',{rz:-a});for(let k=1;k<6;k++)fP(P,.08,.42,1.62,13.2+k*.63,1.55-k*.63*1.55/3.8-.1,2,FCO.ramp,'b',{rz:-a});for(const s of[1,-1]){fP(P,L,.08,.08,15.1,1.68,2+s*.85,FCO.ramp,'b',{rz:-a});for(const x of[13.6,16.6])fP(P,.1,.95,.1,x,(x<15?1.55:.36)+.45,2+s*.85,FCO.ramp,'b')}}return P},
+ shed:v=>{const P=fNew(),ic=v?FCO.rust:FCO.gal;fP(P,12.3,1.6,8.3,0,-.7,0,FCO.conc,'b');for(const x of[-5.9,-2,2,5.9])fP(P,.2,5,.2,x,2.5,3.9,FCO.gal2,'b');
+  fWall(P,'x',-6,6,-4,0,4.1,ic,4);fWall(P,'z',-4,4,6,0,4,ic,2);fWall(P,'z',-4,4,-6,0,4,ic,2);for(const s of[1,-1])fP(P,1,1,1,s*6,0,0,ic,'w',{g:fShape([[-4,3.95],[4,3.95],[4,4.1],[-4,5.03]])});
+  for(let i=0;i<4;i++)fP(P,3.05,.08,8.9,-4.5+3*i,4.55,0,ic,'r',{rx:-.12});[[-5.9,1],[-2,-1],[2,1],[5.9,-1]].forEach(([x,s])=>fP(P,.1,1.27,.1,x+s*.45,4.55,3.9,FCO.brace,'b',{rz:-s*Math.PI/4}));fP(P,3,1.7,2.4,-2.4,.85,.4,FCO.dark,'b');fP(P,1.4,1.2,1.2,2.2,.6,-1.5,FCO.rust,'b');return P},
+ hut:v=>{const P=fNew(),wc=v?FCO.gal:FCO.wb,rc=v?FCO.rust:FCO.gal;fP(P,6.3,1.8,4.6,0,-.6,0,FCO.wood,'b');
+  fWall(P,'x',-3,3,2.2,.3,2.4,wc,2,i=>i===0);fWall(P,'x',-3,3,-2.2,.3,2.4,wc,2,i=>i===1);fWall(P,'z',-2.2,2.2,3,.3,2.4,wc,1);fWall(P,'z',-2.2,2.2,-3,.3,2.4,wc,1,()=>1);
+  fP(P,.9,1.9,.2,1.5,1.25,2.25,FCO.wood,'w',{gi:1});fRoof(P,6,2.2,2.7,1.4,2,rc);for(const s of[1,-1])fP(P,1,1,1,s*3,2.7,0,wc,'w',{g:fTri(2.2,1.4)});return P},
+ tank:v=>{const P=fNew();fP(P,4.6,1.8,4.6,0,-.6,0,FCO.conc,'b');fP(P,1,1,1,0,1.5,0,FCO.gal,'b',{g:new THREE.CylinderGeometry(2,2,2.4,16)});
+  fP(P,1,1,1,0,2.95,0,FCO.gal2,'b',{g:new THREE.CylinderGeometry(.15,2.1,.5,16)});for(const y of[.75,1.5,2.25])fP(P,1,1,1,0,y,0,FCO.hoop,'b',{g:new THREE.CylinderGeometry(2.04,2.04,.08,16,1,true)});if(v)fP(P,4,.6,.8,4.6,.3,-2.2,FCO.gal,'b');return P},
+ mill:()=>{const P=fNew(),Y=new THREE.Vector3(0,1,0),q=new THREE.Quaternion();
+  for(const sx of[1,-1])for(const sz of[1,-1]){const a=new THREE.Vector3(sx*1.2,0,sz*1.2),b=new THREE.Vector3(sx*.22,10.2,sz*.22),d=b.clone().sub(a),L=d.length();q.setFromUnitVectors(Y,d.normalize());
+   fP(P,0,0,0,0,0,0,FCO.gal,'b',{m:new THREE.Matrix4().compose(a.clone().lerp(b,.5),q.clone(),new THREE.Vector3(.1,L,.1))})}
+  for(const y of[2.5,5.5,8.3]){const w=1.2-.98*y/10.2;for(const s of[1,-1]){fP(P,2*w,.06,.06,0,y,s*w,FCO.gal,'b');fP(P,.06,.06,2*w,s*w,y,0,FCO.gal,'b')}}
+  fP(P,.8,.1,.8,0,10.2,0,FCO.gal,'b');fP(P,2.4,.06,.06,-1.2,10.6,0,FCO.gal,'b');fP(P,.05,.9,1.3,-2.4,10.6,0,FCO.gal2,'b');return P},
+ hay:()=>{const P=fNew();[[0,0],[1.7,.3],[-1.7,-.2],[.8,1.7],[-.9,1.6]].forEach(([x,z],i)=>fP(P,1,1,1,x,.8,z,FCO.hay.map(c=>c*(.85+.06*i)),'b',{g:new THREE.CylinderGeometry(.8,.8,1.4,12),rz:Math.PI/2,ry:i*.7}));return P}};
+/* merged geometry per type, variant and stage (0 whole, 1 roof torn, 2 holed, 3 rubble); drop groups and scorch come from a fixed stream, so stage 2 holds stage 1's damage */
+function fGeo(t,v,st){const key=t+v+'_'+st;return FARM.G[key]||(FARM.G[key]=noRng(()=>fGeo0(t,v,st)))}
+function fGeo0(t,v,st){const P=FB[t](v),r=rng(0x5eed+v*977+t.charCodeAt(0)*131+t.length),U=[];for(let i=0;i<=P.gi;i++)U.push([r(),r(),r(),r()]);
+ const r2=rng(0xdeb+v*31+t.length*7),j=()=>r2()*2-1,E=new THREE.Euler(),Q=new THREE.Quaternion(),parts=[],F=FTY[t];
+ for(const p of P){const u=U[p.gi]||U[0];let c=p.c.map(x=>x*(.9+.2*u[3])),x=p.x,y=p.y,z=p.z,rx=p.rx,ry=p.ry,rz=p.rz;
+  if((st===1||st===2)&&p.c===FCO.ridge)continue;
+  if(st===2&&p.g&&p.t==='w'&&p.y>2)continue; /* gables go with the holed walls (would hover) */
+  if(st===1||st===2){if(p.t==='r'&&u[0]<(st===1?.4:.75))continue;if(p.t==='w'&&st===2&&u[1]<.35)continue;if(u[2]<(st===1?.3:.6))c=u[3]<.5?FCO.ch1:FCO.ch2}
+  const post=!p.g&&!p.m&&p.h>3*Math.max(p.w,p.d);if(st===3&&p.t==="b"&&!post&&p.y>.8)y=.3;
+  /* stage 2: roof sheets still up have fallen in: eave on the wall line, ridge end down on the floor */
+  if(st===2&&p.rf){const f=p.rf,dy=f.y0-.7,a2=Math.asin(Math.min(1,dy/f.sl));y=.7+dy/2;z=f.s*(f.W-Math.cos(a2)*f.sl/2);rx=-f.s*a2+j()*.05}
+  /* rubble: floors and slabs left under the pile are scorched */
+  if(st===3&&p.t==='b'&&!post)c=c.map((q,i)=>q*.35+FCO.ch1[i]*.65);
+  if(st===3&&(p.t!=='b'||post)){if(u[0]<.25)continue;x+=j()*1.6;z+=j()*1.6;y=.15+r2()*.8;ry+=j()*.5;c=r2()<.35?(r2()<.5?FCO.ch1:FCO.ch2):c.map(q=>q*.6);
+   if(p.g||p.m){rz=Math.PI/2+j()*.2;rx=j()*.04}else{const m=Math.min(p.w,p.h,p.d);if(m===p.w){rz=Math.PI/2+j()*.3;rx=j()*.2}else if(m===p.d){rx=Math.PI/2+j()*.3;rz=j()*.2}else{rx=j()*.12;rz=j()*.12}}}
+  const M=p.m&&st!==3?p.m:new THREE.Matrix4().compose(new THREE.Vector3(x,y,z),Q.setFromEuler(E.set(rx,ry,rz)),p.g?new THREE.Vector3(1,1,1):new THREE.Vector3(p.w,p.h,p.d));
+  parts.push([(p.g||FUB).clone(),M,c])}
+ if(st===3)for(let k=0;k<14;k++){const v3=new THREE.Vector3(j()*F.hw*.6,.25,j()*F.hd*.6),q3=Q.setFromEuler(E.set(j()*.3,r2()*3,j()*.3)).clone(),w=F.hw*(.14+.16*r2()),d=F.hd*(.14+.16*r2()),h=.35+.3*r2();
+  parts.push([FUB.clone(),new THREE.Matrix4().compose(v3,q3,new THREE.Vector3(w,h,d)),[FCO.und,FCO.ch1,FCO.ch2,FCO.wood][k%4]]);parts.push([FUB.clone(),new THREE.Matrix4().compose(v3.clone().setY(.08),q3,new THREE.Vector3(w*1.04,.14,d*1.04)),FCO.und])}
+ const g=vMerge(parts);g.computeBoundingSphere();return g}
+const FROT=noRng(()=>{const parts=[];for(let i=0;i<12;i++)parts.push([FUB.clone(),new THREE.Matrix4().makeRotationX(i*.5236).multiply(new THREE.Matrix4().compose(new THREE.Vector3(0,.95,0),new THREE.Quaternion(),new THREE.Vector3(.05,1.6,.35))),FCO.gal2]);
+ parts.push([new THREE.CylinderGeometry(.25,.25,.3,10).rotateZ(Math.PI/2),new THREE.Matrix4(),FCO.gal]);return vMerge(parts)});
+/* ---------- one building: group at the lowest corner, collision circles along its length (k 'b', B = this record) ---------- */
+function fAdd(t,v,x,z,ry){const F=FTY[t],c=Math.cos(ry),s=Math.sin(ry),R=Math.hypot(F.hw,F.hd);let y=0;
+ for(const[a,b]of[[1,1],[1,-1],[-1,1],[-1,-1]])y+=H(x+(a*F.hw*c+b*F.hd*s),z+(-a*F.hw*s+b*F.hd*c))/4;
+ const g=new THREE.Group();g.position.set(x,y,z);g.rotation.y=ry;let m=null;
+ if(t==='box'){bx(5,1.5,2.5,bm[3],g,0,.9,0);bx(2.2,1,2.2,bm[3],g,-.4,2,0)}
+ else{m=new THREE.Mesh(fGeo(t,v,0),FARM.mat);m.castShadow=m.receiveShadow=true;g.add(m)}
+ if(t==='mill'){const r=new THREE.Group();r.position.set(.35,10.6,0);const b=new THREE.Mesh(FROT,FARM.mat);b.castShadow=true;r.add(b);g.add(r);wind.push(r)}
+ sc.add(g);STR.push(g);const B={i:FARM.L.length,t,v,x,z,y0:y,ry,c,s,R,hp:F.hp,hp0:F.hp,st:0,dead:0,g,m,cs:[]};
+ for(const[o,r]of F.c){const q={x:x+c*o,z:z-s*o,r,k:'b',g,B,h:F.h};obs.push(q);B.cs.push(q)}FARM.L.push(B);return B}
+/* world point -> building frame (x along its length) */
+const fLoc=(B,x,z)=>{const dx=x-B.x,dz=z-B.z;return[dx*B.c-dz*B.s,dx*B.s+dz*B.c]};
+/* ---------- layout ---------- */
+function farmBuild(k=1){const r=rng(FARM.seed^0xfa4e5),fr=x=>Math.floor(x)+(r()<x%1?1:0),pl=[],FN=[];FARM.L=[];FARM.F=null;
+ const SV=Object.values(SITES),far=(x,z,d)=>SV.every(s=>Math.hypot(s[0]-x,s[1]-z)>=d);
+ const ok=(t,x,z)=>{const F=FTY[t],R=Math.hypot(F.hw,F.hd);if(Math.abs(x)>HALF-60||Math.abs(z)>HALF-60||!far(x,z,250))return false;
+  if(trackNear(x,z).d<R+5||creekD(x,z)<R+12)return false;let lo=1e9,hi=-1e9;for(const[a,b]of[[0,0],[1,1],[1,-1],[-1,1],[-1,-1]]){const h=H(x+a*R,z+b*R);lo=Math.min(lo,h);hi=Math.max(hi,h)}
+  if(hi-lo>(t==='wool'?2.6:F.big?2:1.6)||lo<WL+.4)return false;return pl.every(p=>Math.hypot(p.x-x,p.z-z)>(p.R+R)*.7+1)};
+ const put=(t,v,x,z,ry)=>{if(!ok(t,x,z))return null;pl.push({x,z,R:Math.hypot(FTY[t].hw,FTY[t].hd)});return fAdd(t,v,x,z,ry)};
+ const panel=(x,z,ry,len)=>{if(H(x,z)<WL+.3||creekD(x,z)<6||!far(x,z,40)||pl.some(p=>Math.hypot(p.x-x,p.z-z)<p.R+1))return;FN.push({x,z,ry,len,dn:0})};
+ const yard=(cx,cz,th,A,Bz)=>{const c=Math.cos(th),s=Math.sin(th);for(const[ax,n,o]of[['x',Math.round(2*A/4),Bz],['x',Math.round(2*A/4),-Bz],['z',Math.round(2*Bz/4),A],['z',Math.round(2*Bz/4),-A]])
+  for(let i=0;i<n;i++){const a=-(ax==='x'?A:Bz)+(i+.5)*4,lx=ax==='x'?a:o,lz=ax==='x'?o:a;panel(cx+lx*c+lz*s,cz-lx*s+lz*c,th+(ax==='x'?0:Math.PI/2),4)}};
+ /* homesteads: house faces a track 70-110 m away, the rest laid out behind it */
+ for(let n=fr(1.5*k),tr=0;n>0&&tr<80;tr++){const K=TRK[Math.floor(r()*TRK.length)];if(!K||K.pts.length<3)continue;const j=1+Math.floor(r()*(K.pts.length-2)),p=K.pts[j],a=K.pts[j-1],b=K.pts[j+1],L=Math.hypot(b[0]-a[0],b[1]-a[1])||1,
+  u=[(b[0]-a[0])/L,(b[1]-a[1])/L],sd=r()<.5?1:-1,w=[-u[1]*sd,u[0]*sd],D=70+r()*40,c=[p[0]+w[0]*D,p[1]+w[1]*D],at=(A,Bz)=>[c[0]+u[0]*A+w[0]*Bz,c[1]+u[1]*A+w[1]*Bz];
+  let th=Math.atan2(-u[1],u[0]);if(-u[1]*w[0]+u[0]*w[1]>0)th+=Math.PI;const v=r()<.5?1:0;if(!put('house',v,c[0],c[1],th))continue;n--;
+  for(const[t,vv,A,Bz,dr_]of[['tank',0,9.8,1.5,0],['tank',0,-9.8,1.5,0],['wool',1-v,58,42,0],['shed',0,30,10,Math.PI],['shed',1,32,-14,Math.PI],['mill',0,-36,28,0],['box',0,44,20,.6],['hay',0,-28,56,0]]){const q=at(A,Bz);put(t,vv,q[0],q[1],th+dr_)}
+  const y=at(58,70);yard(y[0],y[1],th,12,6)}
+ /* bores: windmill, tank and trough, small yard; anywhere flat */
+ const any=()=>[(r()-.5)*(HALF*2-200),(r()-.5)*(HALF*2-200)];
+ for(let n=Math.max(1,fr(4*k)),tr=0;n>0&&tr<120;tr++){const[x,z]=any(),th=r()*6.283;if(!put('mill',0,x,z,th))continue;n--;put("tank",1,x+7*Math.cos(th),z-7*Math.sin(th),th);yard(x+16*Math.sin(th),z+16*Math.cos(th),th,7,5)}
+ /* outbuildings: a hut or open shed, often hay nearby */
+ for(let n=Math.max(1,fr(6*k)),tr=0;n>0&&tr<150;tr++){const[x,z]=any(),th=r()*6.283;if(!put(r()<.6?'hut':'shed',r()<.5?1:0,x,z,th))continue;n--;if(r()<.5)put('hay',0,x+22*Math.cos(th+1),z-22*Math.sin(th+1),th)}
+ for(let tr=0;tr<60&&!FARM.L.some(B=>B.t==='box');tr++){const[x,z]=any();put('box',0,x,z,r()*6.283)} /* every world keeps a box stack (r22 paints them by world) */
+ /* fence lines: post and wire 16 m off a track, 300-800 m long, 10 m panels */
+ for(let n=fr(4*k),tr=0;n>0&&tr<40;tr++){const K=TRK[Math.floor(r()*TRK.length)];if(!K||K.pts.length<4)continue;n--;const sd=r()<.5?1:-1,Lm=300+r()*500;let i=Math.floor(r()*(K.pts.length-2)),got=0,acc=0;
+  for(;i<K.pts.length-1&&got<Lm;i++){const a=K.pts[i],b=K.pts[i+1],L=Math.hypot(b[0]-a[0],b[1]-a[1]);if(L<.1)continue;const ux=(b[0]-a[0])/L,uz=(b[1]-a[1])/L,ry=Math.atan2(-uz,ux);
+   for(;acc<L;acc+=10){const x=a[0]+ux*acc-uz*16*sd,z=a[1]+uz*acc+ux*16*sd;if(trackNear(x,z).d>12)panel(x+ux*5,z+uz*5,ry,10);got+=10}acc-=L}}
+ if(FN.length){const parts=[[FUB.clone(),new THREE.Matrix4().compose(new THREE.Vector3(-.5,.65,0),new THREE.Quaternion(),new THREE.Vector3(.012,1.3,.12)),FCO.wood]];
+  for(const y of[.45,.8,1.15])parts.push([FUB.clone(),new THREE.Matrix4().compose(new THREE.Vector3(0,y,0),new THREE.Quaternion(),new THREE.Vector3(1,.03,.03)),FCO.wire]);
+  const M=new THREE.InstancedMesh(vMerge(parts),FARM.mat,FN.length);M.receiveShadow=true;FN.forEach((e,i)=>{e.i=i;fenceSet(M,e)});M.instanceMatrix.needsUpdate=true;sc.add(M);STR.push(M);FARM.F={M,list:FN}}}
+const fM4=new THREE.Matrix4(),fQ=new THREE.Quaternion(),fE=new THREE.Euler(0,0,0,'YXZ');
+function fenceSet(M,e){fM4.compose(dV.set(e.x,H(e.x,e.z)-(e.dn?.05:0),e.z),fQ.setFromEuler(fE.set(e.dn?1.35:0,e.ry,0)),new THREE.Vector3(e.len,1,1));M.setMatrixAt(e.i,fM4)}
+function fenceDown(x,z,r){const F=FARM.F;if(!F)return;let n=0;for(const e of F.list)if(!e.dn&&Math.abs(e.x-x)<r+e.len/2&&Math.abs(e.z-z)<r+e.len/2&&Math.hypot(e.x-x,e.z-z)<r+e.len/2){e.dn=1;fenceSet(F.M,e);n++}if(n)F.M.instanceMatrix.needsUpdate=true}
+/* ---------- damage ---------- */
+function farmStage(B){const f=B.hp/B.hp0,s=f<.33?2:f<.66?1:0;if(FTY[B.t].lt&&s>B.st){B.st=s;B.m.geometry=fGeo(B.t,B.v,s);if(s===2)B.smk=T+60}}
+function farmHit(B,dm,dx,dz){if(B.dead||!(dm>0))return;B.hp-=dm;if(B.hp<=0)return farmKill(B,dx,dz);farmStage(B);FARM.onHit&&FARM.onHit(B);
+ dfx(()=>{for(let i=0;i<3;i++)puff(B.x+dr(-B.R,B.R)*.6,B.y0+dr(1,4),B.z+dr(-B.R,B.R)*.6,night?0x2a2620:0xa08c6c,dr(1.5,3),1,3,.5,.5)})}
+/* quiet: restoring a saved state (no effects, final pose at once) */
+function farmKill(B,dx=0,dz=1,quiet){if(B.dead)return;B.dead=1;B.hp=0;for(const o of B.cs)unObs(o);const F=FTY[B.t],l=Math.hypot(dx,dz)||1;
+ if(F.lt){B.st=3;B.m.geometry=fGeo(B.t,B.v,3);B.smk=quiet?0:T+40}
+ else if(quiet){if(F.top)B.g.quaternion.premultiply(fQ.setFromAxisAngle(dV.set(dz/l,0,-dx/l),1.4));else B.g.scale.set(1.15,.25,1.15)}
+ else FALL.push({k:'b',g:B.g,q0:B.g.quaternion.clone(),ax:new THREE.Vector3(dz/l,0,-dx/l),top:!!F.top,t:0,dur:F.top?1.5:.6,ang:dr(1.3,1.5),tilt:dr(-.12,.12)});
+ if(!quiet){dfx(()=>{for(let i=0;i<10;i++)puff(B.x+dr(-B.R,B.R)*.7,B.y0+dr(.5,3),B.z+dr(-B.R,B.R)*.7,night?0x2a2620:0xa08c6c,dr(2,4),1,3,.5,.5)});sfx(2,0,F.lt?.6:.35)}
+ FARM.onKill&&FARM.onKill(B,quiet)}
+const fFall=(d,R)=>d>=R?0:d<=.25*R?1:1-(d-.25*R)/(.75*R);
+/* a burst: inside the footprint = direct hit (x1.5), else falloff from the nearest wall over the shell's radius (x0.5); 25 m for our HE (Barrel scales it) */
+function farmBlast(p,rad){const R=rad>=8?25*FARM.rk():rad*3,K=FARM.dk();fenceDown(p.x,p.z,rad*1.5);
+ for(const B of FARM.L){if(B.dead||Math.abs(B.x-p.x)>R+B.R||Math.abs(B.z-p.z)>R+B.R)continue;const F=FTY[B.t],[lx,lz]=fLoc(B,p.x,p.z),ex=Math.max(0,Math.abs(lx)-F.hw),ez=Math.max(0,Math.abs(lz)-F.hd);
+  const dm=ex<=.5&&ez<=.5?K*1.5:fFall(Math.hypot(ex,ez),R)*K*.5;farmHit(B,dm,B.x-p.x||.1,B.z-p.z)}}
+const _dAFm=destroyAt;destroyAt=function(p,rad){const n=_dAFm(p,rad);farmBlast(p,rad);return n};
+/* rams: 100 x km/h / 30 per building every 1.5 s (blade x1.5); a building at 0 falls and the hull goes on; a standing one stops the gun as before */
+const _coFm=collide;collide=function(dt){if(Math.abs(v)>.5&&FARM.L.length){const seen=new Set();
+ for(const h of allContacts(px,pz,psi,tur.rotation.y,elev,veh.position.y,['hull'],.25)){const B=h.o.B;if(!B||B.dead||seen.has(B))continue;seen.add(B);
+  const kmh=v*(Math.cos(psi)*h.nx-Math.sin(psi)*h.nz)*3.6;if(kmh<FRAM.min||T<(B.ramT||0))continue;B.ramT=T+FRAM.cd;const bl=FARM.blade();farmHit(B,FRAM.k*kmh*(bl?FRAM.blade:1),h.nx,h.nz);
+  if(B.dead){v*=.6;shake=Math.max(shake,.5);rk.vp-=Math.sign(v)*.35;if(!bl)DMG.push({t:+T.toFixed(2),part:'hull',face:'front',obj:'building',kmh:Math.round(kmh),sev:+Math.min(1,kmh/43*.6).toFixed(2),crush:1})}
+  else if(FTY[B.t].big&&!bl&&kmh>=10)FARM.onRam&&FARM.onRam(B,kmh)}}
+ _coFm(dt)};
+/* direct fire: a local round that meets a wall bursts there (indirect rounds land on their point; one inside a footprint is a direct hit) */
+const fRay=new THREE.Raycaster(),fRo=new THREE.Vector3(),fRd=new THREE.Vector3();
+function farmSweep(dt){for(const h of shells){if(h.life!=null)continue;const k=dt*(h.tk||1),ex=h.p.x+h.v.x*k,ez=h.p.z+h.v.z*k;fRd.copy(h.v).multiplyScalar(k);const L=fRd.length();if(L<1e-6)continue;
+ for(const B of FARM.L){if(B.dead||Math.min(h.p.x,ex)>B.x+B.R||Math.max(h.p.x,ex)<B.x-B.R||Math.min(h.p.z,ez)>B.z+B.R||Math.max(h.p.z,ez)<B.z-B.R)continue;
+  fRay.set(fRo.copy(h.p),fRd.clone().divideScalar(L));fRay.far=L;B.g.updateMatrixWorld(true);const q=fRay.intersectObject(B.g,true)[0];
+  if(q){h.p.set(q.point.x,H(q.point.x,q.point.z)-.05,q.point.z);h.v.set(0,-1e-3,0);break}}}}
+/* the hull flattens fence panels; badly damaged buildings smoke for a minute */
+const _stFm=step;step=function(dt,draw){if(dt&&shells.length&&FARM.L.length)farmSweep(dt);_stFm(dt,draw);if(!dt)return;if(FARM.F&&Math.abs(v)>.3)fenceDown(px,pz,3);
+ if((FARM.st+=dt)>=.5){FARM.st=0;for(const B of FARM.L)if(B.smk>T)dfx(()=>puff(B.x+dr(-2,2),B.y0+FTY[B.t].h*(B.dead?.3:.8),B.z+dr(-2,2),0x2e2b28,2.5,1.2,7,.6,1.8))}};
+/* the world build: the old scatter still runs and is taken away (its placement and mesh-id draws keep the world's random stream as before), then the farms, built without touching Math.random */
+function strOld(f,k){const s0=STR.length,w0=wind.length;f(k);const gone=STR.splice(s0);wind.length=w0;gone.forEach(g=>sc.remove(g));for(let i=obs.length-1;i>=0;i--)if(obs[i].g&&gone.includes(obs[i].g))obs.splice(i,1)}
+const _sbOld=structBuild;structBuild=function(k=1){strOld(_sbOld,k);noRng(()=>farmBuild(k))};
+const _wbFm=worldBuild;worldBuild=function(W){FARM.seed=W?W.seed:12345;return _wbFm.apply(this,arguments)};
+/* load: 04 placed the old scatter (its random draws already taken); swap it for the classic farms */
+{for(let i=obs.length-1;i>=0;i--)if(obs[i].k==='b'&&STR.includes(obs[i].g))obs.splice(i,1);STR.forEach(g=>sc.remove(g));STR.length=0;wind.length=0;noRng(()=>farmBuild(1))}
+/* ================= P6 S22 (Brenton 2026-11-27, plans/p6/s22-design.md): tracks that cross with no junction become linked. At each world build the crossing splits
+   both tracks and adds a junction node (X1, X2 ...) to the routing graph, so routes, drive distances and offers use the crossing the ground already has.
+   TRKO keeps the unsplit tracks for code that looks a track up by its named ends (main road, debris). Local tracks also draw on the full MAP at local zoom ================= */
+const TRKO=[];const XN={};
+const trkFind=(a,b)=>TRKO.find(t=>t.a===a&&t.b===b)||TRK.find(t=>t.a===a&&t.b===b);
+function segX(p,q,r,s){const d=(q[0]-p[0])*(s[1]-r[1])-(q[1]-p[1])*(s[0]-r[0]);if(Math.abs(d)<1e-9)return null;const t=((r[0]-p[0])*(s[1]-r[1])-(r[1]-p[1])*(s[0]-r[0]))/d,u=((r[0]-p[0])*(q[1]-p[1])-(r[1]-p[1])*(q[0]-p[0]))/d;
+ return t>1e-6&&t<1-1e-6&&u>1e-6&&u<1-1e-6?[p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t]:null}
+/* split TRK in place at every crossing of two tracks that share no end; idempotent per world */
+function trkCross(){TRKO.length=0;TRKO.push(...TRK);for(const k in XN)delete XN[k];let n=0;
+ for(let guard=0;guard<40;guard++){let hit=null;
+  for(let i=0;i<TRK.length&&!hit;i++)for(let j=i+1;j<TRK.length&&!hit;j++){const A=TRK[i],B=TRK[j];if(A.a===B.a||A.a===B.b||A.b===B.a||A.b===B.b)continue;
+   for(let a=1;a<A.pts.length&&!hit;a++)for(let b=1;b<B.pts.length&&!hit;b++){const P=segX(A.pts[a-1],A.pts[a],B.pts[b-1],B.pts[b]);if(P)hit={i,j,a,b,P}}}
+  if(!hit)break;const k='X'+(++n),{P}=hit;XN[k]=P;siteH[k]=baseH(P[0],P[1]);const cut=(t,s)=>[{...t,b:k,pts:[...t.pts.slice(0,s),P]},{...t,a:k,pts:[P,...t.pts.slice(s)]}];
+  const A=cut(TRK[hit.i],hit.a),B=cut(TRK[hit.j],hit.b);TRK.splice(hit.j,1,...B);TRK.splice(hit.i,1,...A)}}
+const _tgX=tgBuild;tgBuild=function(){trkCross();return _tgX()};
+/* routing knows junction nodes as well as places */
+sitePath=function(a,b){const d={[a]:0},pv={},Q=new Set([...Object.keys(SITES),...Object.keys(TADJ)]);while(Q.size){let u=null;for(const q of Q)if(d[q]!=null&&(u==null||d[q]<d[u]))u=q;if(u==null||u===b)break;Q.delete(u);
+  for(const e of TADJ[u]||[]){if(TCLOSED[e.t]!=null)continue;const nd=d[u]+e.l;if(d[e.to]==null||nd<d[e.to]){d[e.to]=nd;pv[e.to]={f:u,t:e.t}}}}
+ if(d[b]==null)return null;const out=[];let c=b;while(c!==a){out.unshift(pv[c]);c=pv[c].f}return{d:d[b],steps:out}};
+/* local tracks on the full MAP once zoomed to local scale (the zoom that shows the local area box), under every marker (18-map calls it) */
+function trkMap(x,dp){x.save();x.lineCap=x.lineJoin='round';for(const t of TRK){const rd=t.gr==='road';x.strokeStyle=rd?'rgba(150,140,122,.8)':'rgba(205,175,125,.6)';x.lineWidth=(rd?2.5:1.5)*dp;x.beginPath();
+ t.pts.forEach((p,i)=>{const g=toG(p[0],p[1]),[a,b]=w2s(g.e,g.n);i?x.lineTo(a,b):x.moveTo(a,b)});x.stroke()}x.restore()}
+/* the ribbons are drawn from the unsplit tracks: same meshes (and the same three.js id draws on the world's random stream) as before the split */
+const _tmX=trkMesh;trkMesh=function(){if(!TRKO.length)return _tmX();const S=TRK.slice();TRK.length=0;TRK.push(...TRKO);try{return _tmX()}finally{TRK.length=0;TRK.push(...S)}};
 /* ================= RUN-ONLY: roguelike build entry. Files named r*.js are included only by src/run.html; the trainer build never contains them (tests check for the RUN-ONLY marker) ================= */
 const RUNB=true;
 /* run state lives here from P1 on; rmod bonuses (01-util.js RMOD) are set from the run's upgrades */
@@ -6638,8 +6818,11 @@ const _taM=todApply;todApply=function(){if(runLive()&&HZ.list.length)for(const h
    than the ford depth (except on tracks), keeps well off slopes over 1 in 2, prefers tracks, and costs off-road 1.6x. Routes, arrows, drive distances, offers and
    the AS10 all use it; off-road legs show dotted on the orders map. Off-road speed is unchanged ================= */
 const RDK={w:{plain:{L:.7,O:.2,S:.1},river:{L:.7,O:.2,S:.1},hills:{L:.15,O:.65,S:.2},forest:{L:.15,O:.65,S:.2},scrub:{L:.1,O:.2,S:.7}},off:{L:[0,0],O:[.2,.3],S:[.3,.45]},
- g:20,offC:1.6,slope:.5,trk:12};
+ g:20,offC:1.6,slope:.5,trk:12,gap:150}; /* gap (P6 S22): a place is cut off the tracks only if every track left is >= 150 m away, so none sits by a road it is not joined to */
 const RDW={on:false,f:{},c:null,lay:null,pc:{}};
+/* nearest distance from place s to the tracks of def list D (their control polylines) */
+function rdGap(W,D,s){const p=W.sites[s];if(!p)return Infinity;let m=Infinity;for(const e of D){const P=[W.sites[e[0]],...e[1],W.sites[e[2]]];if(P.some(q=>!q))continue;
+ for(let i=1;i<P.length;i++){const a=P[i-1],b=P[i],dx=b[0]-a[0],dz=b[1]-a[1],L=dx*dx+dz*dz||1,t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dz)/L));m=Math.min(m,Math.hypot(a[0]+dx*t-p[0],a[1]+dz*t-p[1]))}}return m}
 /* the layout: rewrites the world's track list before it is built */
 function rdLayout(W){const r=rng(W.seed^0x70ad5),k=ordW(r,['L','O','S'],x=>(RDK.w[W.bk]||RDK.w.plain)[x]),S=[...FPS,...RUN_EXTRA].filter(s=>W.sites[s]);
  const road=e=>e[3]==='road',ends=e=>[e[0],e[2]];
@@ -6649,7 +6832,7 @@ function rdLayout(W){const r=rng(W.seed^0x70ad5),k=ordW(r,['L','O','S'],x=>(RDK.
  let D=W.def.slice();const off=[];
  const fr=RDK.off[k],cand=S.filter(s=>s!=='HIDE'&&s!=='RSP'&&!D.some(e=>road(e)&&ends(e).includes(s)));
  for(let i=cand.length;i--;){const j=Math.floor(r()*(i+1));[cand[i],cand[j]]=[cand[j],cand[i]]}
- for(const s of cand.slice(0,Math.round(cand.length*rr_(r,fr[0],fr[1])))){const T=D.filter(e=>road(e)||!ends(e).includes(s));if(ok(T)){D=T;off.push(s)}}
+ for(const s of cand.slice(0,Math.round(cand.length*rr_(r,fr[0],fr[1])))){const T=D.filter(e=>road(e)||!ends(e).includes(s));if(ok(T)&&rdGap(W,T,s)>=RDK.gap){D=T;off.push(s)}}
  const cut=(want,maxN)=>{for(let t=0,n=0;t<40&&n<maxN;t++){const L=D.filter(e=>!road(e));if(!L.length)break;const e=L[Math.floor(r()*L.length)],T=D.filter(x=>x!==e);
   if(ok(T)&&nParts(T)<=want[1]){D=T;n++;if(nParts(D)>=want[0]&&(n>=2||r()<.5))break}}};
  if(k==='O')cut([2,3],2);else if(k==='S')cut([1,9],1);
@@ -7612,7 +7795,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['New biomes and landscapes','New enemy models, easier to spot','Easier first map']};
+const NOTES={get v(){return BUILD.v},items:['Farm buildings you can destroy, some hide loot','New biomes and landscapes','New enemy models, easier to spot']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -9952,4 +10135,44 @@ const _mtPO=modeTick;modeTick=function(dt){_mtPO(dt);const R=RUNS,e=R&&R.cur;if(
 const _stPO=step;step=function(dt,draw){_stPO(dt,draw);if(pullOn()){const x=SITES[RUNS.cur.exfil];RLM.position.set(x[0],H(x[0],x[1]),x[1]);RLM.visible=true}};
 const _dmPO=drawMap;drawMap=function(){_dmPO();if(!pullOn()||curTab!=='map'||!mc._dp)return;const x=SITES[RUNS.cur.exfil],g=toG(x[0],x[1]),[a,b]=w2s(g.e,g.n),[a2]=w2s(g.e+RLR,g.n),c=mx;c.strokeStyle='#e2b93b';c.lineWidth=2*mc._dp;c.beginPath();c.arc(a,b,Math.max(6*mc._dp,Math.abs(a2-a)),0,6.283);c.stroke()};
 const _dmmPO=drawMini;drawMini=function(){_dmmPO();if(!pullOn())return;const c=$('mm');if(!c.clientWidth)return;const g=c.getContext('2d'),dp=Math.min(devicePixelRatio,2),s=c.width/(HALF*2),x=SITES[RUNS.cur.exfil];g.setTransform(1,0,0,1,0,0);g.strokeStyle='#e2b93b';g.lineWidth=1.5*dp;g.beginPath();g.arc((x[0]+HALF)*s,(x[1]+HALF)*s,Math.max(4*dp,RLR*s),0,6.283);g.stroke()};
+/* ================= RUN-ONLY: P6 S21 buildings in a run (Brenton 2026-11-27, plans/p6/s21-design.md).
+   Damage uses the run's model: shell damage x ammo/items x +-15%, Barrel radius. Ramming a house or woolshed without the Dozer blade costs 5 hull (Armour cuts);
+   with the blade rams cost nothing and push through. Destroyed and damaged buildings stay so for the rest of the map (saved).
+   Hidden loot by size, rolled from the run seed when a hut/shed, house or woolshed falls: a crate in the rubble (on the map at once), taken like a cache
+   (drive within 6 m, missions only). Items only with Scavenger (rare); each Scavenger makes an empty building 20% less likely ================= */
+const BLT={shed:{n:.59,sp:[.25,15,30],he:[.10,6],hp:[.04,5],it:.02},house:{n:.40,sp:[.30,20,40],he:[.15,6],hp:[.10,10],it:.05},wool:{n:.30,sp:[.35,25,50],he:[.15,8],hp:[.10,10],it:.10}};
+FARM.dk=()=>dmgOn()?shRoll():SHD;FARM.rk=()=>dmgOn()?rUp('dmg'):1;FARM.blade=()=>!!RUNS&&itN('dozer')>0;
+FARM.onRam=(B,kmh)=>{if(runLive())runHit(5,'ramming a building')};
+ITEMS.dozer.d='Ramming vehicles and buildings: no hull damage or fault; ram damage +50%; pushes through houses and woolsheds';
+Object.assign(ITEMS.scav,{rare:1,c:80,d:'+1 cache per mission; buildings can hold items (hut/shed 2%, house 5%, woolshed 10%) and are empty 20% less often'});
+/* the roll: Scavenger moves the item share in, and scales "nothing" by 0.8 per copy (the rest grow in proportion) */
+function bltRoll(B,R){const T_=BLT[FTY[B.t].lt],sc_=itN('scav'),r=rng((R.rseed||R.seed)^0xb17d^Math.imul(B.i+1,2654435761)^hstr(WORLD.key||'')),
+ w={n:(T_.n+(sc_?0:T_.it))*Math.pow(.8,sc_),sp:T_.sp[0],he:T_.he[0],hp:T_.hp[0],it:sc_?T_.it:0},tot=Object.values(w).reduce((a,b)=>a+b,0);let q=r()*tot,k='n';
+ for(const kk of['n','sp','he','hp','it']){if(q<w[kk]){k=kk;break}q-=w[kk]}
+ return k==='n'?null:{k,n:k==='sp'?Math.round(T_.sp[1]+r()*(T_.sp[2]-T_.sp[1])):k==='he'?T_.he[1]:k==='hp'?T_.hp[1]:0,s:Math.floor(r()*1e9)}}
+const BC={L:[]}; /* crate meshes in the world: {c (saved record), g} */
+function bcShow(c){if(c.got)return;const g=noRng(()=>CRM[0].clone());g.scale.setScalar(.8);g.position.set(c.x,H(c.x,c.z),c.z);g.rotation.y=c.x%6;sc.add(g);BC.L.push({c,g})}
+function bcClear(){BC.L.forEach(e=>sc.remove(e.g));BC.L=[]}
+/* keep per-map state: hp of every damaged building, crates */
+const bdOf=R=>{if(!R.bd||R.bd.k!==WORLD.key){R.bd={k:WORLD.key,h:{},c:[]}}return R.bd};
+FARM.onHit=B=>{const R=RUNS;if(R)bdOf(R).h[B.i]=Math.round(B.hp)};
+FARM.onKill=(B,quiet)=>{const R=RUNS;if(!R||quiet)return;const D=bdOf(R);D.h[B.i]=0;if(!FTY[B.t].lt||D.c.some(c=>c.i===B.i))return;const L_=bltRoll(B,R);if(!L_)return;
+ const a=(L_.s%628)/100,c={i:B.i,x:+(B.x+Math.cos(a)*2).toFixed(1),z:+(B.z+Math.sin(a)*2).toFixed(1),...L_,got:0};D.c.push(c);bcShow(c);renderSoon()};
+function bdApply(){const R=RUNS;bcClear();if(!R||!R.bd||R.bd.k!==WORLD.key)return;for(const[i,hp]of Object.entries(R.bd.h)){const B=FARM.L[+i];if(!B||B.dead)continue;if(hp<=0)farmKill(B,0,1,true);else{B.hp=hp;farmStage(B)}}
+ R.bd.c.forEach(bcShow)}
+const _wuF=worldUse;worldUse=function(spec){const ch=_wuF.apply(this,arguments);if(ch)bdApply();return ch};
+const _svF=runSave;runSave=function(){_svF();const R=RUNS;if(!R||R.dead||!R.bd)return;try{const s=JSON.parse(localStorage.getItem(RUN_KEY));s.bd=R.bd;localStorage.setItem(RUN_KEY,JSON.stringify(s))}catch(e){}};
+const _ldF=runLoad;runLoad=function(){const s=runSaved(),ok=_ldF.apply(this,arguments);if(ok&&RUNS&&s&&s.bd){RUNS.bd=s.bd;bdApply()}return ok};
+/* taking a crate */
+function bcTake(c){const R=RUNS;c.got=1;if(c.k==='sp')spAdd(c.n,'cache');else if(c.k==='he'){ammo.HE=Math.min(rsBase().HE,ammo.HE+c.n);spFloat('+'+c.n+' HE')}
+ else if(c.k==='hp'){heal(c.n);spFloat('+'+c.n+' hull')}
+ else{const k=itPick(rng(c.s),Object.keys(ITEMS).filter(k=>!ITEMS[k].rare&&(ITEMS[k].u||!itHas(k))&&itRoom(k)),1)[0];if(k&&itAdd(k))spFloat(ITEMS[k].n);else spAdd(30,'cache')}
+ sfx(2,0,.25);renderSoon();runSave()}
+const _stBC=step;step=function(dt,draw){_stBC(dt,draw);if(!dt||!RUNS||!BC.L.length)return;const tr=RUNS.phase==='transit';
+ for(let i=BC.L.length-1;i>=0;i--){const e=BC.L[i];e.g.visible=!tr;if(tr||!runLive()||!RUN())continue;if(Math.hypot(e.c.x-px,e.c.z-pz)<RC.get){bcTake(e.c);sc.remove(e.g);BC.L.splice(i,1)}}};
+const _dmBC=drawMap;drawMap=function(){_dmBC();if(!RUNS||!runLive()||curTab!=='map'||!mc._dp)return;for(const e of BC.L){const g=toG(e.c.x,e.c.z),[a,b]=w2s(g.e,g.n);cacheMark(mx,a,b,{v:20},mc._dp)}};
+/* the blade: house/woolshed contact makes no fault or crash damage (the ram rules above take over) */
+const _imF=impact;impact=function(h,vn){if(!(h.o&&h.o.B&&FARM.blade()))return _imF(h,vn);const n=DMG.length,ts=toast;toast=()=>{};try{_imF(h,vn)}finally{toast=ts}for(let i=n;i<DMG.length;i++)DMG[i].ram=1};
+/* Scavenger is rare now: gold frame like the other rare items (r40 rule) */
+{const c=corner('scav');RICO.it.scav='<rect x=".9" y=".9" width="22.2" height="22.2" rx="3.5" fill="none" stroke="#e0b54a" stroke-width="1.8"/><g transform="translate(2.4 2.4) scale(.8)">'+RICO.it.scav.replace(c,'')+'</g>'+c;const s=document.getElementById('ri-it-scav');if(s)s.innerHTML=RICO.it.scav}
 </script>

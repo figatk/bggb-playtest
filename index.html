@@ -250,7 +250,7 @@ table.camp{width:100%;border-collapse:collapse;margin:8px 0 14px;font:400 13px v
 </script>
 <script>
 const MISSIONS=[{"id":"REG","name":"Registration","tag":"Adjust · precision","time":"06:40","start":"HIDE","brief":"Register the gun on RP1 (Knob Hill trig). KILO 31 adjusts until a burst lands within 25 m. A successful registration reduces error on every later mission.","legs":[{"type":"REG","fp":"A","obs":"K31","tgt":{"id":"RP1","e":15000,"n":18500,"r":5,"kind":"point","els":1,"desc":"Registration point, Knob Hill trig"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":0,"moc":"WR"}],"sit":"The battery has just occupied the Moss Vale gun area. The meteorological data is two hours old and no gun has fired from here yet.","why":"Register the gun on RP1, the Knob Hill trig, so the battery knows its real error before the battle group needs fire.","win":"RP1 is recorded. Corrections from the registration now apply to every mission you fire today, so later rounds land closer first time.","lose":"Registration was not achieved. Later missions will need longer adjustment, costing time and ammunition."},{"id":"ADJ","name":"Adjust Fire","tag":"Adjust · neutralise","time":"09:15","start":"HIDE","brief":"Enemy infantry platoon in the open. KILO 31 adjusts with HE PD, then fire for effect with 4 rounds VT. Effect required: neutralisation (10%).","legs":[{"type":"ADJ","fp":"A","obs":"K31","tgt":{"id":"AB1002","e":19600,"n":21900,"r":90,"kind":"soft","els":30,"desc":"Infantry platoon in the open"},"ammo":"HE","fuze":"PD","ffeFuze":"VT","adjust":true,"ffe":4,"moc":"WR","req":{"eff":0.1}}],"sit":"A Coy is advancing north of Moss Vale Station. An enemy infantry platoon is moving into the open ground on A Coy's left flank.","why":"Neutralise the platoon (about 10% casualties) so it cannot interfere with A Coy's advance for the next hour.","win":"The platoon has gone to ground and is pulling back. A Coy continues its advance.","lose":"The platoon is still effective and is engaging A Coy's lead section.","events":[{"at":"adj2","type":"move","de":160,"dn":-110}]},{"id":"NEUT","name":"Battery Neutralisation","tag":"FFE · battery · AMC","time":"11:30","start":"HIDE","brief":"Enemy mortar section. Battery fire for effect, 6 rounds per gun, at my command. Guns 2 and 3 fire with you. No adjustment, so register first for best results.","legs":[{"type":"NEUT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1003","e":21400,"n":20200,"r":70,"kind":"light","els":12,"desc":"Mortar section, 4 tubes, dug in"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":6,"moc":"AMC","req":{"eff":0.1}}],"sit":"An enemy mortar section, dug in on the reverse slope, has been shelling C Coy for ten minutes. KILO 32 has it under observation.","why":"Battery fire for effect to neutralise the mortars so C Coy can reorganise. The guns fire at my command so all rounds arrive together.","win":"The mortars have stopped firing. C Coy reports no incoming.","lose":"Mortar fire continues on C Coy.","events":[{"at":"ffe1","type":"gunDown"}]},{"id":"DEST","name":"Destruction","tag":"Adjust · destroy · CB threat","time":"17:48","start":"HIDE","brief":"Enemy C2 node. KILO 32 adjusts precisely, to within 25 m, then you fire for effect with 12 rounds. Effect required: destruction (30%). Enemy counter-battery radar is active: its timer starts with your first round for effect, so displace before it answers.","cb":240,"legs":[{"type":"DEST","fp":"A","obs":"K32","tgt":{"id":"AB1004","e":24600,"n":19800,"r":50,"kind":"light","els":8,"desc":"C2 node, 3 vehicles and antenna farm"},"ammo":"HE","fuze":"PD","adjust":true,"prec":true,"ffe":12,"moc":"WR","req":{"eff":0.3}}],"sit":"Signals intercepts and drone imagery have located an enemy battalion command post. An enemy weapon-locating radar covers the area.","why":"Destroy the command post (about 30% damage) to break enemy command before tonight's attack. Expect counter-battery fire once you fire for effect.","win":"The command post is burning and its radio traffic has stopped.","lose":"The command post is still transmitting. The enemy attack will be coordinated.","events":[{"at":"ffe1","type":"jam"}]},{"id":"SUPP","name":"Immediate Suppression","tag":"Danger close · time standard","time":"14:10","start":"B","brief":"Troops in contact. B Company is 430 m from the enemy, so this is DANGER CLOSE. First round must land within 120 s of the order. No adjustment. Keep every round clear of friendlies.","legs":[{"type":"SUPP","fp":"B","obs":"K31","tgt":{"id":"AB1005","e":18300,"n":17900,"r":50,"kind":"soft","els":10,"desc":"Enemy section in contact"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":4,"moc":"WR","danger":true,"timeStd":120}],"friendly":[{"e":18050,"n":17550,"desc":"B Coy 5 Pl"}],"sit":"B Coy's 5 Platoon is in contact with an enemy section only 430 m away and is pinned down in the open.","why":"Suppress the enemy immediately so 5 Platoon can break contact. This is danger close: every round must stay clear of the platoon.","win":"Enemy fire has slackened under the suppression and 5 Platoon has broken contact.","lose":"5 Platoon is still pinned down under fire."},{"id":"SMK","name":"Smoke Screen","tag":"Smoke · sustain","time":"10:20","start":"HIDE","brief":"Screen the Corrigan ford crossing from enemy observation. Keep all three screen points covered for 150 s. Cycle aim points in the FCS. Each cloud lasts about 100 s.","load":{"HE":18,"SMK":24,"ILL":6},"legs":[{"type":"SMK","fp":"A","obs":"K31","tgt":{"id":"AB1006","e":17300,"n":20250,"r":250,"kind":"screen","els":0,"desc":"Screen line, 3 points, 300 m apart","pts":[{"e":17000,"n":20100},{"e":17300,"n":20250},{"e":17600,"n":20400}]},"ammo":"SMK","fuze":"TIME","adjust":false,"ffe":12,"moc":"WR","req":{"cov":0.7,"dur":150}}],"sit":"B Coy must cross the creek at Corrigan ford in daylight. Enemy observers on the high ground north of the ford can see the crossing.","why":"Screen the crossing for 150 s to blind the observers while the company crosses.","win":"The company crossed behind the screen without casualties.","lose":"Gaps in the screen let the enemy see the crossing, and the company took fire."},{"id":"ILL","name":"Illumination","tag":"Night · continuous illum","time":"21:00","night":true,"start":"HIDE","brief":"Night. Provide continuous illumination over a suspected enemy patrol for 150 s. Each flare burns about 50 s, so time the next round before the last one dies.","legs":[{"type":"ILL","fp":"C","obs":"K31","tgt":{"id":"AB1007","e":19000,"n":20800,"r":200,"kind":"area","els":0,"desc":"Suspected enemy patrol, re-entrant"},"ammo":"ILL","fuze":"TIME","adjust":false,"ffe":6,"moc":"WR","req":{"cov":0.8,"dur":150}}],"sit":"Night. Listening posts report movement in a re-entrant between A and B Coy, possibly an enemy patrol probing the gap.","why":"Light the area continuously for 150 s so KILO 31 can identify the patrol and bring fire onto it.","win":"The patrol was caught under the flares and withdrew.","lose":"The light lapsed and the patrol slipped away in the dark."},{"id":"MRSI","name":"MRSI","tag":"Multiple rounds simultaneous impact","time":"07:05","start":"HIDE","brief":"Enemy SP gun section. Fire a 3-round MRSI: round 1 goes high with the longest time of flight. The FCS then lays each following round on a flatter trajectory with a shorter time of flight, so all three land together. Fire each round on its cue. Spread must be 3 s or less and the target neutralised (10%).","cb":150,"legs":[{"type":"MRSI","fp":"A","obs":"K31","tgt":{"id":"AB1008","e":14500,"n":18000,"r":60,"kind":"light","els":6,"desc":"Enemy SP gun section, 2 guns"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":3,"moc":"MRSI","req":{"lay":2,"spread":3}}],"sit":"An enemy self-propelled gun section is firing on the battle group's echelon area.","why":"One gun, three rounds, one moment of impact: the crews get no warning to take cover. Neutralise the section.","win":"Surprise was complete. All three rounds arrived together and the section has stopped firing.","lose":"The rounds arrived spread out, so the crews took cover after the first one."},{"id":"TOT","name":"Battery Time on Target","tag":"TOT · battery","time":"05:25","start":"HIDE","brief":"H-Hour fire plan. The battery fires so every round lands at the TOT. The FCS shows your fire time from the time of flight. First impact must be within 3 s of the TOT.","legs":[{"type":"TOT","fp":"C","obs":"K32","guns":3,"tgt":{"id":"AB1009","e":22200,"n":24600,"r":120,"kind":"soft","els":40,"desc":"Enemy company assembly area"},"ammo":"HE","fuze":"VT","adjust":false,"ffe":3,"moc":"TOT","tot":200,"req":{"eff":0.1,"tot":3}}],"sit":"H-Hour for the battle group attack on Tarrin. An enemy company is still in its assembly area on the approach.","why":"All three guns land together at the time on target to neutralise the company the moment the attack starts.","win":"The assembly area was hit as one, and the attack went in against light resistance.","lose":"The fire was not concentrated in time, and the enemy company was alerted.","events":[{"at":"tot","type":"totShift","dt":60}]},{"id":"SCOOT","name":"Shoot and Scoot","tag":"2 targets · 2 FPs · CB","time":"18:12","start":"HIDE","brief":"Raid. Engage AB1010 from FP A, then march order and displace to FP B before counter-battery fire arrives. Engage AB1011 from FP B and displace again.","cb":75,"legs":[{"type":"SCOOT","fp":"A","obs":"K31","tgt":{"id":"AB1010","e":20100,"n":19100,"r":60,"kind":"light","els":8,"desc":"Logistics vehicles halted"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}},{"type":"SCOOT","fp":"B","obs":"K32","tgt":{"id":"AB1011","e":23300,"n":21400,"r":60,"kind":"light","els":8,"desc":"Air defence radar and launcher"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":4,"moc":"WR","req":{"lay":2}}],"sit":"Raid. Enemy logistics vehicles have halted on the main road and an air defence radar has set up behind them. Enemy counter-battery fire answers in about 75 s.","why":"Hit each target, then move before the counter-battery fire lands. Keeping the gun alive matters as much as the effect.","win":"Both targets were hit and the gun survived to fire again.","lose":"The raid did not achieve its effect, or the gun was caught by counter-battery fire."},{"id":"DEG","name":"Degraded Operations","tag":"FCS fault · voice · check fire","time":"12:50","start":"HIDE","brief":"Your FCS has failed and the data link is down. The CP sends gun data by voice: enter AZ, QE and charge by hand. Expect a CHECK FIRING when aircraft transit the ACA.","deg":{"fcs":true,"comms":true},"events":[{"at":"ffe1","type":"checkfire","dur":25}],"legs":[{"type":"DEG","fp":"C","obs":"K31","tgt":{"id":"AB1012","e":20500,"n":21200,"r":80,"kind":"soft","els":20,"desc":"Enemy platoon digging in"},"ammo":"HE","fuze":"PD","adjust":true,"ffe":4,"moc":"AMC","req":{"eff":0.1}}],"sit":"Electronic attack has knocked out your FCS and data link. An enemy platoon is digging in above C Coy's route forward.","why":"Neutralise the platoon using voice orders and manual laying. Aircraft use ACA SABRE, so expect a check firing.","win":"The platoon has abandoned its position and C Coy's route is clear.","lose":"The platoon is still dug in above C Coy's route."},{"id":"DF","name":"Direct Fire","tag":"Sight · LRF · close defence","time":"16:30","start":"HIDE","brief":"Enemy armour is closing on the gun area from the north. Occupy FP D and go into action. Red brackets and the compass show each tank. Drill: open the Sight (V), turn toward a tank, press LRF (L) to lase it, press LAY (G) so the FCS lays the gun with superelevation and lead, then FIRE (Space). Hit 4 targets within 240 s.","legs":[{"type":"DF","fp":"D","tgt":{"id":"DF","e":0,"n":0,"r":0,"kind":"df","els":6,"desc":"6 armour targets, 250 to 550 m"},"ammo":"HE","fuze":"PD","adjust":false,"ffe":0,"moc":"WR","timeStd":240,"req":{"hits":4}}],"sit":"Enemy armour has broken through the screen and is closing on the gun area from the north.","why":"Defend the gun area: the AS9 engages over open sights to break up the attack.","win":"The armour attack was broken up short of the gun area.","lose":"The armour reached the gun area."}];
-const BUILD={"v":"9.53.1","c":"d95898e"};
+const BUILD={"v":"9.54.0","c":"294f5b0"};
 /* ================= util ================= */
 const $=i=>document.getElementById(i),cl=(v,a,b)=>Math.max(a,Math.min(b,v)),D=Math.PI/180,wr=a=>Math.atan2(Math.sin(a),Math.cos(a));
 const MIL=3200/Math.PI,wm=m=>((m%6400)+6400)%6400,dm_=m=>{m=wm(m);return m>3200?m-6400:m};
@@ -397,7 +397,8 @@ const wheel=(x,y,r,z,k,kind)=>{const o=new THREE.Group();o.position.set(x,y,z);v
  else{const [g,m]=wGeo(r,.2,kind==='i'?idlerF:roadF);[-.15,.15].forEach(d=>mk(g,m,o,0,0,d))}
  wh[k].push({m:o,r});return o};
 /* pad centre path = convex hull of the wheels (inflated by half a pad), resampled by arc length */
-const TP=(()=>{const c=[[SPR.x,SPR.y,SPR.r],[IDL.x,IDL.y,IDL.r],...RW.x.map(x=>[x,RW.y,RW.r])],pts=[];
+/* tpMake(circles [x,y,r]) builds the path; BGGB's size scaling (r97) rebuilds TP in place for bigger running gear, and TPS.l/w stretch each pad to suit */
+const TPS={l:1,w:1},tpMake=c=>{const pts=[];
  c.forEach(([x,y,r])=>{for(let i=0;i<64;i++){const a=i/64*6.283;pts.push([x+Math.cos(a)*(r+TH_/2),y+Math.sin(a)*(r+TH_/2)])}});
  pts.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]),lo=[],up=[];
  for(const p of pts){while(lo.length>1&&cr(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop();lo.push(p)}
@@ -407,7 +408,7 @@ const TP=(()=>{const c=[[SPR.x,SPR.y,SPR.r],[IDL.x,IDL.y,IDL.r],...RW.x.map(x=>[
  const P=cum[h.length],M=600,cx=h.reduce((a,p)=>a+p[0],0)/h.length,cyy=h.reduce((a,p)=>a+p[1],0)/h.length,tab=[];let j=0;
  for(let i=0;i<M;i++){const s=i/M*P;while(cum[j+1]<s)j++;const a=h[j],b=h[(j+1)%h.length],f=(s-cum[j])/(cum[j+1]-cum[j]||1),x=a[0]+(b[0]-a[0])*f,y=a[1]+(b[1]-a[1])*f,
   dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;let nx=-dy/l,ny=dx/l;if(nx*(cx-x)+ny*(cyy-y)<0){nx=-nx;ny=-ny}tab.push([x,y,Math.atan2(dy,dx),nx,ny])}
- return{P,M,tab}})(),N=Math.round(TP.P/.19);
+ return{P,M,tab}},TP=tpMake([[SPR.x,SPR.y,SPR.r],[IDL.x,IDL.y,IDL.r],...RW.x.map(x=>[x,RW.y,RW.r])]),N=Math.round(TP.P/.19);
 [-1,1].forEach((s,k)=>{const z=s*TZ;
  RW.x.forEach(x=>wheel(x,RW.y,RW.r,z,k,'r'));wheel(SPR.x,SPR.y,SPR.r,z,k,'s');wheel(IDL.x,IDL.y,IDL.r,z,k,'i');
  RR.forEach(x=>{cy(.1,.1,.42,rub,veh,x,.98,z,'z');cy(.05,.05,.3,dark,veh,x,.98,z-s*.3,'z')});
@@ -420,7 +421,7 @@ const TP=(()=>{const c=[[SPR.x,SPR.y,SPR.r],[IDL.x,IDL.y,IDL.r],...RW.x.map(x=>[
  const im=new THREE.InstancedMesh(new THREE.BoxGeometry(.17,TH_,TW),trk,N);im.castShadow=true;im.userData.z=z;veh.add(im);pads.push(im);
  const hm=new THREE.InstancedMesh(new THREE.BoxGeometry(.07,.09,.06),trk,N);hm.userData.z=z;veh.add(hm);horns.push(hm)});
 function upT(o){pads.forEach((im,k)=>{const hm=horns[k],z=im.userData.z;for(let i=0;i<N;i++){const s=o[k]+i*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
-  dm.position.set(q[0],q[1],z);dm.rotation.set(0,0,q[2]);dm.scale.set(1,1,1);dm.updateMatrix();im.setMatrixAt(i,dm.matrix);
+  dm.position.set(q[0],q[1],z);dm.rotation.set(0,0,q[2]);dm.scale.set(TPS.l,1,1);dm.updateMatrix();im.setMatrixAt(i,dm.matrix);
   dm.position.set(q[0]+q[3]*.07,q[1]+q[4]*.07,z);dm.updateMatrix();hm.setMatrixAt(i,dm.matrix)}im.instanceMatrix.needsUpdate=hm.instanceMatrix.needsUpdate=true})}
 const tur=new THREE.Group();tur.name='tur';tur.position.set(-.7,1.75,0);veh.add(tur);
 cy(1.3,1.3,.1,dark,tur,0,0,0);
@@ -1580,7 +1581,7 @@ function dfSol(t){if(!t||!t.alive)return null;veh.updateMatrixWorld(true);mz.get
 function dfLay(){if(st!=='ACTION')return toast('Go into action first');const t=lased&&lased.t;if(!t||!t.alive)return toast('Lase a target first: Sight, aim near a red bracket, press LRF');const s=dfSol(t);layB=s.b;layQ=s.q;layOn=true;beep(660);toast('Laying on '+s.id+': range '+Math.round(s.r)+' m, superelevation and lead applied')}
 /* ================= vehicle collision & impacts ================= */
 /* hull = box in vehicle frame (x forward, z right); barrel = segment from the trunnion along turret yaw and elevation */
-const HULL={f:3.75,b:-3.9,w:1.82},TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25,BRL=7.1,BRL_R=.2,SKIN=.08,BRS={l:1,r:1}; /* contact within SKIN counts as touching; BRS scales the barrel's length and radius (a run's Barrel upgrade grows it) */
+const HULL={f:3.75,b:-3.9,w:1.82},BRL=7.1,BRL_R=.2,SKIN=.08,BRS={l:1,r:1};let TRN_X=-.7,TRN_R=2.2,TRN_Y=2.25; /* trunnion; BGGB's size scaling (r97) moves it with the hull and turret. Contact within SKIN counts as touching; BRS scales the barrel's length and radius (a run's Barrel upgrade grows it) */
 const obsTop=o=>o.k==='t'?(o.h||10*o.r/.7):o.k==='b'?(o.h||6):o.k==='v'?3.2:o.r*1.2; /* same heights minQE uses for crest */
 /* everything solid near (x,z): scenery, the other battery AS9s (3 circles along the hull), RSP, live DF armour */
 function solids(x,z){const out=[],near=o=>Math.abs(o.x-x)<o.r+10&&Math.abs(o.z-z)<o.r+10;
@@ -4445,7 +4446,7 @@ ekBuild(DT.h,k=>{[-1,1].forEach(s=>{const z=s*.95;[-1,1].forEach(e=>k.rod([3.6,1
 /* track links: two rubber pads per link on the ground side (the AS9's track runs; the clones keep a still copy) */
 pads.forEach(im=>{const m=new THREE.InstancedMesh(new THREE.BoxGeometry(.13,.03,.22),rub,N*2);m.castShadow=true;m.userData.z=im.userData.z;veh.add(m);DT.rp.push(m)});
 const _upTD=upT;upT=function(o){_upTD(o);DT.rp.forEach((m,k)=>{const z=m.userData.z;for(let i=0;i<N;i++){const s=o[k]+i*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
-  for(let j=0;j<2;j++){dm.position.set(q[0]-q[3]*.045,q[1]-q[4]*.045,z+(j?.17:-.17));dm.rotation.set(0,0,q[2]);dm.scale.set(1,1,1);dm.updateMatrix();m.setMatrixAt(i*2+j,dm.matrix)}}m.instanceMatrix.needsUpdate=true})};
+  for(let j=0;j<2;j++){dm.position.set(q[0]-q[3]*.045,q[1]-q[4]*.045,z+(j?.17:-.17));dm.rotation.set(0,0,q[2]);dm.scale.set(TPS.l,1,1);dm.updateMatrix();m.setMatrixAt(i*2+j,dm.matrix)}}m.instanceMatrix.needsUpdate=true})};
 upT(offs);[BG.G2,BG.G3,AS10].forEach(c=>DT.rp.forEach(m=>c.add(m.clone())));
 gfxRng();
 /* ================= Performance: High holds its frame rate or falls back to Standard, no 3D behind full-screen menus, a software GPU starts on Standard ================= */
@@ -4536,21 +4537,23 @@ const _stLod=step;step=function(dt,draw){if(draw)lodTick(dt);_stLod(dt,draw)};
    and the barrel's hitbox (BRS in 24a-collision) grows with it. The trainer and the battery guns keep the standard AS9. Built from private PRNGs: the game's random stream is unchanged ================= */
 gfxRng(0x73a1c3);
 const GRW={x:-1,key:'',P:{},r:rng(0x73b2d4),V:new THREE.Vector3(),gy:1,gz:1,t:{},e:{},
- chr:new THREE.MeshStandardMaterial({color:LIN(0xe2e4e6),metalness:.55,roughness:.18}),brt:new THREE.MeshStandardMaterial({color:LIN(0xa4a6a0),metalness:.4,roughness:.4}),
+ chr:new THREE.MeshStandardMaterial({color:LIN(0xe2e4e6),metalness:.55,roughness:.18}),brt:new THREE.MeshStandardMaterial({color:LIN(0x707468),metalness:.65,roughness:.32}),
  rubN:new THREE.MeshStandardMaterial({color:LIN(0x0e0e0e),roughness:.5}),can:new THREE.MeshStandardMaterial({color:LIN(0x4a5230),roughness:.7})};
 const grBar=x=>{const a=Math.min(x,1),b=Math.max(0,x-1);return{l:1+(6*a+3*b)/BRL,r:1+.8*a+.4*b}};
 const grOver=x=>Math.min(x,1)+.5*Math.max(0,x-1);
 /* a part group with its pivot at (x,y,z), hidden until its tier */
 const grG=(n,par,x=0,y=0,z=0,f)=>{const o=new THREE.Group();o.position.set(x,y,z);o.visible=false;par.add(o);GRW.P[n]=o;if(f)ekBuild(o,f);o.traverse(m=>{if(m.isMesh)m.castShadow=true});return o};
 const grBx=(k,w,h,d)=>{const g=k.B(w,h,d);wuv(g);return g};
-/* ---------- Mobility: fresh rubber pads and a bright sprocket / chevron grousers / polished steel grousers; growth deepens and widens them and raises exhaust stacks ---------- */
+/* ---------- Mobility: fresh rubber pads and a bright sprocket / chevron grousers / polished steel grousers; growth deepens and widens them and thickens twin exhausts
+   that run along the rear hull sides above the fenders, outlets turned out at the rear corners (clear of the barrel at any traverse; BGGB's r98 also grows the running gear) ---------- */
 GRW.spr=[];veh.children.filter(o=>o.isGroup&&Math.abs(o.position.x-SPR.x)<.01&&Math.abs(o.position.y-SPR.y)<.01).forEach(o=>o.traverse(m=>{if(m.isMesh&&m.material===dark)GRW.spr.push(m)}));
 {const a=new THREE.BoxGeometry(.035,.03,.28).rotateY(.45).translate(-.03,0,.12),b=new THREE.BoxGeometry(.035,.03,.28).rotateY(-.45).translate(-.03,0,-.12),g=ekMerge([a,b]);
  GRW.gr=pads.map(im=>{const m=new THREE.InstancedMesh(g,dark,N);m.castShadow=true;m.userData.z=im.userData.z;m.visible=false;veh.add(m);return m})}
-grG('stk',veh,1.9,1.75,.98,k=>[0,.32].forEach(x=>{k.put(k.C(.065,.075,1,10),dark,x,.5,0);k.put(k.C(.08,.08,.04,10),steel,x,1,0)}));
+[-1,1].forEach((s,i)=>grG('stk'+i,veh,-2.75,1.6,s*1.22,k=>{k.put(k.C(.065,.065,1.6,10),dark,.05,0,0,0,0,Math.PI/2);k.put(k.B(1.1,.11,.025),steel,.1,.02,s*.08);for(let j=0;j<6;j++)k.put(k.B(.02,.1,.03),dark,-.4+j*.18,.02,s*.095);
+ k.rod([-.75,0,0],[-.95,-.08,s*.16],.065,.075,dark,10);k.put(k.C(.08,.08,.04,10),steel,-.97,-.09,s*.18,Math.PI/2,0,0)}));
 const _upTG=upT;upT=function(o){_upTG(o);if(!GRW.gr[0].visible)return;const off=.06+.015*(GRW.gy-1);GRW.gr.forEach((m,k)=>{const z=m.userData.z;
  for(let i=0;i<N;i++){const s=o[k]+(i+.5)*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
-  dm.position.set(q[0]-q[3]*off,q[1]-q[4]*off,z);dm.rotation.set(0,0,q[2]);dm.scale.set(1,GRW.gy,GRW.gz);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
+  dm.position.set(q[0]-q[3]*off,q[1]-q[4]*off,z);dm.rotation.set(0,0,q[2]);dm.scale.set(TPS.l,GRW.gy,GRW.gz);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
 /* ---------- Turret drive: traverse motor housing at the turret ring (left) / a second one (right) / armoured hose run to the elevation cradle; growth swells the housings ---------- */
 [-1,1].forEach((s,i)=>grG('lay'+i,tur,1.05,.2,s*1.56,k=>{k.put(k.C(.15,.15,.46,14),olive,0,0,0,0,0,Math.PI/2);k.put(k.C(.16,.16,.05,14),dark,.25,0,0,0,0,Math.PI/2);
  k.put(k.B(.5,.1,.2),dark,0,-.13,-s*.04);for(let j=0;j<6;j++){const a=j*1.047;k.put(k.C(.016,.016,.03,6),steel,.28,Math.cos(a)*.1,Math.sin(a)*.1,0,0,Math.PI/2)}}));
@@ -4577,7 +4580,7 @@ grG('act1',tur,1.2,1.0,0,k=>{k.put(k.C(.1,.1,.62,14),dark,0,.1,0,Math.PI/2,0,0);
  k.put(grBx(k,.24,.14,.2),olive,-.26,.07,0);k.put(k.C(.025,.025,.08,8),dark,-.3,.18,.05)});
 grG('act1h',tur,0,0,0,k=>[-1,1].forEach(s=>{const P=[[1.3,1.1,s*.28],[1.6,1.03,s*.8],[1.93,.76,s*.86],[2.24,.47,s*.86],[2.19,.32,s*.86]];for(let j=0;j<4;j++)k.rod(P[j],P[j+1],.02,.02,rub,5)}));
 /* each frame: aim the rams at the gun's lugs and stretch the rods as it elevates; the accumulator vents a puff as the gun starts to move */
-function grElev(){if(!(GRW.t.act>=1))return;const e=gun.rotation.z,cs=Math.cos(e),sn=Math.sin(e),dx=2.2+GRW.lg[0]*cs-GRW.lg[1]*sn-GRW.an[0],dy=.5+GRW.lg[0]*sn+GRW.lg[1]*cs-GRW.an[1];
+function grElev(){if(!(GRW.t.act>=1))return;const e=gun.rotation.z,cs=Math.cos(e),sn=Math.sin(e),g=gun.scale.x,dx=2.2+(GRW.lg[0]*cs-GRW.lg[1]*sn)*g-GRW.an[0],dy=.5+(GRW.lg[0]*sn+GRW.lg[1]*cs)*g-GRW.an[1]; /* g: BGGB's turret growth (r98) keeps the gun its own size */
  const A=Math.atan2(dy,dx),L=Math.max(.01,Math.hypot(dx,dy)-.22),th=1+.5*(GRW.e.act||0);GRW.rm.forEach(R=>{if(!R.o.visible)return;R.a.rotation.z=A;R.a.scale.set(1,th,th);R.p.scale.x=L});
  const mv=Math.abs(e-GRW.ge)>1e-3;GRW.ge=e;if(mv&&!GRW.mv&&GRW.t.act>=2){const r=GRW.r,o=GRW.P.act1;o.updateMatrixWorld(true);
   for(let i=0;i<6;i++){const p=o.localToWorld(GRW.V.set(-.3,.24,.05));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xdedbd2),life:1+r()*.8,s0:.1,grow:1.2,op:.3,vy:.6+r()*.5,vx:(r()-.5)*.4,vz:(r()-.5)*.4,dr:.8,L:1})}}GRW.mv=mv}
@@ -4598,12 +4601,18 @@ const grCan=(k,x,y,z)=>{k.put(k.C(.07,.07,1,10),GRW.can,x,y,z,0,0,Math.PI/2);[-.
 grG('cap2',veh,0,0,0,k=>[1.8,2.28].forEach(x=>{k.put(grBx(k,.45,.24,.3),olive,x,1.87,.42);k.put(k.B(.1,.03,.32),dark,x,2.0,.42)}));
 {const g=ekMerge([new THREE.CylinderGeometry(.07,.07,1,10).rotateZ(Math.PI/2)]);GRW.cp=new THREE.InstancedMesh(g,GRW.can,80);GRW.cp.count=0;GRW.cp.castShadow=true;tur.add(GRW.cp);
  for(let i=0;i<80;i++){const s=i%2?1:-1,j=i>>1,l=j>>1;dm.position.set(-1.95+(GRW.r()-.5)*.1,.98+l*.14,s*(1.62+((j&1)-.5)*.14));dm.rotation.set(0,(GRW.r()-.5)*.12,0);dm.scale.set(1,1,1);dm.updateMatrix();GRW.cp.setMatrixAt(i,dm.matrix)}}
-/* ---------- Armour (track links on the lower glacis are 66-mods 'lnk'): links on the turret's lower front / outer glacis columns; growth adds a layer every 8% ---------- */
+/* ---------- Armour (track links on the lower glacis are 66-mods 'lnk'): links hung on the turret side plates / on the hull stowage bins; growth adds a layer every 8%,
+   spread round the vehicle: 4 links on the glacis, 4 on the hull sides and 4 on the turret sides per layer ---------- */
 const grLnk=(k,x,y,z,rz)=>{k.put(k.B(.13,.035,.5),trk,x,y,z,0,0,rz);k.put(k.B(.05,.05,.04),trk,x+.02,y-.02,z,0,0,rz)};
-grG('arm1',tur,0,0,0,k=>[-1,1].forEach(s=>[.95,1.3].forEach(z=>{for(let i=0;i<3;i++)k.put(k.B(.035,.13,.3),trk,2.13+i*.045,.06+i*.13,s*z,0,0,-.32)})));
-grG('arm2',veh,0,0,0,k=>[-1.02,1.02].forEach(z=>{for(let i=0;i<5;i++){const t=.1+i*.17;grLnk(k,3.1+.62*t+.579*.035,.41+.44*t-.816*.035,z,.617)}}));
-{GRW.al=new THREE.InstancedMesh(new THREE.BoxGeometry(.13,.035,.5),trk,200);GRW.al.count=0;GRW.al.castShadow=true;veh.add(GRW.al);let n=0;
- for(let l=1;l<=20;l++)[-1.02,-.55,.55,1.02].forEach(z=>{for(let i=0;i<5;i+=2){const t=.1+i*.17+(l%2?.085:0),d=.035+l*.05;if(n>=200)return;dm.position.set(3.1+.62*t+.579*d,.41+.44*t-.816*d,z);dm.rotation.set(0,0,.617);dm.scale.set(1,1,1);dm.updateMatrix();GRW.al.setMatrixAt(n++,dm.matrix)}})}
+GRW.aT=[[.35,-1.1],[-.75,-.2,.35]].map(c=>{const o=[];[.3,.44,.58,.72].forEach(y=>c.forEach(x=>o.push([x,y])));return o}); /* turret side slots, left (door) / right */
+GRW.aH=[];[1.57,1.74].forEach(y=>[-1.6,-1.05,-.5,.05,1.35,1.9].forEach(x=>GRW.aH.push([x,y]))); /* hull side slots on the stowage bins */
+grG('arm1',tur,0,0,0,k=>[-1,1].forEach((s,i)=>GRW.aT[i].forEach(([x,y])=>{k.put(k.B(.5,.13,.035),trk,x,y,s*1.61);[-.2,.2].forEach(d=>k.put(k.B(.04,.05,.04),trk,x+d,y-.07,s*1.63))})));
+grG('arm2',veh,0,0,0,k=>[-1,1].forEach(s=>GRW.aH.forEach(([x,y])=>{k.put(k.B(.5,.13,.035),trk,x,y,s*1.785);[-.2,.2].forEach(d=>k.put(k.B(.04,.05,.04),trk,x+d,y-.07,s*1.805))})));
+{const mk=(g,par)=>{const m=new THREE.InstancedMesh(g,trk,80);m.count=0;m.castShadow=true;par.add(m);return m};GRW.al=mk(new THREE.BoxGeometry(.13,.035,.5),veh);GRW.alS=mk(new THREE.BoxGeometry(.5,.13,.035),veh);GRW.alT=mk(new THREE.BoxGeometry(.5,.13,.035),tur);
+ const put=(m,n,x,y,z,rz)=>{dm.position.set(x,y,z);dm.rotation.set(0,0,rz);dm.scale.set(1,1,1);dm.updateMatrix();m.setMatrixAt(n,dm.matrix)};let a=0,b=0,c=0;
+ for(let l=1;l<=20;l++){[-1.02,-.55,.55,1.02].forEach(z=>{const t=.1+((l-1)%3)*.34,d=.035+(1+Math.floor((l-1)/3))*.05; /* fill the 3 rows of a layer, then the next layer out */put(GRW.al,a++,3.1+.62*t+.579*d,.41+.44*t-.816*d,z,.617)});
+  [-1,1].forEach((s,i)=>[0,1].forEach(q=>{const j=(l-1)*2+q,h=GRW.aH[j%12],dh=1+Math.floor(j/12);put(GRW.alS,b++,h[0]+(dh%2)*.08,h[1],s*(1.785+.04*dh),0);
+   const S=GRW.aT[i],u=S[j%S.length],du=1+Math.floor(j/S.length);put(GRW.alT,c++,u[0]+(du%2)*.08,u[1],s*(1.61+.04*du),0)}))}}
 /* ---------- Hull: armoured side skirts / bolt rows / bolted plate on the upper glacis; growth thickens the skirts and adds a plate layer every 15% ---------- */
 [-1,1].forEach((s,i)=>grG('hul'+i,veh,0,1.13,s*1.81,k=>{for(let j=0;j<5;j++)k.put(grBx(k,1.25,.42,.035),olive,-2.85+j*1.3,0,0)}));
 [-1,1].forEach((s,i)=>grG('hulB'+i,veh,0,1.13,s*1.83,k=>{for(let j=0;j<5;j++)for(let a=0;a<4;a++)[-.13,.13].forEach(y=>k.put(k.C(.022,.022,.02,6),steel,-3.3+j*1.3+a*.3,y,0,Math.PI/2,0,0))}));
@@ -4622,7 +4631,7 @@ function grTick(){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,x=R?Ma
  const P=GRW.P,t={},e={};['spd','lay','acc','rld','act','rep','cap','armour','hull'].forEach(k=>{const b=u[k]||0;t[k]=R&&UPS[k]?grT(k,b):0;e[k]=R&&UPS[k]?grE(k,b):0});GRW.t=t;GRW.e=e;
  /* mobility */
  GRW.spr.forEach(m=>m.material=t.spd?GRW.brt:dark);DT.rp.forEach(m=>m.material=t.spd?GRW.rubN:rub);GRW.gr.forEach(m=>{m.visible=t.spd>=2;m.material=t.spd>=3?GRW.brt:dark});
- GRW.gy=1+e.spd;GRW.gz=1+.5*e.spd;P.stk.visible=e.spd>0;P.stk.scale.set(1,.4+1.2*e.spd,1);if(t.spd>=2)upT(offs);
+ GRW.gy=1+e.spd;GRW.gz=1+.5*e.spd;[P.stk0,P.stk1].forEach(o=>{o.visible=e.spd>0;o.scale.set(1,1+.8*e.spd,1+.8*e.spd)});if(t.spd>=2)upT(offs);
  /* turret drive, fire control, autoloader */
  P.lay0.visible=t.lay>=1;P.lay1.visible=t.lay>=2;P.lay2.visible=t.lay>=3;[P.lay0,P.lay1].forEach(o=>o.scale.setScalar(1+e.lay));
  P.acc0.visible=t.acc>=1;P.acc1.visible=t.acc>=2;P.acc2.visible=t.acc>=3;P.acc0.scale.setScalar(1+e.acc);P.acc1.scale.set(1+.5*e.acc,1+e.acc,1+.5*e.acc);P.acc2.scale.setScalar(1+e.acc);
@@ -4633,7 +4642,7 @@ function grTick(){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,x=R?Ma
  P.rep0.visible=t.rep>=1;P.rep1.visible=t.rep>=2;P.rep2.visible=t.rep>=3;const nt=Math.min(24,Math.floor(e.rep/.1+1e-6));GRW.tx.forEach((o,i)=>o.visible=i<nt);
  P.cap0.visible=t.cap>=1;P.cap1.visible=t.cap>=2;P.cap2.visible=t.cap>=3;GRW.cp.count=Math.min(80,Math.floor(e.cap/.05+1e-6));
  /* armour (tier 1 is 66-mods' glacis links), hull */
- P.arm1.visible=t.armour>=2;P.arm2.visible=t.armour>=3;GRW.al.count=Math.min(200,Math.floor(e.armour/.08+1e-6)*12);
+ P.arm1.visible=t.armour>=2;P.arm2.visible=t.armour>=3;{const n=Math.min(20,Math.floor(e.armour/.08+1e-6))*4;GRW.al.count=GRW.alS.count=GRW.alT.count=n}
  P.hul0.visible=P.hul1.visible=t.hull>=1;P.hulB0.visible=P.hulB1.visible=t.hull>=2;P.hul2.visible=t.hull>=3;[P.hul0,P.hul1].forEach(o=>o.scale.set(1,1,1+3*e.hull));
  GRW.hp.count=Math.min(30,Math.floor(e.hull/.15+1e-6));
  /* camo */
@@ -4678,9 +4687,9 @@ kG('tur',veh,2.75,1.75,-.05,k=>{k.put(k.C(.11,.12,.3,12),dark,0,.15,0);k.put(k.C
 /* wide track pads: a plate under each link, 6 cm wider than the track each side */
 KIT.wp=pads.map(im=>{const m=new THREE.InstancedMesh(new THREE.BoxGeometry(.15,.02,TW+.12),trk,N);m.castShadow=true;m.userData.z=im.userData.z;m.visible=false;veh.add(m);return m});
 const _upTK=upT;upT=function(o){_upTK(o);if(!KIT.wp[0].visible)return;KIT.wp.forEach((m,k)=>{const z=m.userData.z;for(let i=0;i<N;i++){const s=o[k]+i*TP.P/N,u=((s%TP.P)+TP.P)%TP.P,q=TP.tab[Math.min(TP.M-1,Math.floor(u/TP.P*TP.M))];
- dm.position.set(q[0]-q[3]*.04,q[1]-q[4]*.04,z);dm.rotation.set(0,0,q[2]);dm.scale.set(1,1,1);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
-/* fording kit: an air-intake snorkel behind the driver */
-kG('frd',veh,1.75,1.75,-1.0,k=>{k.put(k.C(.09,.09,1.3,12),dark,0,.65,0);k.rod([0,1.28,0],[-.22,1.42,0],.09,.09,dark,12);k.put(k.C(.13,.13,.1,12),olive,-.25,1.44,0,0,0,1.1)});
+ dm.position.set(q[0]-q[3]*.04,q[1]-q[4]*.04,z);dm.rotation.set(0,0,q[2]);dm.scale.set(TPS.l,1,1);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)}m.instanceMatrix.needsUpdate=true})};
+/* fording kit: an air-intake snorkel that lies flat on the front left deck (clear of the barrel and the turret's sweep) and swings upright while fording */
+kG('frd',veh,2.2,1.84,-1.0,k=>{k.put(k.C(.09,.09,1.3,12),dark,0,.65,0);k.rod([0,1.28,0],[-.22,1.42,0],.09,.09,dark,12);k.put(k.C(.13,.13,.1,12),olive,-.25,1.44,0,0,0,1.1)});KIT.G.frd.rotation.set(-Math.PI/2,0,-Math.PI/2); /* stowed: pipe forward along the deck, intake turned outboard */
 /* crew medic: a folded stretcher on the turret's right side and a medical bag on the roof edge (no red cross: it is a protected emblem) */
 kG('med',tur,0,0,0,k=>{[1.58,1.7].forEach(z=>k.rod([-1.0,.95,z],[.6,.95,z],.018,.018,steel,6));k.put(k.C(.06,.06,1.4,10),EMT.cnv,-.2,.96,1.64,0,0,Math.PI/2);
  [-.6,.2].forEach(x=>k.put(k.B(.04,.14,.16),dark,x,.96,1.64));k.put(kBx(k,.32,.2,.2),EMT.kit,.6,1.1,1.3);k.put(k.B(.34,.02,.06),dark,.6,1.21,1.3)});
@@ -4746,6 +4755,8 @@ function kitTick(dt){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,G=K
   G.qm0.visible=has.qm>=1;G.qm1.visible=has.qm>=2;G.loot.visible=!!has.loot;for(let i=0;i<8;i++)G['lc'+i].visible=!!has.loot&&i<lc;KIT.kr.forEach((m,i)=>m.visible=!!has.bounty&&i<Math.min(10,R?R.kills||0:0));
   /* chevrons sit on whatever covers the turret side */
   const cz=MOD.G.tblT.visible?1.755:MOD.G.appl.visible?1.71:1.6;[KIT.bldL,KIT.bldR].forEach((L,i)=>L.forEach((o,j)=>{o.visible=!!has.bld&&j<KIT.hb;o.position.z=(i?1:-1)*cz}))}
+ /* fording kit: upright in water deeper than 0.3 m, flat otherwise */
+ {const up=!!has.frd&&!!R&&dt>0&&depthAt(px,pz)>.3,g=G.frd;const a=up?0:-Math.PI/2,f=dt>0?Math.min(1,dt*2.5):1;g.rotation.z+=(a-g.rotation.z)*f;g.rotation.x+=(a-g.rotation.x)*f}
  /* adrenaline: red vision blocks over 75 heat */
  const ad=!!has.adr&&R&&R.heat>=75;KIT.vb.forEach(m=>m.material=ad?KIT.rglass:glass);
  if(has.red&&KIT.pn)KIT.pn.rotation.y=Math.sin(T*7)*.35+Math.sin(T*2.3)*.2;
@@ -7791,7 +7802,7 @@ const _ruiLB=runUI;runUI=function(mode,tab){_ruiLB(mode,tab);if(mode!=='home')re
    Left: wordmark, callsign, large buttons (Continue only with a saved run; New Run asks first when a run is saved). Right: the latest version's
    notes (major updates only), Feedback / bug, the version. Seeded runs for development: open the page with #seed=<code>. ================= */
 /* What's new: the last major changes only; the heading always shows the current build version (Brenton 2026-11-14) */
-const NOTES={get v(){return BUILD.v},items:['Threat levels: win a run to unlock harder runs for more score','Farm buildings you can destroy, some hide loot','New biomes and landscapes','New enemy models, easier to spot']};
+const NOTES={get v(){return BUILD.v},items:['Upgrades grow your AS9, and items show on it','Threat levels: win a run to unlock harder runs','New biomes, farms and enemy models']};
 document.head.insertAdjacentHTML('beforeend','<style>'+
  '.fcS.home{flex-direction:row;gap:36px;align-items:stretch;flex-wrap:wrap}.fcS .hl{flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:0}'+
  '.fcS .hl .wm{font:800 clamp(56px,9vw,110px)/.85 var(--fd);letter-spacing:.04em;color:var(--fg)}.fcS .hl .sub{font:600 16px var(--fd);letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}'+
@@ -8691,7 +8702,7 @@ const _ntdI78=ntDmg;ntDmg=function(t,x,z,r,k){return _ntdI78(t,x,z,r,hotOn()?k*(
 const DPA={g:null};
 const _rhI78=runHit;runHit=function(dmg,why,ty){if(itN('dpa')&&(st==='ACTION'||st==='DEPLOY')&&I78.LOCAL.includes(why))dmg*=I78.dpaK;return _rhI78.call(this,dmg,why,ty)};
 const _isI78=itSync;itSync=function(){const r=_isI78.apply(this,arguments);if(itN('dpa')&&!DPA.g&&typeof veh!=='undefined')noRng(()=>{const g=new THREE.Group(),M=new THREE.MeshStandardMaterial({color:0x5b6347,roughness:.85});
- for(const s of[-1,1]){const p=new THREE.Mesh(new THREE.BoxGeometry(4.2,.9,.08),M);p.position.set(0,1.9,s*(HULL.w+.12));p.rotation.x=s*.25;g.add(p)}g.visible=false;veh.add(g);DPA.g=g});return r};
+ for(const s of[-1,1]){const p=new THREE.Mesh(new THREE.BoxGeometry(4.2,.9,.08),M);p.position.set(0,1.9,s*1.94);p.rotation.x=s*.25;g.add(p)}g.visible=false;veh.add(g);DPA.g=g});return r};
 /* Lumberjack */
 const _fellI78=fell;fell=function(o,dx,dz,blast){const r=_fellI78.apply(this,arguments);const R=RUNS;if(R&&runLive()&&R.phase!=='between'&&itN('lmb')&&(R.lmbS||0)<I78.lmbCap){const a=Math.min(I78.lmb,I78.lmbCap-(R.lmbS||0));R.lmbS=(R.lmbS||0)+a;R.sp=(R.sp||0)+a;spLog('lumber',a)}return r};
 /* icons: simple line style, category corner taken from an item of the same category */
@@ -10395,4 +10406,181 @@ debSet=function(def){DB.clr=null;const key=TUT?null:def?def.id+(def.gen||''):'FR
 function ndbTrk(x,z){let b=1e9;for(const t of TRK)for(const q of t.pts){const d=Math.hypot(q[0]-x,q[1]-z);if(d<b)b=d}return b}
 const ndbCircles=e=>{const c=Math.cos(e.g.rotation.y),s=Math.sin(e.g.rotation.y),p=e.g.position;return[-3,-.8,1.6,3.3].map(d=>({x:p.x+c*d,z:p.z-s*d,r:1.5,k:'b'}))};
 const _solNd=solids;solids=function(x,z){const o=_solNd(x,z);for(const e of DB.list)if(e.sc&&Math.abs(e.g.position.x-x)<20&&Math.abs(e.g.position.z-z)<20)o.push(...ndbCircles(e));return o};
+/* ================= P6 S24: upgrades grow the AS9 itself. Hull stretches the hull's length and width (x1.30 at +100%), Armour grows the turret (x1.30),
+   Mobility grows the road wheels and the track width (x1.40; wheels stop where they would touch, x1.40 on a stock-length hull) and the hull rides higher on them; full rate to +100%, half past it, no cap (grOver, as Barrel).
+   The collision box and the trunnion follow. The hull is scaled as a whole (veh.scale); the turret and each track sit in wrappers that undo that stretch,
+   so the turret stays round on traverse and the wheels stay round. Tracks widen inward, under the fenders, so they never cut the Hull skirts.
+   BGGB only: the trainer and the battery guns (cloned at load) keep the standard AS9. Built under noRng: the game's random stream is unchanged ================= */
+const SZ={key:'',Sx:1,T:1,M:1,L:0,TG:[],rg:[[],[]],gun:tur.getObjectByName('gun'),P0:TP.P,H0:{f:HULL.f,b:HULL.b,w:HULL.w}};
+SZ.rate={hull:.3,armour:.3,spd:.4};
+noRng(()=>{SZ.tw=new THREE.Group();SZ.tw.name='turW';SZ.tw.position.copy(tur.position);veh.add(SZ.tw);SZ.tw.add(tur);tur.position.set(0,0,0);
+ const W=new Set();wh.forEach(a=>a.forEach(q=>{W.add(q.m);q.r0=q.r}));
+ [-1,1].forEach((s,k)=>{const g=new THREE.Group();g.name='trkW'+k;g.position.z=s*TZ;veh.add(g);SZ.TG.push(g)});
+ veh.children.slice().forEach(o=>{if(o.name.startsWith('trkW'))return;const p=o.position;let k=-1;
+  if(o.isInstancedMesh){if(Math.abs(Math.abs(o.userData.z||0)-TZ)<1e-6)k=o.userData.z<0?0:1}
+  else if(W.has(o)||o.isMesh&&p.y<1&&Math.abs(p.z)>=1.1&&Math.abs(p.x)<3.4)k=p.z<0?0:1;
+  if(k<0)return;o.userData.s0={x:p.x,y:p.y,z:p.z};if(o.isMesh&&o.geometry.parameters&&o.geometry.parameters.width===.55)o.userData.arm=1;SZ.TG[k].add(o);
+  if(o.isInstancedMesh){o.userData.z=0;o.position.set(0,0,0)}else o.position.z=p.z-(k?1:-1)*TZ;SZ.rg[k].push(o)})});
+/* scale factors for a set of upgrade bonuses (fractions: 1 = +100%) */
+const szF=u=>({Sx:1+SZ.rate.hull*grOver(u.hull||0),T:1+SZ.rate.armour*grOver(u.armour||0),M:1+SZ.rate.spd*grOver(u.spd||0)});
+function szApply(f){const{Sx,T,M}=f,Mw=Math.min(M,1+.4*Sx),gt=.06*Math.max(0,(GRW.gy||1)-1);SZ.Sx=Sx;SZ.T=T;SZ.M=M;SZ.Mw=Mw;SZ.L=1.15*(Mw-1)+gt; /* Mw: wheels grow no more than the wheel spacing allows (they never overlap); gt: grousers clear the fenders */veh.userData.L=SZ.L; /* clones (garage, preview) carry their own lift */
+ veh.scale.set(Sx,1,Sx);SZ.tw.scale.set(T/Sx,T,T/Sx);SZ.gun.scale.setScalar(1/T);
+ const zc=1.76*Sx-.31*M,y=y0=>.06+(y0-.06)*Mw,X=x0=>x0===SPR.x?x0*Sx-(Mw-1)*SPR.r:x0===IDL.x?x0*Sx+(Mw-1)*IDL.r:x0*Sx; /* sprocket and idler keep inside the hull's ends */
+ SZ.TG.forEach((g,k)=>{const s=k?1:-1;g.position.set(0,-SZ.L,s*zc/Sx);g.scale.set(1/Sx,1,M/Sx);
+  SZ.rg[k].forEach(o=>{if(o.isInstancedMesh)return;const p=o.userData.s0;
+   if(o.userData.arm){/* road arm: from the wheel hub to its pivot under the (lifted) hull */const ax=X(p.x-.22)-.04*Mw,ay=y(.4)+.214*Mw,bx=(p.x+.258)*Sx,by=.426+SZ.L+(Mw-1)*0,dx=bx-ax,dy=by-ay;
+    o.position.set((ax+bx)/2,(ay+by)/2,p.z-s*TZ);o.rotation.z=Math.atan2(dy,dx);o.scale.set(Math.hypot(dx,dy)/.55,1,1);return}
+   o.position.set(X(p.x),y(p.y),p.z-s*TZ);o.scale.set(Mw,Mw,1)})});
+ wh.forEach(a=>a.forEach(q=>q.r=q.r0*Mw));
+ Object.assign(TP,tpMake([[X(SPR.x),y(SPR.y),SPR.r*Mw],[X(IDL.x),y(IDL.y),IDL.r*Mw],...RW.x.map(x=>[x*Sx,y(RW.y),RW.r*Mw])]));TPS.l=TP.P/SZ.P0;upT(offs);
+ /* collision: hull box in metres (sprocket and idler can poke past a stock-length hull), trunnion with the turret */
+ HULL.f=Math.max(SZ.H0.f*Sx,X(SPR.x)+.4*Mw+.1);HULL.b=Math.min(SZ.H0.b*Sx,X(IDL.x)-.36*Mw-.21);HULL.w=SZ.H0.w*Sx;
+ TRN_X=-.7*Sx;TRN_R=2.2*T;TRN_Y=1.75+.5*T}
+const _grSZ=grTick;grTick=function(){_grSZ();const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,f=szF(R?modsOf(R.ups):{}),key=f.Sx.toFixed(4)+f.T.toFixed(4)+f.M.toFixed(4);
+ if(key===SZ.key)return;SZ.key=key;szApply(f)};
+/* the hull rides higher on bigger wheels: lift after the step sets the pose (the tracks' wrappers sit back down by the same amount) */
+const _fxSZ=fxTick;fxTick=function(dt){_fxSZ(dt);if(SZ.L)veh.position.y+=SZ.L};
+const _gmSZ=grMount;grMount=function(el){_gmSZ(el);if(GR.v)GR.v.position.y=GR.v.userData.L||0};
+const _gpSZ=gpvShow;gpvShow=function(p){_gpSZ(p);if(GPV.v&&GR.v)GPV.v.position.y=GR.v.position.y-(GR.v.userData.L||0)+(GPV.v.userData.L||0)};
+/* ================= P6 S24: parts for the P6 items that had none (list OK'd by Brenton 2026-11-28, plans/p6/s24-items.md). Threshold items also act out their moment:
+   Tactical shield flashes when it blocks, Hull-down raises a berm, Heavy charge and Burst loader count their rounds, Crash out fires its launchers, and so on.
+   Flat trajectory also changes the direct sight: the drop marks go and a flat-fire bar takes their place. Momentum crew, Mercenary contract, War correspondent
+   and High-flow hydraulics keep no part. Built from a private PRNG: the game's random stream is unchanged ================= */
+gfxRng(0x99a1b2);
+const K2={key:'',G:{},r:rng(0x99c3d4),V:new THREE.Vector3(),run:null,dk:0,k0:0,brl:0,cro:0,hac:0,est:0,ber:0,fl:0,ts:-9,
+ blu:new THREE.MeshStandardMaterial({color:LIN(0x16324a),roughness:.3,emissive:new THREE.Color(.25,.6,1),emissiveIntensity:0}),
+ sand:new THREE.MeshStandardMaterial({color:LIN(0x9a8a62),roughness:1}),can:new THREE.MeshStandardMaterial({color:LIN(0x6b6a4a),roughness:.95}),
+ grn:new THREE.MeshStandardMaterial({color:LIN(0x2f5a2c),roughness:.5,metalness:.3}),dirt:new THREE.MeshStandardMaterial({color:LIN(0x7a6248),roughness:1}),
+ scr:new THREE.MeshStandardMaterial({color:LIN(0x0a1a0a),roughness:.3,emissive:new THREE.Color(.2,1,.3),emissiveIntensity:0}),
+ lamp:new THREE.MeshStandardMaterial({color:LIN(0xd8d0b0),roughness:.3,emissive:new THREE.Color(1,.9,.6),emissiveIntensity:0}),
+ ir:new THREE.MeshStandardMaterial({color:LIN(0x220808),roughness:.2,emissive:new THREE.Color(.6,.05,.03),emissiveIntensity:0}),
+ tgl:new THREE.MeshStandardMaterial({color:LIN(0x0a140a),roughness:.2,emissive:new THREE.Color(.1,.9,.2),emissiveIntensity:0}),
+ hot:new THREE.MeshStandardMaterial({color:LIN(0x401008),roughness:.4,emissive:new THREE.Color(1,.3,.05),emissiveIntensity:0}),
+ och:new THREE.MeshStandardMaterial({color:LIN(0x8a7444),roughness:.8}), /* muted ochre (Brenton 2026-11-28: Lumberjack saw muted, Tactical shield stays vivid) */
+ shl:new THREE.MeshStandardMaterial({color:LIN(0xb08a3a),roughness:.4,metalness:.6}),
+ shd:new THREE.MeshBasicMaterial({color:new THREE.Color(.4,.75,1),transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide})};
+const k2=(n,par,x,y,z,f)=>{const o=kG(n,par,x,y,z,f);K2.G[n]=o;return o};
+const k2Shell=(k,x,y,z,rx=0,rz=0)=>{k.put(k.C(.075,.075,.5,10),K2.shl,x,y,z,rx,0,rz);k.put(new THREE.ConeGeometry(.075,.2,10),dark,...(rz?[x+.35,y,z]:rx?[x,y,z+.35]:[x,y+.35,z]),rx,0,-rz)};
+/* ---------- threshold ---------- */
+/* Tactical shield: emitter dome on the turret roof (lit when ready) and a blue flash round the AS9 when it blocks a hit */
+k2('tsh',tur,-1.0,1.0,.05,k=>{k.put(k.C(.16,.2,.1,16),dark,0,.05,0);k.put(new THREE.SphereGeometry(.16,16,8,0,6.283,0,1.571),K2.blu,0,.1,0)});
+{const m=new THREE.Mesh(new THREE.SphereGeometry(1,24,14),K2.shd);m.scale.set(5.2,2.6,2.8);m.position.set(0,1.6,0);m.visible=false;m.renderOrder=7;veh.add(m);K2.sh=m}
+/* Fire on the move: gyro stabiliser drums on both sides of the gun cradle (they spin while driving) */
+K2.gy=[-1,1].map((s,i)=>{const o=k2('fom'+i,kGun,-.6,.22,s*.74,k=>{k.put(k.C(.17,.17,.12,18),dark,0,0,0,Math.PI/2,0,0);k.put(k.C(.12,.12,.13,6),steel,0,0,0,Math.PI/2,0,0)});return o});
+/* Quiet gun: multi-baffle can over the muzzle brake and a heat sleeve on the barrel (both grow with the Barrel) */
+k2('qgn',rec,0,0,0,k=>{k.put(k.C(.25,.25,.74,16),steel,6.8,0,0,0,0,Math.PI/2);for(let j=0;j<5;j++)k.put(k.C(.27,.27,.04,16),dark,6.5+j*.15,0,0,0,0,Math.PI/2);
+ k.put(k.C(.125,.125,1.6,14),dark,5.0,0,0,0,0,Math.PI/2);for(let j=0;j<4;j++)k.put(k.C(.135,.135,.05,14),steel,4.35+j*.43,0,0,0,0,Math.PI/2)});
+/* Hull-down: folded sandbag aprons on the front fenders; after 20 s halted in action an earth berm rises in front of the hull */
+k2('hdn',veh,0,0,0,k=>[-1,1].forEach(s=>[2.55,2.95].forEach(x=>[0,1].forEach(j=>k.put(kBx(k,.36,.12,.5),K2.sand,x,1.5+j*.11,s*1.5,0,j*.15,0)))));
+k2('ber',veh,4.6,0,0,k=>{k.put(new THREE.SphereGeometry(1,18,8,0,6.283,0,1.571),K2.dirt,0,0,0,0,0,0,1.4,1.25,2.8);k.put(new THREE.SphereGeometry(1,12,6,0,6.283,0,1.571),K2.dirt,.3,0,0,0,0,0,1,.9,2.1)});
+/* Danger pay: a white ring on the barrel for each Danger pay kill this run, up to 10 */
+K2.ring=[];for(let i=0;i<10;i++){const o=new THREE.Group();o.visible=false;rec.add(o);ekBuild(o,k=>k.put(k.C(.112,.112,.035,14,1,true),KIT.wht,4.25+i*.09,0,0,0,0,Math.PI/2));K2.ring.push(o)}
+/* Evasive driver: rear mud flaps and a raised driver's periscope block; rooster-tail dust over 30 km/h */
+k2('evd',veh,0,0,0,k=>{[-1,1].forEach(s=>{k.put(k.B(.04,.5,.6),rub,-3.86,.95,s*1.47);k.put(k.B(.3,.04,.62),olive,-3.75,1.22,s*1.47)});
+ k.put(kBx(k,.24,.16,.32),olive,2.6,1.94,-.6);k.put(k.B(.02,.1,.26),glass,2.72,1.97,-.6)});
+/* Heavy charge: a 4-slot red-banded charge rack on the turret roof, front left; a slot lights per round, the 4th is the heavy one */
+k2('hvc',tur,-.15,1.0,-1.22,k=>{k.put(k.B(.62,.05,.2),dark,0,.02,0);[-.24,.24].forEach(x=>k.put(k.B(.03,.4,.2),dark,x,.2,0))});
+K2.hv=[0,1,2,3].map(i=>{const o=new THREE.Group();o.position.set(-.15-.18+i*.12,1.0,-1.22);tur.add(o);o.visible=false;const m=new THREE.MeshStandardMaterial({color:LIN(0x8a1c14),roughness:.5,emissive:new THREE.Color(1,.25,.05),emissiveIntensity:0});
+ ekBuild(o,k=>{k.put(k.C(.05,.05,.42,10),K2.can,0,.25,0);[.12,.36].forEach(y=>k.put(k.C(.053,.053,.05,10),m,0,y,0))});o.userData.m=m;return o});
+/* Burst loader: 3 ready rounds in a rack on the bustle roof; one drops out per instant round, all back on the next into action */
+k2('brl',tur,-2.45,1.0,0,k=>{k.put(k.B(.75,.04,1.2),dark,0,.02,0);[-.3,.3].forEach(x=>k.put(k.B(.04,.18,1.2),dark,x,.1,0))});
+K2.br=[-.42,0,.42].map(z=>{const o=new THREE.Group();o.position.set(-2.45,1.13,z);tur.add(o);o.visible=false;ekBuild(o,k=>k2Shell(k,-.12,0,0,0,-Math.PI/2));return o});
+/* Ballistic computer: armoured box with a whip antenna on the bustle roof, rear left; its screen lights when the next round starts a new aim point */
+k2('bcp',tur,-2.35,1.0,-.85,k=>{k.put(kBx(k,.36,.24,.3),olive,0,.12,0);k.put(k.B(.02,.14,.2),K2.scr,-.185,.14,0);k.rod([.1,.24,.08],[.1,1.6,.08],.012,.006,steel,4);k.put(k.C(.03,.03,.04,8),dark,.1,.26,.08)});
+/* Crash out: 4-tube smoke launchers on the rear fender ends, firing back and up on march order */
+k2('cro',veh,0,0,0,k=>[-1,1].forEach(s=>{k.put(k.B(.14,.1,.32),dark,-3.68,1.5,s*1.62);for(let j=0;j<4;j++)k.put(k.C(.045,.045,.26,10),dark,-3.75,1.6+(j>>1)*.1,s*(1.54+(j&1)*.15),0,0,-1.0)}));
+/* Running repairs: a spares rack and a work lamp on the hull rear plate, right corner; the lamp is lit while repairs run on the move */
+k2('rrp',veh,-3.8,0,.9,k=>{k.put(kBx(k,.04,.42,.36),dark,0,.85,0);k.put(k.C(.08,.08,.06,12),steel,-.05,.95,-.08,0,0,Math.PI/2);k.put(k.B(.05,.08,.16),steel,-.05,.74,.06);
+ k.put(k.B(.05,.05,.05),dark,-.02,1.55,0);k.put(k.C(.06,.08,.1,10),dark,-.08,1.6,0,0,0,Math.PI/2);k.put(k.C(.06,.06,.01,10),K2.lamp,-.135,1.6,0,0,0,Math.PI/2)});
+/* Emergency stowage: a strapped canvas ammo bin on the right front fender; the straps fly off when it breaks out the HE */
+k2('est',veh,2.85,1.62,1.5,k=>k.put(kBx(k,.72,.32,.42),K2.can,0,0,0));
+k2('ests',veh,2.85,1.62,1.5,k=>[-.2,.2].forEach(x=>{k.put(k.B(.05,.34,.44),KIT.blk,x,0,0)}));
+/* ---------- rare ---------- */
+/* Flat trajectory: a direct-fire telescope on the mantlet, right (the sight reticle changes too, below) */
+k2('flat',kGun,.32,.34,.84,k=>{k.put(k.C(.065,.065,.75,12),dark,0,0,0,0,0,Math.PI/2);k.put(k.C(.08,.07,.12,12),dark,.42,0,0,0,0,Math.PI/2);k.put(k.C(.06,.06,.02,12),glass,.48,0,0,0,0,Math.PI/2);k.put(kBx(k,.18,.16,.14),olive,-.2,-.06,0)});
+/* Rapid sight fire: 4 ready rounds upright in a frame beside the loader's hatch */
+k2('rsf',tur,-1.1,1.0,-1.22,k=>{k.put(k.B(.32,.04,.32),dark,0,.02,0);k.put(k.B(.32,.03,.32),dark,0,.38,0);[[-.08,-.08],[.08,-.08],[-.08,.08],[.08,.08]].forEach(([x,z])=>k2Shell(k,x,.22,z))});
+/* Hull bracing: heavy bolted brackets on all four hull corners */
+k2('hbr',veh,0,0,0,k=>[[3.1,1.5],[-3.5,1.05]].forEach(([x,y])=>[-1,1].forEach(s=>{k.put(kBx(k,.6,.5,.07),steel,x,y,s*1.19);k.put(kBx(k,.07,.5,.4),steel,x+(x>0?.3:-.3),y,s*1.0);
+ for(let a=0;a<4;a++)[-.14,.14].forEach(d=>k.put(k.C(.04,.04,.04,6),dark,x-.21+a*.14,y+d,s*1.23,Math.PI/2,0,0))})));
+/* Hydraulic accumulator: two green high-pressure bottles and a gauge between the left stowage bins; vents on the instant first into action */
+k2('hacc',veh,.88,1.42,-1.5,k=>{[-.1,.1].forEach(z=>{k.put(k.C(.1,.1,.4,14),K2.grn,0,.2,z);k.put(k.C(.04,.05,.06,8),steel,0,.43,z)});k.put(k.C(.05,.05,.02,12),KIT.wht,.11,.3,0,0,0,Math.PI/2);k.rod([0,.46,-.1],[0,.46,.1],.015,.015,rub,5)});
+/* Field repair crew: a folded A-frame hoist on the hull rear plate, left corner */
+k2('frc',veh,-3.82,0,-.9,k=>{[-.18,.18].forEach(z=>k.rod([0,.55,z],[0,1.6,z*.4],.035,.035,olive,6));k.rod([0,1.25,-.12],[0,1.25,.12],.025,.025,olive,6);k.put(k.B(.06,.06,.16),steel,-.02,1.62,0);k.rod([-.03,1.6,0],[-.03,1.38,0],.008,.008,dark,4);k.put(k.B(.05,.08,.05),dark,-.03,1.35,0)});
+/* Turtle: sandbags along the front edges of the turret roof */
+k2('ttl',tur,0,0,0,k=>[-1,1].forEach(s=>[.15,.6,1.05].forEach((x,j)=>k.put(kBx(k,.42,.14,.28),K2.sand,x,1.07,s*1.28,0,(j-1)*.08,0))));
+/* Thermal sight: imager head on the turret roof, front right; its lens glows at night */
+k2('ths',tur,1.1,1.0,.95,k=>{k.put(k.C(.08,.1,.12,10),dark,0,.06,0);k.put(kBx(k,.34,.24,.3),olive,0,.24,0);k.put(k.C(.08,.08,.04,14),K2.tgl,.18,.24,0,0,0,Math.PI/2)});
+/* Night owl: an IR illuminator on the turret roof, front left; dull red at night */
+k2('nowl',tur,1.25,1.0,-1.2,k=>{k.put(k.B(.1,.12,.1),dark,0,.06,0);k.put(k.C(.12,.12,.22,14),dark,0,.2,0,0,0,Math.PI/2);k.put(k.C(.105,.105,.02,14),K2.ir,.115,.2,0,0,0,Math.PI/2)});
+/* ---------- standard ---------- */
+/* Mine plough: toothed tines ahead of each track (they ride with the running gear: r98 grows and moves them) */
+['plough0','plough1'].forEach((n,i)=>{const s=i?1:-1,o=kG(n,veh,3.95,.32,s*TZ,k=>{k.put(kBx(k,.22,.26,.72),dark,0,0,0);for(let j=0;j<4;j++){k.put(k.B(.42,.1,.13),dark,.24,-.14,-.27+j*.18,0,0,-.45);k.put(k.B(.1,.06,.13),steel,.45,-.26,-.27+j*.18,0,0,-.45)}[-.25,.25].forEach(z=>k.rod([-.08,.05,z],[-.5,.52,z],.06,.06,dark,8))});
+ K2.G[n]=o;if(typeof SZ!=='undefined'){o.userData.s0={x:3.95,y:.32,z:s*TZ};SZ.TG[i].add(o);o.position.z=0;SZ.rg[i].push(o);SZ.key=''}});
+/* Drone feed: a launch box on the turret roof; in missions its quadcopter circles above the AS9 */
+k2('drone',tur,-.15,1.0,-.3,k=>{k.put(kBx(k,.46,.12,.46),olive,0,.06,0);k.put(k.B(.4,.02,.4),dark,0,.13,0)});
+{const g=new THREE.Group();g.visible=false;sc.add(g);ekBuild(g,k=>{k.put(k.B(.3,.08,.3),dark,0,0,0);[[1,1],[1,-1],[-1,1],[-1,-1]].forEach(([a,b])=>{k.rod([0,0,0],[a*.3,.02,b*.3],.015,.015,dark,4);k.put(k.C(.12,.12,.01,12),KIT.blk,a*.3,.05,b*.3)})});K2.dr=g}
+/* Fine-lay handwheels: chrome-rimmed wheels on both sides of the gun cradle; they turn as the gun is laid */
+K2.hw=[-1,1].map((s,i)=>k2('fls'+i,kGun,-.15,-.22,s*.72,k=>{k.put(new THREE.TorusGeometry(.22,.025,8,24),GRW.chr,0,0,0);k.put(k.B(.44,.03,.03),steel,0,0,0);k.put(k.B(.03,.44,.03),steel,0,0,0);k.put(k.C(.06,.06,.06,12),dark,0,0,0,Math.PI/2,0,0);k.put(k.C(.02,.02,.1,6),dark,.12,0,s*.05,Math.PI/2,0,0)}));
+/* Slew motor: a motor on a mounting plate low on the turret's right side, under the armour rows */
+k2('slw',tur,.3,0,1.47,k=>{k.put(kBx(k,.8,.22,.05),dark,0,.12,.07);k.put(k.C(.1,.1,.42,14),steel,0,.12,.18,0,0,Math.PI/2);k.put(k.C(.115,.115,.05,14),dark,.23,.12,.18,0,0,Math.PI/2);k.put(kBx(k,.18,.14,.12),olive,-.28,.12,.16)});
+/* Pre-charged pumps: a pump pack with a gauge between the right stowage bins */
+k2('pcp',veh,.88,1.62,1.5,k=>{k.put(k.B(.36,.42,.5),dark,0,0,0);k.put(k.C(.13,.13,.34,14),steel,0,.06,0,Math.PI/2,0,0);k.put(k.C(.1,.1,.16,12),steel,0,.27,0);k.put(k.C(.07,.07,.02,12),KIT.wht,.19,.05,.12,0,0,Math.PI/2);k.rod([0,.26,0],[0,.18,-.25],.015,.015,rub,5)});
+/* Twin hoist: two vertical hoist rails on the bustle's rear face */
+k2('thst',tur,-2.97,0,0,k=>[-.75,.75].forEach(z=>{k.put(k.B(.05,.85,.06),steel,0,.55,z);k.put(k.B(.1,.12,.16),dark,-.03,.62,z);k.put(k.B(.06,.04,.12),dark,0,.98,z)}));
+/* Shaped fill: yellow-banded HEAT ammo crates on the bustle roof, rear right */
+k2('shf',tur,-2.5,1.0,.95,k=>[-.12,.26].forEach((x,j)=>{k.put(kBx(k,.34,.2,.28),olive,x,.1+j*0,0);k.put(k.B(.345,.04,.285),KIT.ylw,x,.13,0)}));
+/* Bustle rack: 8 rounds upright on the turret's left rear side, under the stowage basket */
+k2('bus',tur,0,0,0,k=>{k.put(k.B(1.15,.04,.04),dark,-1.95,.48,-1.62);k.put(k.B(1.15,.04,.2),dark,-1.95,.08,-1.56);for(let j=0;j<8;j++){k.put(k.C(.065,.065,.36,10),K2.shl,-2.44+j*.14,.21,-1.56);k.put(new THREE.ConeGeometry(.065,.14,10),dark,-2.44+j*.14,.46,-1.56)}});
+/* Spare track links: two spare track sections hung on the turret's right rear side, under the stowage basket */
+k2('stl',tur,0,0,0,k=>[.22,.42].forEach(y=>{for(let j=0;j<6;j++)k.put(k.B(.17,.16,.04),trk,-2.42+j*.18,y,1.56);k.put(k.B(1.1,.03,.05),steel,-1.97,y+.09,1.58)}));
+/* Lumberjack: a chainsaw and an axe strapped on the left front fender */
+k2('lmb',veh,2.85,1.47,-1.5,k=>{k.put(kBx(k,.36,.2,.18),K2.och,-.2,.1,0);k.put(k.B(.5,.05,.08),steel,.2,.1,0);k.put(k.B(.12,.08,.14),dark,-.38,.16,0);
+ k.rod([-.35,.05,.18],[.4,.05,.18],.02,.02,EMT.wood,6);k.put(k.B(.08,.03,.16),steel,.42,.05,.22)});
+/* Flash hider: a cone on the muzzle (ahead of the brake); smaller flash at night */
+k2('fhd',rec,7.25,0,0,k=>{k.put(k.C(.25,.17,.3,16,1,true),dark,0,0,0,0,0,Math.PI/2);for(let j=0;j<6;j++){const a=j*1.047;k.put(k.B(.3,.012,.02),steel,0,Math.cos(a)*.21,Math.sin(a)*.21,a,0,0)}});
+/* Blackout drill: slit blackout covers over the headlights */
+k2('gcw',veh,0,0,0,k=>[-1,1].forEach(s=>{k.put(k.B(.06,.28,.46),dark,3.69,1.15,s*.95);k.put(k.B(.07,.04,.5),steel,3.69,1.3,s*.95);k.put(k.B(.01,.03,.28),KIT.wht,3.725,1.18,s*.95)}));
+/* Hot rounds: no part; the muzzle glows red-hot while the boost lasts */
+k2('hot',rec,6.8,0,0,k=>k.put(k.C(.2,.2,.58,16,1,true),K2.hot,0,0,0,0,0,Math.PI/2));
+/* the direct sight: Flat trajectory drops the drop marks and the lower stadia line, and shows a flat-fire bar instead (no text) */
+{const sv=$('tix').parentNode;sv.insertAdjacentHTML('beforeend','<g id="flatR" stroke="#e0b54a" stroke-width="1.6" stroke-linecap="round" style="display:none"><line x1="-46" y1="0" x2="-12" y2="0"/><line x1="12" y1="0" x2="46" y2="0"/><line x1="-46" y1="-4" x2="-46" y2="4"/><line x1="46" y1="-4" x2="46" y2="4"/></g>');
+ document.head.insertAdjacentHTML('beforeend','<style>svg.flatR #tix line:nth-child(3n+1),svg.flatR>g:first-child>line:nth-child(3){display:none}</style>');K2.sv=sv}
+const K2K=['tsh','fom','qgn','hdn','dpy','evd','hvc','brl','bcp','cro','rrp','est','flat','rsf','hbr','hacc','frc','ttl','ths','nowl','plough','drone','fls','slw','pcp','thst','shf','bus','stl','lmb','fhd','gcw','hot'];
+function k2Tick(dt){const R=typeof RUNS!=='undefined'&&RUNS&&!TUT?RUNS:null,G=K2.G,n=k=>R?kN(k):0,h={};K2K.forEach(k=>h[k]=n(k));
+ if(R!==K2.run){K2.run=R;K2.dk=0;K2.k0=R?R.kills||0:0}
+ if(R){const kd=(R.kills||0)-K2.k0;K2.k0=R.kills||0;if(kd>0&&h.dpy&&R.heat>75)K2.dk=Math.min(10,K2.dk+kd)}
+ const live=!!R&&dt>0&&runLive(),key=JSON.stringify(h)+'|'+K2.dk;
+ if(key!==K2.key){K2.key=key;
+  ['tsh','qgn','hdn','evd','hvc','brl','bcp','cro','rrp','flat','rsf','hbr','hacc','frc','ttl','ths','nowl','drone','slw','pcp','thst','shf','bus','stl','lmb','fhd','gcw'].forEach(k=>G[k].visible=!!h[k]);
+  G.est.visible=!!h.est;G.fom0.visible=G.fom1.visible=!!h.fom;G.fls0.visible=G.fls1.visible=!!h.fls;G.plough0.visible=G.plough1.visible=!!h.plough;
+  K2.ring.forEach((o,i)=>o.visible=!!h.dpy&&i<K2.dk);K2.hv.forEach(o=>o.visible=!!h.hvc);K2.sv.classList.toggle('flatR',!!h.flat);$('flatR').style.display=h.flat?'':'none'}
+ /* live states (stand-in runs in the garage and the kit viewer show the parts at rest) */
+ K2.blu.emissiveIntensity=h.tsh&&(!live||T>=(IT.tsh||0))?2:0;
+ if(h.tsh&&live&&IT.tshT>K2.ts){K2.ts=IT.tshT;K2.sh.visible=true}const ft=T-K2.ts;K2.shd.opacity=K2.sh.visible?Math.max(0,.55*(1-ft/.6)):0;if(ft>.6)K2.sh.visible=false;
+ const hd=!!h.hdn&&live&&(R.hdT||0)>=THR_.hd;K2.ber=Math.max(0,Math.min(1,K2.ber+(hd?1:-1.5)*(dt||1)));G.ber.visible=K2.ber>0;G.ber.scale.set(1,K2.ber,1);G.ber.position.y=-(veh.userData.L||0);
+ const hn=live?(R.hvN||0)%THR_.hvN:0;K2.hv.forEach((o,i)=>o.userData.m.emissiveIntensity=live&&i<hn?2.5:0);
+ const bn=live?Math.max(0,R.brl||0):3;K2.br.forEach((o,i)=>o.visible=!!h.brl&&i<bn);
+ K2.scr.emissiveIntensity=h.bcp&&(!live||!R.bcP||(()=>{const p=bcPt5();return !p||Math.hypot(p.x-R.bcP.x,p.z-R.bcP.z)>THR_.bc})())?1.6:0;
+ G.ests.visible=!!h.est&&!(live&&R.est);
+ K2.lamp.emissiveIntensity=h.rrp&&live&&FLT.rep&&Math.abs(v)>.5?3:0;
+ const nt=typeof night!=='undefined'&&night;K2.tgl.emissiveIntensity=h.ths&&nt?1.2:0;K2.ir.emissiveIntensity=h.nowl&&nt?1.5:0;
+ K2.hot.emissiveIntensity=h.hot&&live&&(R.hotT||0)>T?1.5+.5*Math.sin(T*9):0;G.hot.visible=K2.hot.emissiveIntensity>0;
+ K2.dr.visible=!!h.drone&&live;
+ if(!live)return;const r=K2.r;veh.updateMatrixWorld(true);
+ /* moments: emergency stowage straps, crash out launchers, accumulator vent */
+ if(h.est&&R.est&&!K2.est){G.ests.getWorldPosition(K2.V);kitBurst(null,K2.V.x,K2.V.y+.3,K2.V.z,0x3a3a30,10,4)}K2.est=R.est||0;
+ if(h.cro&&st==='STOW'&&K2.st==='ACTION')[-1,1].forEach(s=>{for(let j=0;j<4;j++){const p=veh.localToWorld(K2.V.set(-3.85,1.7,s*1.6));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xd0d0c8),life:3+r()*2,s0:.4,grow:3,op:.6,vy:3+r()*2,vx:-Math.cos(psi)*(4+r()*3)+(r()-.5)*2,vz:Math.sin(psi)*(4+r()*3)+(r()-.5)*2,dr:.6,L:1})}});
+ if(h.hacc&&R.hacc&&!K2.hac){const p=G.hacc.localToWorld(K2.V.set(0,.5,0));kitBurst(null,p.x,p.y,p.z,0xe8e8e0,14,3)}K2.hac=R.hacc||0;K2.st=st;
+ /* fire on the move drums, fine-lay wheels */
+ if(h.fom)K2.gy.forEach(o=>o.rotation.z+=dt*Math.min(30,Math.abs(v)*3));
+ if(h.fls){const e=SZ.gun.rotation.z+tur.rotation.y;K2.hw.forEach(o=>o.rotation.z=e*12)}
+ /* evasive driver: rooster tails over 30 km/h */
+ if(h.evd&&Math.abs(v)>THR_.fast&&depthAt(px,pz)<.05){K2.fl+=dt;if(K2.fl>.05){K2.fl=0;[-1,1].forEach(s=>{const p=veh.localToWorld(K2.V.set(-3.9,.3,s*1.45));fxAdd({x:p.x,y:p.y,z:p.z,c:LIN(0xbca582),life:1.5+r(),s0:.6,grow:2.5,op:.45,vy:3+r()*2,vx:-Math.cos(psi)*v*.4+(r()-.5),vz:Math.sin(psi)*v*.4+(r()-.5),dr:.9,L:1})})}}
+ /* drone: circles 14 m up, 10 m out */
+ if(h.drone){const a=T*.35;K2.dr.position.set(px+Math.cos(a)*10,veh.position.y+14+Math.sin(T*1.3)*.5,pz+Math.sin(a)*10);K2.dr.rotation.y=-a}}
+const _ktK2=kitTick;kitTick=function(dt){_ktK2(dt);k2Tick(dt)};
+/* quiet gun and flash hider (at night) shrink the muzzle flash */
+const _msK2=muzzleSmoke;muzzleSmoke=function(){_msK2();const R=RUNS;if(!R||TUT)return;const q=kN('qgn'),f=kN('fhd')&&typeof night!=='undefined'&&night;const k=q&&f?.45:q||f?.65:1;flash.scale.set(2*k,k,k)};
+gfxRng();
 </script>
